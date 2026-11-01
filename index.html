@@ -463,9 +463,15 @@ function saveMeta(q,m){
 // Yahoo!検索・Google 用：同名の本や曲を避けるため「映画」を付ける（タイトルに入っていれば付けない）
 const withEiga=q=>q.includes("映画")?q:q+" 映画";
 /* X検索で除外する語。増やすほど安全ですが、普通の感想も減ります。 */
-const DEFAULT_NG=["ネタバレ","結末","犯人","ラスト","オチ","真相","正体","黒幕","伏線回収","考察","どんでん返し","死亡","生存"];
+const DEFAULT_NG=["ネタバレ","結末","犯人","ラスト","最後","オチ","真相","正体","黒幕","伏線回収","考察","どんでん返し","世界線","死亡","タヒ","生存"];
 // 利用者が編集した除外語（この端末にだけ保存）。未編集なら初期の語を使う
-let ngWords=(()=>{const v=store.get("cl_ng",null);return Array.isArray(v)?v:DEFAULT_NG.slice()})();
+let ngWords=(()=>{const v=store.get("cl_ng",null);if(!Array.isArray(v))return DEFAULT_NG.slice();
+  // 自分で編集した一覧を持っている人にも、あとから初期設定に加えた言葉だけは足す（自分で消した言葉は戻さない）
+  const known=store.get("cl_ngdef",null)||["ネタバレ","結末","犯人","ラスト","オチ","真相","正体","黒幕","伏線回収","考察","どんでん返し","死亡","生存"];
+  const add=DEFAULT_NG.filter(w=>!known.includes(w)&&!v.includes(w));
+  if(add.length){v.push(...add);store.set("cl_ng",v)}
+  return v})();
+store.set("cl_ngdef",DEFAULT_NG);
 const saveNg=()=>store.set("cl_ng",ngWords);
 // X の検索式：空白や記号を含む語は "" で囲む
 const ngQuery=()=>ngWords.map(w=>/[\s"()]/.test(w)?`-"${w.replace(/"/g,"")}"`:"-"+w).join(" ");
