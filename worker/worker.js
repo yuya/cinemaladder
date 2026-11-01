@@ -93,8 +93,10 @@ export default {
 
     const j = await r.json();
     // 並べ替えはブラウザ側で行う（有名さ＝評価数と人気度も返す）ので、多めの20件まで返す
-    // ジャンルが1つも付いておらず評価もほとんどない作品（グラビアなどの映像商品が多い）は外す
-    const out = (j.results || []).filter(m => (m.genre_ids || []).length || (m.vote_count || 0) >= 5).slice(0, 20).map(m => ({
+    // ジャンルが1つも付いておらず評価もほとんどない作品（グラビアなどの映像商品が多い）は外す。
+    // ただし公開前後の新作は、まだジャンルや評価が付いていないことがあるので残す（半年前より後の公開日）
+    const since = new Date(Date.now() - 183 * 864e5).toISOString().slice(0, 10);
+    const out = (j.results || []).filter(m => (m.genre_ids || []).length || (m.vote_count || 0) >= 5 || (m.release_date || "") >= since).slice(0, 20).map(m => ({
       id: m.id, title: m.title, original: m.original_title, date: m.release_date, poster: m.poster_path,
       votes: m.vote_count || 0, pop: Math.round((m.popularity || 0) * 10) / 10,
     }));

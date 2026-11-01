@@ -44,8 +44,10 @@ await Promise.all(Array.from({ length: 8 }, async () => {
 const map = new Map();
 for (const list of results) for (const m of list) {
   if (map.has(m.id) || !readable(m.title)) continue;
-  // ジャンルが1つも付いておらず評価もほとんどない作品（グラビアなどの映像商品が多い）は、映画の候補に出さない
-  if (!(m.genre_ids || []).length && (m.vote_count || 0) < 5) continue;
+  // ジャンルが1つも付いておらず評価もほとんどない作品（グラビアなどの映像商品が多い）は、映画の候補に出さない。
+  // ただし公開前後の新作は、まだジャンルや評価が付いていないことがあるので残す（半年前より後の公開日）
+  const recent = (m.release_date || "") >= new Date(Date.now() - 183 * 864e5).toISOString().slice(0, 10);
+  if (!(m.genre_ids || []).length && (m.vote_count || 0) < 5 && !recent) continue;
   // 原題（タイトルと同じなら空）、評価数、人気度。後ろの2つは候補を「有名な順」に並べるために使う
   const orig = m.original_title && m.original_title !== m.title && readable(m.original_title) ? m.original_title : "";
   // 公開日は年月日まで入れる（公開まもない作品を候補の上に寄せるため。画面には年だけ出す）
