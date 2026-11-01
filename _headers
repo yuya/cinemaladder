@@ -1,4 +1,4 @@
-# Cloudflare Pages 用のキャッシュ設定（GitHub Pages では無視される）
+# Cloudflare Pages 用のキャッシュ設定
 # HTML は毎回新しいか確認する。中身が変わらなければ 304 で軽く済む
 /
   Cache-Control: public, max-age=0, must-revalidate

@@ -18,7 +18,6 @@
 - `brand/icon.svg` … サイトのアイコンの元絵。`node scripts/build-brand.mjs` で favicon.svg / favicon.ico / apple-touch-icon.png / brand/*.png を書き出す
 - `robots.txt` / `sitemap.xml` / `llms.txt` … 検索エンジンと AI 向けの案内（llms.txt はサイトの説明と作品ページの URL の形）
 - `manifest.webmanifest` … ホーム画面に追加したときの名前・アイコン・色
-- `.nojekyll` … GitHub Pages で Jekyll 変換を無効化
 
 ## ブランチと公開先（Cloudflare Pages）
 - `main` … 本番。https://cinemaladder.com で公開（cinemaladder.pages.dev でも同じものが見られる）

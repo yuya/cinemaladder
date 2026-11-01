@@ -12,6 +12,7 @@
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#111115" media="(prefers-color-scheme: dark)">
 <link rel="stylesheet" href="pages.css">
+<script>/* 表示（自動／ライト／ダーク）。選んだものを読み込みの最初に当て、一瞬だけ違う色が見えないようにする */try{const t=JSON.parse(localStorage.getItem("cl_theme"));if(t==="light"||t==="dark"){document.documentElement.dataset.theme=t;for(const m of document.querySelectorAll('meta[name="theme-color"]'))m.content=t==="dark"?"#111115":"#FFFFFF"}}catch(e){}</script>
 </head>
 <body>
 <header><div class="wrap"><a class="logo" href="./" aria-label="Cinemaladderトップへ"><svg class="mark" viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#141418"/><path d="M22 9.2A9 9 0 1 0 22 22.8" fill="none" stroke="#FFFFFF" stroke-width="4.2"/><rect x="21.5" y="6" width="3.6" height="20" fill="#E8607A"/></svg><span>Cinema<span class="lad">ladder</span></span></a></div></header>
@@ -33,6 +34,7 @@
   <li>最後に表示していた作品名（次に開いたときに同じ作品を表示するため）</li>
   <li>「いま話題の映画TOP10」と「あらすじ・キャスト」を開いているかどうか</li>
   <li>Xの検索で除外する言葉の設定</li>
+  <li>表示の色の設定（自動・ライト・ダーク）</li>
 </ul>
 <p>ブラウザの設定から閲覧データを消去すると、これらの情報も削除されます。検索履歴は、画面上の「×」やゴミ箱のボタンからも削除できます。当サイト自体はCookieを使用していません。広告の配信のため、GoogleがCookieを使用することがあります（「4. アクセス解析と広告」を参照）。</p>
 
@@ -66,8 +68,23 @@
 <p>このポリシーに関するお問い合わせは、<a href="mailto:mail@yuya.im">mail@yuya.im</a>までお願いします。</p>
 </article>
 </main>
-<footer><div class="wrap"><a href="./">トップ</a><a href="about">運営者情報</a><a href="privacy">プライバシーポリシー</a></div></footer>
+<footer><div class="wrap"><a href="./">トップ</a><a href="about">運営者情報</a><a href="privacy">プライバシーポリシー</a><p class="themes" role="group" aria-label="表示の色">表示：<button type="button" data-theme-set="auto">自動</button><button type="button" data-theme-set="light">ライト</button><button type="button" data-theme-set="dark">ダーク</button></p></div></footer>
 <p class="envbadge" id="envbadge" hidden aria-hidden="true">STAGING</p>
 <script>document.getElementById("envbadge").hidden=/^(www\.)?cinemaladder\.com$/.test(location.hostname)</script>
+<script>
+/* 表示の切り替え。「自動」は OS の設定に合わせる。選んだものはこの端末に保存する */
+(()=>{
+  const root=document.documentElement,metas=document.querySelectorAll('meta[name="theme-color"]');
+  const show=t=>{for(const b of document.querySelectorAll("[data-theme-set]"))b.setAttribute("aria-pressed",String(b.dataset.themeSet===t))};
+  const apply=t=>{
+    if(t==="light"||t==="dark"){root.dataset.theme=t;for(const m of metas)m.content=t==="dark"?"#111115":"#FFFFFF"}
+    else{t="auto";delete root.dataset.theme;metas[0].content="#FFFFFF";metas[1].content="#111115"}   // OS の設定に合わせて切り替わる元の値
+    try{t==="auto"?localStorage.removeItem("cl_theme"):localStorage.setItem("cl_theme",JSON.stringify(t))}catch(e){}
+    show(t);
+  };
+  show(root.dataset.theme||"auto");
+  document.addEventListener("click",e=>{const b=e.target.closest("[data-theme-set]");if(b)apply(b.dataset.themeSet)});
+})();
+</script>
 </body>
 </html>
