@@ -362,7 +362,7 @@ details[open] > summary::before{transform:rotate(90deg)}
     <dt>映画ランド</dt><dd>上映中の作品の評価と、映画館の上映スケジュールを調べられるサイトです。</dd>
     <dt>KINENOTE</dt><dd>映画雑誌「キネマ旬報」の発行元が運営する、映画の鑑賞記録と感想のサービスです。</dd>
     <dt>IMDb</dt><dd>海外の映画データベースです。評価は10点満点で、世界中の利用者が付けています。海外での評判を調べるときに使えます。</dd>
-    <dt>X・Instagram</dt><dd>公開直後の感想を探せます。Xは「ネタバレ」などの言葉を含む投稿を除外して検索します。除外する言葉は、作品ページの「Xで除外する言葉」で変更できます。</dd>
+    <dt>X・はてなパークス・Instagram</dt><dd>公開直後の感想を探せます。Xは「ネタバレ」などの言葉を含む投稿を除外して検索します。除外する言葉は、作品ページの「Xで除外する言葉」で変更できます。</dd>
   </dl>
 
   <h3>ネタバレの避け方</h3>
@@ -417,6 +417,8 @@ const GROUPS=[
  ]},
  {h:"SNSの声",note:"",items:[
   {n:"X",ic:"x",d:"ネタバレ語を除外",u:q=>"https://x.com/search?f=live&q="+E(`"${q}" `+ngQuery())},
+  // はてなパークスの「映画」パーク（park:1508347822422888448）の中だけを検索する
+  {n:"はてなパークス",ic:"hatenaparks",d:"映画パークの投稿",u:q=>"https://p.hatena.ne.jp/search?q="+E("park:1508347822422888448 "+q)+"&tab=posts"},
   {n:"Instagram",ic:"instagram",d:"ハッシュタグ",u:q=>"https://www.instagram.com/explore/tags/"+E(q.replace(/[\s・:：!！?？、。「」『』\-]/g,""))+"/"},
  ]},
  {h:"配信",note:"",items:[

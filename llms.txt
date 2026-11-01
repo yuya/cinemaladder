@@ -6,7 +6,7 @@
 
 - レビュー：Filmarks、映画.com、Movie Walker、映画ランド、KINENOTE、IMDb、Yahoo!検索、Google
 - チケット・上映館：ムビチケ、映画.comの上映中検索
-- SNS：X（「ネタバレ」などの言葉を含む投稿を除外して検索）、Instagram（ハッシュタグ）
+- SNS：X（「ネタバレ」などの言葉を含む投稿を除外して検索）、はてなパークス（「映画」パークの投稿）、Instagram（ハッシュタグ）
 - 配信：U-NEXT、Prime Video、Netflix、Filmarksの配信サービス一覧
 
 作品の公開日、上映時間、ジャンル、あらすじ、監督、出演者は、TMDBから取得して表示しています。
