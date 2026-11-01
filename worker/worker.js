@@ -1,9 +1,10 @@
 // Cinemaladder 用 TMDB 中継（Cloudflare Workers）
 // 目的: TMDB のトークンをブラウザやアプリに置かず、サーバー側だけに持たせる。
 // 使い方:
-//   1. Cloudflare ダッシュボード → Workers & Pages → Create → 「Hello World」で作成し、このコードを貼り付けて Deploy
-//   2. Settings → Variables and Secrets → Secret として TMDB_TOKEN（API Read Access Token）を追加
-//   3. 下の ALLOWED_ORIGINS に自分のサイトのURLを入れる（コードを変えたら Cloudflare で貼り直して Deploy）
+//   1. 公開は GitHub Actions（.github/workflows/worker.yml）が行う。main の worker/ が変わると自動で Deploy する
+//      設定は worker/wrangler.toml（Worker の名前、Workers AI の割り当てなど）
+//   2. TMDB_TOKEN（API Read Access Token）は Cloudflare の画面で Secret として設定済み（Deploy しても消えない）
+//   3. 通信を許可するサイトは下の ALLOWED_ORIGINS
 //   4. index.html の TMDB_PROXY に「https://<worker名>.<サブドメイン>.workers.dev/search」を設定
 
 // 通信を許可するサイト（本番と、手元での確認用の http://localhost:8000）
@@ -14,7 +15,7 @@ const isAllowed = o => ALLOWED_ORIGINS.includes(o) || o === "https://cinemaladde
   (o.startsWith("https://") && ALLOWED_SUFFIXES.some(s => o.endsWith(s)));
 
 export default {
-  async fetch(req, env) {
+  async fetch(req, env, ctx) {
     const origin = req.headers.get("Origin") || "";
     const allow = isAllowed(origin) ? origin : ALLOWED_ORIGINS[0];
     const cors = { "Access-Control-Allow-Origin": allow, "Vary": "Origin" };
@@ -53,6 +54,10 @@ export default {
         if (!overview) {   // 日本語のあらすじが未登録なら英語で補う
           const en = await tmdb(`/movie/${id}?language=en-US`).catch(() => null);
           if (en?.overview) { overview = en.overview.trim(); overviewLang = "en"; }
+        }
+        if (overviewLang === "en") {   // 英語しかなければ機械翻訳する（できなければ英語のまま）
+          const ja = await translate(env, ctx, id, overview);
+          if (ja) { overview = ja; overviewLang = "mt"; }
         }
         // 日本の劇場公開日（種類3）を優先し、なければ日本の最初の公開日、最後に全体の公開日
         const jp = (m.release_dates?.results || []).find(r => r.iso_3166_1 === "JP")?.release_dates || [];
@@ -95,6 +100,40 @@ export default {
     return json(out, { ...cors, "Cache-Control": "public, max-age=3600" });
   },
 };
+
+/* 英語のあらすじを日本語に機械翻訳する（Cloudflare Workers AI）。
+   同じ作品で何度も翻訳しないよう、結果は30日間キャッシュに置く。英語の文が変わったら作り直す */
+async function translate(env, ctx, id, text) {
+  if (!env.AI || !text) return "";
+  const key = new Request(`https://cache.cinemaladder.internal/mt/${id}?h=${hash(text)}`);
+  const cache = caches.default;
+  const hit = await cache.match(key);
+  if (hit) return hit.text();
+  let ja = "";
+  try {   // 1. 文章として自然に訳せる言語モデル
+    const r = await env.AI.run("@cf/meta/llama-3.1-8b-instruct", {
+      messages: [
+        { role: "system", content: "You translate English movie synopses into natural Japanese for a Japanese movie website. Output only the Japanese translation, with no notes. Write character names in katakana. Do not add anything that is not in the original." },
+        { role: "user", content: text },
+      ],
+      max_tokens: 1024,
+    });
+    ja = (r?.response || "").trim();
+  } catch (e) {}
+  if (!looksJapanese(ja, text)) {   // 2. うまくいかなければ翻訳専用のモデル
+    ja = "";
+    try {
+      const r = await env.AI.run("@cf/meta/m2m100-1.2b", { text, source_lang: "english", target_lang: "japanese" });
+      ja = (r?.translated_text || "").trim();
+    } catch (e) {}
+  }
+  if (!looksJapanese(ja, text)) return "";
+  ctx.waitUntil(cache.put(key, new Response(ja, { headers: { "Cache-Control": "public, max-age=2592000" } })));
+  return ja;
+}
+// 訳文らしいか：かなを含み、元の文と比べて極端に短すぎたり長すぎたりしない
+const looksJapanese = (ja, en) => !!ja && /[\u3040-\u30ff]/.test(ja) && ja.length > en.length * 0.15 && ja.length < en.length * 2;
+const hash = s => { let h = 0; for (const c of s) h = (h * 31 + c.codePointAt(0)) | 0; return (h >>> 0).toString(36); };
 
 function json(body, headers, status = 200) {
   return new Response(JSON.stringify(body), {
