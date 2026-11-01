@@ -6,8 +6,8 @@
 //   3. 下の ALLOWED_ORIGINS に自分のサイトのURLを入れる（コードを変えたら Cloudflare で貼り直して Deploy）
 //   4. index.html の TMDB_PROXY に「https://<worker名>.<サブドメイン>.workers.dev/search」を設定
 
-// 通信を許可するサイト。独自ドメインが決まったら ALLOWED_ORIGINS に追加する
-const ALLOWED_ORIGINS = ["https://cinemaladder.com", "https://www.cinemaladder.com", "https://yuya.github.io", "http://localhost:8000"];
+// 通信を許可するサイト（本番と、手元での確認用の http://localhost:8000）
+const ALLOWED_ORIGINS = ["https://cinemaladder.com", "https://www.cinemaladder.com", "http://localhost:8000"];
 // Cloudflare Pages の確認用URL（staging.cinemaladder.pages.dev や 1回ごとのプレビューURL）を許可
 const ALLOWED_SUFFIXES = [".cinemaladder.pages.dev"];
 const isAllowed = o => ALLOWED_ORIGINS.includes(o) || o === "https://cinemaladder.pages.dev" ||

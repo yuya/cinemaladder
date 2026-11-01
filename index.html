@@ -28,12 +28,12 @@
 :root{
   --bg:#F4F4F7;--surface:#FFFFFF;--fg:#17171C;--muted:#5E5E6B;--line:#E1E1E8;
   --brand:#E8607A;   /* ロゴとアイコンのピンク。ライト・ダーク共通 */
-  --accent:#B4233C;--accent-soft:#F8E4E8;--ad:#EEF0F5;--sk:#E6E6EC;
+  --accent:#B4233C;--accent-soft:#F8E4E8;--sk:#E6E6EC;
   --font:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI",Meiryo,system-ui,sans-serif;
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){:root{
-  --bg:#111115;--surface:#1A1A20;--fg:#ECECF1;--muted:#A0A0AC;--line:#2C2C35;--accent:#E8607A;--accent-soft:#3A1D25;--ad:#202029;--sk:#2A2A32;color-scheme:dark}}
+  --bg:#111115;--surface:#1A1A20;--fg:#ECECF1;--muted:#A0A0AC;--line:#2C2C35;--accent:#E8607A;--accent-soft:#3A1D25;--sk:#2A2A32;color-scheme:dark}}
 *{box-sizing:border-box}
 html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 /* 和文の字間を詰める（palt）をサイト全体にかける。部分ごとに付けると漏れが出るため */
@@ -134,21 +134,15 @@ main{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-lef
 .now .ph{align-self:start}   /* ポスターは上にそろえる（作品名が1行なら文字の列と同じ高さなので、上下ともそろう） */
 /* 右の列：作品名と公開日などは上に、「あらすじ・キャスト」と共有ボタンはポスターの下端にそろえる */
 .now > div{display:flex;flex-direction:column;min-width:0}
-.now .irow{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto}
-.now .irow{padding-top:2px}
-.now .irow .itg{padding:2px 0 0;margin:0 0 0 -2px;gap:4px;font-size:12px}   /* 矢印の左の余白の分だけ左へ寄せ、見た目の左端を作品名にそろえる */
-.now .irow .itg::before{width:12px;height:12px}
-.now .irow .share{margin:-6px -6px -6px 0}   /* 押せる範囲は32pxのまま、行の高さは文字に合わせる */
-/* 共有は控えめに：枠なし・アイコンだけ・作品欄の右下（押せる範囲は 32px 確保） */
-/* 共有ボタンは公開日の行の右端にだけ置き、作品名の行の幅は削らない */
-.now .meta .w{display:inline}
+.now .irow{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:2px}
 /* 読み込み中は、行の形をした薄い棒（スケルトン）をゆっくり明滅させ、届いたら文字をふわっと出す */
 .now .meta .sk{display:block;width:72%;max-width:260px;height:.9em;margin-top:.35em;border-radius:5px;background:var(--sk);animation:skp 1.1s ease-in-out infinite}
 @keyframes skp{50%{opacity:.45}}
 .now .meta .in{display:inline;animation:fadein .35s ease both}
 @keyframes fadein{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){.now .meta .sk,.now .meta .in{animation:none}}
-.share{flex:none;display:grid;place-items:center;width:32px;height:32px;margin:0 -6px 0 0;border:0;background:transparent;color:var(--muted);border-radius:8px;padding:0}
+/* 共有は控えめに：枠なし・アイコンだけで、「あらすじ・キャスト」の行の右端に置く。押せる範囲は32pxのまま、上下は行の高さに食い込ませる */
+.share{flex:none;display:grid;place-items:center;width:32px;height:32px;margin:-6px -6px -6px 0;border:0;background:transparent;color:var(--muted);border-radius:8px;padding:0}
 .share:hover{color:var(--accent);background:var(--accent-soft)}
 .share svg{width:17px;height:17px}
 /* 本番（cinemaladder.com）以外で開いたときだけ右下に薄く出す目印 */
@@ -175,15 +169,16 @@ main{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-lef
 /* 作品名は語のまとまりごとに改行する（「ディスクロー／ジャー」のように語の途中で切れないように）。
    入りきらない長い語だけは途中で折り返す */
 .now h1 .w{display:inline-block;max-width:100%;white-space:pre-wrap}   /* 作品名の中の空白を消さない */
-/* 作品情報（あらすじなど）。最初はたたんでおき、ネタバレを避けたい人は開かなくて済むようにする */
-/* 作品情報：枠を付けず、本文に直接のせる（TOP10 の箱と見分けがつくように）
-   公開日・上映時間・ジャンルは見出しの中に常に1行で出し、あらすじとキャストは文字のリンクで開く */
-.now .meta{display:block;min-height:1.6em;white-space:nowrap;overflow-x:auto;scrollbar-width:none}   /* 1行に固定し、入りきらないときは横にスクロール（履歴の一覧と同じ） */
+/* 公開日・上映時間・ジャンル（ネタバレにならないので常に出す）。情報が届く前から1行分の高さを確保してずれを防ぎ、
+   1行に固定して、入りきらないときは横にスクロールする（履歴の一覧と同じ） */
+.now .meta{display:block;min-height:1.6em;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
 .now .meta::-webkit-scrollbar{display:none}
-.now .meta.more{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 24px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 24px),transparent);padding-right:20px}   /* 続きがあるときだけ右端を薄くする */   /* 情報が届く前から1行分の高さを確保し、ずれを防ぐ */
-/* 「あらすじ・キャスト」の開閉ボタンは作品名の下（右の列）に置き、中身は見出しの下に横いっぱいで出す */
-.itg{display:inline-flex;align-items:center;gap:6px;border:0;background:none;padding:4px 0;margin-top:2px;color:var(--accent);font-size:13px;font-weight:700;cursor:pointer}
-.itg::before{content:"";width:13px;height:13px;flex:none;background:currentColor;-webkit-mask:var(--chev) center/contain no-repeat;mask:var(--chev) center/contain no-repeat;transition:transform .2s ease}
+.now .meta.more{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 24px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 24px),transparent);padding-right:20px}   /* 続きがあるときだけ右端を薄くする */
+/* 「あらすじ・キャスト」の開閉ボタンは作品名の下（右の列）に置き、中身は見出しの下に横いっぱいで出す。
+   あらすじはネタバレを避けたい人が開かなくて済むよう、最初はたたんでおく。
+   左へ2px寄せるのは、矢印の絵の左の余白の分だけ、見た目の左端を作品名にそろえるため */
+.itg{display:inline-flex;align-items:center;gap:4px;border:0;background:none;padding:2px 0 0;margin:0 0 0 -2px;color:var(--accent);font-size:12px;font-weight:700;cursor:pointer}
+.itg::before{content:"";width:12px;height:12px;flex:none;background:currentColor;-webkit-mask:var(--chev) center/contain no-repeat;mask:var(--chev) center/contain no-repeat;transition:transform .2s ease}
 .itg[aria-expanded="true"]::before{transform:rotate(90deg)}
 @media (prefers-reduced-motion:reduce){.itg::before{transition:none}}
 .info{font-size:14px;margin-top:-8px}
@@ -203,7 +198,7 @@ main{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-lef
 .picked button::before{content:"";width:13px;height:13px;flex:none;background:currentColor;-webkit-mask:var(--undo) center/contain no-repeat;mask:var(--undo) center/contain no-repeat}
 :root{--undo:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 14L4 9l5-5'/%3E%3Cpath d='M4 9h10.5a5.5 5.5 0 0 1 0 11H11'/%3E%3C/svg%3E")}
 @keyframes pin{from{opacity:0;transform:translateY(-2px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.picked{animation:none}}   /* 「・」「／」まわりの空きを詰める */
+@media (prefers-reduced-motion:reduce){.picked{animation:none}}
 
 .grp{display:flex;flex-direction:column;gap:8px}
 .grp hgroup{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
@@ -248,8 +243,6 @@ a.go .n::after{content:"";position:absolute;top:9px;right:9px;width:14px;height:
 a.go:hover .n::after{background:var(--accent)}
 a.go .d{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pr{font-size:10px;font-weight:700;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:0 4px;line-height:1.5}
-.ad{background:var(--ad);border:1px dashed var(--line);border-radius:12px;padding:14px;font-size:13px;color:var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:80px}
-.ad .adl{font-size:10px;font-weight:700;letter-spacing:.14em}
 
 /* サイトの説明（ページの下） */
 .guide{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 16px;border-top:1px solid var(--line);font-size:14px;line-height:1.85;color:var(--fg)}
@@ -267,7 +260,7 @@ body > footer a:hover{color:var(--accent)}
 body > footer{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:8px 32px;font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:10px}
 details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
 summary{cursor:pointer;font-weight:700;color:var(--fg)}
-/* 開閉はサイト全体で同じ形：左の矢印が、開くと下向きに回る。色は文字色に合わせる（TOP10・除外語は文字色、作品情報はリンク色） */
+/* 開閉はサイト全体で同じ形：左の矢印が、開くと下向きに回る。色は文字色に合わせる（TOP10・除外語は文字色、「あらすじ・キャスト」（.itg）はリンク色） */
 :root{--chev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E")}
 summary{list-style:none;display:flex;align-items:center;gap:8px}
 summary::-webkit-details-marker{display:none}
@@ -452,7 +445,7 @@ function settleQ(q,found){
   if(found){if(box.value===q)box.value=""}                                     // 一致した：空にする（その間に打ち直していたら触らない）
   else if(!box.value&&document.activeElement!==box)box.value=q;               // 一致しなかった：文字を残す
 }
-/* 履歴の作品ごとの TMDB 情報（ポスター・原題・公開年）。履歴から開いたときに使う */
+/* 履歴の作品ごとの TMDB 情報（ポスター・原題・公開日）。履歴から開いたときに使う */
 let meta=store.get("cl_meta",{});
 function saveMeta(q,m){
   if(!m||!q)return;
@@ -490,7 +483,7 @@ const norm=s=>(s||"").normalize("NFKC").toLowerCase()
 function loadTitles(){
   if(titles)return Promise.resolve(titles);
   return titlesLoading??=fetch("data/titles.json").then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(j=>{
-    titles=j.items.map(([id,title,year,poster,original,votes,pop])=>({id,title,date:year,poster,original:original||title,votes:votes||0,pop:pop||0,k:norm(title),ko:original?norm(original):""}));
+    titles=j.items.map(([id,title,date,poster,original,votes,pop])=>({id,title,date,poster,original:original||title,votes:votes||0,pop:pop||0,k:norm(title),ko:original?norm(original):""}));
     return titles;
   }).catch(e=>{titlesLoading=null;throw e});
 }
@@ -666,7 +659,7 @@ const GENRE_SHORT={"サイエンスフィクション":"SF","アニメーショ�
 function metaText(d){
   const date=d.jpDate||d.date;
   const items=[date?ymd(date)+"公開":"",d.runtime?`${d.runtime}分`:"",...d.genres.slice(0,2).map(g=>GENRE_SHORT[g]||g)].filter(Boolean);   // ジャンルは2つまで
-  return items.map((x,i)=>`<span class="w">${esc(x)}${i<items.length-1?(i>=2?"／":"・"):""}</span>`).join("");
+  return items.map((x,i)=>esc(x)+(i<items.length-1?(i>=2?"／":"・"):"")).join("");
 }
 function infoHTML(st,d){
   let body;
@@ -683,9 +676,11 @@ function setInfo(st,d){
   const n=t.firstElementChild;n.hidden=!infoOpen;el.replaceWith(n);
   // 詳しい情報が届いたら「公開日・上映時間・ジャンル」に差し替える。届かなければ公開年だけを残す
   const m=$("#imeta");
-  if(m&&st==="ok")m.innerHTML=`<span class="in">${metaText(d)}</span>`;
-  if(m){m.classList.remove("more");m.classList.toggle("more",m.scrollWidth>m.clientWidth+1)}
-  else if(m&&st!=="loading"){const y=cur?.[2]?.date?.slice(0,4);m.innerHTML=y?`<span class="in">${y}年</span>`:""}   // 取れなかったときは分かる範囲（公開年）だけ
+  if(m){
+    if(st==="ok")m.innerHTML=`<span class="in">${metaText(d)}</span>`;
+    else if(st!=="loading"){const y=cur?.[2]?.date?.slice(0,4);m.innerHTML=y?`<span class="in">${y}年</span>`:""}   // 取れなかったときは分かる範囲（公開年）だけ
+    m.classList.toggle("more",m.scrollWidth>m.clientWidth+1);   // 続きがあるときだけ右端を薄くする
+  }
   if(st==="ok")setLD(d);
 }
 // 表示中の作品の情報を取りに行き、届いたら作品情報の欄だけ差し替える
@@ -719,7 +714,8 @@ function nowHTML(q,isExample,movie){
   return `<header class="now">${isExample==="trend"?'<p class="k">いま話題の作品から表示中<button type="button" class="kl" id="shuffle">ほかの話題作</button></p>':""}<figure class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>${movie?.poster?`<img src="${IMG}${esc(movie.poster)}" alt="${esc(q)} のポスター" width="54" height="80" decoding="async" onload="this.classList.add('ok')">`:""}</figure><div><p class="vh">検索中の作品</p><h1 id="mt">${wrapWords(q)}</h1><p class="ex meta" id="imeta"><span class="sk" aria-label="読み込み中"></span></p><div class="irow"><button type="button" class="itg" id="itg" aria-expanded="${infoOpen}" aria-controls="info">あらすじ・キャスト</button><button type="button" class="share" id="share" aria-label="この作品のページのリンクを共有" title="リンクを共有"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg></button></div>${isExample&&isExample!=="trend"?'<p class="ex">例として表示しています。上の欄に観たい作品名を入れてください。</p>':""}</div></header>`;
 }
 /* ===== 作品ごとの URL（?q=作品名&id=TMDBの番号）とページタイトル =====
-   サーバーの処理なしで動くよう、クエリ文字列で作品を表す。ブックマーク・共有・戻るボタンに対応。
+   クエリ文字列で作品を表す。ブックマーク・共有・戻るボタンに対応。共有のプレビューや検索エンジン向けの題名は、
+   functions/index.js がサーバー側で作品名入りに書き換える（ここでは画面を開いたあとのタブの題名を変える）。
    navMode："push"＝利用者が選んだ（履歴を1つ進める）、"replace"＝URL を置き換える、"none"＝URL はそのまま */
 let navMode="none";
 const slim=m=>m?{id:m.id,title:m.title,original:m.original,date:m.date,poster:m.poster}:null;
@@ -749,7 +745,7 @@ function syncNav(q,isExample,movie){
   }catch(e){}
   navMode="push";
   // タブの題名は URL に合わせる。作品の URL（?q=）のときだけ作品名を出し、トップの URL のまま
-  // 話題作や前回の作品を表示しているときは「Cinemaladder」にする（ブックマークや共有で題名がばらつかないように）
+  // 話題作や前回の作品を表示しているときはトップの題名にする（ブックマークや共有で題名がばらつかないように）
   let onMovie=false;try{onMovie=!!new URL(location.href).searchParams.get("q")}catch(e){}
   document.title=q&&onMovie?`${q} - Cinemaladder`:TOP_TITLE;
   setMeta(onMovie?q:"",isExample);   // 説明文・正規URLも URL に合わせる
@@ -771,14 +767,14 @@ async function share(){
   if(navigator.share){try{await navigator.share({title,url});return}catch(e){if(e.name==="AbortError")return}}
   try{await navigator.clipboard.writeText(url);toast("リンクをコピーしました")}catch(e){prompt?.("このリンクをコピーしてください",url)}
 }
-/* あとから TMDB の情報が分かったとき、画面全体は描き直さず、見出しとリンクだけ差し替える
-   （切り替えアニメーションを途中で止めないため） */
 /* 作品名：区切りでの改行で2行に収まらなければ、区切りの指定を外して普通に折り返す */
 function fitTitle(){
   const h=$("#mt");if(!h||h.classList.contains("long"))return;
   const lh=parseFloat(getComputedStyle(h).lineHeight)||30;
   if(h.offsetHeight>lh*2+2){h.textContent=h.textContent;h.classList.add("long")}
 }
+/* あとから TMDB の情報が分かったとき、画面全体は描き直さず、見出しとリンクだけ差し替える
+   （切り替えアニメーションを途中で止めないため） */
 function fillMovie(m){
   fetchInfoFor(cur[0],m);
   const [q,isExample]=cur;cur[2]=m;
@@ -818,7 +814,7 @@ function playSwap(){
   const h1=document.querySelector("#out h1");
   if(h1)h1.animate([{color:"var(--accent)"},{color:"var(--fg)"}],{duration:900,easing:"ease-out"});
 }
-/* 作品名から TMDB の情報（原題・ポスター・公開年）を探す。履歴から開いたときなどに使う */
+/* 作品名から TMDB の情報（原題・ポスター・公開日）を探す。履歴から開いたときなどに使う */
 function findMovie(q){
   if(meta[q])return meta[q];
   // まず完全一致、なければ全角半角・記号の違いを無視して一致するものを探す
@@ -883,7 +879,7 @@ $("#sug").addEventListener("mousedown",e=>{const li=e.target.closest("li[data-i]
 $("#q").addEventListener("blur",()=>setTimeout(hideSug,120));
 /* Enter（スマホの「検索」「決定」）を押したとき、候補から1つに決まるならその作品を選んだことにする。
    ・一番上の候補が入力と完全に一致（記号・表記の違いは無視）
-   ・候補が1件だけで、入力がその作品名の先頭と一致／入力した言葉（2つ以上）がすべて含まれる／作品名の半分以上を占める
+   ・入力した言葉がすべて入っている候補が、ちょうど1つだけ（言葉が1つだけなら、作品名の先頭と一致するか、作品名の半分以上を占めるとき）
    それ以外（「検索」→「ダークウェブ 検索できない…」のような途中一致など）は、打った文字のまま検索する */
 async function autoPick(q){
   let list=cache.get(q);
@@ -933,7 +929,7 @@ $("#hist").addEventListener("click",e=>{
     delTimer=setTimeout(()=>all.classList.remove("warn"),3000);return;
   }
   const b=e.target.closest("[data-q]");if(!b)return;setQ();remember(b.dataset.q);render(b.dataset.q);collapseTop()});
-$("#q").addEventListener("focus",()=>$("#q").select());
+$("#q").addEventListener("focus",()=>$("#q").select());   // タップで全選択し、すぐ打ち替えられるように
 $("#out").addEventListener("click",e=>{
   if(e.target.closest("#share"))share();
   const itg=e.target.closest("#itg");   // 「あらすじ・キャスト」の開閉。開いているかは次の作品でも引き継ぐ
@@ -944,7 +940,7 @@ addEventListener("popstate",e=>{
   if(st?.q){navMode="none";setQ();if(!st.movie&&!findMovie(st.q))keepQ=st.q;render(st.q,st.isExample,st.movie);collapseTop()}
   else{const q=new URL(location.href).searchParams.get("q");if(q){navMode="none";setQ();render(q)}else showTrending()}
 });
-$("#out").addEventListener("toggle",e=>{if(e.target.id==="ng")ngOpen=e.target.open;},true);
+$("#out").addEventListener("toggle",e=>{if(e.target.id==="ng")ngOpen=e.target.open},true);   // 除外語の欄を開いているかは、作品を替えても引き継ぐ
 $("#out").addEventListener("submit",e=>{
   if(e.target.id!=="ngadd")return;e.preventDefault();
   const words=$("#ngin").value.split(/[,、，]/).map(w=>w.normalize("NFKC").trim()).filter(Boolean);
@@ -955,9 +951,9 @@ $("#out").addEventListener("click",e=>{
   const del=e.target.closest("[data-ngdel]");
   if(del){ngWords=ngWords.filter(w=>w!==del.dataset.ngdel);saveNg();refreshNg();return}
   if(e.target.id==="ngreset"){ngWords=DEFAULT_NG.slice();saveNg();refreshNg()}
-});   // タップで全選択し、すぐ打ち替えられるように
+});
 $("#out").addEventListener("click",e=>{if(e.target.id==="shuffle"){showTrending();return}
-  const t=e.target.closest("[data-tid]");if(t){const m=trendList.find(x=>x.id===+t.dataset.tid);if(m){setQ();remember(m.title);render(m.title,false,m);collapseTop();window.scrollTo({top:0,behavior:"smooth"})}return}const a=e.target.closest("a.go");if(a)remember(a.dataset.q)});
+  const t=e.target.closest("[data-tid]");if(t){const m=trendList.find(x=>x.id===+t.dataset.tid);if(m){setQ();remember(m.title);render(m.title,false,m);collapseTop();window.scrollTo({top:0,behavior:"smooth"})}return}const a=e.target.closest("a.go");if(a&&findMovie(a.dataset.q))remember(a.dataset.q)});   // リンクを開いた作品は履歴に残す（作品に一致しない検索は入れない）
 
 /* ===== ヘッダーの縮小 =====
    下にスクロールし始めたら縮め、上端に戻ったら広げる。境目でちらつかないよう、縮める位置と広げる位置を少しずらす */
