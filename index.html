@@ -32,8 +32,11 @@
   --font:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI",Meiryo,system-ui,sans-serif;
   color-scheme:light;
 }
-@media (prefers-color-scheme:dark){:root{
+/* ダーク表示：OS がダークで「ライト」を選んでいないとき、または「ダーク」を選んだとき（フッターの「表示」で切り替え） */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#111115;--surface:#1A1A20;--fg:#ECECF1;--muted:#A0A0AC;--line:#2C2C35;--accent:#E8607A;--accent-soft:#3A1D25;--sk:#2A2A32;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111115;--surface:#1A1A20;--fg:#ECECF1;--muted:#A0A0AC;--line:#2C2C35;--accent:#E8607A;--accent-soft:#3A1D25;--sk:#2A2A32;color-scheme:dark}
 *{box-sizing:border-box}
 html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 /* 和文の字間を詰める（palt）をサイト全体にかける。部分ごとに付けると漏れが出るため */
@@ -238,7 +241,8 @@ a.go .fav{width:16px;height:16px;border-radius:3px;flex:none;background-position
 .fav-yahoo{background-image:url(data:image/webp;base64,UklGRjABAABXRUJQVlA4TCMBAAAvH8AHEBJJkiS5VuT3v/ZTsGKbiGD02PzPDFQLAAg4Z9uXbNu274ZmpzUvsdk2/sC20qW9NTUvmhOwN7/f/H/3ZWx3sVu9efh2yEYLHjlgJQDn7qr8bsVOfXPtmfnK/3/cZ98BQC9WvjT6xC6XerzyntucMMGyKi8dBpiPKs+f7PsrPziybW6s/Gb2yUzzjf/LlQfjvZ6PzNzR55WbdmmVX8sf1m/m+iIPA7bjT//WHyCv5rzqj0n2+MU/rtq5Kypn765HKmf8+d9Zu/RSeXu3gfCg/8t/v3dptN/yt6X35lTl2107Xe7Z08o3NzydH4x/HXNd7TQArwGQBXtukdsr39n031RAtn3kjIseeMpvXbsBgM175dwH3d5mlss8D8iDNywA)}
 /* ICONS:END */
 /* note のアイコンは黒地に白の「n」。ダーク表示では反転して、白地に黒の「n」にする（暗い背景に沈まないように） */
-@media (prefers-color-scheme:dark){.fav-note{filter:invert(1)}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .fav-note{filter:invert(1)}}
+:root[data-theme="dark"] .fav-note{filter:invert(1)}
 /* 外部リンクのアイコン（TOP10 の右上と同じ形）。mask にして文字色に合わせる */
 :root{--ext:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5'/%3E%3C/svg%3E")}
 a.go .n::after{content:"";position:absolute;top:9px;right:9px;width:14px;height:14px;background:var(--muted);-webkit-mask:var(--ext) center/contain no-repeat;mask:var(--ext) center/contain no-repeat}
@@ -259,6 +263,11 @@ a.go .d{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;tex
 body > footer a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 body > footer a:hover{color:var(--accent)}
 .flinks{display:flex;gap:16px;flex-wrap:wrap}
+/* 表示の切り替え（フッター）。選んでいるものだけ薄い背景で示す */
+.themes{display:flex;align-items:center;gap:2px;flex-wrap:wrap}
+.themes button{border:0;background:none;color:inherit;font-size:12px;padding:3px 8px;border-radius:999px}
+.themes button:hover{color:var(--accent)}
+.themes button[aria-pressed="true"]{background:var(--line);color:var(--fg);font-weight:700}
 body > footer{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:8px 32px;font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:10px}
 details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
 summary{cursor:pointer;font-weight:700;color:var(--fg)}
@@ -304,6 +313,7 @@ details[open] > summary::before{transform:rotate(90deg)}
 @media (prefers-reduced-motion:reduce){a.go{transition:none}}
 </style>
 <script>try{if(JSON.parse(localStorage.getItem("cl_hist")||"[]").length)document.documentElement.classList.add("hashist")}catch(e){}</script>
+<script>/* 表示（自動／ライト／ダーク）。選んだものを読み込みの最初に当て、一瞬だけ違う色が見えないようにする */try{const t=JSON.parse(localStorage.getItem("cl_theme"));if(t==="light"||t==="dark"){document.documentElement.dataset.theme=t;for(const m of document.querySelectorAll('meta[name="theme-color"]'))m.content=t==="dark"?"#111115":"#FFFFFF"}}catch(e){}</script>
 </head>
 <body>
 <header>
@@ -369,6 +379,7 @@ details[open] > summary::before{transform:rotate(90deg)}
 <footer>
   <p id="affnote" hidden>当サイトはアフィリエイトプログラムに参加しており、「PR」の付いたリンクから申し込みや購入があると、運営者が紹介料を受け取ることがあります。<span id="amznote" hidden>Amazonのアソシエイトとして、当サイトは適格販売により収入を得ています。</span></p>
   <p class="flinks"><a href="about">運営者情報</a><a href="privacy">プライバシーポリシー</a></p>
+  <p class="themes" role="group" aria-label="表示の色">表示：<button type="button" data-theme-set="auto">自動</button><button type="button" data-theme-set="light">ライト</button><button type="button" data-theme-set="dark">ダーク</button></p>
   <p>作品情報とポスター画像は<a href="https://www.themoviedb.org" target="_blank" rel="noopener">TMDB</a>から取得しています。This product uses the <a href="https://www.themoviedb.org" target="_blank" rel="noopener">TMDB</a> API but is not endorsed or certified by TMDB.</p>
 </footer>
 
@@ -1006,6 +1017,21 @@ else{$("#out").innerHTML='<p class="emptyst">いま話題の映画を読み込�
     document.head.append(s)};
   for(const ev of ["scroll","pointerdown","keydown","touchstart"])addEventListener(ev,load,{once:true,passive:true});
   addEventListener("load",()=>setTimeout(()=>("requestIdleCallback" in window?requestIdleCallback(load,{timeout:3000}):load()),3500));
+})();
+</script>
+<script>
+/* 表示の切り替え。「自動」は OS の設定に合わせる。選んだものはこの端末に保存する */
+(()=>{
+  const root=document.documentElement,metas=document.querySelectorAll('meta[name="theme-color"]');
+  const show=t=>{for(const b of document.querySelectorAll("[data-theme-set]"))b.setAttribute("aria-pressed",String(b.dataset.themeSet===t))};
+  const apply=t=>{
+    if(t==="light"||t==="dark"){root.dataset.theme=t;for(const m of metas)m.content=t==="dark"?"#111115":"#FFFFFF"}
+    else{t="auto";delete root.dataset.theme;metas[0].content="#FFFFFF";metas[1].content="#111115"}   // OS の設定に合わせて切り替わる元の値
+    try{t==="auto"?localStorage.removeItem("cl_theme"):localStorage.setItem("cl_theme",JSON.stringify(t))}catch(e){}
+    show(t);
+  };
+  show(root.dataset.theme||"auto");
+  document.addEventListener("click",e=>{const b=e.target.closest("[data-theme-set]");if(b)apply(b.dataset.themeSet)});
 })();
 </script>
 </body>

@@ -5,7 +5,8 @@
   --font:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI",Meiryo,system-ui,sans-serif;
   color-scheme:light;
 }
-@media (prefers-color-scheme:dark){:root{--bg:#111115;--surface:#1A1A20;--fg:#ECECF1;--muted:#A0A0AC;--line:#2C2C35;--accent:#E8607A;color-scheme:dark}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111115;--surface:#1A1A20;--fg:#ECECF1;--muted:#A0A0AC;--line:#2C2C35;--accent:#E8607A;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#111115;--surface:#1A1A20;--fg:#ECECF1;--muted:#A0A0AC;--line:#2C2C35;--accent:#E8607A;color-scheme:dark}
 *{box-sizing:border-box}
 html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:15px;line-height:1.8;font-feature-settings:"palt" 1;text-autospace:normal}
@@ -36,6 +37,10 @@ th{background:var(--surface)}
 .note{font-size:13px;color:var(--muted)}
 body > footer .wrap{padding-block:8px 32px;font-size:12px;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap}
 body > footer a{color:inherit}
+.themes{display:flex;align-items:center;gap:2px;margin:0;flex-basis:100%}
+.themes button{border:0;background:none;color:inherit;font:inherit;padding:3px 8px;border-radius:999px;cursor:pointer}
+.themes button:hover{color:var(--accent)}
+.themes button[aria-pressed="true"]{background:var(--line);color:var(--fg);font-weight:700}
 /* 本番以外で開いたときだけ右下に薄く出す目印 */
 .envbadge{position:fixed;right:calc(10px + env(safe-area-inset-right,0px));bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:30;margin:0;pointer-events:none;
   font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--accent);border:1px solid currentColor;border-radius:6px;padding:2px 6px;background:var(--surface);opacity:.6}
