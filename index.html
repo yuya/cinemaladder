@@ -535,7 +535,10 @@ async function searchTMDB(q){
   const now=Date.now(),D=864e5;
   const fresh=m=>{const t=/^\d{4}-\d{2}-\d{2}/.test(m.date||"")?Date.parse(m.date):NaN;return t>=now-90*D&&t<=now+30*D};
   const score=m=>{const rk=rankOf(q,m);return Math.log10((m.votes||0)+1)+Math.log10((m.pop||0)+1)+(rk===0?99:rk===1?.5:rk===3?-1:0)+(fresh(m)?1:0)};
-  const res=[...byId.values()].map((m,i)=>[score(m),i,m]).sort((a,b)=>b[0]-a[0]||a[1]-b[1]).map(x=>x[2]).slice(0,8);
+  // TMDB の検索はあいまいで、入力した文字を含まない作品（グラビアなどの映像作品を含む）も返してくる。
+  // 作品名・原題に入力が含まれない候補は、評価数が20件以上ある有名な作品（英語の題名で探した邦画など）だけ残す
+  const keep=m=>rankOf(q,m)<3||(m.votes||0)>=20;
+  const res=[...byId.values()].filter(keep).map((m,i)=>[score(m),i,m]).sort((a,b)=>b[0]-a[0]||a[1]-b[1]).map(x=>x[2]).slice(0,8);
   cache.set(q,res);return res;
 }
 /* ===== 話題作TOP10（日本で上映中＋公開予定を人気順に） ===== */
