@@ -104,16 +104,30 @@ export default {
   },
 };
 
-/* 英語のあらすじを日本語に機械翻訳する（Cloudflare Workers AI）。
-   同じ作品で何度も翻訳しないよう、結果は30日間キャッシュに置く。英語の文が変わったら作り直す */
+/* 英語のあらすじを日本語に機械翻訳する。
+   1. DeepL（訳がいちばん自然。DEEPL_API_KEY は GitHub の Secret から worker.yml が渡す）
+   2. 使えないときは Cloudflare Workers AI
+   同じ作品で何度も翻訳しないよう、結果は30日間キャッシュに置く。英語の文や翻訳サービスが変わったら作り直す */
 async function translate(env, ctx, id, text) {
-  if (!env.AI || !text) return "";
-  const key = new Request(`https://cache.cinemaladder.internal/mt/${id}?h=${hash(text)}`);
+  if (!text || (!env.DEEPL_API_KEY && !env.AI)) return "";
+  const key = new Request(`https://cache.cinemaladder.internal/mt/${id}?h=${hash(text)}&by=${env.DEEPL_API_KEY ? "deepl" : "ai"}`);
   const cache = caches.default;
   const hit = await cache.match(key);
   if (hit) return hit.text();
   let ja = "";
-  try {   // 1. 文章として自然に訳せる言語モデル
+  if (env.DEEPL_API_KEY) {
+    try {
+      // 無料版のキーは末尾が「:fx」で、送り先が違う
+      const host = env.DEEPL_API_KEY.endsWith(":fx") ? "api-free.deepl.com" : "api.deepl.com";
+      const r = await fetch(`https://${host}/v2/translate`, {
+        method: "POST",
+        headers: { Authorization: "DeepL-Auth-Key " + env.DEEPL_API_KEY, "Content-Type": "application/json" },
+        body: JSON.stringify({ text: [text], source_lang: "EN", target_lang: "JA" }),
+      });
+      if (r.ok) ja = ((await r.json())?.translations?.[0]?.text || "").trim();
+    } catch (e) {}
+  }
+  if (!looksJapanese(ja, text) && env.AI) try {   // 2. Workers AI：文章として自然に訳せる言語モデル
     const r = await env.AI.run("@cf/meta/llama-3.1-8b-instruct", {
       messages: [
         { role: "system", content: "You translate English movie synopses into natural Japanese for a Japanese movie website. Output only the Japanese translation, with no notes. Write character names in katakana. Do not add anything that is not in the original." },
@@ -123,7 +137,7 @@ async function translate(env, ctx, id, text) {
     });
     ja = (r?.response || "").trim();
   } catch (e) {}
-  if (!looksJapanese(ja, text)) {   // 2. うまくいかなければ翻訳専用のモデル
+  if (!looksJapanese(ja, text) && env.AI) {   // 3. それもだめなら翻訳専用のモデル
     ja = "";
     try {
       const r = await env.AI.run("@cf/meta/m2m100-1.2b", { text, source_lang: "english", target_lang: "japanese" });

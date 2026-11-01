@@ -8,7 +8,7 @@
 - `index.html` … サイト本体（1ファイル完結。ライブラリなし）
 - `about.html` / `privacy.html` / `pages.css` … 運営者情報とプライバシーポリシー（外部送信の公表を含む）。アクセス解析・広告・アフィリエイトを入れたら privacy.html の表と説明を更新する。公開URLは /about・/privacy（Cloudflare Pages が .html を省いた URL で配信し、.html 付きは自動で転送する）
 - `functions/index.js` … Cloudflare Pages Functions。`/?q=作品名` で開かれたとき、HTML の題名・説明文・正規URLを作品名入りに書き換えて返す（共有のプレビューや検索エンジン向け。JS を動かさずに読まれるため）。push するだけで Pages が一緒に公開する
-- `worker/worker.js` / `worker/wrangler.toml` … TMDB 中継（Cloudflare Workers、名前は cinemaladder-api）。https://cinemaladder-api.twilightwind.workers.dev で稼働。サジェスト・作品情報・英語あらすじの機械翻訳（Workers AI）。main の worker/ が変わると `.github/workflows/worker.yml` が自動で公開する（Secret：CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID）
+- `worker/worker.js` / `worker/wrangler.toml` … TMDB 中継（Cloudflare Workers、名前は cinemaladder-api）。https://cinemaladder-api.twilightwind.workers.dev で稼働。サジェスト・作品情報・英語あらすじの機械翻訳（DeepL、使えないときは Workers AI）。main の worker/ が変わると `.github/workflows/worker.yml` が自動で公開する（GitHub の Secret：CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID / DEEPL_API_KEY。DeepL のキーは公開のたびに Worker の Secret へ渡す）
 - `data/trending.json` … 話題作TOP10。GitHub Actions が毎日自動更新（手で編集しない）
 - `data/titles.json` … 検索ボックスのサジェスト用の作品一覧（数千本）。Actions が毎日自動更新
 - `scripts/fetch-trending.mjs` / `scripts/fetch-titles.mjs` … 上の2つの JSON を作るスクリプト

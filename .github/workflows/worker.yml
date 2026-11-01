@@ -25,3 +25,13 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      # 翻訳に使う DeepL のキーを、Worker の Secret として渡す（GitHub に登録してあるときだけ）
+      - name: DeepL のキーを Worker に設定
+        working-directory: worker
+        run: |
+          if [ -z "$DEEPL_API_KEY" ]; then echo "DEEPL_API_KEY が未登録なので飛ばします"; exit 0; fi
+          printf '%s' "$DEEPL_API_KEY" | npx --yes wrangler@4 secret put DEEPL_API_KEY
+        env:
+          DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
