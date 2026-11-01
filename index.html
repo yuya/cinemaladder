@@ -237,6 +237,8 @@ a.go .fav{width:16px;height:16px;border-radius:3px;flex:none;background-position
 .fav-x{background-image:url(data:image/webp;base64,UklGRvAAAABXRUJQVlA4TOMAAAAvH8AHAIWr2Hbj5kEQBEEwBEMIhEIQBEEwg0AwBEMwBEEQhNfV6f4d0f8JwF/YeXdbm9wWJNLdM3Wl0bFaacCJY8HpWG8swE57YOw4KBECidQ7hSFHUNmAynGjEYrjjRVoNEAjFU+UGQKZqTJZ8dTCDpScOw1PNhpgpOPpIxUYrM/THIBmyNNgNMDYnqfJAnTWZ8lkhkAi5EmdZmxAZXuO04HOCjRuz3A2ABIhkEg5tnHitnIHCschzdA7aDwBRjugEYr7EqnASF2SYMHjygFojqVOw2rj7j5pC07HsgRvUx/9dgA=)}
 .fav-yahoo{background-image:url(data:image/webp;base64,UklGRjABAABXRUJQVlA4TCMBAAAvH8AHEBJJkiS5VuT3v/ZTsGKbiGD02PzPDFQLAAg4Z9uXbNu274ZmpzUvsdk2/sC20qW9NTUvmhOwN7/f/H/3ZWx3sVu9efh2yEYLHjlgJQDn7qr8bsVOfXPtmfnK/3/cZ98BQC9WvjT6xC6XerzyntucMMGyKi8dBpiPKs+f7PsrPziybW6s/Gb2yUzzjf/LlQfjvZ6PzNzR55WbdmmVX8sf1m/m+iIPA7bjT//WHyCv5rzqj0n2+MU/rtq5Kypn765HKmf8+d9Zu/RSeXu3gfCg/8t/v3dptN/yt6X35lTl2107Xe7Z08o3NzydH4x/HXNd7TQArwGQBXtukdsr39n031RAtn3kjIseeMpvXbsBgM175dwH3d5mlss8D8iDNywA)}
 /* ICONS:END */
+/* note のアイコンは黒地に白の「n」。ダーク表示では反転して、白地に黒の「n」にする（暗い背景に沈まないように） */
+@media (prefers-color-scheme:dark){.fav-note{filter:invert(1)}}
 /* 外部リンクのアイコン（TOP10 の右上と同じ形）。mask にして文字色に合わせる */
 :root{--ext:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5'/%3E%3C/svg%3E")}
 a.go .n::after{content:"";position:absolute;top:9px;right:9px;width:14px;height:14px;background:var(--muted);-webkit-mask:var(--ext) center/contain no-repeat;mask:var(--ext) center/contain no-repeat}
