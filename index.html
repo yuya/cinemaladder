@@ -422,7 +422,7 @@ const GROUPS=[
   {n:"Instagram",ic:"instagram",d:"ハッシュタグ",u:q=>"https://www.instagram.com/explore/tags/"+E(q.replace(/[\s・:：!！?？、。「」『』\-]/g,""))+"/"},
   {n:"X",ic:"x",d:"ネタバレ語を除外",u:q=>"https://x.com/search?f=live&q="+E(`"${q}" `+ngQuery())},
   // はてなパークスの「映画」パーク（park:1508347822422888448）の中だけを検索する
-  {n:"はてなパークス",ic:"hatenaparks",d:"映画パークの投稿",u:q=>"https://p.hatena.ne.jp/search?q="+E("park:1508347822422888448 "+q)+"&tab=posts"},
+  {n:"はてなパークス",ic:"hatenaparks",d:"映画パークのコメント",u:q=>"https://p.hatena.ne.jp/search?q="+E("park:1508347822422888448 "+q)+"&tab=replies"},
  ]},
  {h:"配信",note:"",items:[
   {n:"U-NEXT",ic:"unext",d:"見放題・レンタル",pr:()=>!!AFF.unext,u:q=>affWrap(AFF.unext,"https://video.unext.jp/freeword?query="+E(q))},
