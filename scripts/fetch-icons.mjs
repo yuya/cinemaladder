@@ -5,7 +5,7 @@ import { writeFile, mkdir, access } from "node:fs/promises";
 const SITES = {
   filmarks: "filmarks.com", eiga: "eiga.com", moviewalker: "moviewalker.jp", eigaland: "eigaland.com",
   kinenote: "kinenote.com", imdb: "imdb.com", yahoo: "yahoo.co.jp", google: "google.com", mvtk: "mvtk.jp",
-  x: "x.com", instagram: "instagram.com", hatenaparks: "p.hatena.ne.jp", unext: "unext.jp", primevideo: "primevideo.com", netflix: "netflix.com",
+  x: "x.com", instagram: "instagram.com", hatenaparks: "p.hatena.ne.jp", note: "note.com", unext: "unext.jp", primevideo: "primevideo.com", netflix: "netflix.com",
 };
 await mkdir("icons", { recursive: true });
 for (const [name, domain] of Object.entries(SITES)) {
