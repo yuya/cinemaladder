@@ -547,7 +547,8 @@ async function getTrending(){
     const r=await fetch("data/trending.json");   // 先読み（preload）したものをそのまま使う
     if(r.ok){const j=await r.json();if(j.items?.length){
       // 詳しい情報が入っていれば先に置いておき、公開日などの行を待たずに出す（画面のずれを防ぐ）
-      for(const m of j.items)if(m.info&&!infoCache.has(m.id))infoCache.set(m.id,Promise.resolve(m.info));
+      // 英語のあらすじしかない作品は、中継サーバーで日本語に機械翻訳したものを使うため、ここでは置かない
+      for(const m of j.items)if(m.info?.overviewLang==="ja"&&!infoCache.has(m.id))infoCache.set(m.id,Promise.resolve(m.info));
       trendList=j.items;return trendList}}
   }catch(e){}
   // 2. ファイルが読めないときは中継サーバーから
@@ -678,7 +679,7 @@ function infoHTML(st,d){
   let body;
   if(st==="ok"){
     const rows=[["監督",d.directors.join("、")],["出演",d.cast.join("、")],["製作国",d.countries.map(c=>regionJa?.of(c)||c).join("・")]].filter(r=>r[1]);
-    body=`${d.tagline?`<p class="tag">${esc(d.tagline)}</p>`:""}${d.overview?`<p class="ov">${esc(d.overview)}</p>${d.overviewLang==="en"?'<p class="lang">日本語のあらすじが未登録のため、英語のあらすじを表示しています。</p>':""}`:'<p class="lang">あらすじは未登録です。</p>'}${rows.map(r=>`<p class="cr">${r[0]}　${esc(r[1])}</p>`).join("")}<p class="src">情報：<a href="https://www.themoviedb.org/movie/${E(d.id)}?language=ja-JP" target="_blank" rel="noopener">TMDB</a></p>`;
+    body=`${d.tagline?`<p class="tag">${esc(d.tagline)}</p>`:""}${d.overview?`<p class="ov">${esc(d.overview)}</p>${d.overviewLang==="en"?'<p class="lang">日本語のあらすじが未登録のため、英語のあらすじを表示しています。</p>':d.overviewLang==="mt"?'<p class="lang">日本語のあらすじが未登録のため、英語のあらすじを機械翻訳して表示しています。</p>':""}`:'<p class="lang">あらすじは未登録です。</p>'}${rows.map(r=>`<p class="cr">${r[0]}　${esc(r[1])}</p>`).join("")}<p class="src">情報：<a href="https://www.themoviedb.org/movie/${E(d.id)}?language=ja-JP" target="_blank" rel="noopener">TMDB</a></p>`;
   }else body=`<p class="lang${st==="loading"?" ld":""}">${st==="none"?"この作品の情報は見つかりませんでした。":st==="err"?"作品情報を読み込めませんでした。時間をおいて開き直してください。":"読み込み中…"}</p>`;
   return `<section class="info" id="info" aria-label="あらすじ・キャスト"${infoOpen?"":" hidden"}><div class="body">${body}</div></section>`;
 }

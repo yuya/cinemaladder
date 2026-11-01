@@ -1,0 +1,10 @@
+# Cloudflare Workers の設定（GitHub Actions の worker.yml がこれを使って公開する）
+name = "cinemaladder-api"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+# Cloudflare の画面で設定した変数を、公開のたびに消さない（TMDB_TOKEN は Secret なので元から消えない）
+keep_vars = true
+
+# あらすじの機械翻訳に使う Workers AI
+[ai]
+binding = "AI"
