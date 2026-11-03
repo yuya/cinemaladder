@@ -14,6 +14,10 @@ const ALLOWED_SUFFIXES = [".cinemaladder.pages.dev"];
 const isAllowed = o => ALLOWED_ORIGINS.includes(o) || o === "https://cinemaladder.pages.dev" ||
   (o.startsWith("https://") && ALLOWED_SUFFIXES.some(s => o.endsWith(s)));
 
+// 部首の文字（「⼆」康煕部首、「⻯」CJK部首補助など）を普通の漢字に直す。index.html の fixRad と同じ
+const RAD = { "⻁": "虎", "⻄": "西", "⻆": "角", "⻑": "長", "⻘": "青", "⻝": "食", "⻣": "骨", "⻤": "鬼", "⻨": "麦", "⻩": "黄", "⻫": "斉", "⻭": "歯", "⻯": "竜", "⻲": "亀" };
+const fixRad = s => (s || "").replace(/[\u2F00-\u2FD5]/g, c => c.normalize("NFKC")).replace(/[\u2E80-\u2EFF]/g, c => RAD[c] || c.normalize("NFKC"));
+
 export default {
   async fetch(req, env, ctx) {
     const origin = req.headers.get("Origin") || "";
@@ -64,7 +68,7 @@ export default {
         const jpDate = (jp.find(d => d.type === 3) || jp[0])?.release_date?.slice(0, 10) || "";
         const crew = m.credits?.crew || [];
         const out = {
-          id: m.id, title: m.title, original: m.original_title, poster: m.poster_path,
+          id: m.id, title: fixRad(m.title), original: m.original_title, poster: m.poster_path,
           date: m.release_date || "", jpDate, runtime: m.runtime || 0, tagline: m.tagline || "",
           overview, overviewLang,
           genres: (m.genres || []).map(g => g.name),
@@ -97,7 +101,7 @@ export default {
     // ただし公開前後の新作は、まだジャンルや評価が付いていないことがあるので残す（半年前より後の公開日）
     const since = new Date(Date.now() - 183 * 864e5).toISOString().slice(0, 10);
     const out = (j.results || []).filter(m => (m.genre_ids || []).length || (m.vote_count || 0) >= 5 || (m.release_date || "") >= since).slice(0, 20).map(m => ({
-      id: m.id, title: m.title, original: m.original_title, date: m.release_date, poster: m.poster_path,
+      id: m.id, title: fixRad(m.title), original: m.original_title, date: m.release_date, poster: m.poster_path,
       votes: m.vote_count || 0, pop: Math.round((m.popularity || 0) * 10) / 10,
     }));
     return json(out, { ...cors, "Cache-Control": "public, max-age=3600" });
