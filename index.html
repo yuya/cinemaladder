@@ -442,6 +442,11 @@ const GROUPS=[
 
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+/* 部首の文字を普通の漢字に直す。TMDB の作品名には、PDF からの貼り付けなどで「⼆」（康煕部首）や「⻯」（CJK部首補助）の
+   ような見た目がそっくりな別の文字が混ざっていることがあり、そのままだと各サイトの検索で見つからない（例：「RYUJI ⻯⼆」）。
+   康煕部首は NFKC で直る。CJK部首補助は NFKC では直らないので、日本語でよく使うものだけ表で直す */
+const RAD={"⻁":"虎","⻄":"西","⻆":"角","⻑":"長","⻘":"青","⻝":"食","⻣":"骨","⻤":"鬼","⻨":"麦","⻩":"黄","⻫":"斉","⻭":"歯","⻯":"竜","⻲":"亀"};
+const fixRad=s=>s.replace(/[\u2F00-\u2FD5]/g,c=>c.normalize("NFKC")).replace(/[\u2E80-\u2EFF]/g,c=>RAD[c]||c.normalize("NFKC"));
 // 空白だけ整える（全角の「／」などを半角に変えると、TMDB の作品名と一致しなくなるため NFKC はかけない）
 const clean=s=>s.replace(/[\s\u3000]+/g," ").trim();
 const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
@@ -491,7 +496,7 @@ let ctrl=null,timer=null,items=[],active=-1;
    GitHub Actions が毎日、人気作・評価の多い作品・上映中・公開予定の数千本を書き出している。 */
 let titles=null,titlesLoading=null;
 // 表記ゆれ対策：全角半角・カタカナひらがな・記号や空白の違いを無視して比べる
-const norm=s=>(s||"").normalize("NFKC").toLowerCase()
+const norm=s=>fixRad(s||"").normalize("NFKC").toLowerCase()
   .replace(/[\u30a1-\u30f6]/g,c=>String.fromCharCode(c.charCodeAt(0)-0x60))
   .replace(/[\s・･:：\-‐－ー〜~!！?？、。,.「」『』（）()\/／&＆'"]/g,"");
 function loadTitles(){
@@ -800,7 +805,7 @@ function fillMovie(m){
   const now=$("#out .now");
   if(now){const t=document.createElement("div");t.innerHTML=nowHTML(q,isExample,m);now.replaceWith(t.firstElementChild);fitTitle()}
   const links=[...document.querySelectorAll("#out a.go")],all=GROUPS.flatMap(g=>g.items);
-  links.forEach((a,i)=>{if(all[i])a.href=all[i].u(q,m)});
+  links.forEach((a,i)=>{if(all[i])a.href=all[i].u(fixRad(q),m)});
   try{const p=new URL(location.href).searchParams;if(p.get("q")===q&&!p.get("id")&&m.id)history.replaceState({q,isExample,movie:slim(m)},"",urlFor(q,m))
     else history.replaceState({...(history.state||{}),movie:slim(m)},"")}catch(e){}
 }
@@ -816,7 +821,7 @@ function ngHTML(){
 function refreshNg(keepFocus){
   const d=$("#ng");if(!d)return;
   const t=document.createElement("div");t.innerHTML=ngHTML();d.replaceWith(t.firstElementChild);
-  if(cur){const all=GROUPS.flatMap(g=>g.items);[...document.querySelectorAll("#out a.go")].forEach((a,i)=>{if(all[i]?.ic==="x")a.href=all[i].u(cur[0],cur[2])})}
+  if(cur){const all=GROUPS.flatMap(g=>g.items);[...document.querySelectorAll("#out a.go")].forEach((a,i)=>{if(all[i]?.ic==="x")a.href=all[i].u(fixRad(cur[0]),cur[2])})}
   if(keepFocus)$("#ngin")?.focus();
 }
 /* 作品の切り替えアニメーション：見出しと各グループが少しずつずれて、下からふわっと出る */
@@ -862,7 +867,7 @@ function render(q,isExample,movie){
   GROUPS.forEach((gr,i)=>{
     const hd=`<h2 id="g${i}">${gr.h}</h2>`;
     h+=`<section class="grp" aria-labelledby="g${i}">${gr.note?`<hgroup>${hd}<p>${gr.note}</p></hgroup>`:hd}<ul class="grid">${gr.items.map(it=>
-      `<li><a class="go" href="${esc(it.u(q,movie))}" target="_blank" rel="${it.pr?.()?"noopener sponsored":"noopener"}" data-q="${esc(q)}"><span class="n"><span class="fav fav-${it.ic}" aria-hidden="true"></span><span class="nm">${it.n}</span></span><span class="d">${it.pr?.()?'<span class="pr">PR</span>':""}${it.d}</span></a></li>`).join("")}</ul>${gr.items.some(it=>it.ic==="x")?ngHTML():""}</section>`;
+      `<li><a class="go" href="${esc(it.u(fixRad(q),movie))}" target="_blank" rel="${it.pr?.()?"noopener sponsored":"noopener"}" data-q="${esc(q)}"><span class="n"><span class="fav fav-${it.ic}" aria-hidden="true"></span><span class="nm">${it.n}</span></span><span class="d">${it.pr?.()?'<span class="pr">PR</span>':""}${it.d}</span></a></li>`).join("")}</ul>${gr.items.some(it=>it.ic==="x")?ngHTML():""}</section>`;
     // 広告枠：AdSense の審査に通ったら、ここに広告ユニットを置く（それまでは仮の枠を出さない）
   });
   $("#out").innerHTML=h+`</article>`;$("#out").classList.remove("boot");
