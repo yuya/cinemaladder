@@ -417,7 +417,8 @@ const GROUPS=[
   {n:"IMDb",ic:"imdb",d:"海外の評価",u:(q,m)=>"https://www.imdb.com/find/?q="+E(m?.original||q)+"&s=tt&ttype=ft"},
   // p=検索語、ei=文字コード。ほかのパラメータ（ai, ts, aq, fr など）は Yahoo の計測用なので不要
   {n:"Yahoo!検索",ic:"yahoo",d:"評価・口コミ・記事",u:q=>"https://search.yahoo.co.jp/search?p="+E(withEiga(q))+"&ei=UTF-8"},
-  {n:"Google",ic:"google",d:"ネットの記事",u:q=>"https://www.google.com/search?q="+E(withEiga(q))+"&hl=ja"},
+  // Google ニュースで記事を探す。映画.com の利用者レビュー（「〇〇さんの映画レビュー」）がたくさん並ぶので、それだけ除く
+  {n:"Googleニュース",ic:"google",d:"ニュース記事",u:q=>"https://news.google.com/search?q="+E(q+" -さんの映画レビュー")+"&hl=ja&gl=JP&ceid=JP:ja"},
  ]},
  {h:"チケット・上映館",note:"",items:[
   {n:"ムビチケ",ic:"mvtk",d:"前売券を買う",pr:()=>!!AFF.mvtk,u:q=>affWrap(AFF.mvtk,"https://store.moviewalker.jp/search?keyword=name:"+E(q))},
@@ -476,7 +477,7 @@ function saveMeta(q,m){
   for(const k of Object.keys(meta))if(!hist.includes(k)&&k!==q)delete meta[k];   // 履歴から消えた分は捨てる
   store.set("cl_meta",meta);
 }
-// Yahoo!検索・Google 用：同名の本や曲を避けるため「映画」を付ける（タイトルに入っていれば付けない）
+// Yahoo!検索用：同名の本や曲を避けるため「映画」を付ける（タイトルに入っていれば付けない）
 const withEiga=q=>q.includes("映画")?q:q+" 映画";
 /* X検索で除外する語。増やすほど安全ですが、普通の感想も減ります。 */
 const DEFAULT_NG=["ネタバレ","結末","犯人","ラスト","最後","オチ","真相","正体","黒幕","伏線回収","考察","どんでん返し","世界線","死亡","タヒ","生存"];
