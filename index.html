@@ -421,7 +421,8 @@ const GROUPS=[
  ]},
  {h:"チケット・上映館",note:"",items:[
   {n:"ムビチケ",ic:"mvtk",d:"前売券を買う",pr:()=>!!AFF.mvtk,u:q=>affWrap(AFF.mvtk,"https://store.moviewalker.jp/search?keyword=name:"+E(q))},
-  {n:"上映館を探す",ic:"eiga",d:"映画.comの上映中検索",u:q=>"https://eiga.com/now/q/?title="+E(q)+"&region=&pref=&area=&genre=on&sort=release"},
+  // 「上映スケジュール」を付けて検索すると、Yahoo!検索が上映館と上映時間の欄を最初から出す
+  {n:"上映館を探す",ic:"yahoo",d:"Yahoo!の上映スケジュール",u:q=>"https://search.yahoo.co.jp/search?p="+E(q+" 上映スケジュール")+"&ei=UTF-8"},
  ]},
  {h:"SNSの声",note:"",items:[
   {n:"Instagram",ic:"instagram",d:"ハッシュタグ",u:q=>"https://www.instagram.com/explore/tags/"+E(q.replace(/[\s・:：!！?？、。「」『』\-]/g,""))+"/"},
