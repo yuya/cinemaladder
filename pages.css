@@ -12,7 +12,7 @@ html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:15px;line-height:1.8;font-feature-settings:"palt" 1;text-autospace:normal}
 a{color:var(--accent);text-underline-offset:2px}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:800px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 body > header{background:var(--surface);border-bottom:1px solid var(--line)}
 body > header .wrap{padding-block:12px}
 .logo{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:19px;color:inherit;text-decoration:none;letter-spacing:.01em}
