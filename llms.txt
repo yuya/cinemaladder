@@ -5,7 +5,7 @@
 作品ごとのページは `https://cinemaladder.com/?q=作品名` の形です（作品名はURLエンコードします）。TMDBの作品番号が分かっている場合は `&id=番号` を付けられます。ページには、その作品について次のサイトの検索結果へのリンクが並びます。
 
 - レビュー：Filmarks、映画.com、Movie Walker、映画ランド、KINENOTE、IMDb、Yahoo!検索、Google
-- チケット・上映館：ムビチケ、映画.comの上映中検索
+- チケット・上映館：ムビチケ、Yahoo!検索の上映スケジュール
 - SNS：Instagram（ハッシュタグ）、note（作品名で記事を検索）、X（「ネタバレ」などの言葉を含む投稿を除外して検索）、はてなパークス（「映画」パークのコメント）
 - 配信：U-NEXT、Prime Video、Netflix、Filmarksの配信サービス一覧
 
