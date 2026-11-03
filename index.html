@@ -448,9 +448,12 @@ const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&g
 const RAD={"⻁":"虎","⻄":"西","⻆":"角","⻑":"長","⻘":"青","⻝":"食","⻣":"骨","⻤":"鬼","⻨":"麦","⻩":"黄","⻫":"斉","⻭":"歯","⻯":"竜","⻲":"亀"};
 const fixRad=s=>s.replace(/[\u2F00-\u2FD5]/g,c=>c.normalize("NFKC")).replace(/[\u2E80-\u2EFF]/g,c=>RAD[c]||c.normalize("NFKC"));
 // 空白だけ整える（全角の「／」などを半角に変えると、TMDB の作品名と一致しなくなるため NFKC はかけない）
-const clean=s=>s.replace(/[\s\u3000]+/g," ").trim();
+// 部首の文字もここで普通の漢字に直す（入力・URL・作品名のどこから来ても、表示と共有の題名をそろえる）
+const clean=s=>fixRad(s).replace(/[\s\u3000]+/g," ").trim();
+// TMDB から届いた作品の題名を整える（見出し・タブの題名・共有・履歴に部首の文字が出ないように）
+const fixT=m=>m&&m.title&&/[\u2E80-\u2FDF]/.test(m.title)?{...m,title:fixRad(m.title)}:m;
 const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
-let hist=store.get("cl_hist",[]);
+let hist=store.get("cl_hist",[]).map(fixRad);   // 以前の履歴に残っている部首の文字も直す
 /* 検索欄：作品を表示したら、いつも空にする（作品名は見出しと履歴に出ているので、ここでは繰り返さない）。
    欄は「次の作品を探すための空欄」として使う */
 const PH="作品名を入力";
@@ -465,7 +468,7 @@ function settleQ(q,found){
   else if(!box.value&&document.activeElement!==box)box.value=q;               // 一致しなかった：文字を残す
 }
 /* 履歴の作品ごとの TMDB 情報（ポスター・原題・公開日）。履歴から開いたときに使う */
-let meta=store.get("cl_meta",{});
+let meta=Object.fromEntries(Object.entries(store.get("cl_meta",{})).map(([k,v])=>[fixRad(k),fixT(v)]));   // 部首の文字を直した名前で引けるように
 function saveMeta(q,m){
   if(!m||!q)return;
   meta[q]={id:m.id,title:m.title,original:m.original,date:m.date,poster:m.poster};
@@ -502,7 +505,7 @@ const norm=s=>fixRad(s||"").normalize("NFKC").toLowerCase()
 function loadTitles(){
   if(titles)return Promise.resolve(titles);
   return titlesLoading??=fetch("data/titles.json").then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(j=>{
-    titles=j.items.map(([id,title,date,poster,original,votes,pop])=>({id,title,date,poster,original:original||title,votes:votes||0,pop:pop||0,k:norm(title),ko:original?norm(original):""}));
+    titles=j.items.map(([id,title,date,poster,original,votes,pop])=>(title=fixRad(title),{id,title,date,poster,original:original||title,votes:votes||0,pop:pop||0,k:norm(title),ko:original?norm(original):""}));
     return titles;
   }).catch(e=>{titlesLoading=null;throw e});
 }
@@ -529,7 +532,7 @@ async function searchTMDB(q){
   ctrl?.abort();ctrl=new AbortController();const sig=ctrl.signal;
   const remote=fetch(TMDB_PROXY+"?q="+E(q),{signal:sig})
     .then(r=>{if(!r.ok)throw new Error(r.status);return r.json()})
-    .then(j=>Array.isArray(j)?j:[])
+    .then(j=>Array.isArray(j)?j.map(fixT):[])
     .catch(e=>{if(e.name==="AbortError")throw e;return []});   // 中継が使えなくても作品一覧の候補は出す
   const local=searchLocal(q).catch(()=>[]);
   const [r,l]=await Promise.all([remote,local]);
@@ -558,12 +561,12 @@ async function getTrending(){
       // 詳しい情報が入っていれば先に置いておき、公開日などの行を待たずに出す（画面のずれを防ぐ）
       // 英語のあらすじしかない作品は、中継サーバーで日本語に機械翻訳したものを使うため、ここでは置かない
       for(const m of j.items)if(m.info?.overviewLang==="ja"&&!infoCache.has(m.id))infoCache.set(m.id,Promise.resolve(m.info));
-      trendList=j.items;return trendList}}
+      trendList=j.items.map(fixT);return trendList}}
   }catch(e){}
   // 2. ファイルが読めないときは中継サーバーから
   const r=await fetch(TMDB_PROXY.replace(/search$/,"trending"));
   if(!r.ok)throw new Error(r.status);
-  trendList=await r.json();
+  trendList=(await r.json()).map(fixT);
   return trendList;
 }
 let lastPick=null;
@@ -655,7 +658,7 @@ async function lookupMovie(q){
   try{await loadTitles();const m=findMovie(q);if(m)return m}catch(e){}
   try{
     const r=await fetch(TMDB_PROXY+"?q="+E(q));
-    if(r.ok){const list=await r.json();if(Array.isArray(list)){cache.set(q,list);return list.find(m=>m.title===q)||list.find(m=>norm(m.title)===norm(q))||null}}
+    if(r.ok){const list=(await r.json()).map?.(fixT);if(Array.isArray(list)){cache.set(q,list);return list.find(m=>m.title===q)||list.find(m=>norm(m.title)===norm(q))||null}}
   }catch(e){}
   return null;
 }
@@ -672,7 +675,7 @@ let infoOpen=store.get("cl_infoOpen",false);
 function loadInfo(id){
   if(!id)return Promise.resolve(null);
   if(!infoCache.has(id))infoCache.set(id,fetch(TMDB_PROXY.replace(/search$/,"movie")+"?id="+E(id))
-    .then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).catch(e=>{infoCache.delete(id);throw e}));
+    .then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(fixT).catch(e=>{infoCache.delete(id);throw e}));
   return infoCache.get(id);
 }
 const regionJa=typeof Intl!=="undefined"&&Intl.DisplayNames?new Intl.DisplayNames(["ja"],{type:"region"}):null;
@@ -1005,7 +1008,7 @@ $("#affnote").hidden=!(AFF.amazonTag||AFF.unext||AFF.mvtk);$("#amznote").hidden=
 $("#envbadge").hidden=/^(www\.)?cinemaladder\.com$/.test(location.hostname);
 renderHist();
 // 前回最後に見ていた作品。履歴から消されていたら、話題作からランダムに選ぶ（記録がない古い利用者は履歴の先頭）
-function lastShown(){const l=store.get("cl_last",null);return l==null?hist[0]:hist.includes(l)?l:null}
+function lastShown(){let l=store.get("cl_last",null);if(l)l=fixRad(l);return l==null?hist[0]:hist.includes(l)?l:null}
 const startQ=(()=>{try{return clean(new URL(location.href).searchParams.get("q")||"")}catch(e){return ""}})();
 if(startQ){   // 共有・ブックマークされた URL から開いたとき
   const id=+new URL(location.href).searchParams.get("id")||0;

@@ -4,12 +4,16 @@
 // Cloudflare Pages Functions として動く（このファイルは「/」だけを受け持ち、ほかのファイルには関わらない）。
 
 const SITE = "https://cinemaladder.com/";
+// 部首の文字（「⼆」康煕部首、「⻯」CJK部首補助など）を普通の漢字に直す。index.html の fixRad と同じ
+const RAD = { "⻁": "虎", "⻄": "西", "⻆": "角", "⻑": "長", "⻘": "青", "⻝": "食", "⻣": "骨", "⻤": "鬼", "⻨": "麦", "⻩": "黄", "⻫": "斉", "⻭": "歯", "⻯": "竜", "⻲": "亀" };
+const fixRad = s => (s || "").replace(/[\u2F00-\u2FD5]/g, c => c.normalize("NFKC")).replace(/[\u2E80-\u2EFF]/g, c => RAD[c] || c.normalize("NFKC"));
+
 
 export async function onRequestGet(ctx) {
   const res = await ctx.next();   // いつもの index.html
   const url = new URL(ctx.request.url);
   // 作品名：前後の空白を除き、長すぎるものは切る。HTML の属性を壊しうる記号と制御文字は外す
-  const q = (url.searchParams.get("q") || "").replace(/[\u0000-\u001f\u007f"<>]/g, "").replace(/\s+/g, " ").trim().slice(0, 100);
+  const q = fixRad(url.searchParams.get("q") || "").replace(/[\u0000-\u001f\u007f"<>]/g, "").replace(/\s+/g, " ").trim().slice(0, 100);
   if (!q || !(res.headers.get("content-type") || "").includes("text/html")) return res;
 
   const title = `${q} - Cinemaladder`;
