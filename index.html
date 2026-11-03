@@ -53,7 +53,7 @@ search{display:block}
 
 body > header{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);z-index:5;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:10px 12px}
-.hd{max-width:720px;margin:0 auto;display:flex;flex-direction:column}
+.hd{max-width:800px;margin:0 auto;display:flex;flex-direction:column}
 /* ヘッダーは画面上部に固定。本文はヘッダーの（広げた状態の）高さ分だけ下げて始める */
 body{padding-top:var(--hh,110px)}
 .hashist body{padding-top:var(--hh,148px)}   /* 履歴の行があるときの高さ。最初の表示で本文がずれないよう、読み込み前に見当を付ける */
@@ -130,7 +130,7 @@ body > header::before{content:"";position:absolute;inset:0 0 auto;height:100%;ba
 @media (prefers-reduced-motion:reduce){.hist .delall,.hist .delall .dl,.hist.out{transition:none}}
 
 main.boot{min-height:100vh}   /* 最初の表示までフッターを画面の外に置き、中身が出たときに押し下げない */
-main{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px 24px;
+main{max-width:800px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px 24px;
   display:flex;flex-direction:column;gap:18px}
 .movie{display:flex;flex-direction:column;gap:18px}
 .now{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:stretch}
@@ -248,7 +248,7 @@ a.go .d{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;tex
 .pr{font-size:10px;font-weight:700;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:0 4px;line-height:1.5}
 
 /* サイトの説明（ページの下） */
-.guide{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 16px;border-top:1px solid var(--line);font-size:14px;line-height:1.85;color:var(--fg)}
+.guide{max-width:800px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 16px;border-top:1px solid var(--line);font-size:14px;line-height:1.85;color:var(--fg)}
 .guide h2{margin:0 0 8px;font-size:17px}
 .guide h3{margin:24px 0 6px;font-size:15px}
 .guide p{margin:0 0 10px}
@@ -265,7 +265,7 @@ body > footer a:hover{color:var(--accent)}
 .themes button{border:0;background:none;color:inherit;font-size:12px;padding:3px 8px;border-radius:999px}
 .themes button:hover{color:var(--accent)}
 .themes button[aria-pressed="true"]{background:var(--line);color:var(--fg);font-weight:700}
-body > footer{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:8px 32px;font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:10px}
+body > footer{max-width:800px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:8px 32px;font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:10px}
 details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
 summary{cursor:pointer;font-weight:700;color:var(--fg)}
 /* 開閉はサイト全体で同じ形：左の矢印が、開くと下向きに回る。色は文字色に合わせる（TOP10・除外語は文字色、「あらすじ・キャスト」（.itg）はリンク色） */
@@ -423,7 +423,7 @@ const GROUPS=[
  {h:"チケット・上映館",note:"",items:[
   {n:"ムビチケ",ic:"mvtk",d:"前売券を買う",pr:()=>!!AFF.mvtk,u:q=>affWrap(AFF.mvtk,"https://store.moviewalker.jp/search?keyword=name:"+E(q))},
   // 「上映スケジュール」を付けて検索すると、Yahoo!検索が上映館と上映時間の欄を最初から出す
-  {n:"上映館を探す",ic:"yahoo",d:"Yahoo!の上映スケジュール",u:q=>"https://search.yahoo.co.jp/search?p="+E(q+" 上映スケジュール")+"&ei=UTF-8"},
+  {n:"上映館を探す",ic:"yahoo",d:"上映スケジュール",u:q=>"https://search.yahoo.co.jp/search?p="+E(q+" 上映スケジュール")+"&ei=UTF-8"},
  ]},
  {h:"SNSの声",note:"",items:[
   {n:"Instagram",ic:"instagram",d:"ハッシュタグ",u:q=>"https://www.instagram.com/explore/tags/"+E(q.replace(/[\s・:：!！?？、。「」『』\-]/g,""))+"/"},
