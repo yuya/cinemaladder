@@ -416,7 +416,7 @@ const GROUPS=[
   // IMDb は日本語タイトルだと見つからないことが多いので、TMDB の原題が分かればそちらで検索する。s=tt&ttype=ft は「映画作品だけ」に絞る指定
   {n:"IMDb",ic:"imdb",d:"海外の評価",u:(q,m)=>"https://www.imdb.com/find/?q="+E(m?.original||q)+"&s=tt&ttype=ft"},
   // p=検索語、ei=文字コード。ほかのパラメータ（ai, ts, aq, fr など）は Yahoo の計測用なので不要
-  {n:"Yahoo!検索",ic:"yahoo",d:"評価・口コミ・記事",u:q=>"https://search.yahoo.co.jp/search?p="+E(withEiga(q))+"&ei=UTF-8"},
+  {n:"Yahoo!検索",ic:"yahoo",d:"評価・口コミ・記事",u:q=>"https://search.yahoo.co.jp/search?p="+E(q+" レビュー")+"&ei=UTF-8"},   // 「作品名 レビュー」で、各サイトの評価がまとめて出る
   // Google ニュースで記事を探す。ニュースでないページを、題名に必ず入る言葉で除く（"" で囲むと、その言葉のかたまりで除外できる）
   // ・映画.com の利用者レビュー：「〇〇さんの映画レビュー（感想・評価）」
   // ・映画館ごとの上映時間のページ：「〇〇の上映時間・上映スケジュール」（MOVIE WALKER PRESS など）
@@ -480,8 +480,6 @@ function saveMeta(q,m){
   for(const k of Object.keys(meta))if(!hist.includes(k)&&k!==q)delete meta[k];   // 履歴から消えた分は捨てる
   store.set("cl_meta",meta);
 }
-// Yahoo!検索用：同名の本や曲を避けるため「映画」を付ける（タイトルに入っていれば付けない）
-const withEiga=q=>q.includes("映画")?q:q+" 映画";
 /* X検索で除外する語。増やすほど安全ですが、普通の感想も減ります。 */
 const DEFAULT_NG=["ネタバレ","結末","犯人","ラスト","最後","オチ","真相","正体","黒幕","伏線回収","考察","どんでん返し","世界線","死亡","タヒ","生存"];
 // 利用者が編集した除外語（この端末にだけ保存）。未編集なら初期の語を使う
