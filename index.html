@@ -403,6 +403,11 @@ const SITE = "https://cinemaladder.com/";   // 本番の住所
 const IMG = "https://image.tmdb.org/t/p/w92";
 
 const E=encodeURIComponent;
+/* Instagram のハッシュタグの対応表（TMDB の作品番号：タグ。# は付けない）。
+   作品名から作れないタグ（公式の宣伝で使われているタグなど）だけを手で足す。作品番号は作品ページの URL の id= の数字 */
+const INSTA_TAGS={
+  1381071:"ゴジラマイナスゼロ",   // ゴジラ-0.0
+};
 const GROUPS=[
  {h:"レビュー",note:"星とレビューを見る",items:[
   {n:"Filmarks",ic:"filmarks",d:"評価・感想",u:q=>"https://filmarks.com/search/movies?q="+E(q)},
@@ -426,7 +431,8 @@ const GROUPS=[
   {n:"上映館を探す",ic:"yahoo",d:"上映スケジュール",u:q=>"https://search.yahoo.co.jp/search?p="+E(q+" 上映スケジュール")+"&ei=UTF-8"},
  ]},
  {h:"SNSの声",note:"",items:[
-  {n:"Instagram",ic:"instagram",d:"ハッシュタグ",u:q=>"https://www.instagram.com/explore/tags/"+E(q.replace(/[\s・:：!！?？、。「」『』\-]/g,""))+"/"},
+  // ハッシュタグには記号が使えないので、文字と数字だけにする。公式タグなどが分かっている作品は INSTA_TAGS の表を使う
+  {n:"Instagram",ic:"instagram",d:"ハッシュタグ",u:(q,m)=>"https://www.instagram.com/explore/tags/"+E(INSTA_TAGS[m?.id]||q.replace(/[^\p{L}\p{N}_]/gu,""))+"/"},
   // ハッシュタグのページは、そのタグが使われたことがないと 404 になるので、記事の検索を使う
   {n:"note",ic:"note",d:"作品名で記事を検索",u:q=>"https://note.com/search?q="+E(q)+"&context=note&mode=search"},
   {n:"X",ic:"x",d:"ネタバレ語を除外",u:q=>"https://x.com/search?f=live&q="+E(`"${q}" `+ngQuery())},
