@@ -296,6 +296,17 @@ details[open] > summary::before{transform:rotate(90deg)}
 .ngadd button{flex:none;border:0;background:var(--accent);color:var(--surface);border-radius:8px;padding:0 14px;font-weight:700}
 .ngreset{align-self:flex-start;border:0;background:transparent;color:var(--muted);font-size:12px;text-decoration:underline;padding:0}
 .top summary{padding-right:36px}
+/* 「人気TOP10」と「公開日順」の切り替え */
+.ttabs{display:flex;gap:4px;margin-top:10px}
+.top .ttabs button{width:auto;display:block;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:999px;padding:3px 12px;font-size:13px;font-weight:700}
+.top .ttabs button[aria-selected="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+/* 公開日順：週ごとの見出し。一覧は箱の中だけでスクロールし、ページ全体は長くしない */
+.top ol.rel{max-height:min(60vh,520px);overflow-y:auto;overscroll-behavior:contain}
+.top .rel button{grid-template-columns:36px 32px minmax(0,1fr)}
+.top .rel .rk{font-size:12px;font-weight:700;color:var(--muted)}
+.top .wk{position:sticky;top:0;z-index:1;background:var(--surface);font-size:12px;font-weight:700;color:var(--muted);padding:8px 4px 4px;letter-spacing:.04em}
+.top .wk span{margin-left:8px;font-weight:400}
+.top .wk.now{color:var(--accent)}
 .top .sk{display:grid;grid-template-columns:22px 32px minmax(0,1fr);gap:10px;align-items:center;padding:6px 4px}
 .top .sk i{display:block;height:10px;border-radius:5px;background:var(--bg);width:70%}
 .top .sk i+i{width:30%;margin-top:8px}
@@ -591,10 +602,18 @@ async function showTrending(){
   if($("#q").value===before){setQ();renderEmpty()}
 }
 let trendOpen=store.get("cl_trendOpen",false);
+let topTab=store.get("cl_topTab","top");   // 「いま話題の映画」の中のタブ：top＝人気TOP10、rel＝公開日順
+/* 公開日の前後2週間の作品（data/releases.json。GitHub Actions が毎日作る）。公開日順のタブを開いたときに読む */
+let relData=null,relLoading=null,relFailed=false;
+function getReleases(){
+  if(relData)return Promise.resolve(relData);
+  return relLoading??=fetch("data/releases.json").then(r=>{if(!r.ok)throw new Error(r.status);return r.json()})
+    .then(j=>{j.items=(j.items||[]).map(fixT);relData=j;return j}).catch(e=>{relLoading=null;relFailed=true;throw e});
+}
 const isUpcoming=d=>d&&d>new Date().toISOString().slice(0,10);
 /* TOP10を閉じるアニメーション：高さを0に縮めながら薄くし、終わったら details を閉じる */
 function collapseTop(){
-  const d=$("#top"),ol=d?.querySelector("ol");
+  const d=$("#top"),ol=d?.querySelector(".tbody");
   if(!d||!d.open)return;
   if(!ol||!ol.animate||matchMedia("(prefers-reduced-motion: reduce)").matches){d.open=false;return}
   ol.style.overflow="hidden";
@@ -608,11 +627,28 @@ let trendFailed=false;
 function trendHTML(){
   // 閉じた details の中身は隠れるので、リンクは details の外（外枠の右上）に置く
   const link=`<a class="toplink" href="${TOP_SOURCE}" target="_blank" rel="noopener" aria-label="TMDBの上映中の映画一覧を開く" title="TMDBの上映中の映画一覧"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>`;
-  const head=`<aside class="topwrap" aria-label="いま話題の映画">${link}<details class="top" id="top"${trendOpen?" open":""}><summary>いま話題の映画TOP10</summary>`;
+  const tab=(id,label)=>`<button type="button" role="tab" data-ttab="${id}" aria-selected="${topTab===id}">${label}</button>`;
+  const head=`<aside class="topwrap" aria-label="いま話題の映画">${link}<details class="top" id="top"${trendOpen?" open":""}><summary>いま話題の映画</summary><div class="tbody"><div class="ttabs" role="tablist" aria-label="一覧の種類">${tab("top","人気TOP10")}${tab("rel","公開日順")}</div>`;
+  const tail=`</div></details></aside>`;
+  const skel=n=>`<ol aria-busy="true">${'<li><div class="sk"><span class="rk"></span><span class="noimg"></span><span><i></i><i></i></span></div></li>'.repeat(n)}</ol>`;
+  const row=(m,left,note)=>`<li><button type="button" data-tid="${m.id}"${cur&&cur[0]===m.title?' class="on" aria-current="true"':""}><span class="rk">${left}</span>${m.poster?`<img src="${IMG}${esc(m.poster)}" alt="" loading="lazy" width="32" height="48">`:'<span class="noimg"></span>'}<span style="min-width:0"><span class="tt">${esc(m.title)}</span><small>${note}</small></span></button></li>`;
+  const md=d=>`${+d.slice(5,7)}/${+d.slice(8,10)}`;
+  if(topTab==="rel"){
+    // 公開日順：金曜〜翌木曜を1週として、週ごとに見出しを付ける（日本の新作はたいてい金曜公開）
+    if(!relData)return head+(relFailed?'<ol><li class="msg">読み込めませんでした。時間をおいて開き直してください。</li></ol>':skel(6))+tail;
+    const D=864e5,anchor=Date.parse(relData.anchor),WK=["2週前","先週","今週","来週","再来週"];
+    const wkOf=d=>{const t=Date.parse(d),dow=new Date(t).getUTCDay();return t-((dow-5+7)%7)*D};
+    let last=null,h="";
+    for(const m of relData.items){
+      const w=wkOf(m.date);
+      if(w!==last){last=w;const rel=Math.round((w-anchor)/(7*D));h+=`<li class="wk${rel===0?" now":""}">${md(new Date(w).toISOString())}〜<span>${WK[rel+2]||""}</span></li>`}
+      h+=row(m,md(m.date),isUpcoming(m.date)?"公開予定":"上映中");
+    }
+    return head+`<ol class="rel">${h||'<li class="msg">該当する作品がありません。</li>'}</ol>`+tail;
+  }
   // 読み込み前も同じ高さの仮の行を出しておき、届いたときに下の内容がずれないようにする
-  if(!trendList?.length)return head+(trendFailed?'<ol><li class="msg">読み込めませんでした。時間をおいて開き直してください。</li></ol></details></aside>':`<ol aria-busy="true">${'<li><div class="sk"><span class="rk"></span><span class="noimg"></span><span><i></i><i></i></span></div></li>'.repeat(10)}</ol></details></aside>`);
-  return head+`<ol>${trendList.map((m,i)=>
-    `<li><button type="button" data-tid="${m.id}"${cur&&cur[0]===m.title?' class="on" aria-current="true"':""}><span class="rk">${i+1}</span>${m.poster?`<img src="${IMG}${esc(m.poster)}" alt="" loading="lazy" width="32" height="48">`:'<span class="noimg"></span>'}<span style="min-width:0"><span class="tt">${esc(m.title)}</span><small>${isUpcoming(m.date)?`公開予定${+m.date.slice(5,7)}月${+m.date.slice(8,10)}日`:"上映中"}</small></span></button></li>`).join("")}</ol></details></aside>`;
+  if(!trendList?.length)return head+(trendFailed?'<ol><li class="msg">読み込めませんでした。時間をおいて開き直してください。</li></ol>':skel(10))+tail;
+  return head+`<ol>${trendList.map((m,i)=>row(m,i+1,isUpcoming(m.date)?`公開予定${+m.date.slice(5,7)}月${+m.date.slice(8,10)}日`:"上映中")).join("")}</ol>`+tail;
 }
 
 function showSug(html){const s=$("#sug");s.innerHTML=html;s.hidden=!html;$("#q").setAttribute("aria-expanded",String(!!html));if(html)fitSug()}
@@ -890,13 +926,15 @@ function render(q,isExample,movie){
     hist=hist.filter(h=>h!==movie.title);saveHist();searchRaw(p.q)}}
   picked=null;   // 一言は、そのとき1回だけ
 }
-function bindTop(){const d=$("#top");if(d)d.addEventListener("toggle",()=>{trendOpen=d.open;store.set("cl_trendOpen",trendOpen)})}
+function bindTop(){const d=$("#top");if(d)d.addEventListener("toggle",()=>{trendOpen=d.open;store.set("cl_trendOpen",trendOpen);if(d.open)scrollRelToNow()})}
 function updateTop(){
   const d=$("#top");if(!d)return;
   const t=document.createElement("div");t.innerHTML=trendHTML();
   const n=t.firstElementChild,w=d.closest(".topwrap");
-  if(n&&w){n.querySelector("details").open=d.open;w.replaceWith(n);bindTop()}
+  if(n&&w){n.querySelector("details").open=d.open;w.replaceWith(n);bindTop();scrollRelToNow()}
 }
+// 公開日順の一覧は、開いたときに「今週」の見出しが一番上に来るようにする（前の週へは上にスクロールして戻れる）
+function scrollRelToNow(){const ol=$("#top .rel"),wk=ol?.querySelector(".wk.now");if(wk)ol.scrollTop=wk.offsetTop-ol.offsetTop}
 
 /* ===== イベント ===== */
 $("#q").addEventListener("input",onType);
@@ -985,7 +1023,9 @@ $("#out").addEventListener("click",e=>{
   if(e.target.id==="ngreset"){ngWords=DEFAULT_NG.slice();saveNg();refreshNg()}
 });
 $("#out").addEventListener("click",e=>{if(e.target.id==="shuffle"){showTrending();return}
-  const t=e.target.closest("[data-tid]");if(t){const m=trendList.find(x=>x.id===+t.dataset.tid);if(m){setQ();remember(m.title);render(m.title,false,m);collapseTop();window.scrollTo({top:0,behavior:"smooth"})}return}const a=e.target.closest("a.go");if(a&&findMovie(a.dataset.q))remember(a.dataset.q)});   // リンクを開いた作品は履歴に残す（作品に一致しない検索は入れない）
+  const tb=e.target.closest("[data-ttab]");
+  if(tb){topTab=tb.dataset.ttab;store.set("cl_topTab",topTab);const back=()=>{updateTop();$(`[data-ttab="${topTab}"]`)?.focus()};back();if(topTab==="rel"&&!relData)getReleases().catch(()=>{}).finally(back);return}
+  const t=e.target.closest("[data-tid]");if(t){const m=(trendList||[]).find(x=>x.id===+t.dataset.tid)||relData?.items.find(x=>x.id===+t.dataset.tid);if(m){setQ();remember(m.title);render(m.title,false,m);collapseTop();window.scrollTo({top:0,behavior:"smooth"})}return}const a=e.target.closest("a.go");if(a&&findMovie(a.dataset.q))remember(a.dataset.q)});   // リンクを開いた作品は履歴に残す（作品に一致しない検索は入れない）
 
 /* ===== ヘッダーの縮小 =====
    下にスクロールし始めたら縮め、上端に戻ったら広げる。境目でちらつかないよう、縮める位置と広げる位置を少しずらす */
@@ -1024,6 +1064,7 @@ if(startQ){   // 共有・ブックマークされた URL から開いたとき
 else if(lastShown()){setQ();navMode="none";render(lastShown());
   getTrending().catch(()=>{trendFailed=true}).finally(updateTop)}   // TOP10リストだけ後から差し替える（画面全体は描き直さない）
 else{$("#out").innerHTML='<p class="emptyst">いま話題の映画を読み込み中…</p>';showTrending()}
+if(topTab==="rel")getReleases().catch(()=>{}).finally(updateTop);   // 前回「公開日順」を開いていたら、その一覧も読む
 </script>
 <script>
 /* Google AdSense のプログラムは大きいので、作品の表示を邪魔しないよう後から読み込む。

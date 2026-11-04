@@ -35,7 +35,7 @@ const pages = Math.min(first.total_pages || 1, 10);
 const rest = await Promise.all(Array.from({ length: pages - 1 }, (_, i) => get(base + "&page=" + (i + 2)).catch(() => ({ results: [] }))));
 const found = new Map();
 for (const m of [first, ...rest].flatMap(p => p.results || [])) {
-  if (found.has(m.id) || !readable(m.title)) continue;
+  if (found.has(m.id) || !readable(m.title) || /^untitled$/i.test(m.title.trim())) continue;   // 題名未定の仮登録は外す
   // ジャンルもポスターもない作品（グラビアなどの映像商品が多い）は外す
   if (!(m.genre_ids || []).length && !m.poster_path) continue;
   found.set(m.id, m);
