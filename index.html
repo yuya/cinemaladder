@@ -302,8 +302,9 @@ details[open] > summary::before{transform:rotate(90deg)}
 .top .ttabs button[aria-selected="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
 /* 公開日順：週ごとの見出し。一覧は箱の中だけでスクロールし、ページ全体は長くしない */
 .top ol.rel{max-height:min(60vh,520px);overflow-y:auto;overscroll-behavior:contain}
-.top .rel button{grid-template-columns:36px 32px minmax(0,1fr)}
-.top .rel .rk{font-size:12px;font-weight:700;color:var(--muted)}
+/* 公開日順は1行を低くして、たくさん見られるようにする（ポスターを小さく、作品名だけ） */
+.top .rel button{grid-template-columns:24px minmax(0,1fr);padding:4px}
+.top .rel img,.top .rel .noimg{width:24px;height:36px;border-radius:2px}
 .top .wk{position:sticky;top:0;z-index:1;background:var(--surface);font-size:12px;font-weight:700;color:var(--muted);padding:8px 4px 4px;letter-spacing:.04em}
 .top .wk span{margin-left:8px;font-weight:400}
 .top .wk.now{color:var(--accent)}
@@ -634,15 +635,18 @@ function trendHTML(){
   const row=(m,left,note)=>`<li><button type="button" data-tid="${m.id}"${cur&&cur[0]===m.title?' class="on" aria-current="true"':""}><span class="rk">${left}</span>${m.poster?`<img src="${IMG}${esc(m.poster)}" alt="" loading="lazy" width="32" height="48">`:'<span class="noimg"></span>'}<span style="min-width:0"><span class="tt">${esc(m.title)}</span><small>${note}</small></span></button></li>`;
   const md=d=>`${+d.slice(5,7)}/${+d.slice(8,10)}`;
   if(topTab==="rel"){
-    // 公開日順：金曜〜翌木曜を1週として、週ごとに見出しを付ける（日本の新作はたいてい金曜公開）
+    // 公開日順：金曜〜翌木曜を1週として、週ごとに見出しを付ける（日本の新作はたいてい金曜公開）。
+    // 「今週末」は、金〜日ならその週末、月〜木ならこの週の金曜からの週末。それより前に公開された週は「公開中」
     if(!relData)return head+(relFailed?'<ol><li class="msg">読み込めませんでした。時間をおいて開き直してください。</li></ol>':skel(6))+tail;
-    const D=864e5,anchor=Date.parse(relData.anchor),WK=["2週前","先週","今週","来週","再来週"];
+    const D=864e5,now=new Date(),today=Date.UTC(now.getFullYear(),now.getMonth(),now.getDate()),dw=now.getDay();
+    const weekend=dw>=5||dw===0?today-((dw-5+7)%7)*D:today+(5-dw)*D;
     const wkOf=d=>{const t=Date.parse(d),dow=new Date(t).getUTCDay();return t-((dow-5+7)%7)*D};
+    const label=r=>r<0?"公開中":["今週末","来週末","再来週末"][r]||"";
     let last=null,h="";
     for(const m of relData.items){
       const w=wkOf(m.date);
-      if(w!==last){last=w;const rel=Math.round((w-anchor)/(7*D));h+=`<li class="wk${rel===0?" now":""}">${md(new Date(w).toISOString())}〜<span>${WK[rel+2]||""}</span></li>`}
-      h+=row(m,md(m.date),isUpcoming(m.date)?"公開予定":"上映中");
+      if(w!==last){last=w;const r=Math.round((w-weekend)/(7*D));h+=`<li class="wk${r===0?" now":r===-1?" prev":""}">${md(new Date(w).toISOString())}〜<span>${label(r)}</span></li>`}
+      h+=`<li><button type="button" data-tid="${m.id}"${cur&&cur[0]===m.title?' class="on" aria-current="true"':""}>${m.poster?`<img src="${IMG}${esc(m.poster)}" alt="" loading="lazy" width="24" height="36">`:'<span class="noimg"></span>'}<span class="tt">${esc(m.title)}</span></button></li>`;
     }
     return head+`<ol class="rel">${h||'<li class="msg">該当する作品がありません。</li>'}</ol>`+tail;
   }
@@ -933,8 +937,9 @@ function updateTop(){
   const n=t.firstElementChild,w=d.closest(".topwrap");
   if(n&&w){n.querySelector("details").open=d.open;w.replaceWith(n);bindTop();scrollRelToNow()}
 }
-// 公開日順の一覧は、開いたときに「今週」の見出しが一番上に来るようにする（前の週へは上にスクロールして戻れる）
-function scrollRelToNow(){const ol=$("#top .rel"),wk=ol?.querySelector(".wk.now");if(wk)ol.scrollTop=wk.offsetTop-ol.offsetTop}
+// 公開日順の一覧は、開いたときに直近の「公開中」（先週末に公開）の見出しが一番上に来るようにし、すぐ下に「今週末」が見えるようにする
+// （それより前の週へは上にスクロールして戻れる）
+function scrollRelToNow(){const ol=$("#top .rel"),wk=ol?.querySelector(".wk.prev")||ol?.querySelector(".wk.now");if(wk)ol.scrollTop=wk.offsetTop-ol.offsetTop}
 
 /* ===== イベント ===== */
 $("#q").addEventListener("input",onType);

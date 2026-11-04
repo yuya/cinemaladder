@@ -1,6 +1,6 @@
 // 日本の劇場公開日が「今週の前後2週間」の作品を TMDB から集め、data/releases.json に書き出す。
 // 日本の新作はたいてい金曜に公開されるので、週は金曜〜翌木曜で区切る。
-// 対象は、直近の金曜（今日が金曜なら今日）を「今週」として、2週前の金曜 〜 2週後の木曜（5週分）。
+// 対象は、基準の週末（金〜日はその週の金曜、月〜木はこの週の金曜）の2週前の金曜 〜 2週後の木曜（5週分）。
 // GitHub Actions から毎日実行する（範囲は金曜ごとに1週ずれ、そのあいだも新しく登録された作品が増える）。
 import { writeFile, mkdir } from "node:fs/promises";
 
@@ -24,7 +24,9 @@ const readable = t => !!t && !/[^\u0000-ɏ -⁯⺀-ヿ㐀-鿿豈-﫿＀-￯]/.
 const D = 864e5;
 const today = new Date(Date.now() + 9 * 3600e3);   // 日本時間の日付として扱う
 today.setUTCHours(0, 0, 0, 0);
-const anchor = new Date(today - ((today.getUTCDay() - 5 + 7) % 7) * D);   // 5＝金曜
+// 基準の週末：金〜日ならその週の金曜、月〜木ならこの週の金曜（画面の「今週末」と同じ）
+const dw = today.getUTCDay();
+const anchor = new Date(dw >= 5 || dw === 0 ? today - ((dw - 5 + 7) % 7) * D : +today + (5 - dw) * D);
 const ymd = d => d.toISOString().slice(0, 10);
 const from = ymd(new Date(anchor - 14 * D)), to = ymd(new Date(+anchor + 20 * D));
 
@@ -62,4 +64,4 @@ if (items.length < 5) throw new Error(`取得できた作品が少なすぎる�
 
 await mkdir("data", { recursive: true });
 await writeFile("data/releases.json", JSON.stringify({ updated: new Date().toISOString(), anchor: ymd(anchor), from, to, items }, null, 1) + "\n");
-console.log(`${from} 〜 ${to}（今週＝${ymd(anchor)}の週）: ${items.length}本`);
+console.log(`${from} 〜 ${to}（今週末＝${ymd(anchor)}）: ${items.length}本`);
