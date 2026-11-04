@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-04T23:16:25.966Z",
+ "updated": "2026-11-04T23:18:39.180Z",
  "anchor": "2026-10-30",
  "from": "2026-10-16",
  "to": "2026-11-19",
@@ -285,14 +285,6 @@
    "pop": 59.1
   },
   {
-   "id": 1730910,
-   "title": "Untitled",
-   "original": "Untitled",
-   "date": "2026-11-03",
-   "poster": null,
-   "pop": 0.2
-  },
-  {
    "id": 1283515,
    "title": "ヴェリティ／真実",
    "original": "Verity",
@@ -405,19 +397,19 @@
    "pop": 1.9
   },
   {
-   "id": 1236857,
-   "title": "楽園追放 心のレゾナンス",
-   "original": "楽園追放 心のレゾナンス",
-   "date": "2026-11-13",
-   "poster": "/cp9XcvYQgwFPQgfDi3Yjjq2I3dI.jpg",
-   "pop": 1.4
-  },
-  {
    "id": 1707955,
    "title": "呪いのスマホ",
    "original": "呪いのスマホ",
    "date": "2026-11-13",
    "poster": "/7ZsxOt6MnEf2Z67sEMJoEPKMPe4.jpg",
+   "pop": 1.4
+  },
+  {
+   "id": 1236857,
+   "title": "楽園追放 心のレゾナンス",
+   "original": "楽園追放 心のレゾナンス",
+   "date": "2026-11-13",
+   "poster": "/cp9XcvYQgwFPQgfDi3Yjjq2I3dI.jpg",
    "pop": 1.4
   },
   {
