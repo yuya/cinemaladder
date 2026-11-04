@@ -1,13 +1,54 @@
 {
- "updated": "2026-11-03T02:55:10.515Z",
+ "updated": "2026-11-04T01:20:59.107Z",
  "items": [
+  {
+   "id": 1423191,
+   "title": "バイオハザード",
+   "original": "Resident Evil",
+   "date": "2026-10-09",
+   "poster": "/wHXSnGH3zQtvpxPwaBXMoS9o8Vl.jpg",
+   "pop": 307.6596,
+   "info": {
+    "id": 1423191,
+    "title": "バイオハザード",
+    "original": "Resident Evil",
+    "poster": "/wHXSnGH3zQtvpxPwaBXMoS9o8Vl.jpg",
+    "date": "2026-09-16",
+    "jpDate": "2026-10-09",
+    "runtime": 95,
+    "tagline": "",
+    "overview": "ある医療品の配送を請け負った男を襲う、地獄の一夜。 男は、己の命運を懸けた壮絶なサバイバルを余儀なくされる…",
+    "overviewLang": "ja",
+    "genres": [
+     "ホラー",
+     "サイエンスフィクション",
+     "アドベンチャー"
+    ],
+    "countries": [
+     "US",
+     "DE",
+     "FR"
+    ],
+    "directors": [
+     "ザック・クレッガー"
+    ],
+    "cast": [
+     "オースティン・エイブラムス",
+     "ポール・ウォルター・ハウザー",
+     "Kali Reis",
+     "ザック・チェリー",
+     "Johnno Wilson",
+     "Shaun W. Loeser"
+    ]
+   }
+  },
   {
    "id": 1283515,
    "title": "ヴェリティ／真実",
    "original": "Verity",
    "date": "2026-11-06",
    "poster": "/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "pop": 236.8477,
+   "pop": 235.311,
    "info": {
     "id": 1283515,
     "title": "ヴェリティ／真実",
@@ -45,7 +86,7 @@
    "original": "Clayface",
    "date": "2026-10-30",
    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-   "pop": 158.4535,
+   "pop": 129.4041,
    "info": {
     "id": 1400940,
     "title": "クレイフェイス",
@@ -79,43 +120,39 @@
    }
   },
   {
-   "id": 1423191,
-   "title": "バイオハザード",
-   "original": "Resident Evil",
-   "date": "2026-10-09",
-   "poster": "/wHXSnGH3zQtvpxPwaBXMoS9o8Vl.jpg",
-   "pop": 105.3982,
+   "id": 1400837,
+   "title": "アザー・マミー",
+   "original": "Other Mommy",
+   "date": "2026-11-20",
+   "poster": "/fGRNCssTRrhYZxNzykGGCoMsAVq.jpg",
+   "pop": 82.9231,
    "info": {
-    "id": 1423191,
-    "title": "バイオハザード",
-    "original": "Resident Evil",
-    "poster": "/wHXSnGH3zQtvpxPwaBXMoS9o8Vl.jpg",
-    "date": "2026-09-16",
-    "jpDate": "2026-10-09",
-    "runtime": 95,
+    "id": 1400837,
+    "title": "アザー・マミー",
+    "original": "Other Mommy",
+    "poster": "/fGRNCssTRrhYZxNzykGGCoMsAVq.jpg",
+    "date": "2026-10-07",
+    "jpDate": "2026-11-20",
+    "runtime": 93,
     "tagline": "",
-    "overview": "ある医療品の配送を請け負った男を襲う、地獄の一夜。 男は、己の命運を懸けた壮絶なサバイバルを余儀なくされる…",
-    "overviewLang": "ja",
+    "overview": "Young Bela forms a relationship with a sinister entity in her home that looks uncannily like her own mother, drawing her into a terrifying and increasingly dark world.",
+    "overviewLang": "en",
     "genres": [
-     "ホラー",
-     "サイエンスフィクション",
-     "アドベンチャー"
+     "ホラー"
     ],
     "countries": [
-     "US",
-     "DE",
-     "FR"
+     "US"
     ],
     "directors": [
-     "ザック・クレッガー"
+     "ロブ・サヴェージ"
     ],
     "cast": [
-     "オースティン・エイブラムス",
-     "ポール・ウォルター・ハウザー",
-     "Kali Reis",
-     "ザック・チェリー",
-     "Johnno Wilson",
-     "Shaun W. Loeser"
+     "ジェシカ・チャステイン",
+     "ジェイ・デュプラス",
+     "Arabella Olivia Clark",
+     "カレン・アレン",
+     "アリアン・モーイエド",
+     "ディーチェン・ラックマン"
     ]
    }
   },
@@ -125,7 +162,7 @@
    "original": "Street Fighter",
    "date": "2026-10-16",
    "poster": "/1JBlbyXionXPRaqW1UQw7eKkxNP.jpg",
-   "pop": 88.6965,
+   "pop": 75.2224,
    "info": {
     "id": 1153576,
     "title": "ストリートファイター／ザ・ムービー",
@@ -159,49 +196,12 @@
    }
   },
   {
-   "id": 1400837,
-   "title": "アザー・マミー",
-   "original": "Other Mommy",
-   "date": "2026-11-20",
-   "poster": "/fGRNCssTRrhYZxNzykGGCoMsAVq.jpg",
-   "pop": 87.5008,
-   "info": {
-    "id": 1400837,
-    "title": "アザー・マミー",
-    "original": "Other Mommy",
-    "poster": "/fGRNCssTRrhYZxNzykGGCoMsAVq.jpg",
-    "date": "2026-10-07",
-    "jpDate": "2026-11-20",
-    "runtime": 93,
-    "tagline": "",
-    "overview": "Young Bela forms a relationship with a sinister entity in her home that looks uncannily like her own mother, drawing her into a terrifying and increasingly dark world.",
-    "overviewLang": "en",
-    "genres": [
-     "ホラー"
-    ],
-    "countries": [
-     "US"
-    ],
-    "directors": [
-     "ロブ・サヴェージ"
-    ],
-    "cast": [
-     "ジェシカ・チャステイン",
-     "ジェイ・デュプラス",
-     "Arabella Olivia Clark",
-     "カレン・アレン",
-     "アリアン・モーイエド",
-     "ディーチェン・ラックマン"
-    ]
-   }
-  },
-  {
    "id": 1275779,
    "title": "ディスクロージャー・デイ",
    "original": "Disclosure Day",
    "date": "2026-10-01",
    "poster": "/vDnJLpE2jhu8OVcwpWuYCMF5hRU.jpg",
-   "pop": 80.2337,
+   "pop": 70.0102,
    "info": {
     "id": 1275779,
     "title": "ディスクロージャー・デイ",
@@ -234,39 +234,41 @@
    }
   },
   {
-   "id": 1263337,
-   "title": "ハート・オブ・ビースト",
-   "original": "Heart of the Beast",
-   "date": "2026-09-25",
-   "poster": "/mGmnmCtodvzhpnMFQoZkeGDDVjU.jpg",
-   "pop": 78.2066,
+   "id": 1381071,
+   "title": "ゴジラ-0.0",
+   "original": "ゴジラ-0.0",
+   "date": "2026-11-03",
+   "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
+   "pop": 59.1105,
    "info": {
-    "id": 1263337,
-    "title": "ハート・オブ・ビースト",
-    "original": "Heart of the Beast",
-    "poster": "/mGmnmCtodvzhpnMFQoZkeGDDVjU.jpg",
-    "date": "2026-09-19",
-    "jpDate": "2026-09-25",
-    "runtime": 101,
-    "tagline": "生きて、マイホームに還ろう。",
-    "overview": "アラスカ上空を飛行中、不意のアクシデントにより“魔の領域（ハート・オブ・ビースト）”と呼ばれる奥地に不時着した、退役兵のジェームズと元偵察犬で義足のオーディン。立ちはだかる大自然を乗り越え「生きて還る」には、愛する存在のためにすべてを捧げる覚悟が必要だった。",
+    "id": 1381071,
+    "title": "ゴジラ-0.0",
+    "original": "ゴジラ-0.0",
+    "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
+    "date": "2026-11-03",
+    "jpDate": "2026-11-03",
+    "runtime": 135,
+    "tagline": "人類の罪と罰。もう、無(ゼロ)には戻れない。",
+    "overview": "第96回アカデミー賞でアジア映画として初の視覚効果賞を受賞するなど、世界的に大きな話題を集めた「ゴジラ－1.0」の続編。山崎貴が引き続き監督・脚本・VFXを担い、前作から2年後の世界を舞台に、再び姿を現したゴジラとの新たな戦いを描き出す。  戦争によって「無（ゼロ）」となった日本を、ゴジラが「負（マイナス）」に叩き落としてから2年。もがき苦しみながらも復興を遂げ、ようやく取り戻したはずの日常に、再びゴジラが襲いかかる。人々はこの戦いを終わらせるべく、総力を結集して新たな作戦に乗り出す。  キャストは、前作でゴジラと壮絶な死闘を繰り広げた主人公・敷島浩一役の神木隆之介、ゴジラに襲われながらも奇跡的に一命をとりとめたヒロイン・敷島典子役の浜辺美波をはじめ、山田裕貴、佐々木蔵之介、安藤サクラ、吉岡秀隆ら前作の顔ぶれが再集結。さらに新たなメンバーとして、気象台から大型災害対策事務局に出向した天才気象予報官・青山真琴役で長澤まさみ、戦争で心に深い傷を負った生物学者・村上寛治役で田中泯、医師・緒方役で國村隼が出演。",
     "overviewLang": "ja",
     "genres": [
-     "アドベンチャー",
-     "スリラー"
+     "サイエンスフィクション",
+     "ホラー",
+     "アクション"
     ],
     "countries": [
-     "US"
+     "JP"
     ],
     "directors": [
-     "デヴィッド・エアー"
+     "山崎貴"
     ],
     "cast": [
-     "ブラッド・ピット",
-     "Ｊ・Ｋ・シモンズ",
-     "アンナ・ラム",
-     "Justin Melnick",
-     "Shaun DeZern"
+     "神木隆之介",
+     "浜辺美波",
+     "山田裕貴",
+     "佐々木蔵之介",
+     "國村隼",
+     "田中美央"
     ]
    }
   },
@@ -276,7 +278,7 @@
    "original": "Digger",
    "date": "2026-10-09",
    "poster": "/vi2HvWOBtR1pcr4vBoYe43ldkuu.jpg",
-   "pop": 65.6477,
+   "pop": 55.9224,
    "info": {
     "id": 1248832,
     "title": "DIGGER／ディガー",
@@ -314,7 +316,7 @@
    "original": "Whalefall",
    "date": "2026-10-16",
    "poster": "/vjTYUTgh9nO88i6HZ4YPRhiFL05.jpg",
-   "pop": 61.6254,
+   "pop": 51.7985,
    "info": {
     "id": 1255833,
     "title": "クジラに落ちた男",
@@ -346,41 +348,41 @@
    }
   },
   {
-   "id": 1381071,
-   "title": "ゴジラ-0.0",
-   "original": "ゴジラ-0.0",
-   "date": "2026-11-03",
-   "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
-   "pop": 26.0668,
+   "id": 1567605,
+   "title": "クリスマス・キャロル／3人のゴーストたち",
+   "original": "Ebenezer",
+   "date": "2026-11-13",
+   "poster": "/6H2N59jJW1hZEzn2ZdrMvJw5vNI.jpg",
+   "pop": 20.3449,
    "info": {
-    "id": 1381071,
-    "title": "ゴジラ-0.0",
-    "original": "ゴジラ-0.0",
-    "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
-    "date": "2026-11-03",
-    "jpDate": "2026-11-03",
-    "runtime": 135,
-    "tagline": "人類の罪と罰。もう、無(ゼロ)には戻れない。",
-    "overview": "第96回アカデミー賞でアジア映画として初の視覚効果賞を受賞するなど、世界的に大きな話題を集めた「ゴジラ－1.0」の続編。山崎貴が引き続き監督・脚本・VFXを担い、前作から2年後の世界を舞台に、再び姿を現したゴジラとの新たな戦いを描き出す。  戦争によって「無（ゼロ）」となった日本を、ゴジラが「負（マイナス）」に叩き落としてから2年。もがき苦しみながらも復興を遂げ、ようやく取り戻したはずの日常に、再びゴジラが襲いかかる。人々はこの戦いを終わらせるべく、総力を結集して新たな作戦に乗り出す。  キャストは、前作でゴジラと壮絶な死闘を繰り広げた主人公・敷島浩一役の神木隆之介、ゴジラに襲われながらも奇跡的に一命をとりとめたヒロイン・敷島典子役の浜辺美波をはじめ、山田裕貴、佐々木蔵之介、安藤サクラ、吉岡秀隆ら前作の顔ぶれが再集結。さらに新たなメンバーとして、気象台から大型災害対策事務局に出向した天才気象予報官・青山真琴役で長澤まさみ、戦争で心に深い傷を負った生物学者・村上寛治役で田中泯、医師・緒方役で國村隼が出演。",
-    "overviewLang": "ja",
+    "id": 1567605,
+    "title": "クリスマス・キャロル／3人のゴーストたち",
+    "original": "Ebenezer",
+    "poster": "/6H2N59jJW1hZEzn2ZdrMvJw5vNI.jpg",
+    "date": "2026-11-11",
+    "jpDate": "2026-11-13",
+    "runtime": 115,
+    "tagline": "",
+    "overview": "An elderly miser embarks on a supernatural journey after visits from the ghost of his former business partner and the Spirits of Christmas Past, Present, and Yet to Come force him to confront his past and fight for a second chance at happiness.",
+    "overviewLang": "en",
     "genres": [
-     "サイエンスフィクション",
-     "ホラー",
-     "アクション"
+     "ファンタジー",
+     "コメディ"
     ],
     "countries": [
-     "JP"
+     "US",
+     "GB"
     ],
     "directors": [
-     "山崎貴"
+     "タイ・ウェスト"
     ],
     "cast": [
-     "神木隆之介",
-     "浜辺美波",
-     "山田裕貴",
-     "佐々木蔵之介",
-     "國村隼",
-     "田中美央"
+     "ジョニー・デップ",
+     "ルパート・グリント",
+     "デイジー・リドリー",
+     "アンドレア・ライズボロー",
+     "トラメル・ティルマン",
+     "イアン・マッケラン"
     ]
    }
   }
