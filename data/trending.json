@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-04T01:20:59.107Z",
+ "updated": "2026-11-04T23:16:57.169Z",
  "items": [
   {
    "id": 1423191,
@@ -15,7 +15,7 @@
     "poster": "/wHXSnGH3zQtvpxPwaBXMoS9o8Vl.jpg",
     "date": "2026-09-16",
     "jpDate": "2026-10-09",
-    "runtime": 95,
+    "runtime": 94,
     "tagline": "",
     "overview": "ある医療品の配送を請け負った男を襲う、地獄の一夜。 男は、己の命運を懸けた壮絶なサバイバルを余儀なくされる…",
     "overviewLang": "ja",
@@ -35,10 +35,10 @@
     "cast": [
      "オースティン・エイブラムス",
      "ポール・ウォルター・ハウザー",
-     "Kali Reis",
+     "カリ・レイス",
      "ザック・チェリー",
-     "Johnno Wilson",
-     "Shaun W. Loeser"
+     "ジョノ・ウィルソン",
+     "ショウン・W・レーザー"
     ]
    }
   },
@@ -48,7 +48,7 @@
    "original": "Verity",
    "date": "2026-11-06",
    "poster": "/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "pop": 235.311,
+   "pop": 218.0504,
    "info": {
     "id": 1283515,
     "title": "ヴェリティ／真実",
@@ -120,12 +120,51 @@
    }
   },
   {
+   "id": 1302904,
+   "title": "プラティカル・マジック／魔女たちの秘密",
+   "original": "Practical Magic 2",
+   "date": "2026-11-27",
+   "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
+   "pop": 88.2542,
+   "info": {
+    "id": 1302904,
+    "title": "プラティカル・マジック／魔女たちの秘密",
+    "original": "Practical Magic 2",
+    "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
+    "date": "2026-09-09",
+    "jpDate": "2026-11-27",
+    "runtime": 130,
+    "tagline": "",
+    "overview": "The Owens sisters must confront the dark curse that threatens to unravel their family once and for all.",
+    "overviewLang": "en",
+    "genres": [
+     "ロマンス",
+     "ファンタジー",
+     "コメディ"
+    ],
+    "countries": [
+     "US"
+    ],
+    "directors": [
+     "スサンネ・ビア"
+    ],
+    "cast": [
+     "サンドラ・ブロック",
+     "ニコール・キッドマン",
+     "ジョーイ・キング",
+     "メイジー・ウィリアムズ",
+     "ショロ・マリデュエニャ",
+     "リー・ペイス"
+    ]
+   }
+  },
+  {
    "id": 1400837,
    "title": "アザー・マミー",
    "original": "Other Mommy",
    "date": "2026-11-20",
    "poster": "/fGRNCssTRrhYZxNzykGGCoMsAVq.jpg",
-   "pop": 82.9231,
+   "pop": 75.5258,
    "info": {
     "id": 1400837,
     "title": "アザー・マミー",
@@ -344,45 +383,6 @@
      "ジョン・オーティス",
      "ジェーン・レヴィ",
      "エミリー・ラッド"
-    ]
-   }
-  },
-  {
-   "id": 1567605,
-   "title": "クリスマス・キャロル／3人のゴーストたち",
-   "original": "Ebenezer",
-   "date": "2026-11-13",
-   "poster": "/6H2N59jJW1hZEzn2ZdrMvJw5vNI.jpg",
-   "pop": 20.3449,
-   "info": {
-    "id": 1567605,
-    "title": "クリスマス・キャロル／3人のゴーストたち",
-    "original": "Ebenezer",
-    "poster": "/6H2N59jJW1hZEzn2ZdrMvJw5vNI.jpg",
-    "date": "2026-11-11",
-    "jpDate": "2026-11-13",
-    "runtime": 115,
-    "tagline": "",
-    "overview": "An elderly miser embarks on a supernatural journey after visits from the ghost of his former business partner and the Spirits of Christmas Past, Present, and Yet to Come force him to confront his past and fight for a second chance at happiness.",
-    "overviewLang": "en",
-    "genres": [
-     "ファンタジー",
-     "コメディ"
-    ],
-    "countries": [
-     "US",
-     "GB"
-    ],
-    "directors": [
-     "タイ・ウェスト"
-    ],
-    "cast": [
-     "ジョニー・デップ",
-     "ルパート・グリント",
-     "デイジー・リドリー",
-     "アンドレア・ライズボロー",
-     "トラメル・ティルマン",
-     "イアン・マッケラン"
     ]
    }
   }
