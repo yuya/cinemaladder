@@ -10,6 +10,7 @@
 - `functions/index.js` … Cloudflare Pages Functions。`/?q=作品名` で開かれたとき、HTML の題名・説明文・正規URLを作品名入りに書き換えて返す（共有のプレビューや検索エンジン向け。JS を動かさずに読まれるため）。push するだけで Pages が一緒に公開する
 - `worker/worker.js` / `worker/wrangler.toml` … TMDB 中継（Cloudflare Workers、名前は cinemaladder-api）。https://cinemaladder-api.twilightwind.workers.dev で稼働。サジェスト・作品情報・英語あらすじの機械翻訳（DeepL、使えないときは Workers AI）。main の worker/ が変わると `.github/workflows/worker.yml` が自動で公開する（GitHub の Secret：CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID / DEEPL_API_KEY。DeepL のキーは公開のたびに Worker の Secret へ渡す）
 - `data/trending.json` … 話題作TOP10。GitHub Actions が毎日自動更新（手で編集しない）
+- `data/releases.json` … 日本の公開日が今週の前後2週間（金曜〜木曜の週で5週分）の作品。「いま話題の映画」の「公開日順」タブで使う。`scripts/fetch-releases.mjs` で Actions が毎日更新
 - `data/titles.json` … 検索ボックスのサジェスト用の作品一覧（数千本）。Actions が毎日自動更新
 - `scripts/fetch-trending.mjs` / `scripts/fetch-titles.mjs` … 上の2つの JSON を作るスクリプト
 - `scripts/fetch-icons.mjs` … ファビコンを取得するスクリプト（サイトを増やしたらここにも追加）

@@ -34,6 +34,11 @@ jobs:
         run: node scripts/fetch-trending.mjs
         env:
           TMDB_TOKEN: ${{ secrets.TMDB_TOKEN }}
+      - name: 公開日の前後2週間の作品一覧を取得
+        if: steps.chk.outputs.ok
+        run: if [ -f scripts/fetch-releases.mjs ]; then node scripts/fetch-releases.mjs; else echo "fetch-releases.mjs がないので飛ばします"; fi
+        env:
+          TMDB_TOKEN: ${{ secrets.TMDB_TOKEN }}
       - name: サジェスト用の作品一覧を取得
         if: steps.chk.outputs.ok
         run: node scripts/fetch-titles.mjs
@@ -51,6 +56,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
           git add data/trending.json data/titles.json icons index.html
+          git add data/releases.json 2>/dev/null || true
           if git diff --cached --quiet; then echo "変更なし"; exit 0; fi
           git commit -m "話題作TOP10と作品一覧を更新"
           git pull --rebase -q origin ${{ matrix.branch }}
