@@ -301,13 +301,16 @@ details[open] > summary::before{transform:rotate(90deg)}
 .top .ttabs button{width:auto;display:block;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:999px;padding:3px 12px;font-size:13px;font-weight:700}
 .top .ttabs button[aria-selected="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
 /* 公開日順：週ごとの見出し。一覧は箱の中だけでスクロールし、ページ全体は長くしない */
-.top ol.rel{max-height:min(60vh,520px);overflow-y:auto;overscroll-behavior:contain}
+.top ol.rel{max-height:min(60vh,520px);overflow-y:auto;overscroll-behavior:contain;padding-bottom:16px;
+  -webkit-mask:linear-gradient(transparent,#000 8px,#000 calc(100% - 24px),transparent);mask:linear-gradient(transparent,#000 8px,#000 calc(100% - 24px),transparent)}   /* 上下の端は切らずに薄くする */
+.top .wkg>ol{margin:0;padding-top:8px}
 /* 公開日順は1行を低くして、たくさん見られるようにする（ポスターを小さく、作品名だけ） */
 .top .rel button{grid-template-columns:24px minmax(0,1fr);padding:4px}
 .top .rel img,.top .rel .noimg{width:24px;height:36px;border-radius:2px}
-.top .wk{position:sticky;top:0;z-index:1;background:var(--surface);font-size:12px;font-weight:700;color:var(--muted);padding:8px 4px 4px;letter-spacing:.04em}
+.top .wk{position:sticky;top:0;z-index:1;background:var(--surface);font-size:12px;font-weight:700;color:var(--muted);padding:8px 4px 0;letter-spacing:.04em}
+.top .wk::after{content:"";position:absolute;left:0;right:0;top:100%;height:12px;background:linear-gradient(var(--surface),transparent);pointer-events:none}   /* 見出しの下に潜る作品を薄くする */
 .top .wk span{margin-left:8px;font-weight:400}
-.top .wk.now{color:var(--accent)}
+.top .wk.cur{color:var(--accent)}
 .top .sk{display:grid;grid-template-columns:22px 32px minmax(0,1fr);gap:10px;align-items:center;padding:6px 4px}
 .top .sk i{display:block;height:10px;border-radius:5px;background:var(--bg);width:70%}
 .top .sk i+i{width:30%;margin-top:8px}
@@ -642,12 +645,14 @@ function trendHTML(){
     const weekend=dw>=5||dw===0?today-((dw-5+7)%7)*D:today+(5-dw)*D;
     const wkOf=d=>{const t=Date.parse(d),dow=new Date(t).getUTCDay();return t-((dow-5+7)%7)*D};
     const label=r=>r<0?"公開中":["今週末","来週末","再来週末"][r]||"";
+    // 週ごとに <li> でまとめる。見出しはその週の中でだけ上に留まるので、次の週の見出しが来ると押し出される（重ならない）
     let last=null,h="";
     for(const m of relData.items){
       const w=wkOf(m.date);
-      if(w!==last){last=w;const r=Math.round((w-weekend)/(7*D));h+=`<li class="wk${r===0?" now":r===-1?" prev":""}">${md(new Date(w).toISOString())}〜<span>${label(r)}</span></li>`}
+      if(w!==last){h+=(last===null?"":"</ol></li>");last=w;const r=Math.round((w-weekend)/(7*D));h+=`<li class="wkg"><div class="wk${r===0?" cur":r===-1?" prev":""}">${md(new Date(w).toISOString())}〜<span>${label(r)}</span></div><ol>`}
       h+=`<li><button type="button" data-tid="${m.id}"${cur&&cur[0]===m.title?' class="on" aria-current="true"':""}>${m.poster?`<img src="${IMG}${esc(m.poster)}" alt="" loading="lazy" width="24" height="36">`:'<span class="noimg"></span>'}<span class="tt">${esc(m.title)}</span></button></li>`;
     }
+    if(h)h+="</ol></li>";
     return head+`<ol class="rel">${h||'<li class="msg">該当する作品がありません。</li>'}</ol>`+tail;
   }
   // 読み込み前も同じ高さの仮の行を出しておき、届いたときに下の内容がずれないようにする
@@ -954,11 +959,11 @@ function scrollRelToNow(){
   const sv=store.get("cl_relPos",null),top=el=>el.offsetTop-ol.offsetTop;
   const el=sv&&sv.anchor===relData?.anchor&&ol.querySelector(`[data-tid="${+sv.id}"]`)?.closest("li");
   if(el)ol.scrollTop=top(el)+(sv.off||0);
-  else{const wk=ol.querySelector(".wk.prev")||ol.querySelector(".wk.now");if(wk)ol.scrollTop=top(wk)}
+  else{const wk=ol.querySelector(".wk.prev")||ol.querySelector(".wk.cur");if(wk)ol.scrollTop=top(wk)}
   if(ol.dataset.watch)return;ol.dataset.watch="1";   // 覚える処理は一覧ごとに1回だけ付ける
   let t=null;
   ol.addEventListener("scroll",()=>{clearTimeout(t);t=setTimeout(()=>{   // スクロールが止まったら、いちばん上に見えている作品を覚える
-    const li=[...ol.querySelectorAll("li:has([data-tid])")].find(li=>top(li)+li.offsetHeight>ol.scrollTop);
+    const li=[...ol.querySelectorAll("li:has(>[data-tid])")].find(li=>top(li)+li.offsetHeight>ol.scrollTop);
     if(li)store.set("cl_relPos",{anchor:relData?.anchor,id:+li.querySelector("[data-tid]").dataset.tid,off:Math.round(ol.scrollTop-top(li))});
   },200)},{passive:true});
 }
