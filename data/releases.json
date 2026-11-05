@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05T01:27:47.972Z",
+ "updated": "2026-11-05T01:27:32.221Z",
  "anchor": "2026-10-30",
  "from": "2026-10-16",
  "to": "2026-11-26",
@@ -141,19 +141,19 @@
    "pop": 2.4
   },
   {
+   "id": 1473439,
+   "title": "バッド・ルーテナント：トウキョウ",
+   "original": "バッド・ルーテナント：トウキョウ",
+   "date": "2026-10-23",
+   "poster": "/paHhnxAaquGELtqtzdYQfR281Kb.jpg",
+   "pop": 2.2
+  },
+  {
    "id": 1053231,
    "title": "BOSS／ボス",
    "original": "보스",
    "date": "2026-10-23",
    "poster": "/fkKBSgw4yv1C7d3n2UP5UvGRS2q.jpg",
-   "pop": 2.2
-  },
-  {
-   "id": 1184941,
-   "title": "Blue Heron/ブルーヘロン",
-   "original": "Blue Heron",
-   "date": "2026-10-23",
-   "poster": "/paHhnxAaquGELtqtzdYQfR281Kb.jpg",
    "pop": 2.2
   },
   {
@@ -205,19 +205,19 @@
    "pop": 1.8
   },
   {
-   "id": 1646897,
-   "title": "RYUJI ⻯⼆",
-   "original": "RYUJI ⻯⼆",
-   "date": "2026-10-30",
-   "poster": "/xPfcMiKjHvZfFGyjRVFa8PxKFc0.jpg",
-   "pop": 1.6
-  },
-  {
    "id": 1102390,
    "title": "煙突の中の雀",
    "original": "Der Spatz im Kamin",
    "date": "2026-10-30",
    "poster": "/yX4ZvG4ly26ePyfOkkx6dIHeVWN.jpg",
+   "pop": 1.6
+  },
+  {
+   "id": 1646897,
+   "title": "RYUJI ⻯⼆",
+   "original": "RYUJI ⻯⼆",
+   "date": "2026-10-30",
+   "poster": "/xPfcMiKjHvZfFGyjRVFa8PxKFc0.jpg",
    "pop": 1.6
   },
   {
@@ -261,19 +261,19 @@
    "pop": 0.4
   },
   {
-   "id": 1807421,
-   "title": "私がまだ知らない沖縄",
-   "original": "私がまだ知らない沖縄",
-   "date": "2026-10-31",
-   "poster": "/dMgeb6YgLAmYUFQyUK9q0KD4Zxw.jpg",
-   "pop": 0.3
-  },
-  {
    "id": 1807401,
    "title": "京都ALS患者嘱託殺人事件",
    "original": "京都ALS患者嘱託殺人事件",
    "date": "2026-10-31",
    "poster": "/sQ8zvmDBuiNcPQrAwCSIf7YPlpy.jpg",
+   "pop": 0.3
+  },
+  {
+   "id": 1807421,
+   "title": "私がまだ知らない沖縄",
+   "original": "私がまだ知らない沖縄",
+   "date": "2026-10-31",
+   "poster": "/dMgeb6YgLAmYUFQyUK9q0KD4Zxw.jpg",
    "pop": 0.3
   },
   {
@@ -301,19 +301,19 @@
    "pop": 7.7
   },
   {
-   "id": 1313587,
-   "title": "GROTESQQQUE -グロテスク-",
-   "original": "GROTESQQQUE -グロテスク-",
-   "date": "2026-11-06",
-   "poster": "/4N7euiV0uozyZGFL59BL5FxNRyL.jpg",
-   "pop": 2.1
-  },
-  {
    "id": 1567149,
    "title": "仮面ライダーカブト20th 天を継ぐもの",
    "original": "仮面ライダーカブト20th 天を継ぐもの",
    "date": "2026-11-06",
    "poster": "/5LBfnGFPXn5hUmywY7L4jDTEi9E.jpg",
+   "pop": 2.1
+  },
+  {
+   "id": 1313587,
+   "title": "GROTESQQQUE -グロテスク-",
+   "original": "GROTESQQQUE -グロテスク-",
+   "date": "2026-11-06",
+   "poster": "/4N7euiV0uozyZGFL59BL5FxNRyL.jpg",
    "pop": 2.1
   },
   {

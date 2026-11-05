@@ -38,7 +38,7 @@
 :root[data-theme="dark"]{
   --bg:#111115;--surface:#1A1A20;--fg:#ECECF1;--muted:#A0A0AC;--line:#2C2C35;--accent:#E8607A;--accent-soft:#3A1D25;--sk:#2A2A32;color-scheme:dark}
 *{box-sizing:border-box}
-html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{-webkit-tap-highlight-color:transparent;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 /* 和文の字間を詰める（palt）をサイト全体にかける。部分ごとに付けると漏れが出るため */
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:15px;line-height:1.6;font-feature-settings:"palt" 1;text-autospace:normal}   /* 和文と英数字のあいだに、ブラウザが細い空きを入れる（文中には半角スペースを入れない） */
 button,input{font:inherit;color:inherit;font-feature-settings:inherit}
@@ -97,12 +97,13 @@ body > header::before{content:"";position:absolute;inset:0 0 auto;height:100%;ba
 /* 候補の一覧は、一覧の中だけでスクロールする。端まで行っても後ろのページは動かさない（overscroll-behavior）。
    高さは、キーボードを除いた見えている範囲に収める（--sugmax を下の fitSug で計算） */
 .sug li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:10px;align-items:center;padding:6px 8px;border-radius:8px;cursor:pointer}
-.sug li[aria-selected="true"],.sug li:hover{background:var(--accent-soft)}
+.sug li[aria-selected="true"]{background:var(--accent-soft)}
+@media (hover:hover){.sug li:hover{background:var(--accent-soft)}}
 .sug img,.sug .noimg{width:36px;height:54px;border-radius:4px;object-fit:cover;background:var(--bg)}
 .sug .t{display:block;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sug .o{display:block;font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sug .msg{display:block;padding:10px;color:var(--muted);font-size:13px;cursor:default}
-.sug .msg:hover{background:none}
+@media (hover:hover){.sug .msg:hover{background:none}}
 
 /* 履歴：チップの列だけ横スクロールし、全削除ボタンは右端に固定して見切れないようにする */
 .hist{display:flex;gap:6px;align-items:center}
@@ -116,10 +117,10 @@ body > header::before{content:"";position:absolute;inset:0 0 auto;height:100%;ba
 .hist .hc button{border:0;background:transparent;border-radius:999px}
 .hist .hc [data-q]{padding:3px 2px 3px 11px}
 .hist .x{padding:3px 10px 3px 6px;color:var(--muted);line-height:1}
-.hist .x:hover{color:var(--accent)}
+@media (hover:hover){.hist .x:hover{color:var(--accent)}}
 .hist .delall{flex:none;display:flex;align-items:center;gap:4px;height:30px;min-width:30px;justify-content:center;border:1px solid transparent;background:transparent;color:var(--muted);border-radius:999px;padding:0 6px;font-size:12px;font-weight:700;white-space:nowrap}
 .hist .delall svg{width:16px;height:16px}
-.hist .delall:hover{color:var(--accent)}
+@media (hover:hover){.hist .delall:hover{color:var(--accent)}}
 .hist .delall{transition:color .2s ease,border-color .2s ease,background-color .2s ease,padding .25s ease}
 .hist .delall.warn{color:var(--accent);border-color:var(--accent);background:var(--accent-soft);padding:0 10px 0 8px}
 /* 「全削除」の文字は最初から入れておき、幅と濃さをなめらかに変えて出し入れする */
@@ -146,7 +147,7 @@ main{max-width:800px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-lef
 @media (prefers-reduced-motion:reduce){.now .meta .sk,.now .meta .in{animation:none}}
 /* 共有は控えめに：枠なし・アイコンだけで、「あらすじ・キャスト」の行の右端に置く。押せる範囲は32pxのまま、上下は行の高さに食い込ませる */
 .share{flex:none;display:grid;place-items:center;width:32px;height:32px;margin:-6px -6px -6px 0;border:0;background:transparent;color:var(--muted);border-radius:8px;padding:0}
-.share:hover{color:var(--accent);background:var(--accent-soft)}
+@media (hover:hover){.share:hover{color:var(--accent);background:var(--accent-soft)}}
 .share svg{width:17px;height:17px}
 /* 本番（cinemaladder.com）以外で開いたときだけ右下に薄く出す目印 */
 .envbadge{position:fixed;right:calc(10px + env(safe-area-inset-right,0px));bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:30;margin:0;pointer-events:none;
@@ -165,7 +166,7 @@ main{max-width:800px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-lef
 /* 話題作を表示しているときだけ、ポスターと見出しの上に横いっぱいで出す1行（ふだんの「検索中の作品」は画面には出さない） */
 .now > .k{grid-column:1/-1;margin:0 0 -6px}
 .now .k .kl{border:0;background:none;padding:0;margin-left:10px;font:inherit;letter-spacing:.04em;font-weight:400;color:inherit;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
-.now .k .kl:hover{color:var(--accent)}
+@media (hover:hover){.now .k .kl:hover{color:var(--accent)}}
 .now h1{margin:0 0 3px;font-size:clamp(22px,6.4vw,26px);line-height:1.2;text-wrap:balance;word-break:auto-phrase;overflow-wrap:anywhere}
 /* 区切りで改行すると3行以上になる長い作品名は、普通の折り返しに切り替えて詰めて並べる（最後の行が1〜2文字だけにならないよう pretty） */
 .now h1.long{text-wrap:pretty;word-break:normal}
@@ -211,7 +212,7 @@ main{max-width:800px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-lef
 .grid li > a{flex:1;min-width:0}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 a.go{display:flex;flex-direction:column;gap:1px;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 12px;min-height:64px;justify-content:center;transition:border-color .12s,transform .12s}
-a.go:hover{border-color:var(--accent)}
+@media (hover:hover){a.go:hover{border-color:var(--accent)}}
 a.go:active{transform:scale(.98)}
 /* 1行に収める工夫：
    - 和文の字間は body の palt で詰めている
@@ -243,7 +244,7 @@ a.go .fav{width:16px;height:16px;border-radius:3px;flex:none;background-position
 /* 外部リンクのアイコン（TOP10 の右上と同じ形）。mask にして文字色に合わせる */
 :root{--ext:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5'/%3E%3C/svg%3E")}
 a.go .n::after{content:"";position:absolute;top:9px;right:9px;width:14px;height:14px;background:var(--muted);-webkit-mask:var(--ext) center/contain no-repeat;mask:var(--ext) center/contain no-repeat}
-a.go:hover .n::after{background:var(--accent)}
+@media (hover:hover){a.go:hover .n::after{background:var(--accent)}}
 a.go .d{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pr{font-size:10px;font-weight:700;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:0 4px;line-height:1.5}
 
@@ -258,12 +259,12 @@ a.go .d{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;tex
 .guide dt{font-weight:700}
 .guide dd{margin:0;color:var(--muted)}
 body > footer a{color:inherit;text-decoration:underline;text-underline-offset:2px}
-body > footer a:hover{color:var(--accent)}
+@media (hover:hover){body > footer a:hover{color:var(--accent)}}
 .flinks{display:flex;gap:16px;flex-wrap:wrap}
 /* 表示の切り替え（フッター）。選んでいるものだけ薄い背景で示す */
 .themes{display:flex;align-items:center;gap:2px;flex-wrap:wrap}
 .themes button{border:0;background:none;color:inherit;font-size:12px;padding:3px 8px;border-radius:999px}
-.themes button:hover{color:var(--accent)}
+@media (hover:hover){.themes button:hover{color:var(--accent)}}
 .themes button[aria-pressed="true"]{background:var(--line);color:var(--fg);font-weight:700}
 body > footer{max-width:800px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:8px 32px;font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:10px}
 details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
@@ -280,7 +281,7 @@ details[open] > summary::before{transform:rotate(90deg)}
 .topwrap{position:relative}
 .top ol{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column}
 .toplink{position:absolute;top:6px;right:8px;width:32px;height:32px;display:grid;place-items:center;border-radius:8px;color:var(--muted)}
-.toplink:hover{color:var(--accent);background:var(--accent-soft)}
+@media (hover:hover){.toplink:hover{color:var(--accent);background:var(--accent-soft)}}
 .toplink svg{width:16px;height:16px}
 .ng{margin-top:8px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:13px}
 .ng summary{font-weight:700;font-size:13px}
@@ -289,7 +290,7 @@ details[open] > summary::before{transform:rotate(90deg)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{display:inline-flex;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:2px 2px 2px 10px;font-size:13px;line-height:1.5}
 .chip button{border:0;background:transparent;color:var(--muted);width:24px;height:24px;border-radius:50%;font-size:14px;line-height:1}
-.chip button:hover{color:var(--accent);background:var(--accent-soft)}
+@media (hover:hover){.chip button:hover{color:var(--accent);background:var(--accent-soft)}}
 .ngnone{color:var(--muted)}
 .ngadd{display:flex;gap:6px}
 .ngadd input{flex:1;min-width:0;border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:7px 10px;font-size:16px}
@@ -301,19 +302,30 @@ details[open] > summary::before{transform:rotate(90deg)}
 .top .ttabs button{width:auto;display:block;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:999px;padding:3px 12px;font-size:13px;font-weight:700}
 .top .ttabs button[aria-selected="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
 /* 公開日順：週ごとの見出し。一覧は箱の中だけでスクロールし、ページ全体は長くしない */
-.top ol.rel{max-height:min(60vh,520px);overflow-y:auto;overscroll-behavior:contain}
+.top ol.rel{max-height:min(60vh,520px);overflow-y:auto;overscroll-behavior:contain;padding-bottom:16px;
+  -webkit-mask:linear-gradient(transparent,#000 8px,#000 calc(100% - 24px),transparent);mask:linear-gradient(transparent,#000 8px,#000 calc(100% - 24px),transparent)}   /* 上下の端は切らずに薄くする */
+.top .wkg>ol{margin:0;padding-top:8px}
 /* 公開日順は1行を低くして、たくさん見られるようにする（ポスターを小さく、作品名だけ） */
 .top .rel button{grid-template-columns:24px minmax(0,1fr);padding:4px}
 .top .rel img,.top .rel .noimg{width:24px;height:36px;border-radius:2px}
-.top .wk{position:sticky;top:0;z-index:1;background:var(--surface);font-size:12px;font-weight:700;color:var(--muted);padding:8px 4px 4px;letter-spacing:.04em}
+.top .wk{position:sticky;top:0;z-index:1;background:var(--surface);font-size:12px;font-weight:700;color:var(--muted);padding:8px 4px 0;letter-spacing:.04em}
+.top .wk::after{content:"";position:absolute;left:0;right:0;top:100%;height:12px;background:linear-gradient(var(--surface),transparent);pointer-events:none}   /* 見出しの下に潜る作品を薄くする */
 .top .wk span{margin-left:8px;font-weight:400}
-.top .wk.now{color:var(--accent)}
+.top .wk.cur{color:var(--accent)}
 .top .sk{display:grid;grid-template-columns:22px 32px minmax(0,1fr);gap:10px;align-items:center;padding:6px 4px}
 .top .sk i{display:block;height:10px;border-radius:5px;background:var(--bg);width:70%}
 .top .sk i+i{width:30%;margin-top:8px}
 .top .msg{padding:8px 4px;color:var(--muted);font-size:13px}
 .top button{width:100%;display:grid;grid-template-columns:22px 32px minmax(0,1fr);gap:10px;align-items:center;border:0;background:transparent;text-align:left;padding:6px 4px;border-radius:8px}
-.top button:hover,.top button.on{background:var(--accent-soft)}
+.top button.on{background:var(--accent-soft)}
+@media (hover:hover){.top button:hover{background:var(--accent-soft)}}
+/* スマホ：押した瞬間ではなく、少し押し続けたときだけ色を付ける（スクロールしようと触れただけでは色が付かない）。
+   選ぶのは指を離したとき（click）。離すと色はすっと消える */
+.top button,.sug li{transition:background-color .15s}
+.top button:active,.sug li:active{background:var(--accent-soft);transition-delay:.08s}
+.sug .msg:active{background:none}
+.share:active,.toplink:active,.chip button:active{color:var(--accent);background:var(--accent-soft)}
+.hist .x:active,.hist .delall:active,.themes button:active,.now .k .kl:active{color:var(--accent)}
 .top button.on .rk,.top button.on .tt{color:var(--accent)}
 .top .rk{font-weight:800;color:var(--accent);text-align:center;font-variant-numeric:tabular-nums}
 .top img,.top .noimg{width:32px;height:48px;border-radius:3px;object-fit:cover;background:var(--bg)}
@@ -642,12 +654,14 @@ function trendHTML(){
     const weekend=dw>=5||dw===0?today-((dw-5+7)%7)*D:today+(5-dw)*D;
     const wkOf=d=>{const t=Date.parse(d),dow=new Date(t).getUTCDay();return t-((dow-5+7)%7)*D};
     const label=r=>r<0?"公開中":["今週末","来週末","再来週末"][r]||"";
+    // 週ごとに <li> でまとめる。見出しはその週の中でだけ上に留まるので、次の週の見出しが来ると押し出される（重ならない）
     let last=null,h="";
     for(const m of relData.items){
       const w=wkOf(m.date);
-      if(w!==last){last=w;const r=Math.round((w-weekend)/(7*D));h+=`<li class="wk${r===0?" now":r===-1?" prev":""}">${md(new Date(w).toISOString())}〜<span>${label(r)}</span></li>`}
+      if(w!==last){h+=(last===null?"":"</ol></li>");last=w;const r=Math.round((w-weekend)/(7*D));h+=`<li class="wkg"><div class="wk${r===0?" cur":r===-1?" prev":""}">${md(new Date(w).toISOString())}〜<span>${label(r)}</span></div><ol>`}
       h+=`<li><button type="button" data-tid="${m.id}"${cur&&cur[0]===m.title?' class="on" aria-current="true"':""}>${m.poster?`<img src="${IMG}${esc(m.poster)}" alt="" loading="lazy" width="24" height="36">`:'<span class="noimg"></span>'}<span class="tt">${esc(m.title)}</span></button></li>`;
     }
+    if(h)h+="</ol></li>";
     return head+`<ol class="rel">${h||'<li class="msg">該当する作品がありません。</li>'}</ol>`+tail;
   }
   // 読み込み前も同じ高さの仮の行を出しておき、届いたときに下の内容がずれないようにする
@@ -954,16 +968,17 @@ function scrollRelToNow(){
   const sv=store.get("cl_relPos",null),top=el=>el.offsetTop-ol.offsetTop;
   const el=sv&&sv.anchor===relData?.anchor&&ol.querySelector(`[data-tid="${+sv.id}"]`)?.closest("li");
   if(el)ol.scrollTop=top(el)+(sv.off||0);
-  else{const wk=ol.querySelector(".wk.prev")||ol.querySelector(".wk.now");if(wk)ol.scrollTop=top(wk)}
+  else{const wk=ol.querySelector(".wk.prev")||ol.querySelector(".wk.cur");if(wk)ol.scrollTop=top(wk)}
   if(ol.dataset.watch)return;ol.dataset.watch="1";   // 覚える処理は一覧ごとに1回だけ付ける
   let t=null;
   ol.addEventListener("scroll",()=>{clearTimeout(t);t=setTimeout(()=>{   // スクロールが止まったら、いちばん上に見えている作品を覚える
-    const li=[...ol.querySelectorAll("li:has([data-tid])")].find(li=>top(li)+li.offsetHeight>ol.scrollTop);
+    const li=[...ol.querySelectorAll("li:has(>[data-tid])")].find(li=>top(li)+li.offsetHeight>ol.scrollTop);
     if(li)store.set("cl_relPos",{anchor:relData?.anchor,id:+li.querySelector("[data-tid]").dataset.tid,off:Math.round(ol.scrollTop-top(li))});
   },200)},{passive:true});
 }
 
 /* ===== イベント ===== */
+addEventListener("touchstart",()=>{},{passive:true});   // iPhoneのSafariは、これがないと押している間の色（:active）が付かない
 $("#q").addEventListener("input",onType);
 $("#q").addEventListener("keydown",e=>{
   if($("#sug").hidden||!items.length)return;
