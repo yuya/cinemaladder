@@ -788,21 +788,27 @@ main {
   letter-spacing: 0.02em;
 } /* 長い文章は詰めすぎると読みにくいので、少しだけ空ける */
 .info .lang,
-.info .cr,
-.info .src {
+.info .cr {
   margin: 0;
   font-size: 13px;
   color: var(--muted);
 }
+/* 監督・出演・製作国・情報：見出しの列と中身の列に分け、中身は2行目以降も同じ位置から折り返す */
+.info .cr {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 2px 1em;
+}
+.info .cr dd {
+  margin: 0;
+}
 .info .ld {
   min-height: 120px;
 } /* 開いた状態で読み込み中のときも高さを確保し、届いたときに下がずれにくくする */
-.info .cr + .cr {
-  margin-top: -6px;
-} /* 監督・出演・製作国はひとまとまりに詰める */
-.info .src {
+.info .cr .src {
+  margin-top: 6px;
   font-size: 12px;
-}
+} /* 情報元は少し離して小さく。見出しと中身の位置はほかの行とそろえる */
 .info .src a {
   color: inherit;
 }
