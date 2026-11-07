@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../js/ads.js"],
+  "sourcesContent": ["/* Google AdSense のプログラムは大きいので、作品の表示を邪魔しないよう後から読み込む。\n   画面を触ったとき（スクロール・タップ・キー操作）か、読み込み完了から数秒たって手が空いたときの早いほう */\n(() => {\n  let done = false;\n  const load = () => {\n    if (done) return;\n    done = true;\n    const s = document.createElement(\"script\");\n    s.async = true;\n    s.crossOrigin = \"anonymous\";\n    s.src =\n      \"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9484498289210970\";\n    document.head.append(s);\n  };\n  for (const ev of [\"scroll\", \"pointerdown\", \"keydown\", \"touchstart\"])\n    addEventListener(ev, load, { once: true, passive: true });\n  addEventListener(\"load\", () =>\n    setTimeout(\n      () =>\n        \"requestIdleCallback\" in window ? requestIdleCallback(load, { timeout: 3000 }) : load(),\n      3500,\n    ),\n  );\n})();\n"],
+  "mappings": "CAEC,IAAM,CACL,IAAIA,EAAO,GACX,MAAMC,EAAO,IAAM,CACjB,GAAID,EAAM,OACVA,EAAO,GACP,MAAME,EAAI,SAAS,cAAc,QAAQ,EACzCA,EAAE,MAAQ,GACVA,EAAE,YAAc,YAChBA,EAAE,IACA,gGACF,SAAS,KAAK,OAAOA,CAAC,CACxB,EACA,UAAWC,IAAM,CAAC,SAAU,cAAe,UAAW,YAAY,EAChE,iBAAiBA,EAAIF,EAAM,CAAE,KAAM,GAAM,QAAS,EAAK,CAAC,EAC1D,iBAAiB,OAAQ,IACvB,WACE,IACE,wBAAyB,OAAS,oBAAoBA,EAAM,CAAE,QAAS,GAAK,CAAC,EAAIA,EAAK,EACxF,IACF,CACF,CACF,GAAG",
+  "names": ["done", "load", "s", "ev"]
+}

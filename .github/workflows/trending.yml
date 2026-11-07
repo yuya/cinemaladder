@@ -50,12 +50,14 @@ jobs:
           node scripts/fetch-icons.mjs
           pip install --quiet --break-system-packages "pillow>=11"
           python3 scripts/inline-icons.py
+          if [ -f scripts/build.mjs ]; then npm ci && npm run build; fi   # css/top.css に入れたアイコンを index.html へ
       - name: 変わっていればコミット
         if: steps.chk.outputs.ok
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
           git add data/trending.json data/titles.json icons index.html
+          git add css maps 2>/dev/null || true
           git add data/releases.json 2>/dev/null || true
           if git diff --cached --quiet; then echo "変更なし"; exit 0; fi
           git commit -m "話題作TOP10と作品一覧を更新"

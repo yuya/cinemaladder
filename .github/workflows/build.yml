@@ -1,0 +1,43 @@
+name: 公開用の HTML を作る
+
+# src/・css/・js/ を直して push すると、index.html・about.html・privacy.html と maps/ を作り直してコミットする。
+# GitHub の画面で直接編集しても、これが動くので公開用の HTML はそろう（手元なら npm install → npm run build）。
+on:
+  push:
+    branches: [staging, main]
+    paths:
+      - "src/**"
+      - "css/**"
+      - "js/**"
+      - "scripts/build.mjs"
+      - "package.json"
+      - "package-lock.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: npm ci
+      - name: HTML を作る
+        run: npm run build
+      - name: 変わっていればコミット
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add index.html about.html privacy.html maps
+          if git diff --cached --quiet; then echo "公開用の HTML は最新です"; exit 0; fi
+          git commit -m "src/・css/・js/ の変更から公開用の HTML を作り直す"
+          git pull --rebase -q origin "${GITHUB_REF_NAME}"
+          git push

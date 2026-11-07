@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- このファイルは src/privacy.html から scripts/build.mjs（npm run build）で自動で作られます。直接編集せず、src/・css/・js/ を直してください -->
 <html lang="ja">
 <head>
 <meta charset="utf-8">
@@ -11,8 +12,10 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#111115" media="(prefers-color-scheme: dark)">
-<link rel="stylesheet" href="pages.css?v=39eface9">
-<script>/* 表示（自動／ライト／ダーク）。選んだものを読み込みの最初に当て、一瞬だけ違う色が見えないようにする */try{const t=JSON.parse(localStorage.getItem("cl_theme"));if(t==="light"||t==="dark"){document.documentElement.dataset.theme=t;for(const m of document.querySelectorAll('meta[name="theme-color"]'))m.content=t==="dark"?"#111115":"#FFFFFF"}}catch(e){}</script>
+<style>:root{--maxw: 800px;--gutl: max(16px, env(safe-area-inset-left, 0px));--gutr: max(16px, env(safe-area-inset-right, 0px));--bg: #f4f4f7;--surface: #ffffff;--fg: #17171c;--muted: #5e5e6b;--line: #e1e1e8;--brand: #e8607a;--accent: #b4233c;--accent-soft: #f8e4e8;--sk: #e6e6ec;--font: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", Meiryo, system-ui, sans-serif;color-scheme:light}@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg: #111115;--surface: #1a1a20;--fg: #ececf1;--muted: #a0a0ac;--line: #2c2c35;--accent: #e8607a;--accent-soft: #3a1d25;--sk: #2a2a32;color-scheme:dark}}:root[data-theme=dark]{--bg: #111115;--surface: #1a1a20;--fg: #ececf1;--muted: #a0a0ac;--line: #2c2c35;--accent: #e8607a;--accent-soft: #3a1d25;--sk: #2a2a32;color-scheme:dark}*{box-sizing:border-box}html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:15px;line-height:1.8;font-feature-settings:"palt" 1;text-autospace:normal}a{color:var(--accent);text-underline-offset:2px}:focus-visible{outline:2px solid var(--accent);outline-offset:2px}.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--gutl);padding-right:var(--gutr)}body>header{background:var(--surface);border-bottom:1px solid var(--line)}body>header .wrap{padding-block:12px}.logo{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:19px;color:inherit;text-decoration:none;letter-spacing:.01em}.logo .lad{color:var(--brand)}.logo .mark{width:24px;height:24px;border-radius:6px;box-shadow:0 0 0 1px var(--line)}main.wrap{padding-block:28px 40px}h1{font-size:24px;line-height:1.3;margin:0 0 6px;text-wrap:balance}.lead{color:var(--muted);font-size:13px;margin:0 0 28px}h2{font-size:17px;margin:32px 0 8px;padding-top:16px;border-top:1px solid var(--line)}h3{font-size:15px;margin:20px 0 4px}p,ul,ol,dl{margin:0 0 12px}ul,ol{padding-left:1.3em}li{margin:2px 0}dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:6px 16px}dt{font-weight:700}dd{margin:0;min-width:0;overflow-wrap:anywhere}.tbl{overflow-x:auto;margin:0 0 12px}table{border-collapse:collapse;font-size:13px;min-width:520px;width:100%}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:var(--surface)}.note{font-size:13px;color:var(--muted)}body>footer .wrap{padding-block:8px 32px;font-size:12px;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap}body>footer a{color:inherit}.themes{display:flex;align-items:center;gap:2px;margin:0;flex-basis:100%}.themes button{border:0;background:none;color:inherit;font:inherit;padding:3px 8px;border-radius:999px;cursor:pointer}.themes button:hover{color:var(--accent)}.themes button[aria-pressed=true]{background:var(--line);color:var(--fg);font-weight:700}.envbadge{position:fixed;right:calc(10px + env(safe-area-inset-right,0px));bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:30;margin:0;pointer-events:none;font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--accent);border:1px solid currentColor;border-radius:6px;padding:2px 6px;background:var(--surface);opacity:.6}
+/*# sourceMappingURL=/maps/base+pages.css.map */</style>
+<script>try{const e=JSON.parse(localStorage.getItem("cl_theme"));if(e==="light"||e==="dark"){document.documentElement.dataset.theme=e;for(const t of document.querySelectorAll('meta[name="theme-color"]'))t.content=e==="dark"?"#111115":"#FFFFFF"}}catch{}
+//# sourceMappingURL=/maps/theme-early.js.map</script>
 </head>
 <body>
 <header><div class="wrap"><a class="logo" href="./" aria-label="Cinemaladderトップへ"><svg class="mark" viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#141418"/><path d="M22 9.2A9 9 0 1 0 22 22.8" fill="none" stroke="#FFFFFF" stroke-width="4.2"/><rect x="21.5" y="6" width="3.6" height="20" fill="#E8607A"/></svg><span>Cinema<span class="lad">ladder</span></span></a></div></header>
@@ -70,21 +73,9 @@
 </main>
 <footer><div class="wrap"><a href="./">トップ</a><a href="about">運営者情報</a><a href="privacy">プライバシーポリシー</a><p class="themes" role="group" aria-label="表示の色">表示：<button type="button" data-theme-set="auto">自動</button><button type="button" data-theme-set="light">ライト</button><button type="button" data-theme-set="dark">ダーク</button></p></div></footer>
 <p class="envbadge" id="envbadge" hidden aria-hidden="true">STAGING</p>
-<script>document.getElementById("envbadge").hidden=/^(www\.)?cinemaladder\.com$/.test(location.hostname)</script>
-<script>
-/* 表示の切り替え。「自動」は OS の設定に合わせる。選んだものはこの端末に保存する */
-(()=>{
-  const root=document.documentElement,metas=document.querySelectorAll('meta[name="theme-color"]');
-  const show=t=>{for(const b of document.querySelectorAll("[data-theme-set]"))b.setAttribute("aria-pressed",String(b.dataset.themeSet===t))};
-  const apply=t=>{
-    if(t==="light"||t==="dark"){root.dataset.theme=t;for(const m of metas)m.content=t==="dark"?"#111115":"#FFFFFF"}
-    else{t="auto";delete root.dataset.theme;metas[0].content="#FFFFFF";metas[1].content="#111115"}   // OS の設定に合わせて切り替わる元の値
-    try{t==="auto"?localStorage.removeItem("cl_theme"):localStorage.setItem("cl_theme",JSON.stringify(t))}catch(e){}
-    show(t);
-  };
-  show(root.dataset.theme||"auto");
-  document.addEventListener("click",e=>{const b=e.target.closest("[data-theme-set]");if(b)apply(b.dataset.themeSet)});
-})();
-</script>
+<script>document.getElementById("envbadge").hidden=/^(www\.)?cinemaladder\.com$/.test(location.hostname);
+//# sourceMappingURL=/maps/pages.js.map</script>
+<script>(()=>{const o=document.documentElement,a=document.querySelectorAll('meta[name="theme-color"]'),c=e=>{for(const t of document.querySelectorAll("[data-theme-set]"))t.setAttribute("aria-pressed",String(t.dataset.themeSet===e))},s=e=>{if(e==="light"||e==="dark"){o.dataset.theme=e;for(const t of a)t.content=e==="dark"?"#111115":"#FFFFFF"}else e="auto",delete o.dataset.theme,a[0].content="#FFFFFF",a[1].content="#111115";try{e==="auto"?localStorage.removeItem("cl_theme"):localStorage.setItem("cl_theme",JSON.stringify(e))}catch{}c(e)};c(o.dataset.theme||"auto"),document.addEventListener("click",e=>{const t=e.target.closest("[data-theme-set]");t&&s(t.dataset.themeSet)})})();
+//# sourceMappingURL=/maps/theme.js.map</script>
 </body>
 </html>

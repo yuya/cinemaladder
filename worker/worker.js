@@ -15,6 +15,8 @@ const isAllowed = o => ALLOWED_ORIGINS.includes(o) || o === "https://cinemaladde
   (o.startsWith("https://") && ALLOWED_SUFFIXES.some(s => o.endsWith(s)));
 
 // 部首の文字（「⼆」康煕部首、「⻯」CJK部首補助など）を普通の漢字に直す。index.html の fixRad と同じ
+// ジャンル名は TMDB の日本語訳を使わず、番号から決める（TMDB の訳は History が「履歴」になるなど不自然なものがあるため）
+const GENRE_JA = { 28: "アクション", 12: "アドベンチャー", 16: "アニメーション", 35: "コメディ", 80: "犯罪", 99: "ドキュメンタリー", 18: "ドラマ", 10751: "ファミリー", 14: "ファンタジー", 36: "歴史", 27: "ホラー", 10402: "音楽", 9648: "ミステリー", 10749: "ロマンス", 878: "サイエンスフィクション", 10770: "テレビ映画", 53: "スリラー", 10752: "戦争", 37: "西部劇" };
 const RAD = { "⻁": "虎", "⻄": "西", "⻆": "角", "⻑": "長", "⻘": "青", "⻝": "食", "⻣": "骨", "⻤": "鬼", "⻨": "麦", "⻩": "黄", "⻫": "斉", "⻭": "歯", "⻯": "竜", "⻲": "亀" };
 const fixRad = s => (s || "").replace(/[\u2F00-\u2FD5]/g, c => c.normalize("NFKC")).replace(/[\u2E80-\u2EFF]/g, c => RAD[c] || c.normalize("NFKC"));
 
@@ -71,7 +73,7 @@ export default {
           id: m.id, title: fixRad(m.title), original: m.original_title, poster: m.poster_path,
           date: m.release_date || "", jpDate, runtime: m.runtime || 0, tagline: m.tagline || "",
           overview, overviewLang,
-          genres: (m.genres || []).map(g => g.name),
+          genres: (m.genres || []).map(g => GENRE_JA[g.id] || g.name),
           countries: (m.production_countries || []).map(c => c.iso_3166_1),
           directors: crew.filter(c => c.job === "Director").map(c => c.name).slice(0, 3),
           cast: (m.credits?.cast || []).slice(0, 6).map(c => c.name),

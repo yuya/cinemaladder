@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../js/hashist.js"],
+  "sourcesContent": ["try {\n  if (JSON.parse(localStorage.getItem(\"cl_hist\") || \"[]\").length)\n    document.documentElement.classList.add(\"hashist\");\n} catch (e) {}\n"],
+  "mappings": "AAAA,GAAI,CACE,KAAK,MAAM,aAAa,QAAQ,SAAS,GAAK,IAAI,EAAE,QACtD,SAAS,gBAAgB,UAAU,IAAI,SAAS,CACpD,MAAY,CAAC",
+  "names": []
+}

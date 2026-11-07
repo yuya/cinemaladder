@@ -1,0 +1,12 @@
+{
+  "name": "cinemaladder",
+  "private": true,
+  "description": "src/・css/・js/ から公開用の HTML を作る（npm run build）",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs --check"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

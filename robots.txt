@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+# ページの元ファイルと開発者向けの対応表（公開用の HTML は直下の index.html など）
+Disallow: /src/
+Disallow: /maps/
 
 Sitemap: https://cinemaladder.com/sitemap.xml

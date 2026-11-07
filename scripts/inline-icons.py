@@ -1,15 +1,18 @@
-"""icons/*.png を一番小さい形式（PNG / WebP）に変換し、index.html の CSS に data URI として埋め込む。
+"""icons/*.png を一番小さい形式（PNG / WebP）に変換し、トップページの CSS（css/top.css）に data URI として埋め込む。
+そのあと npm run build（scripts/build.mjs）を実行すると index.html に入る。
 
 ファビコンは十数個で合計10KBほどと小さいので、別ファイルで1つずつ取りに行くより
 HTML に埋め込んで通信を0回にした方が速い（画像の遅れて出るちらつきも無くなる）。
 
-index.html の /* ICONS:START */ と /* ICONS:END */ の間を毎回書き直す。
+css/top.css の /* ICONS:START */ と /* ICONS:END */ の間を毎回書き直す（css/ がない古い構成では index.html）。
 """
 import base64, glob, io, os, re, sys
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-HTML = os.path.join(ROOT, "index.html")
+HTML = os.path.join(ROOT, "css", "top.css")
+if not os.path.exists(HTML):
+    HTML = os.path.join(ROOT, "index.html")
 
 rules = []
 for path in sorted(glob.glob(os.path.join(ROOT, "icons", "*.png"))):
@@ -29,7 +32,7 @@ block = "/* ICONS:START（scripts/inline-icons.py が自動生成。手で編集
 html = open(HTML, encoding="utf-8").read()
 new, n = re.subn(r"/\* ICONS:START.*?/\* ICONS:END \*/", lambda m: block, html, flags=re.S)
 if n != 1:
-    sys.exit("index.html に ICONS:START / ICONS:END の目印が見つかりません")
+    sys.exit(f"{HTML} に ICONS:START / ICONS:END の目印が見つかりません")
 if new != html:
     open(HTML, "w", encoding="utf-8").write(new)
 print(f"{len(rules)} 個のアイコンを埋め込み（{sum(len(r) for r in rules) / 1024:.1f} KB）")

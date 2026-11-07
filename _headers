@@ -4,8 +4,6 @@
   Cache-Control: public, max-age=0, must-revalidate
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
-/pages.css
-  Cache-Control: public, max-age=0, must-revalidate
 /about
   Cache-Control: public, max-age=0, must-revalidate
 /privacy
