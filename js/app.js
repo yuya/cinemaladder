@@ -816,7 +816,7 @@ function infoHTML(st, d) {
       ["出演", d.cast.join("、")],
       ["製作国", d.countries.map((c) => regionJa?.of(c) || c).join("・")],
     ].filter((r) => r[1]);
-    body = `${d.tagline ? `<p class="tag">${esc(d.tagline)}</p>` : ""}${d.overview ? `<p class="ov">${esc(d.overview)}</p>${d.overviewLang === "en" ? '<p class="lang">日本語のあらすじが未登録のため、英語のあらすじを表示しています。</p>' : d.overviewLang === "mt" ? '<p class="lang">日本語のあらすじが未登録のため、英語のあらすじを機械翻訳して表示しています。</p>' : ""}` : '<p class="lang">あらすじは未登録です。</p>'}${rows.map((r) => `<p class="cr">${r[0]}　${esc(r[1])}</p>`).join("")}<p class="src">情報：<a href="https://www.themoviedb.org/movie/${E(d.id)}?language=ja-JP" target="_blank" rel="noopener">TMDB</a></p>`;
+    body = `${d.tagline ? `<p class="tag">${esc(d.tagline)}</p>` : ""}${d.overview ? `<p class="ov">${esc(d.overview)}</p>${d.overviewLang === "en" ? '<p class="lang">日本語のあらすじが未登録のため、英語のあらすじを表示しています。</p>' : d.overviewLang === "mt" ? '<p class="lang">日本語のあらすじが未登録のため、英語のあらすじを機械翻訳して表示しています。</p>' : ""}` : '<p class="lang">あらすじは未登録です。</p>'}<dl class="cr">${rows.map((r) => `<dt>${r[0]}</dt><dd>${esc(r[1])}</dd>`).join("")}<dt class="src">情報</dt><dd class="src"><a href="https://www.themoviedb.org/movie/${E(d.id)}?language=ja-JP" target="_blank" rel="noopener">TMDB</a></dd></dl>`;
   } else
     body = `<p class="lang${st === "loading" ? " ld" : ""}">${st === "none" ? "この作品の情報は見つかりませんでした。" : st === "err" ? "作品情報を読み込めませんでした。時間をおいて開き直してください。" : "読み込み中…"}</p>`;
   return `<section class="info" id="info" aria-label="あらすじ・キャスト"${infoOpen ? "" : " hidden"}><div class="body">${body}</div></section>`;
