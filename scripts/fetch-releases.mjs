@@ -1,7 +1,7 @@
 // 日本の劇場公開日が「今週の前後2週間」の作品を TMDB から集め、data/releases.json に書き出す。
 // 日本の新作はたいてい金曜に公開されるので、週は金曜〜翌木曜で区切る。
 // 始まりは、直近の金曜（今日が金曜なら今日）の2週前の金曜。古い週は金曜に1週ずつ消える。
-// 終わりは、画面の「再来週末」の週の木曜。月〜木は「今週末」が次の金曜になるので、月曜に新しい週が加わる。
+// 終わりは、金・土はその金曜の2週後の週の木曜、日〜木は次の金曜の2週後の週の木曜。新しい週は日曜に加わる。
 // GitHub Actions から毎日実行し、新しく登録された作品も拾う。
 import { writeFile, mkdir } from "node:fs/promises";
 
@@ -25,10 +25,10 @@ const readable = t => !!t && !/[^\u0000-ɏ -⁯⺀-ヿ㐀-鿿豈-﫿＀-￯]/.
 const D = 864e5;
 const today = new Date(Date.now() + 9 * 3600e3);   // 日本時間の日付として扱う
 today.setUTCHours(0, 0, 0, 0);
-// 基準：直近の金曜（今日が金曜なら今日）。今週末：金〜日はその金曜、月〜木は次の金曜（画面の「今週末」と同じ）
+// 基準：直近の金曜（今日が金曜なら今日）。weekend：金・土はその金曜、日〜木は次の金曜
 const dw = today.getUTCDay();
 const anchor = new Date(today - ((dw - 5 + 7) % 7) * D);
-const weekend = new Date(dw >= 5 || dw === 0 ? +anchor : +anchor + 7 * D);
+const weekend = new Date(dw >= 5 ? +anchor : +anchor + 7 * D);
 const ymd = d => d.toISOString().slice(0, 10);
 const from = ymd(new Date(anchor - 14 * D)), to = ymd(new Date(+weekend + 20 * D));
 
