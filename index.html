@@ -26,6 +26,8 @@
 <meta property="og:description" content="作品名を1回入れるだけで、映画のレビューサイト、チケット、SNS、配信サービスの検索結果へ移動できます。">
 <style>
 :root{
+  /* ページの横幅と左右の余白。トップ（index.html）と下層ページ（pages.css）で同じ値にする */
+  --maxw:800px;--gutl:max(16px,env(safe-area-inset-left,0px));--gutr:max(16px,env(safe-area-inset-right,0px));
   --bg:#F4F4F7;--surface:#FFFFFF;--fg:#17171C;--muted:#5E5E6B;--line:#E1E1E8;
   --brand:#E8607A;   /* ロゴとアイコンのピンク。ライト・ダーク共通 */
   --accent:#B4233C;--accent-soft:#F8E4E8;--sk:#E6E6EC;
@@ -52,8 +54,8 @@ search{display:block}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
 body > header{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);z-index:5;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:10px 12px}
-.hd{max-width:800px;margin:0 auto;display:flex;flex-direction:column}
+  padding-left:var(--gutl);padding-right:var(--gutr);padding-block:10px 12px}
+.hd{max-width:var(--maxw);margin:0 auto;display:flex;flex-direction:column}
 /* ヘッダーは画面上部に固定。本文はヘッダーの（広げた状態の）高さ分だけ下げて始める */
 body{padding-top:var(--hh,110px)}
 .hashist body{padding-top:var(--hh,148px)}   /* 履歴の行があるときの高さ。最初の表示で本文がずれないよう、読み込み前に見当を付ける */
@@ -131,7 +133,7 @@ body > header::before{content:"";position:absolute;inset:0 0 auto;height:100%;ba
 @media (prefers-reduced-motion:reduce){.hist .delall,.hist .delall .dl,.hist.out{transition:none}}
 
 main.boot{min-height:100vh}   /* 最初の表示までフッターを画面の外に置き、中身が出たときに押し下げない */
-main{max-width:800px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px 24px;
+main{max-width:var(--maxw);margin:0 auto;padding-left:var(--gutl);padding-right:var(--gutr);padding-block:16px 24px;
   display:flex;flex-direction:column;gap:18px}
 .movie{display:flex;flex-direction:column;gap:18px}
 .now{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:stretch}
@@ -257,7 +259,7 @@ a.go .d{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;tex
 .pr{font-size:10px;font-weight:700;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:0 4px;line-height:1.5}
 
 /* サイトの説明（ページの下） */
-.guide{max-width:800px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 16px;border-top:1px solid var(--line);font-size:14px;line-height:1.85;color:var(--fg)}
+.guide{max-width:var(--maxw);margin:0 auto;padding-left:var(--gutl);padding-right:var(--gutr);padding-block:24px 16px;border-top:1px solid var(--line);font-size:14px;line-height:1.85;color:var(--fg)}
 .guide h2{margin:0 0 8px;font-size:17px}
 .guide h3{margin:24px 0 6px;font-size:15px}
 .guide p{margin:0 0 10px}
@@ -274,7 +276,7 @@ body > footer a{color:inherit;text-decoration:underline;text-underline-offset:2p
 .themes button{border:0;background:none;color:inherit;font-size:12px;padding:3px 8px;border-radius:999px}
 @media (hover:hover){.themes button:hover{color:var(--accent)}}
 .themes button[aria-pressed="true"]{background:var(--line);color:var(--fg);font-weight:700}
-body > footer{max-width:800px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:8px 32px;font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:10px}
+body > footer{max-width:var(--maxw);margin:0 auto;padding-left:var(--gutl);padding-right:var(--gutr);padding-block:8px 32px;font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:10px}
 details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
 summary{cursor:pointer;font-weight:700;color:var(--fg)}
 /* 開閉はサイト全体で同じ形：左の矢印が、開くと下向きに回る。色は文字色に合わせる（TOP10・除外語は文字色、「あらすじ・キャスト」（.itg）はリンク色） */
