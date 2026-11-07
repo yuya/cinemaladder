@@ -151,7 +151,12 @@ main{max-width:800px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-lef
 .share svg{width:17px;height:17px}
 /* 本番（cinemaladder.com）以外で開いたときだけ右下に薄く出す目印 */
 .envbadge{position:fixed;right:calc(10px + env(safe-area-inset-right,0px));bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:30;margin:0;pointer-events:none;
-  font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--accent);border:1px solid currentColor;border-radius:6px;padding:2px 6px;background:var(--surface);opacity:.6}
+  font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--accent);border:1px solid currentColor;border-radius:6px;padding:2px 6px;background:var(--surface);opacity:.6;display:flex;align-items:center;gap:6px}
+.envbadge[hidden]{display:none}
+/* テスト用：公開日順をこの日付として表示する。日付を選んだときだけ目立たせる */
+.envbadge input{pointer-events:auto;font:inherit;font-size:11px;font-weight:400;letter-spacing:0;color:var(--muted);background:transparent;border:0;padding:0;color-scheme:inherit}
+.envbadge input.set{color:var(--accent);font-weight:700}
+.envbadge:has(input.set){opacity:1}
 /* 画面下のお知らせ。出るときも消えるときも目で追える速さにする */
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,10px);background:var(--fg);color:var(--bg);padding:8px 14px;border-radius:999px;font-size:13px;opacity:0;pointer-events:none;z-index:20;
   transition:opacity .45s ease,transform .45s ease}
@@ -359,7 +364,7 @@ details[open] > summary::before{transform:rotate(90deg)}
   </div>
 </header>
 
-<p class="envbadge" id="envbadge" hidden aria-hidden="true">STAGING</p>
+<p class="envbadge" id="envbadge" hidden>STAGING<input type="date" id="fakeday" aria-label="公開日順を見る日付（テスト用）" title="公開日順をこの日付として表示（テスト用）"></p>
 <main id="out" class="boot">
   <p class="emptyst">読み込み中…</p>
   <noscript><p class="emptyst">このサイトを使うにはJavaScriptを有効にしてください。</p></noscript>
@@ -484,6 +489,10 @@ const fixRad=s=>s.replace(/[\u2F00-\u2FD5]/g,c=>c.normalize("NFKC")).replace(/[\
 const clean=s=>fixRad(s).replace(/[\s\u3000]+/g," ").trim();
 // TMDB から届いた作品の題名を整える（見出し・タブの題名・共有・履歴に部首の文字が出ないように）
 const fixT=m=>m&&m.title&&/[\u2E80-\u2FDF]/.test(m.title)?{...m,title:fixRad(m.title)}:m;
+// 本番以外（staging・手元）だけ、公開日順を好きな日付として表示できる。?today=2026-11-08 か右下の日付で指定（タブを閉じると戻る）
+const IS_DEV=!/^(www\.)?cinemaladder\.com$/.test(location.hostname);
+let fakeDay=null;
+if(IS_DEV){try{fakeDay=new URLSearchParams(location.search).get("today")||sessionStorage.getItem("cl_fakeDay")}catch{}if(!/^\d{4}-\d{2}-\d{2}$/.test(fakeDay||""))fakeDay=null}
 const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 let hist=store.get("cl_hist",[]).map(fixRad);   // 以前の履歴に残っている部首の文字も直す
 /* 検索欄：作品を表示したら、いつも空にする（作品名は見出しと履歴に出ているので、ここでは繰り返さない）。
@@ -651,13 +660,15 @@ function trendHTML(){
     // 「今週末」は、金・土ならその週末、日〜木なら次の金曜からの週末。
     // 日〜木は、直前の金曜からの週を「公開」とする（その週のうち、まだ公開されていない作品もあるため「中」は付けない）。それより前の週は「公開中」
     if(!relData)return head+(relFailed?'<ol><li class="msg">読み込めませんでした。時間をおいて開き直してください。</li></ol>':skel(6))+tail;
-    const D=864e5,now=new Date(),today=Date.UTC(now.getFullYear(),now.getMonth(),now.getDate()),dw=now.getDay();
+    const D=864e5,now=fakeDay?new Date(fakeDay+"T12:00"):new Date(),today=Date.UTC(now.getFullYear(),now.getMonth(),now.getDate()),dw=now.getDay();
     const weekend=dw>=5?today-(dw-5)*D:today+(5-dw+7)%7*D;
     const wkOf=d=>{const t=Date.parse(d),dow=new Date(t).getUTCDay();return t-((dow-5+7)%7)*D};
     const label=r=>r===-1&&dw!==5&&dw!==6?"公開":r<0?"公開中":["今週末","来週末","再来週末"][r]||"";
     // 週ごとに <li> でまとめる。見出しはその週の中でだけ上に留まるので、次の週の見出しが来ると押し出される（重ならない）
     let last=null,h="";
-    for(const m of relData.items){
+    // 日付を模擬しているときは、その日に毎朝の更新が作る範囲（fetch-releases.mjs と同じ計算）に絞る
+    const fr=today-((dw-5+7)%7)*D-14*D,to=weekend+20*D,ymd=t=>new Date(t).toISOString().slice(0,10);
+    for(const m of fakeDay?relData.items.filter(m=>m.date>=ymd(fr)&&m.date<=ymd(to)):relData.items){
       const w=wkOf(m.date);
       if(w!==last){h+=(last===null?"":"</ol></li>");last=w;const r=Math.round((w-weekend)/(7*D));h+=`<li class="wkg"><div class="wk${r===0?" cur":r===-1?" prev":""}">${md(new Date(w).toISOString())}〜<span>${label(r)}</span></div><ol>`}
       h+=`<li><button type="button" data-tid="${m.id}"${cur&&cur[0]===m.title?' class="on" aria-current="true"':""}>${m.poster?`<img src="${IMG}${esc(m.poster)}" alt="" loading="lazy" width="24" height="36">`:'<span class="noimg"></span>'}<span class="tt">${esc(m.title)}</span></button></li>`;
@@ -1094,7 +1105,13 @@ addEventListener("scroll",()=>{
   });
 },{passive:true});
 $("#affnote").hidden=!(AFF.amazonTag||AFF.unext||AFF.mvtk);$("#amznote").hidden=!AFF.amazonTag;
-$("#envbadge").hidden=/^(www\.)?cinemaladder\.com$/.test(location.hostname);
+$("#envbadge").hidden=!IS_DEV;
+if(IS_DEV){   // テスト用：右下の日付で、公開日順をその日として表示する（コンソールなら cl.today("2026-11-08")、空で解除）
+  if(fakeDay)try{sessionStorage.setItem("cl_fakeDay",fakeDay)}catch{}
+  const fd=$("#fakeday");fd.value=fakeDay||"";fd.classList.toggle("set",!!fakeDay);
+  window.cl={today(v){fakeDay=v||null;try{v?sessionStorage.setItem("cl_fakeDay",v):sessionStorage.removeItem("cl_fakeDay")}catch{}fd.value=v||"";fd.classList.toggle("set",!!v);updateTop();return fakeDay||"解除しました"}};
+  fd.addEventListener("change",()=>cl.today(fd.value));
+}
 renderHist();
 // 前回最後に見ていた作品。履歴から消されていたら、話題作からランダムに選ぶ（記録がない古い利用者は履歴の先頭）
 function lastShown(){let l=store.get("cl_last",null);if(l)l=fixRad(l);return l==null?hist[0]:hist.includes(l)?l:null}
