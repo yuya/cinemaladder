@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-06T01:32:51.147Z",
+ "updated": "2026-11-07T00:56:46.973Z",
  "anchor": "2026-11-06",
  "from": "2026-10-23",
  "to": "2026-11-26",
@@ -10,7 +10,7 @@
    "original": "가능한 사랑",
    "date": "2026-10-23",
    "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
-   "pop": 10.4
+   "pop": 45.1
   },
   {
    "id": 1526917,
@@ -18,7 +18,7 @@
    "original": "メイドインアビス 目覚める神秘",
    "date": "2026-10-23",
    "poster": "/7HfBlYDlMVaHnvd7NEpZLd8r7FO.jpg",
-   "pop": 2.9
+   "pop": 3.2
   },
   {
    "id": 1473439,
@@ -26,14 +26,6 @@
    "original": "バッド・ルーテナント：トウキョウ",
    "date": "2026-10-23",
    "poster": "/rWiwfGrHgTd2bqOtJ1UxhtpOZQM.jpg",
-   "pop": 2.4
-  },
-  {
-   "id": 1283320,
-   "title": "URCHIN／アーチン",
-   "original": "Urchin",
-   "date": "2026-10-23",
-   "poster": "/zehE12ErqzG4Y9znKtYDAvBOvmZ.jpg",
    "pop": 2.3
   },
   {
@@ -42,7 +34,15 @@
    "original": "Blue Heron",
    "date": "2026-10-23",
    "poster": "/paHhnxAaquGELtqtzdYQfR281Kb.jpg",
-   "pop": 2
+   "pop": 2.2
+  },
+  {
+   "id": 1283320,
+   "title": "URCHIN／アーチン",
+   "original": "Urchin",
+   "date": "2026-10-23",
+   "poster": "/zehE12ErqzG4Y9znKtYDAvBOvmZ.jpg",
+   "pop": 2.1
   },
   {
    "id": 1053231,
@@ -58,7 +58,7 @@
    "original": "うるわしの宵の月",
    "date": "2026-10-23",
    "poster": "/2ap3yvDVquHTGZp1rSDShK4piNI.jpg",
-   "pop": 1.2
+   "pop": 1.3
   },
   {
    "id": 1703008,
@@ -66,7 +66,7 @@
    "original": "月の糸杉",
    "date": "2026-10-23",
    "poster": "/mntDfwy3aPhEMSyNFT92ILg4bOY.jpg",
-   "pop": 0.6
+   "pop": 0.5
   },
   {
    "id": 1801113,
@@ -74,7 +74,7 @@
    "original": "昨夜は殺れたかも",
    "date": "2026-10-23",
    "poster": "/suzbIuFNc3qFWMaHoD6Zvt8wCsn.jpg",
-   "pop": 0.5
+   "pop": 0.4
   },
   {
    "id": 1755291,
@@ -82,7 +82,7 @@
    "original": "NAZA",
    "date": "2026-10-24",
    "poster": "/12lO7y7j57j6mpQCUccOdEpSZzA.jpg",
-   "pop": 9.1
+   "pop": 7.7
   },
   {
    "id": 1400940,
@@ -90,7 +90,7 @@
    "original": "Clayface",
    "date": "2026-10-30",
    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-   "pop": 105.4
+   "pop": 97.9
   },
   {
    "id": 1102390,
@@ -98,7 +98,7 @@
    "original": "Der Spatz im Kamin",
    "date": "2026-10-30",
    "poster": "/yX4ZvG4ly26ePyfOkkx6dIHeVWN.jpg",
-   "pop": 1.8
+   "pop": 1.5
   },
   {
    "id": 517815,
@@ -106,7 +106,7 @@
    "original": "Das Mädchen und die Spinne",
    "date": "2026-10-30",
    "poster": "/juDYUbDjUh3KiuOQqUd3rbL5HOU.jpg",
-   "pop": 1.6
+   "pop": 1.5
   },
   {
    "id": 1646897,
@@ -114,7 +114,7 @@
    "original": "RYUJI ⻯⼆",
    "date": "2026-10-30",
    "poster": "/xPfcMiKjHvZfFGyjRVFa8PxKFc0.jpg",
-   "pop": 1.3
+   "pop": 1
   },
   {
    "id": 1748514,
@@ -122,7 +122,7 @@
    "original": "見上げてごらん",
    "date": "2026-10-30",
    "poster": "/qjuzeBRrqHAyGJIJLyJBGuCy5oY.jpg",
-   "pop": 1.1
+   "pop": 0.9
   },
   {
    "id": 1807431,
@@ -130,7 +130,7 @@
    "original": "月影のゴールデン街",
    "date": "2026-10-30",
    "poster": "/57Cvx1ePJl4jJJ9CNVyRWSPtvfs.jpg",
-   "pop": 1
+   "pop": 0.7
   },
   {
    "id": 1555226,
@@ -138,7 +138,7 @@
    "original": "恒星の向こう側",
    "date": "2026-10-30",
    "poster": "/2VEvO7Jw0CPCX3Jj1RZ2Ouvrl7V.jpg",
-   "pop": 0.8
+   "pop": 0.6
   },
   {
    "id": 164328,
@@ -146,7 +146,7 @@
    "original": "Das merkwürdige Kätzchen",
    "date": "2026-10-30",
    "poster": "/cTOis8vPhu1XZxJVgDMDrpZFXE3.jpg",
-   "pop": 0.5
+   "pop": 0.4
   },
   {
    "id": 1369767,
@@ -154,7 +154,7 @@
    "original": "鳥を導く",
    "date": "2026-10-31",
    "poster": "/rLoYc3cPgoNPBZfBkvsEaVlHr7f.jpg",
-   "pop": 0.4
+   "pop": 0.3
   },
   {
    "id": 1807401,
@@ -170,7 +170,7 @@
    "original": "私がまだ知らない沖縄",
    "date": "2026-10-31",
    "poster": "/dMgeb6YgLAmYUFQyUK9q0KD4Zxw.jpg",
-   "pop": 0.3
+   "pop": 0.2
   },
   {
    "id": 1381071,
@@ -178,7 +178,7 @@
    "original": "ゴジラ-0.0",
    "date": "2026-11-03",
    "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
-   "pop": 106.1
+   "pop": 145.9
   },
   {
    "id": 1283515,
@@ -186,7 +186,7 @@
    "original": "Verity",
    "date": "2026-11-06",
    "poster": "/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "pop": 192.5
+   "pop": 184.1
   },
   {
    "id": 1278101,
@@ -194,15 +194,7 @@
    "original": "小小的我",
    "date": "2026-11-06",
    "poster": "/5le1y4AKBSUJ5XTIG4ClGDL2rpC.jpg",
-   "pop": 7.3
-  },
-  {
-   "id": 1313587,
-   "title": "GROTESQQQUE -グロテスク-",
-   "original": "GROTESQQQUE -グロテスク-",
-   "date": "2026-11-06",
-   "poster": "/4N7euiV0uozyZGFL59BL5FxNRyL.jpg",
-   "pop": 2.3
+   "pop": 7.9
   },
   {
    "id": 1567149,
@@ -210,7 +202,15 @@
    "original": "仮面ライダーカブト20th 天を継ぐもの",
    "date": "2026-11-06",
    "poster": "/5LBfnGFPXn5hUmywY7L4jDTEi9E.jpg",
-   "pop": 1.8
+   "pop": 4.6
+  },
+  {
+   "id": 1313587,
+   "title": "GROTESQQQUE -グロテスク-",
+   "original": "GROTESQQQUE -グロテスク-",
+   "date": "2026-11-06",
+   "poster": "/4N7euiV0uozyZGFL59BL5FxNRyL.jpg",
+   "pop": 2.8
   },
   {
    "id": 1527427,
@@ -218,7 +218,7 @@
    "original": "3ミリの恋",
    "date": "2026-11-06",
    "poster": "/cg0VwQsusxRMPNbyJUlUb1JBVH8.jpg",
-   "pop": 0.9
+   "pop": 1.1
   },
   {
    "id": 1707282,
@@ -234,7 +234,7 @@
    "original": "星の教室",
    "date": "2026-11-06",
    "poster": "/cvOS0T7bals4dRLsYu15YOMmgsM.jpg",
-   "pop": 0.5
+   "pop": 0.4
   },
   {
    "id": 1755423,
@@ -242,7 +242,7 @@
    "original": "となりのとらんす少女ちゃん",
    "date": "2026-11-07",
    "poster": "/cH5dp1LCjG7Flmc9ueCr24H0CIU.jpg",
-   "pop": 1
+   "pop": 0.8
   },
   {
    "id": 1807445,
@@ -250,7 +250,7 @@
    "original": "みらいしのほこう",
    "date": "2026-11-07",
    "poster": "/1vrFlKqrQAsZqze5Z4pXMKkPVJB.jpg",
-   "pop": 0.8
+   "pop": 0.6
   },
   {
    "id": 1567605,
@@ -258,7 +258,7 @@
    "original": "Ebenezer",
    "date": "2026-11-13",
    "poster": "/6H2N59jJW1hZEzn2ZdrMvJw5vNI.jpg",
-   "pop": 21.8
+   "pop": 24.1
   },
   {
    "id": 467905,
@@ -266,7 +266,7 @@
    "original": "How to Make a Killing",
    "date": "2026-11-13",
    "poster": "/adIG9Tsf9FkUkJ1euYjtktSMOyT.jpg",
-   "pop": 8.9
+   "pop": 8.4
   },
   {
    "id": 338969,
@@ -274,7 +274,7 @@
    "original": "The Toxic Avenger Unrated",
    "date": "2026-11-13",
    "poster": "/cCWojb6N9UcTzNVtS4bOM3vQ30x.jpg",
-   "pop": 6.5
+   "pop": 6.7
   },
   {
    "id": 1306816,
@@ -290,7 +290,7 @@
    "original": "Tre ciotole",
    "date": "2026-11-13",
    "poster": "/dJVt8OJLIzwiOcpJJiwHg88xrdb.jpg",
-   "pop": 2
+   "pop": 1.9
   },
   {
    "id": 1560309,
@@ -298,7 +298,7 @@
    "original": "すべて真夜中の恋人たち",
    "date": "2026-11-13",
    "poster": "/hu59kewfoT7Brzimj8KOliuh5Ih.jpg",
-   "pop": 1.8
+   "pop": 1.7
   },
   {
    "id": 1236857,
@@ -306,23 +306,7 @@
    "original": "楽園追放 心のレゾナンス",
    "date": "2026-11-13",
    "poster": "/cp9XcvYQgwFPQgfDi3Yjjq2I3dI.jpg",
-   "pop": 1.4
-  },
-  {
-   "id": 1707955,
-   "title": "呪いのスマホ",
-   "original": "呪いのスマホ",
-   "date": "2026-11-13",
-   "poster": "/7ZsxOt6MnEf2Z67sEMJoEPKMPe4.jpg",
-   "pop": 0.9
-  },
-  {
-   "id": 1759179,
-   "title": "シルバー・エクスプレス",
-   "original": "シルバー・エクスプレス",
-   "date": "2026-11-13",
-   "poster": "/jOGlxJo4nr1SohOOgN87sIhnZFn.jpg",
-   "pop": 0.9
+   "pop": 1.2
   },
   {
    "id": 1807459,
@@ -330,6 +314,14 @@
    "original": "負けへんで",
    "date": "2026-11-13",
    "poster": "/s1iTuVOdISld17f2i7vQiSgaSxx.jpg",
+   "pop": 0.9
+  },
+  {
+   "id": 1707955,
+   "title": "呪いのスマホ",
+   "original": "呪いのスマホ",
+   "date": "2026-11-13",
+   "poster": "/7ZsxOt6MnEf2Z67sEMJoEPKMPe4.jpg",
    "pop": 0.8
   },
   {
@@ -341,12 +333,20 @@
    "pop": 0.7
   },
   {
+   "id": 1759179,
+   "title": "シルバー・エクスプレス",
+   "original": "シルバー・エクスプレス",
+   "date": "2026-11-13",
+   "poster": "/jOGlxJo4nr1SohOOgN87sIhnZFn.jpg",
+   "pop": 0.7
+  },
+  {
    "id": 1806317,
    "title": "......overcome with あふれた..",
    "original": "......overcome with あふれた..",
    "date": "2026-11-13",
    "poster": "/lI3GfPTxS6SN0D1BmfbkbmHBaSI.jpg",
-   "pop": 0.4
+   "pop": 0.3
   },
   {
    "id": 1807502,
@@ -354,7 +354,7 @@
    "original": "巡る世界、巡る言葉",
    "date": "2026-11-14",
    "poster": "/oPAnu2PEIesBTTuYJ0Ws61orzQ5.jpg",
-   "pop": 0.8
+   "pop": 0.6
   },
   {
    "id": 1807483,
@@ -370,7 +370,7 @@
    "original": "Other Mommy",
    "date": "2026-11-20",
    "poster": "/fGRNCssTRrhYZxNzykGGCoMsAVq.jpg",
-   "pop": 65.7
+   "pop": 65.1
   },
   {
    "id": 1159206,
@@ -378,7 +378,7 @@
    "original": "Father Mother Sister Brother",
    "date": "2026-11-20",
    "poster": "/ph4rTUcsXsGMcLIysFlYxWUdlYu.jpg",
-   "pop": 4.5
+   "pop": 4.4
   },
   {
    "id": 920167,
@@ -386,7 +386,7 @@
    "original": "魔法使いの夜",
    "date": "2026-11-20",
    "poster": "/cCujIxpgUxGg0X1X2ItSXCso9ws.jpg",
-   "pop": 2.5
+   "pop": 2.1
   },
   {
    "id": 1767360,
@@ -410,15 +410,7 @@
    "original": "日曜のあと",
    "date": "2026-11-20",
    "poster": "/m2pk8MqzzfpVdWzxwqhV9ZMJ7dQ.jpg",
-   "pop": 0.8
-  },
-  {
-   "id": 1754757,
-   "title": "はじまりのさよなら",
-   "original": "はじまりのさよなら",
-   "date": "2026-11-20",
-   "poster": "/7gF6z6pCFHcuw17yhTtepJ42tEP.jpg",
-   "pop": 0.6
+   "pop": 0.7
   },
   {
    "id": 1724371,
@@ -427,6 +419,14 @@
    "date": "2026-11-20",
    "poster": "/ijOsHTIae0dYcRUSvGrCrAeTIJ6.jpg",
    "pop": 0.5
+  },
+  {
+   "id": 1754757,
+   "title": "はじまりのさよなら",
+   "original": "はじまりのさよなら",
+   "date": "2026-11-20",
+   "poster": "/7gF6z6pCFHcuw17yhTtepJ42tEP.jpg",
+   "pop": 0.4
   },
   {
    "id": 1802704,
@@ -441,8 +441,8 @@
    "title": "ザ・ファーザー・ミスアドベンチャー・オブ・クリフ・ブース",
    "original": "THE FURTHER MIS-ADVENTURES OF CLIFF BOOTH",
    "date": "2026-11-25",
-   "poster": "/thX8Rs7nfgmPHfCgjoFuRovy49l.jpg",
-   "pop": 11.2
+   "poster": "/5jO6rhfethzH7xdWl6KCOxCNCzQ.jpg",
+   "pop": 13.1
   }
  ]
 }
