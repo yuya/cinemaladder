@@ -108,7 +108,7 @@ body > header::before{content:"";position:absolute;inset:0 0 auto;height:100%;ba
 /* 履歴：チップの列だけ横スクロールし、全削除ボタンは右端に固定して見切れないようにする */
 .hist{display:flex;gap:6px;align-items:center}
 .hist .hl{flex:1;min-width:0;display:flex;margin:0;gap:6px;overflow-x:auto;scrollbar-width:none;
-  -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 24px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 24px),transparent);padding-right:20px}
+  -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 24px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 24px),transparent);padding:2px 20px 2px 0;margin:-2px 0}   /* 上下に2pxの余白：Safariは横スクロールの箱で、端数の高さのチップの下の枠を切ることがある */
 .hist .hl::-webkit-scrollbar{display:none}
 .hist .lbl{font-size:12px;font-weight:400;margin:0;color:var(--muted);flex:none;align-self:center}
 .hist .hc{flex:none;display:flex;align-items:center;border:1px solid var(--line);background:var(--surface);border-radius:999px;font-size:13px}
