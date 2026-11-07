@@ -1,5 +1,7 @@
 /* 運営者情報・プライバシーポリシーなど、文章だけのページ用。色はトップページと同じ */
 :root{
+  /* ページの横幅と左右の余白。トップ（index.html）と下層ページ（pages.css）で同じ値にする */
+  --maxw:800px;--gutl:max(16px,env(safe-area-inset-left,0px));--gutr:max(16px,env(safe-area-inset-right,0px));
   --bg:#F4F4F7;--surface:#FFFFFF;--fg:#17171C;--muted:#5E5E6B;--line:#E1E1E8;
   --brand:#E8607A;--accent:#B4233C;
   --font:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI",Meiryo,system-ui,sans-serif;
@@ -12,7 +14,7 @@ html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:15px;line-height:1.8;font-feature-settings:"palt" 1;text-autospace:normal}
 a{color:var(--accent);text-underline-offset:2px}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.wrap{max-width:800px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--gutl);padding-right:var(--gutr)}
 body > header{background:var(--surface);border-bottom:1px solid var(--line)}
 body > header .wrap{padding-block:12px}
 .logo{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:19px;color:inherit;text-decoration:none;letter-spacing:.01em}
