@@ -660,20 +660,19 @@ function trendHTML(){
   const md=d=>`${+d.slice(5,7)}/${+d.slice(8,10)}`;
   if(topTab==="rel"){
     // 公開日順：金曜〜翌木曜を1週として、週ごとに見出しを付ける（日本の新作はたいてい金曜公開）。
-    // 「今週末」は、金・土ならその週末、日〜木なら次の金曜からの週末。
-    // 日〜木は、直前の金曜からの週を「公開」とする（その週のうち、まだ公開されていない作品もあるため「中」は付けない）。それより前の週は「公開中」
+    // 見出しはどの週も「m/d〜 公開」。「今週末」「公開中」は、曜日の感じ方や上映終了の作品があって紛らわしいので使わない。
+    // 今日を含む週（直前の金曜から）の見出しだけ色を付ける
     if(!relData)return head+(relFailed?'<ol><li class="msg">読み込めませんでした。時間をおいて開き直してください。</li></ol>':skel(6))+tail;
     const D=864e5,now=fakeDay?new Date(fakeDay+"T12:00"):new Date(),today=Date.UTC(now.getFullYear(),now.getMonth(),now.getDate()),dw=now.getDay();
-    const weekend=dw>=5?today-(dw-5)*D:today+(5-dw+7)%7*D;
+    const thisWk=today-((dw-5+7)%7)*D,weekend=dw>=5?thisWk:thisWk+7*D;   // weekend：その日の朝の更新が作る範囲の計算に使う
     const wkOf=d=>{const t=Date.parse(d),dow=new Date(t).getUTCDay();return t-((dow-5+7)%7)*D};
-    const label=r=>r===-1&&dw!==5&&dw!==6?"公開":r<0?"公開中":["今週末","来週末","再来週末"][r]||"";
     // 週ごとに <li> でまとめる。見出しはその週の中でだけ上に留まるので、次の週の見出しが来ると押し出される（重ならない）
     let last=null,h="";
     // 日付を模擬しているときは、その日に毎朝の更新が作る範囲（fetch-releases.mjs と同じ計算）に絞る
     const fr=today-((dw-5+7)%7)*D-14*D,to=weekend+20*D,ymd=t=>new Date(t).toISOString().slice(0,10);
     for(const m of fakeDay?relData.items.filter(m=>m.date>=ymd(fr)&&m.date<=ymd(to)):relData.items){
       const w=wkOf(m.date);
-      if(w!==last){h+=(last===null?"":"</ol></li>");last=w;const r=Math.round((w-weekend)/(7*D));h+=`<li class="wkg"><div class="wk${r===0?" cur":r===-1?" prev":""}">${md(new Date(w).toISOString())}〜<span>${label(r)}</span></div><ol>`}
+      if(w!==last){h+=(last===null?"":"</ol></li>");last=w;const r=Math.round((w-thisWk)/(7*D));h+=`<li class="wkg"><div class="wk${r===0?" cur":r===-1?" prev":""}">${md(new Date(w).toISOString())}〜<span>公開</span></div><ol>`}
       h+=`<li><button type="button" data-tid="${m.id}"${cur&&cur[0]===m.title?' class="on" aria-current="true"':""}>${m.poster?`<img src="${IMG}${esc(m.poster)}" alt="" loading="lazy" width="24" height="36">`:'<span class="noimg"></span>'}<span class="tt">${esc(m.title)}</span></button></li>`;
     }
     if(h)h+="</ol></li>";
@@ -968,7 +967,7 @@ function updateTop(){
 }
 /* 公開日順の一覧のスクロール位置。前回いちばん上に見えていた作品を覚えておき、次に開いたときもそこから見せる。
    一覧が新しい週に切り替わったとき（金曜）や、その作品が一覧から外れたときは、
-   「今週末」の1つ前の週（金・土は「公開中」、日〜木は「公開」）の見出しが一番上に来るようにする（すぐ下に「今週末」が見える） */
+   今日を含む週の1つ前の週の見出しが一番上に来るようにする（すぐ下に今日を含む週が見える） */
 /* 一覧の高さを画面に合わせる。ページをいちばん上まで戻したときに、一覧の下端が画面の下から96px上で終わる高さにする。
    iPhoneのSafariは画面下にアドレスバーが重なるので、その分をあけておく（最小240px・最大520px） */
 function fitRel(){
