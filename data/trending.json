@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-06T01:32:22.547Z",
+ "updated": "2026-11-07T00:56:17.544Z",
  "items": [
   {
    "id": 1423191,
@@ -7,7 +7,7 @@
    "original": "Resident Evil",
    "date": "2026-10-09",
    "poster": "/wHXSnGH3zQtvpxPwaBXMoS9o8Vl.jpg",
-   "pop": 406.627,
+   "pop": 422.1049,
    "info": {
     "id": 1423191,
     "title": "バイオハザード",
@@ -48,7 +48,7 @@
    "original": "Verity",
    "date": "2026-11-06",
    "poster": "/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "pop": 205.4296,
+   "pop": 192.4684,
    "info": {
     "id": 1283515,
     "title": "ヴェリティ／真実",
@@ -81,51 +81,12 @@
    }
   },
   {
-   "id": 1400940,
-   "title": "クレイフェイス",
-   "original": "Clayface",
-   "date": "2026-10-30",
-   "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-   "pop": 114.7072,
-   "info": {
-    "id": 1400940,
-    "title": "クレイフェイス",
-    "original": "Clayface",
-    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-    "date": "2026-10-19",
-    "jpDate": "2026-10-30",
-    "runtime": 109,
-    "tagline": "",
-    "overview": "ゴッサムの路地裏で育った少年から、ハリウッドの主演俳優へ。瞬く間にスターの座へ駆け上がったマット・ヘイゲンだったが、地元の犯罪組織のボスによって顔を無残に損なわれ、その輝かしいキャリアは突然、悲劇的な終わりを迎える。周囲のスタッフにも見捨てられ、すべてを失ったマットは、最先端の治療に最後の望みを託す。奇跡的に元の姿を取り戻した彼だったが、その治療は思いもよらぬ形で彼の現実感覚を蝕んでいく。やがてマットは、すべてを呑み込むほどの復讐心に駆られ、破滅への道を転がり落ちていく——。",
-    "overviewLang": "ja",
-    "genres": [
-     "ホラー",
-     "スリラー",
-     "サイエンスフィクション"
-    ],
-    "countries": [
-     "US"
-    ],
-    "directors": [
-     "ジェームズ・ワトキンス"
-    ],
-    "cast": [
-     "Tom Rhys Harries",
-     "ナオミ・アッキー",
-     "エディ・マーサン",
-     "マックス・ミンゲラ",
-     "デヴィッド・デンシック",
-     "Francesca Corney"
-    ]
-   }
-  },
-  {
    "id": 1381071,
    "title": "ゴジラ-0.0",
    "original": "ゴジラ-0.0",
    "date": "2026-11-03",
    "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
-   "pop": 87.3684,
+   "pop": 106.147,
    "info": {
     "id": 1381071,
     "title": "ゴジラ-0.0",
@@ -159,12 +120,51 @@
    }
   },
   {
+   "id": 1400940,
+   "title": "クレイフェイス",
+   "original": "Clayface",
+   "date": "2026-10-30",
+   "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
+   "pop": 105.4305,
+   "info": {
+    "id": 1400940,
+    "title": "クレイフェイス",
+    "original": "Clayface",
+    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
+    "date": "2026-10-19",
+    "jpDate": "2026-10-30",
+    "runtime": 109,
+    "tagline": "",
+    "overview": "ゴッサムの路地裏で育った少年から、ハリウッドの主演俳優へ。瞬く間にスターの座へ駆け上がったマット・ヘイゲンだったが、地元の犯罪組織のボスによって顔を無残に損なわれ、その輝かしいキャリアは突然、悲劇的な終わりを迎える。周囲のスタッフにも見捨てられ、すべてを失ったマットは、最先端の治療に最後の望みを託す。奇跡的に元の姿を取り戻した彼だったが、その治療は思いもよらぬ形で彼の現実感覚を蝕んでいく。やがてマットは、すべてを呑み込むほどの復讐心に駆られ、破滅への道を転がり落ちていく——。",
+    "overviewLang": "ja",
+    "genres": [
+     "ホラー",
+     "スリラー",
+     "サイエンスフィクション"
+    ],
+    "countries": [
+     "US"
+    ],
+    "directors": [
+     "ジェームズ・ワトキンス"
+    ],
+    "cast": [
+     "Tom Rhys Harries",
+     "ナオミ・アッキー",
+     "エディ・マーサン",
+     "マックス・ミンゲラ",
+     "デヴィッド・デンシック",
+     "Francesca Corney"
+    ]
+   }
+  },
+  {
    "id": 1302904,
    "title": "プラティカル・マジック／魔女たちの秘密",
    "original": "Practical Magic 2",
    "date": "2026-11-27",
    "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
-   "pop": 78.2906,
+   "pop": 72.6906,
    "info": {
     "id": 1302904,
     "title": "プラティカル・マジック／魔女たちの秘密",
@@ -203,7 +203,7 @@
    "original": "Other Mommy",
    "date": "2026-11-20",
    "poster": "/fGRNCssTRrhYZxNzykGGCoMsAVq.jpg",
-   "pop": 71.823,
+   "pop": 65.7329,
    "info": {
     "id": 1400837,
     "title": "アザー・マミー",
@@ -240,7 +240,7 @@
    "original": "Street Fighter",
    "date": "2026-10-16",
    "poster": "/1JBlbyXionXPRaqW1UQw7eKkxNP.jpg",
-   "pop": 70.4893,
+   "pop": 65.6711,
    "info": {
     "id": 1153576,
     "title": "ストリートファイター／ザ・ムービー",
@@ -279,7 +279,7 @@
    "original": "Disclosure Day",
    "date": "2026-10-01",
    "poster": "/vDnJLpE2jhu8OVcwpWuYCMF5hRU.jpg",
-   "pop": 63.7699,
+   "pop": 61.2024,
    "info": {
     "id": 1275779,
     "title": "ディスクロージャー・デイ",
@@ -317,7 +317,7 @@
    "original": "Digger",
    "date": "2026-10-09",
    "poster": "/vi2HvWOBtR1pcr4vBoYe43ldkuu.jpg",
-   "pop": 52.7291,
+   "pop": 50.8776,
    "info": {
     "id": 1248832,
     "title": "DIGGER／ディガー",
@@ -355,7 +355,7 @@
    "original": "Whalefall",
    "date": "2026-10-16",
    "poster": "/vjTYUTgh9nO88i6HZ4YPRhiFL05.jpg",
-   "pop": 48.5698,
+   "pop": 46.7708,
    "info": {
     "id": 1255833,
     "title": "クジラに落ちた男",
