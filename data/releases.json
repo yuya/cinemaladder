@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T00:56:46.973Z",
+ "updated": "2026-11-07T00:56:20.647Z",
  "anchor": "2026-11-06",
  "from": "2026-10-23",
  "to": "2026-11-26",
@@ -325,19 +325,19 @@
    "pop": 0.8
   },
   {
-   "id": 1807470,
-   "title": "2126年、海の星をさがして",
-   "original": "2126年、海の星をさがして",
-   "date": "2026-11-13",
-   "poster": "/lzZZj7ag0SPqw80ESpXuonbiGYF.jpg",
-   "pop": 0.7
-  },
-  {
    "id": 1759179,
    "title": "シルバー・エクスプレス",
    "original": "シルバー・エクスプレス",
    "date": "2026-11-13",
    "poster": "/jOGlxJo4nr1SohOOgN87sIhnZFn.jpg",
+   "pop": 0.7
+  },
+  {
+   "id": 1807470,
+   "title": "2126年、海の星をさがして",
+   "original": "2126年、海の星をさがして",
+   "date": "2026-11-13",
+   "poster": "/lzZZj7ag0SPqw80ESpXuonbiGYF.jpg",
    "pop": 0.7
   },
   {
