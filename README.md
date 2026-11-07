@@ -10,6 +10,7 @@
 - `css/base.css` … 全ページ共通の変数（色・フォント・横幅 `--maxw`・左右の余白）とダーク表示。`css/top.css` … トップ用。`css/pages.css` … 運営者情報・プライバシーポリシー用
 - `js/app.js` … トップの本体（検索・リンク・話題作など。アフィリエイトの設定 `AFF` も先頭にある）。`js/theme.js`・`js/theme-early.js` … 表示の色の切り替え（全ページ）。`js/ads.js` … AdSense の遅延読み込み。`js/hashist.js`・`js/pages.js` … 小さな補助
 - `scripts/build.mjs` … `src/`・`css/`・`js/` から公開用の HTML を作る（esbuild で縮める）。`maps/` … 縮めたコードと元のファイルの対応表（ソースマップ）。開発者ツールを開くと、元のファイル名・行番号・コメントで見られる
+- `data/insta-tags.json` … Instagram の公式ハッシュタグの表（TMDB の作品番号 → タグ。# なし。出典と確認日も残す）。Muse が公式サイト・公式X などから週1回集めて更新する。`npm run build` で js/app.js に埋め込まれる（タグに # や空白・記号があるとビルドが止まる）。表にない作品は作品名から記号を除いたタグを使う
 - `package.json` … ビルドに使う道具（esbuild）の版を固定する
 - `about.html` / `privacy.html` … 運営者情報とプライバシーポリシー（外部送信の公表を含む）。アクセス解析・広告・アフィリエイトを入れたら privacy.html の表と説明を更新する。公開URLは /about・/privacy（Cloudflare Pages が .html を省いた URL で配信し、.html 付きは自動で転送する）
 - `functions/index.js` … Cloudflare Pages Functions。`/?q=作品名` で開かれたとき、HTML の題名・説明文・正規URLを作品名入りに書き換えて返す（共有のプレビューや検索エンジン向け。JS を動かさずに読まれるため）。push するだけで Pages が一緒に公開する

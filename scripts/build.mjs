@@ -21,6 +21,23 @@ const check = process.argv.includes("--check");
 const HEAD = (src) =>
   `<!-- このファイルは ${src} から scripts/build.mjs（npm run build）で自動で作られます。直接編集せず、src/・css/・js/ を直してください -->`;
 
+// Instagram の公式ハッシュタグ表（data/insta-tags.json）を読み、形を確かめてから js/app.js の __INSTA_TAGS__ に入れる
+async function instaTags() {
+  const raw = await readFile("data/insta-tags.json", "utf8").catch(() => null);
+  if (raw === null) return {};
+  let j;
+  try { j = JSON.parse(raw); } catch (e) { throw new Error("data/insta-tags.json が JSON として読めません：" + e.message); }
+  const tags = {};
+  for (const [id, v] of Object.entries(j?.tags || {})) {
+    const tag = typeof v === "string" ? v : v?.tag;
+    if (!/^\d+$/.test(id)) throw new Error(`data/insta-tags.json：作品番号「${id}」が数字ではありません`);
+    if (typeof tag !== "string" || !/^[\p{L}\p{N}_]+$/u.test(tag)) throw new Error(`data/insta-tags.json：${id} のタグ「${tag}」に、ハッシュタグに使えない文字（# や空白・記号）があります`);
+    tags[id] = tag;
+  }
+  return tags;
+}
+const DEFINE = { __INSTA_TAGS__: JSON.stringify(JSON.stringify(await instaTags())) }; // 文字列として埋め込む（オブジェクトのままだと esbuild が全体の変数に括り出すため）
+
 const out = new Map(); // 書き出すファイル → 中身
 const cache = new Map(); // 同じ CSS・JS は1回だけ縮める
 
@@ -43,6 +60,7 @@ async function minify(kind, names) {
     legalComments: "none",
     charset: "utf8", // 日本語を \u エスケープにしない
     target: ["es2020", "safari15"],
+    define: kind === "js" ? DEFINE : undefined,
     outfile: `maps/${name}.${kind}`, // ソースマップの中の元ファイルの場所（../css/…・../js/…）を正しくするための仮の出力先
     write: false,
     logLevel: "silent",

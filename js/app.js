@@ -21,11 +21,10 @@ const SITE = "https://cinemaladder.com/"; // 本番の住所
 const IMG = "https://image.tmdb.org/t/p/w92";
 
 const E = encodeURIComponent;
-/* Instagram のハッシュタグの対応表（TMDB の作品番号：タグ。# は付けない）。
-   作品名から作れないタグ（公式の宣伝で使われているタグなど）だけを手で足す。作品番号は作品ページの URL の id= の数字 */
-const INSTA_TAGS = {
-  1381071: "ゴジラマイナスゼロ", // ゴジラ-0.0
-};
+/* Instagram の公式ハッシュタグの対応表（TMDB の作品番号：タグ。# は付けない）。
+   中身は data/insta-tags.json に置き、npm run build のときにここへ埋め込む（__INSTA_TAGS__ が表の JSON 文字列に置き換わる）。
+   表にない作品は、作品名から記号を除いたタグを使う */
+const INSTA_TAGS = JSON.parse(__INSTA_TAGS__);
 const GROUPS = [
   {
     h: "レビュー",
