@@ -24,9 +24,12 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Cinemaladder - 映画の評判を、はしごする">
 <meta property="og:description" content="作品名を1回入れるだけで、映画のレビューサイト、チケット、SNS、配信サービスの検索結果へ移動できます。">
-<style>
+<style data-css="base top">
+/* この中身は css/ のファイルから scripts/build-css.mjs で自動で作られます。ここは直接編集しないでください */
+/* 全ページ共通：色・フォント・横幅などの変数と、ダーク表示。
+   ここを変えると、トップ・運営者情報・プライバシーポリシーのすべてに反映される */
 :root{
-  /* ページの横幅と左右の余白。トップ（index.html）と下層ページ（pages.css）で同じ値にする */
+  /* ページの横幅と左右の余白。全ページ共通 */
   --maxw:800px;--gutl:max(16px,env(safe-area-inset-left,0px));--gutr:max(16px,env(safe-area-inset-right,0px));
   --bg:#F4F4F7;--surface:#FFFFFF;--fg:#17171C;--muted:#5E5E6B;--line:#E1E1E8;
   --brand:#E8607A;   /* ロゴとアイコンのピンク。ライト・ダーク共通 */
@@ -40,6 +43,8 @@
 :root[data-theme="dark"]{
   --bg:#111115;--surface:#1A1A20;--fg:#ECECF1;--muted:#A0A0AC;--line:#2C2C35;--accent:#E8607A;--accent-soft:#3A1D25;--sk:#2A2A32;color-scheme:dark}
 *{box-sizing:border-box}
+
+/* トップページ（index.html）用（共通の変数は base.css） */
 html{-webkit-tap-highlight-color:transparent;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 /* 和文の字間を詰める（palt）をサイト全体にかける。部分ごとに付けると漏れが出るため */
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:15px;line-height:1.6;font-feature-settings:"palt" 1;text-autospace:normal}   /* 和文と英数字のあいだに、ブラウザが細い空きを入れる（文中には半角スペースを入れない） */

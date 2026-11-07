@@ -1,15 +1,4 @@
-/* 運営者情報・プライバシーポリシーなど、文章だけのページ用。色はトップページと同じ */
-:root{
-  /* ページの横幅と左右の余白。トップ（index.html）と下層ページ（pages.css）で同じ値にする */
-  --maxw:800px;--gutl:max(16px,env(safe-area-inset-left,0px));--gutr:max(16px,env(safe-area-inset-right,0px));
-  --bg:#F4F4F7;--surface:#FFFFFF;--fg:#17171C;--muted:#5E5E6B;--line:#E1E1E8;
-  --brand:#E8607A;--accent:#B4233C;
-  --font:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI",Meiryo,system-ui,sans-serif;
-  color-scheme:light;
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111115;--surface:#1A1A20;--fg:#ECECF1;--muted:#A0A0AC;--line:#2C2C35;--accent:#E8607A;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#111115;--surface:#1A1A20;--fg:#ECECF1;--muted:#A0A0AC;--line:#2C2C35;--accent:#E8607A;color-scheme:dark}
-*{box-sizing:border-box}
+/* 運営者情報・プライバシーポリシーなど、文章だけのページ用（共通の変数は base.css） */
 html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:15px;line-height:1.8;font-feature-settings:"palt" 1;text-autospace:normal}
 a{color:var(--accent);text-underline-offset:2px}

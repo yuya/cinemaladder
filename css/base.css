@@ -1,0 +1,17 @@
+/* 全ページ共通：色・フォント・横幅などの変数と、ダーク表示。
+   ここを変えると、トップ・運営者情報・プライバシーポリシーのすべてに反映される */
+:root{
+  /* ページの横幅と左右の余白。全ページ共通 */
+  --maxw:800px;--gutl:max(16px,env(safe-area-inset-left,0px));--gutr:max(16px,env(safe-area-inset-right,0px));
+  --bg:#F4F4F7;--surface:#FFFFFF;--fg:#17171C;--muted:#5E5E6B;--line:#E1E1E8;
+  --brand:#E8607A;   /* ロゴとアイコンのピンク。ライト・ダーク共通 */
+  --accent:#B4233C;--accent-soft:#F8E4E8;--sk:#E6E6EC;
+  --font:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI",Meiryo,system-ui,sans-serif;
+  color-scheme:light;
+}
+/* ダーク表示：OS がダークで「ライト」を選んでいないとき、または「ダーク」を選んだとき（フッターの「表示」で切り替え） */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#111115;--surface:#1A1A20;--fg:#ECECF1;--muted:#A0A0AC;--line:#2C2C35;--accent:#E8607A;--accent-soft:#3A1D25;--sk:#2A2A32;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111115;--surface:#1A1A20;--fg:#ECECF1;--muted:#A0A0AC;--line:#2C2C35;--accent:#E8607A;--accent-soft:#3A1D25;--sk:#2A2A32;color-scheme:dark}
+*{box-sizing:border-box}

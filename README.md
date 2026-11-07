@@ -5,8 +5,11 @@
 作品名を1回入れるだけで、国内の映画レビューサイト・ムビチケ・SNS・配信サービスの検索結果へ飛べるリンク集。
 
 ## 構成
-- `index.html` … サイト本体（1ファイル完結。ライブラリなし）
-- `about.html` / `privacy.html` / `pages.css` … 運営者情報とプライバシーポリシー（外部送信の公表を含む）。アクセス解析・広告・アフィリエイトを入れたら privacy.html の表と説明を更新する。公開URLは /about・/privacy（Cloudflare Pages が .html を省いた URL で配信し、.html 付きは自動で転送する）
+- `index.html` … サイト本体（1ファイル完結。ライブラリなし）。CSS は `css/` から埋め込んだもの（下の「CSS の直し方」）
+- `css/base.css` … 全ページ共通の変数（色・フォント・横幅 `--maxw`・左右の余白）とダーク表示
+- `css/top.css` … トップページ用。`css/pages.css` … 運営者情報・プライバシーポリシー用
+- `scripts/build-css.mjs` … `css/` を各 HTML の `<style data-css="…">` に埋め込む。`.github/workflows/css.yml` が push のたびに自動で実行してコミットする
+- `about.html` / `privacy.html` … 運営者情報とプライバシーポリシー（外部送信の公表を含む）。アクセス解析・広告・アフィリエイトを入れたら privacy.html の表と説明を更新する。公開URLは /about・/privacy（Cloudflare Pages が .html を省いた URL で配信し、.html 付きは自動で転送する）
 - `functions/index.js` … Cloudflare Pages Functions。`/?q=作品名` で開かれたとき、HTML の題名・説明文・正規URLを作品名入りに書き換えて返す（共有のプレビューや検索エンジン向け。JS を動かさずに読まれるため）。push するだけで Pages が一緒に公開する
 - `worker/worker.js` / `worker/wrangler.toml` … TMDB 中継（Cloudflare Workers、名前は cinemaladder-api）。https://cinemaladder-api.twilightwind.workers.dev で稼働。サジェスト・作品情報・英語あらすじの機械翻訳（DeepL、使えないときは Workers AI）。main の worker/ が変わると `.github/workflows/worker.yml` が自動で公開する（GitHub の Secret：CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID / DEEPL_API_KEY。DeepL のキーは公開のたびに Worker の Secret へ渡す）
 - `data/trending.json` … 話題作TOP10。GitHub Actions が毎日自動更新（手で編集しない）
@@ -15,10 +18,21 @@
 - `scripts/fetch-trending.mjs` / `scripts/fetch-titles.mjs` … 上の2つの JSON を作るスクリプト
 - `scripts/fetch-icons.mjs` … ファビコンを取得するスクリプト（サイトを増やしたらここにも追加）
 - `.github/workflows/trending.yml` … 毎日 6:17（日本時間）に上のスクリプトを実行し、staging と main の両方を更新。定期実行は既定ブランチの設定しか動かないため、このファイルは main にも置く
-- `icons/` … 各サイトのファビコンの元画像。Actions が足りない分だけ取得し、`scripts/inline-icons.py` が index.html の CSS に埋め込む（通信回数を減らすため。表示には icons/ を直接使わない）
+- `icons/` … 各サイトのファビコンの元画像。Actions が足りない分だけ取得し、`scripts/inline-icons.py` が css/top.css に埋め込み、`scripts/build-css.mjs` で index.html に入る（通信回数を減らすため。表示には icons/ を直接使わない）
 - `brand/icon.svg` … サイトのアイコンの元絵。`node scripts/build-brand.mjs` で favicon.svg / favicon.ico / apple-touch-icon.png / brand/*.png を書き出す
 - `robots.txt` / `sitemap.xml` / `llms.txt` … 検索エンジンと AI 向けの案内（llms.txt はサイトの説明と作品ページの URL の形）
 - `manifest.webmanifest` … ホーム画面に追加したときの名前・アイコン・色
+
+## CSS の直し方
+1. `css/` の中のファイルだけを直す（HTML の `<style>` の中は自動で上書きされるので直接直さない）
+   - 色・横幅など全ページに効くもの → `css/base.css`
+   - トップだけ → `css/top.css`、運営者情報・プライバシーポリシーだけ → `css/pages.css`
+2. 反映のしかたはどちらでもよい
+   - GitHub の画面で直して `staging` にコミット → Actions（CSS を HTML に埋め込む）が自動で HTML を作り直してコミットする。1分ほどで staging に出る
+   - 手元で直した場合は `node scripts/build-css.mjs` を実行してから、css/ と HTML を一緒にコミットする
+3. `node scripts/build-css.mjs --check` で、埋め込みが最新か確かめられる
+
+Sass などのプリプロセッサは使っていない。変数（`var(--maxw)`）や入れ子はいまのブラウザがそのまま理解するので、つなげて埋め込むだけで足りる。Node 以外は何も入れなくてよい。
 
 ## ブランチと公開先（Cloudflare Pages）
 - `main` … 本番。https://cinemaladder.com で公開（cinemaladder.pages.dev でも同じものが見られる）
