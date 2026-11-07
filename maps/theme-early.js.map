@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../js/theme-early.js"],
+  "sourcesContent": ["/* 表示（自動／ライト／ダーク）。選んだものを読み込みの最初に当て、一瞬だけ違う色が見えないようにする */\ntry {\n  const t = JSON.parse(localStorage.getItem(\"cl_theme\"));\n  if (t === \"light\" || t === \"dark\") {\n    document.documentElement.dataset.theme = t;\n    for (const m of document.querySelectorAll('meta[name=\"theme-color\"]'))\n      m.content = t === \"dark\" ? \"#111115\" : \"#FFFFFF\";\n  }\n} catch (e) {}\n"],
+  "mappings": "AACA,GAAI,CACF,MAAMA,EAAI,KAAK,MAAM,aAAa,QAAQ,UAAU,CAAC,EACrD,GAAIA,IAAM,SAAWA,IAAM,OAAQ,CACjC,SAAS,gBAAgB,QAAQ,MAAQA,EACzC,UAAWC,KAAK,SAAS,iBAAiB,0BAA0B,EAClEA,EAAE,QAAUD,IAAM,OAAS,UAAY,SAC3C,CACF,MAAY,CAAC",
+  "names": ["t", "m"]
+}

@@ -1,5 +1,5 @@
 """icons/*.png を一番小さい形式（PNG / WebP）に変換し、トップページの CSS（css/top.css）に data URI として埋め込む。
-そのあと scripts/build-css.mjs を実行すると index.html に入る。
+そのあと npm run build（scripts/build.mjs）を実行すると index.html に入る。
 
 ファビコンは十数個で合計10KBほどと小さいので、別ファイルで1つずつ取りに行くより
 HTML に埋め込んで通信を0回にした方が速い（画像の遅れて出るちらつきも無くなる）。

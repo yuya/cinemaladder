@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Cinemaladder - 映画の評判を、はしごする</title>
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111115" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-title" content="Cinemaladder">
+<link rel="preconnect" href="https://image.tmdb.org">
+<link rel="preconnect" href="https://cinemaladder-api.twilightwind.workers.dev" crossorigin>
+<link rel="preload" href="data/trending.json" as="fetch" crossorigin>
+<!-- Google AdSense（サイト運営者ID：ca-pub-9484498289210970）。サイトの確認はこのメタタグと ads.txt で行う。
+     広告のプログラム（約150KB）は、最初の表示が終わってから読み込む（本文の最後の script を参照） -->
+<meta name="google-adsense-account" content="ca-pub-9484498289210970">
+<meta name="description" content="作品名を1回入れるだけで、映画のレビューサイト、チケット、SNS、配信サービスの検索結果へ移動できます。">
+<link rel="canonical" href="https://cinemaladder.com/">
+<meta property="og:url" content="https://cinemaladder.com/">
+<meta property="og:site_name" content="Cinemaladder">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cinemaladder - 映画の評判を、はしごする">
+<meta property="og:description" content="作品名を1回入れるだけで、映画のレビューサイト、チケット、SNS、配信サービスの検索結果へ移動できます。">
+<style data-css="base top"></style>
+<script data-js="hashist"></script>
+<script data-js="theme-early"></script>
+</head>
+<body>
+<header>
+  <div class="hd">
+    <div class="fold"><div>
+    <div class="brand"><a class="logo" href="./" aria-label="Cinemaladderトップへ"><span class="name"><svg class="mark" viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#141418"/><path d="M22 9.2A9 9 0 1 0 22 22.8" fill="none" stroke="#FFFFFF" stroke-width="4.2"/><rect x="21.5" y="6" width="3.6" height="20" fill="#E8607A"/></svg>Cinema<span class="lad">ladder</span></span></a><p class="tagline">映画の評判を、はしごする</p></div>
+    </div></div>
+    <div class="srow">
+    <a class="mini" href="./" aria-label="Cinemaladderトップへ" tabindex="-1"><svg class="mark" viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#141418"/><path d="M22 9.2A9 9 0 1 0 22 22.8" fill="none" stroke="#FFFFFF" stroke-width="4.2"/><rect x="21.5" y="6" width="3.6" height="20" fill="#E8607A"/></svg></a>
+    <search class="sbox search">
+      <form id="f" action="./" method="get">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <label for="q" class="vh">映画の作品名で検索</label>
+        <input id="q" name="q" type="search" enterkeyhint="search" placeholder="作品名を入力" autocomplete="off"
+          role="combobox" aria-expanded="false" aria-controls="sug" aria-autocomplete="list">
+        <button class="clear" type="button" id="clr">消す</button>
+      </form>
+      <ul class="sug" id="sug" role="listbox" aria-label="作品の候補" hidden></ul>
+    </search>
+    </div>
+    <div class="fold"><div><nav class="hist" id="hist" aria-labelledby="hist-lbl" hidden></nav></div></div>
+  </div>
+</header>
+
+<p class="envbadge" id="envbadge" hidden>STAGING<span class="fd" role="group" aria-label="公開日順を見る日付（テスト用）"><button type="button" data-fd="-1" aria-label="前の日">◀</button><button type="button" id="fdtxt" data-fd="0" title="押すと今日に戻す">今日</button><button type="button" data-fd="1" aria-label="次の日">▶</button></span></p>
+<main id="out" class="boot">
+  <p class="emptyst">読み込み中…</p>
+  <noscript><p class="emptyst">このサイトを使うにはJavaScriptを有効にしてください。</p></noscript>
+</main>
+
+<!-- サイトの説明（JS を使わずに HTML に直接書く。検索エンジンや広告の審査でも読まれる） -->
+<section class="guide" aria-labelledby="gd-h">
+  <h2 id="gd-h">Cinemaladderについて</h2>
+  <p>映画の評判を調べるとき、レビューサイトを1つずつ開いて同じ作品名を入れ直すのは手間がかかります。Cinemaladderは、作品名を1回入れるだけで、主なレビューサイト、チケット、SNS、配信サービスの検索結果へ移動できるサイトです。いくつものサイトの評判を順に見て回る「はしご」を、短い手順で済ませるために作りました。</p>
+
+  <h3>使い方</h3>
+  <ol>
+    <li>上の検索欄に作品名を入れます。途中まで入れると候補が出ます。候補を選ぶと、ポスター、公開日、上映時間、ジャンルが表示されます。あらすじとキャストは「あらすじ・キャスト」を開くと読めます。</li>
+    <li>「レビュー」の欄から、開きたいサイトを選びます。どのボタンも、そのサイトでその作品を検索した結果のページにつながります。</li>
+    <li>映画館で観るなら「チケット・上映館」から前売券や上映館を、家で観るなら「配信」から各サービスの配信状況を確かめます。</li>
+  </ol>
+  <p>調べた作品は「最近」に残り、あとから同じ作品をすぐ開き直せます。作品ごとのページのURLは、共有ボタンで送れます。</p>
+
+  <h3>サイトごとの評価の違い</h3>
+  <p>同じ映画でも、サイトによって点数や感想の傾向が変わることがあります。サイトごとに利用者の層や好み、点数の付け方が違うためと考えられます。</p>
+  <p>そのため、1つのサイトの点数だけで決めるより、いくつかのサイトで評価がそろっているか、感想が割れているかを見るほうが、自分に合う作品か判断しやすくなります。</p>
+
+  <h3>サイトごとの使い分け</h3>
+  <dl>
+    <dt>Filmarks</dt><dd>国内最大級のユーザーレビューサービスです。5点満点（0.1刻み）のスコアと、レビュー件数の多さで評判の全体像をつかみやすくなっています。ネタバレありのレビューは一覧では隠れていて、タップして初めて本文が開くので、観る前に読んでも踏みにくいです。自分の鑑賞記録や「観たい」作品の管理にも使えます。</dd>
+    <dt>映画.com</dt><dd>作品情報、映画ニュース、上映スケジュールまで揃う総合サイトです。ユーザーレビューは5点満点で、ネタバレありのレビューは「ネタバレ！」と表示されて本文が隠れており、クリックして初めて読めます。レビューと上映時間を同じサイトで確認できるのが強みです。</dd>
+    <dt>Movie Walker</dt><dd>映画ニュースや特集、インタビューを中心にした映画メディアです。作品ページでは利用者の評価（5点満点）とレビューも読めて、上映スケジュールも確認できます。作品そのものの評判に加えて、公開前後の話題や背景をつかみたいときに向いています。</dd>
+    <dt>映画ランド</dt><dd>上映中・公開予定の作品について、利用者の評価とレビュー、映画館の上映スケジュールを調べられるサイトです。レビュー数は大手ほど多くありませんが、劇場で公開中の作品に絞って評判を探せるところが特徴です。</dd>
+    <dt>KINENOTE</dt><dd>映画雑誌「キネマ旬報」の発行元、キネマ旬報社が運営する鑑賞記録サービスです。作品データベースが往年の名作まで厚く、新作だけでなく旧作の評判や記録を調べるときに頼りになります。</dd>
+    <dt>IMDb</dt><dd>世界最大の映画データベースです。評価は10点満点で、世界中の利用者が付けています。日本での上映情報はやや手薄ですが、海外での評判や、キャスト・スタッフの情報を調べるのに向いています。</dd>
+    <dt>Instagram・note・X・はてなパークス</dt><dd>公開直後の感想を探せます。noteでは、作品名で検索した感想記事を読めます。Xは「ネタバレ」などの言葉を含む投稿を除外して検索します。除外する言葉は、「Xで除外する言葉」から変更できます。</dd>
+  </dl>
+
+  <h3>ネタバレの避け方</h3>
+  <p>Filmarksと映画.comでは、ネタバレありのレビューは最初から隠れていて、自分で開かない限り本文は読めません。SNSでは結末に触れた投稿がそのまま流れてくることがあるので、CinemaladderではX検索に「ネタバレ」などの除外ワードを入れてあります（「Xで除外する言葉」から変更できます）。あらすじも「あらすじ・キャスト」を開いたときだけ表示されます。</p>
+</section>
+
+<footer>
+  <p id="affnote" hidden>当サイトはアフィリエイトプログラムに参加しており、「PR」の付いたリンクから申し込みや購入があると、運営者が紹介料を受け取ることがあります。<span id="amznote" hidden>Amazonのアソシエイトとして、当サイトは適格販売により収入を得ています。</span></p>
+  <p class="flinks"><a href="about">運営者情報</a><a href="privacy">プライバシーポリシー</a></p>
+  <p class="themes" role="group" aria-label="表示の色">表示：<button type="button" data-theme-set="auto">自動</button><button type="button" data-theme-set="light">ライト</button><button type="button" data-theme-set="dark">ダーク</button></p>
+  <p>作品情報とポスター画像は<a href="https://www.themoviedb.org" target="_blank" rel="noopener">TMDB</a>から取得しています。This product uses the <a href="https://www.themoviedb.org" target="_blank" rel="noopener">TMDB</a> API but is not endorsed or certified by TMDB.</p>
+</footer>
+
+<script data-js="app"></script>
+<script data-js="ads"></script>
+<script data-js="theme"></script>
+</body>
+</html>

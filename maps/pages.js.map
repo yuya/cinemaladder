@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../js/pages.js"],
+  "sourcesContent": ["document.getElementById(\"envbadge\").hidden = /^(www\\.)?cinemaladder\\.com$/.test(location.hostname);\n"],
+  "mappings": "AAAA,SAAS,eAAe,UAAU,EAAE,OAAS,8BAA8B,KAAK,SAAS,QAAQ",
+  "names": []
+}
