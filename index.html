@@ -154,8 +154,10 @@ main{max-width:800px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-lef
   font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--accent);border:1px solid currentColor;border-radius:6px;padding:2px 6px;background:var(--surface);opacity:.6;display:flex;align-items:center;gap:6px}
 .envbadge[hidden]{display:none}
 /* テスト用：公開日順をこの日付として表示する。日付を選んだときだけ目立たせる */
-.envbadge input{pointer-events:auto;font:inherit;font-size:11px;font-weight:400;letter-spacing:0;color:var(--muted);background:transparent;border:0;padding:0;color-scheme:inherit}
-.envbadge input.set{color:var(--accent);font-weight:700}
+/* 日付は yyyy/mm/dd で見せる（ブラウザの日付欄は表示形式を変えられないので、透明にして文字の上に重ねる） */
+.envbadge .fd{position:relative;pointer-events:auto;font-size:11px;font-weight:400;letter-spacing:0;color:var(--muted);cursor:pointer}
+.envbadge .fd input{position:absolute;inset:0;width:100%;height:100%;opacity:0;border:0;padding:0;margin:0;cursor:pointer}
+.envbadge .fd:has(input.set){color:var(--accent);font-weight:700}
 .envbadge:has(input.set){opacity:1}
 /* 画面下のお知らせ。出るときも消えるときも目で追える速さにする */
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,10px);background:var(--fg);color:var(--bg);padding:8px 14px;border-radius:999px;font-size:13px;opacity:0;pointer-events:none;z-index:20;
@@ -364,7 +366,7 @@ details[open] > summary::before{transform:rotate(90deg)}
   </div>
 </header>
 
-<p class="envbadge" id="envbadge" hidden>STAGING<input type="date" id="fakeday" aria-label="公開日順を見る日付（テスト用）" title="公開日順をこの日付として表示（テスト用）"></p>
+<p class="envbadge" id="envbadge" hidden>STAGING<label class="fd"><span id="fdtxt">日付</span><input type="date" id="fakeday" aria-label="公開日順を見る日付（テスト用）" title="公開日順をこの日付として表示（テスト用）"></label></p>
 <main id="out" class="boot">
   <p class="emptyst">読み込み中…</p>
   <noscript><p class="emptyst">このサイトを使うにはJavaScriptを有効にしてください。</p></noscript>
@@ -1108,8 +1110,9 @@ $("#affnote").hidden=!(AFF.amazonTag||AFF.unext||AFF.mvtk);$("#amznote").hidden=
 $("#envbadge").hidden=!IS_DEV;
 if(IS_DEV){   // テスト用：右下の日付で、公開日順をその日として表示する（コンソールなら cl.today("2026-11-08")、空で解除）
   if(fakeDay)try{sessionStorage.setItem("cl_fakeDay",fakeDay)}catch{}
-  const fd=$("#fakeday");fd.value=fakeDay||"";fd.classList.toggle("set",!!fakeDay);
-  window.cl={today(v){fakeDay=v||null;try{v?sessionStorage.setItem("cl_fakeDay",v):sessionStorage.removeItem("cl_fakeDay")}catch{}fd.value=v||"";fd.classList.toggle("set",!!v);updateTop();return fakeDay||"解除しました"}};
+  const fd=$("#fakeday"),show=v=>{fd.value=v||"";fd.classList.toggle("set",!!v);$("#fdtxt").textContent=v?v.replace(/-/g,"/"):"日付"};show(fakeDay);
+  fd.addEventListener("click",()=>{try{fd.showPicker()}catch{}});
+  window.cl={today(v){fakeDay=v||null;try{v?sessionStorage.setItem("cl_fakeDay",v):sessionStorage.removeItem("cl_fakeDay")}catch{}show(v);updateTop();return fakeDay||"解除しました"}};
   fd.addEventListener("change",()=>cl.today(fd.value));
 }
 renderHist();
