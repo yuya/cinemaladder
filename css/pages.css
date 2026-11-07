@@ -1,4 +1,4 @@
-/* 運営者情報・プライバシーポリシーなど、文章だけのページ用（共通の変数は base.css） */
+/* 運営者情報・プライバシーポリシーなど、文章だけのページ用（共通の変数は css/base.css） */
 html {
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
