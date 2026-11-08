@@ -22,6 +22,7 @@ const HEAD = (src) =>
   `<!-- このファイルは ${src} から scripts/build.mjs（npm run build）で自動で作られます。直接編集せず、src/・css/・js/ を直してください -->`;
 
 // Instagram の公式ハッシュタグ表（data/insta-tags.json）を読み、形を確かめてから js/app.js の __INSTA_TAGS__ に入れる
+// タグに使えるのは文字・数字・_ と、日本語の中黒「・」（公式タグに使われていることがあるため）
 async function instaTags() {
   const raw = await readFile("data/insta-tags.json", "utf8").catch(() => null);
   if (raw === null) return {};
@@ -31,7 +32,7 @@ async function instaTags() {
   for (const [id, v] of Object.entries(j?.tags || {})) {
     const tag = typeof v === "string" ? v : v?.tag;
     if (!/^\d+$/.test(id)) throw new Error(`data/insta-tags.json：作品番号「${id}」が数字ではありません`);
-    if (typeof tag !== "string" || !/^[\p{L}\p{N}_]+$/u.test(tag)) throw new Error(`data/insta-tags.json：${id} のタグ「${tag}」に、ハッシュタグに使えない文字（# や空白・記号）があります`);
+    if (typeof tag !== "string" || !/^[\p{L}\p{N}_・]+$/u.test(tag)) throw new Error(`data/insta-tags.json：${id} のタグ「${tag}」に、ハッシュタグに使えない文字（# や空白・記号）があります`);
     tags[id] = tag;
   }
   return tags;
