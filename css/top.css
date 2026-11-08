@@ -531,6 +531,42 @@ main {
     animation: none;
   }
 }
+/* 話題作・公開日順をめぐる「‹ 3 / 10 ›」。「あらすじ・キャスト」の行の右寄せ（共有ボタンの左） */
+.now .ringnav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 12px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.now .ringnav button {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  width: 28px;
+  height: 28px;
+  margin: -6px 0;
+  border-radius: 8px;
+  font-size: 20px;
+  line-height: 1;
+  padding: 0 0 2px;
+}
+@media (hover: hover) {
+  .now .ringnav button:hover {
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+}
+.now .ringnav button:active {
+  color: var(--accent);
+}
+/* めぐれる作品の見出しは、横の指の動きをページのスクロールにしない（縦はそのまま） */
+.now:has(.ringnav) {
+  touch-action: pan-y;
+}
 /* 共有は控えめに：枠なし・アイコンだけで、「あらすじ・キャスト」の行の右端に置く。押せる範囲は32pxのまま、上下は行の高さに食い込ませる */
 .share {
   flex: none;

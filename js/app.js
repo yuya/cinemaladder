@@ -498,6 +498,7 @@ async function showTrending() {
       const m = pool[Math.floor(Math.random() * pool.length)];
       lastPick = m.id;
       setQ();
+      nextRing = "top";
       render(m.title, "trend", m);
       return;
     }
@@ -895,8 +896,46 @@ function pickedHTML(movie) {
   if (!picked || !movie || picked.id !== movie.id) return "";
   return `<p class="picked" id="picked"><span>「${esc(picked.q)}」の候補から選びました</span><button type="button" id="rawq" aria-label="入力どおりに検索し直す" title="入力どおりに検索">戻す</button></p>`;
 }
+/* ===== 話題作・公開日順をめぐる =====
+   話題作（ランダム表示か人気TOP10から選んだとき）は TOP10 の中を、公開日順から選んだときは公開日順の中を、
+   見出しの左右スワイプ（PC は ‹ › ボタンや ← → キー）で前後にめぐる。端まで行くと反対の端に戻る。
+   自分で検索した作品・履歴から開いた作品では使わない。めくった作品は「最近」に入れず、ブラウザの戻る履歴も増やさない */
+let ring = null, // いまめぐっている一覧："top"＝人気TOP10、"rel"＝公開日順、null＝使わない
+  nextRing = null, // 次の render でめぐる一覧（render のたびに ring に移して空にする。何も入れなければ ring は null になる）
+  swipeDir = 0; // めくった向き（1＝次、-1＝前）。見出しを横から出すのに使う
+const ringList = () => (ring === "top" ? trendList : ring === "rel" ? relData?.items : null) || [];
+function ringPos(movie) {
+  const list = ringList();
+  const i = movie ? list.findIndex((x) => x.id === movie.id) : -1;
+  return i < 0 || list.length < 2 ? null : { i, n: list.length, list };
+}
+function ringNavHTML(movie) {
+  const p = ringPos(movie);
+  if (!p) return "";
+  return `<span class="ringnav" aria-label="${ring === "top" ? "人気TOP10" : "公開日順"}の中で前後の作品へ"><button type="button" data-ring="-1" aria-label="前の作品">‹</button><span class="pos">${p.i + 1} / ${p.n}</span><button type="button" data-ring="1" aria-label="次の作品">›</button></span>`;
+}
+function goRing(dir) {
+  const p = ringPos(cur?.[2]);
+  if (!p) return;
+  const m = p.list[(p.i + dir + p.n) % p.n];
+  nextRing = ring;
+  swipeDir = dir;
+  navMode = "replace"; // めくるたびに戻る履歴を増やさない（URL は表示中の作品に置き換える）
+  setQ();
+  render(m.title, cur[1] === "trend" ? "trend" : false, m);
+}
+// 前後の作品のポスターと作品情報を先に読んでおき、めくったときの待ち時間を減らす
+function preloadRing() {
+  const p = ringPos(cur?.[2]);
+  if (!p) return;
+  for (const d of [1, -1]) {
+    const m = p.list[(p.i + d + p.n) % p.n];
+    if (m.poster) new Image().src = IMG + m.poster;
+    if (m.id) loadInfo(m.id).catch(() => {});
+  }
+}
 function nowHTML(q, isExample, movie) {
-  return `<header class="now">${isExample === "trend" ? '<p class="k">いま話題の作品から表示中<button type="button" class="kl" id="shuffle">ほかの話題作</button></p>' : ""}<figure class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>${movie?.poster ? `<img src="${IMG}${esc(movie.poster)}" alt="${esc(q)} のポスター" width="54" height="80" decoding="async" onload="this.classList.add('ok')">` : ""}</figure><div><p class="vh">検索中の作品</p><h1 id="mt">${wrapWords(q)}</h1><p class="ex meta" id="imeta"><span class="sk" aria-label="読み込み中"></span></p><div class="irow"><button type="button" class="itg" id="itg" aria-expanded="${infoOpen}" aria-controls="info">あらすじ・キャスト</button><button type="button" class="share" id="share" aria-label="この作品のページのリンクを共有" title="リンクを共有"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg></button></div>${isExample && isExample !== "trend" ? '<p class="ex">例として表示しています。上の欄に観たい作品名を入れてください。</p>' : ""}</div></header>`;
+  return `<header class="now">${isExample === "trend" ? '<p class="k">いま話題の作品から表示中<button type="button" class="kl" id="shuffle">ほかの話題作</button></p>' : ""}<figure class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>${movie?.poster ? `<img src="${IMG}${esc(movie.poster)}" alt="${esc(q)} のポスター" width="54" height="80" decoding="async" onload="this.classList.add('ok')">` : ""}</figure><div><p class="vh">検索中の作品</p><h1 id="mt">${wrapWords(q)}</h1><p class="ex meta" id="imeta"><span class="sk" aria-label="読み込み中"></span></p><div class="irow"><button type="button" class="itg" id="itg" aria-expanded="${infoOpen}" aria-controls="info">あらすじ・キャスト</button>${ringNavHTML(movie)}<button type="button" class="share" id="share" aria-label="この作品のページのリンクを共有" title="リンクを共有"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg></button></div>${isExample && isExample !== "trend" ? '<p class="ex">例として表示しています。上の欄に観たい作品名を入れてください。</p>' : ""}</div></header>`;
 }
 /* ===== 作品ごとの URL（?q=作品名&id=TMDBの番号）とページタイトル =====
    クエリ文字列で作品を表す。ブックマーク・共有・戻るボタンに対応。共有のプレビューや検索エンジン向けの題名は、
@@ -1063,7 +1102,12 @@ function playSwap() {
   els.forEach((el, i) =>
     el.animate(
       el.classList.contains("now")
-        ? [{ opacity: 0 }, { opacity: 1 }]
+        ? swipeDir // めくったときは、めくった向きから見出しを入れる
+          ? [
+              { opacity: 0, transform: `translateX(${swipeDir * 48}px)` },
+              { opacity: 1, transform: "none" },
+            ]
+          : [{ opacity: 0 }, { opacity: 1 }]
         : [
             { opacity: 0, transform: "translateY(10px)" },
             { opacity: 1, transform: "none" },
@@ -1115,6 +1159,8 @@ function render(q, isExample, movie) {
   }
   if (movie && hist.includes(q)) saveMeta(q, movie);
   const changed = !cur || cur[0] !== q; // 作品が変わったときだけ切り替えのアニメーションを付ける
+  ring = nextRing;
+  nextRing = null;
   cur = [q, isExample, movie];
   store.set("cl_last", isExample ? "" : q); // 次に開いたとき、同じ作品を出すかどうかの判断に使う
   syncNav(q, isExample, movie);
@@ -1139,7 +1185,9 @@ function render(q, isExample, movie) {
   $("#out").classList.remove("boot");
   fitTitle();
   if (changed) playSwap();
+  swipeDir = 0;
   if (movie?.id) fetchInfoFor(q, movie);
+  preloadRing();
   bindTop();
   scrollRelToNow();
   renderHist(); // 見ている作品の履歴チップに色を付ける
@@ -1442,6 +1490,11 @@ $("#out").addEventListener("click", (e) => {
     showTrending();
     return;
   }
+  const rb = e.target.closest("[data-ring]");
+  if (rb) {
+    goRing(+rb.dataset.ring);
+    return;
+  }
   const tb = e.target.closest("[data-ttab]");
   if (tb) {
     topTab = tb.dataset.ttab;
@@ -1465,6 +1518,7 @@ $("#out").addEventListener("click", (e) => {
     if (m) {
       setQ();
       remember(m.title);
+      nextRing = t.closest(".rel") ? "rel" : "top";
       render(m.title, false, m);
       collapseTop();
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -1474,6 +1528,72 @@ $("#out").addEventListener("click", (e) => {
   const a = e.target.closest("a.go");
   if (a && findMovie(a.dataset.q)) remember(a.dataset.q);
 }); // リンクを開いた作品は履歴に残す（作品に一致しない検索は入れない）
+
+/* 見出しの左右スワイプ。縦のスクロールはそのまま（CSS の touch-action: pan-y）。
+   画面の左右の端から始めた指は、Safari の「戻る・進む」のスワイプなので反応しない */
+{
+  let sx = 0,
+    sy = 0,
+    st = 0,
+    el = null,
+    horiz = null;
+  const EDGE = 24;
+  $("#out").addEventListener(
+    "touchstart",
+    (e) => {
+      el = null;
+      const h = e.target.closest(".now");
+      if (!h || !ringPos(cur?.[2]) || e.touches.length > 1) return;
+      const t = e.touches[0];
+      if (t.clientX < EDGE || t.clientX > innerWidth - EDGE) return;
+      el = h;
+      sx = t.clientX;
+      sy = t.clientY;
+      st = Date.now();
+      horiz = null;
+    },
+    { passive: true },
+  );
+  $("#out").addEventListener(
+    "touchmove",
+    (e) => {
+      if (!el) return;
+      const t = e.touches[0],
+        dx = t.clientX - sx,
+        dy = t.clientY - sy;
+      if (horiz === null && Math.hypot(dx, dy) > 8) horiz = Math.abs(dx) > Math.abs(dy) * 1.2;
+      if (!horiz) return;
+      el.style.transition = "none";
+      el.style.transform = `translateX(${dx * 0.6}px)`; // 指に少しだけついてくる
+      el.style.opacity = String(1 - Math.min(Math.abs(dx) / 400, 0.5));
+    },
+    { passive: true },
+  );
+  const end = (e) => {
+    if (!el) return;
+    const h = el;
+    el = null;
+    const dx = (e.changedTouches?.[0]?.clientX ?? sx) - sx,
+      fast = Math.abs(dx) > 30 && Date.now() - st < 250;
+    if (horiz && (Math.abs(dx) > 60 || fast)) goRing(dx < 0 ? 1 : -1);
+    else {
+      h.style.transition = "transform .2s ease, opacity .2s ease"; // 足りなければ元の位置に戻す
+      h.style.transform = "";
+      h.style.opacity = "";
+    }
+  };
+  $("#out").addEventListener("touchend", end);
+  $("#out").addEventListener("touchcancel", end);
+}
+// PC：← → キーでも前後へ（入力欄で文字を打っているときは除く）
+addEventListener("keydown", (e) => {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+  if (e.target.closest?.("input, textarea, select, [contenteditable]")) return;
+  if (!ringPos(cur?.[2])) return;
+  e.preventDefault();
+  goRing(e.key === "ArrowRight" ? 1 : -1);
+});
 
 /* ===== ヘッダーの縮小 =====
    下にスクロールし始めたら縮め、上端に戻ったら広げる。境目でちらつかないよう、縮める位置と広げる位置を少しずらす */
