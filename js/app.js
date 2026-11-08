@@ -614,7 +614,7 @@ function trendHTML() {
     }
     if (h) h += "</ol></li>";
     return (
-      head + `<ol class="rel">${h || '<li class="msg">該当する作品がありません。</li>'}</ol>` + tail
+      head + `<div class="relbox"><ol class="rel">${h || '<li class="msg">該当する作品がありません。</li>'}</ol></div>` + tail
     );
   }
   // 読み込み前も同じ高さの仮の行を出しておき、届いたときに下の内容がずれないようにする

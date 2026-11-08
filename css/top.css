@@ -1317,14 +1317,35 @@ details[open] > summary::before {
   color: var(--accent);
 }
 /* 公開日順：週ごとの見出し。一覧は箱の中だけでスクロールし、ページ全体は長くしない */
+/* 上下の端は切らずに薄くする。mask を使うと Mac の Safari で指のカーソルが出なくなるので、背景色のグラデーションを上に重ねる */
+.top .relbox {
+  position: relative;
+}
+.top .relbox::before,
+.top .relbox::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.top .relbox::before {
+  top: 0;
+  height: 8px;
+  background: linear-gradient(var(--surface), transparent);
+}
+.top .relbox::after {
+  bottom: 0;
+  height: 24px;
+  background: linear-gradient(transparent, var(--surface));
+}
 .top ol.rel {
   max-height: min(60vh, 520px);
   overflow-y: auto;
   overscroll-behavior: contain;
   padding-bottom: 16px;
-  -webkit-mask: linear-gradient(transparent, #000 8px, #000 calc(100% - 24px), transparent);
-  mask: linear-gradient(transparent, #000 8px, #000 calc(100% - 24px), transparent);
-} /* 上下の端は切らずに薄くする */
+}
 .top .wkg > ol {
   margin: 0;
   padding-top: 8px;
