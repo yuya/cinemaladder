@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
  "updated": "2026-11-08T00:35:13.803Z",
+=======
+ "updated": "2026-11-08T00:35:35.166Z",
+>>>>>>> origin/main
  "anchor": "2026-11-06",
  "from": "2026-10-23",
  "to": "2026-12-03",
@@ -93,19 +97,19 @@
    "pop": 97.9
   },
   {
-   "id": 1102390,
-   "title": "煙突の中の雀",
-   "original": "Der Spatz im Kamin",
-   "date": "2026-10-30",
-   "poster": "/yX4ZvG4ly26ePyfOkkx6dIHeVWN.jpg",
-   "pop": 1.5
-  },
-  {
    "id": 517815,
    "title": "ガール・アンド・スパイダー",
    "original": "Das Mädchen und die Spinne",
    "date": "2026-10-30",
    "poster": "/juDYUbDjUh3KiuOQqUd3rbL5HOU.jpg",
+   "pop": 1.5
+  },
+  {
+   "id": 1102390,
+   "title": "煙突の中の雀",
+   "original": "Der Spatz im Kamin",
+   "date": "2026-10-30",
+   "poster": "/yX4ZvG4ly26ePyfOkkx6dIHeVWN.jpg",
    "pop": 1.5
   },
   {
@@ -525,6 +529,7 @@
    "pop": 1
   },
   {
+<<<<<<< HEAD
    "id": 1660754,
    "title": "このごにおよんで愛など",
    "original": "このごにおよんで愛など",
@@ -533,6 +538,8 @@
    "pop": 0.9
   },
   {
+=======
+>>>>>>> origin/main
    "id": 1807541,
    "title": "恋傷",
    "original": "恋傷",
@@ -541,6 +548,17 @@
    "pop": 0.9
   },
   {
+<<<<<<< HEAD
+=======
+   "id": 1660754,
+   "title": "このごにおよんで愛など",
+   "original": "このごにおよんで愛など",
+   "date": "2026-11-27",
+   "poster": "/w95RcyBbq2KwNu2juW60t1LrFZp.jpg",
+   "pop": 0.9
+  },
+  {
+>>>>>>> origin/main
    "id": 1718930,
    "title": "ワンダンス",
    "original": "ワンダンス",
