@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-07T00:56:20.647Z",
+ "updated": "2026-11-08T00:35:13.803Z",
  "anchor": "2026-11-06",
  "from": "2026-10-23",
- "to": "2026-11-26",
+ "to": "2026-12-03",
  "items": [
   {
    "id": 1483525,
@@ -173,6 +173,14 @@
    "pop": 0.2
   },
   {
+   "id": 1820214,
+   "title": "妖怪VS仮面ライダーマイス",
+   "original": "妖怪VS仮面ライダーマイス",
+   "date": "2026-10-31",
+   "poster": "/yh5e5UERGyO6MqdBxRRi4HlSqNy.jpg",
+   "pop": 0
+  },
+  {
    "id": 1381071,
    "title": "ゴジラ-0.0",
    "original": "ゴジラ-0.0",
@@ -277,6 +285,14 @@
    "pop": 6.7
   },
   {
+   "id": 507244,
+   "title": "アフターバーン　世紀末の秘宝",
+   "original": "Afterburn",
+   "date": "2026-11-13",
+   "poster": "/xR0IhVBjbNU34b8erhJCgRbjXo3.jpg",
+   "pop": 5.5
+  },
+  {
    "id": 1306816,
    "title": "世界で最後の愛しい娘！",
    "original": "좀비딸",
@@ -325,19 +341,19 @@
    "pop": 0.8
   },
   {
-   "id": 1759179,
-   "title": "シルバー・エクスプレス",
-   "original": "シルバー・エクスプレス",
-   "date": "2026-11-13",
-   "poster": "/jOGlxJo4nr1SohOOgN87sIhnZFn.jpg",
-   "pop": 0.7
-  },
-  {
    "id": 1807470,
    "title": "2126年、海の星をさがして",
    "original": "2126年、海の星をさがして",
    "date": "2026-11-13",
    "poster": "/lzZZj7ag0SPqw80ESpXuonbiGYF.jpg",
+   "pop": 0.7
+  },
+  {
+   "id": 1759179,
+   "title": "シルバー・エクスプレス",
+   "original": "シルバー・エクスプレス",
+   "date": "2026-11-13",
+   "poster": "/jOGlxJo4nr1SohOOgN87sIhnZFn.jpg",
    "pop": 0.7
   },
   {
@@ -421,14 +437,6 @@
    "pop": 0.5
   },
   {
-   "id": 1754757,
-   "title": "はじまりのさよなら",
-   "original": "はじまりのさよなら",
-   "date": "2026-11-20",
-   "poster": "/7gF6z6pCFHcuw17yhTtepJ42tEP.jpg",
-   "pop": 0.4
-  },
-  {
    "id": 1802704,
    "title": "Creepy Nuts - NORTH AMERICA TOUR: LIVE in NY & DOCUMENTARY FILM",
    "original": "Creepy Nuts - NORTH AMERICA TOUR: LIVE in NY & DOCUMENTARY FILM",
@@ -437,12 +445,140 @@
    "pop": 0.4
   },
   {
+   "id": 1754757,
+   "title": "はじまりのさよなら",
+   "original": "はじまりのさよなら",
+   "date": "2026-11-20",
+   "poster": "/7gF6z6pCFHcuw17yhTtepJ42tEP.jpg",
+   "pop": 0.4
+  },
+  {
+   "id": 1730207,
+   "title": "アユラ",
+   "original": "アユラ",
+   "date": "2026-11-23",
+   "poster": null,
+   "pop": 0.2
+  },
+  {
    "id": 1457866,
    "title": "ザ・ファーザー・ミスアドベンチャー・オブ・クリフ・ブース",
    "original": "THE FURTHER MIS-ADVENTURES OF CLIFF BOOTH",
    "date": "2026-11-25",
    "poster": "/5jO6rhfethzH7xdWl6KCOxCNCzQ.jpg",
    "pop": 13.1
+  },
+  {
+   "id": 1302904,
+   "title": "プラティカル・マジック／魔女たちの秘密",
+   "original": "Practical Magic 2",
+   "date": "2026-11-27",
+   "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
+   "pop": 66.6
+  },
+  {
+   "id": 1368166,
+   "title": "ハウスメイド",
+   "original": "The Housemaid",
+   "date": "2026-11-27",
+   "poster": "/cWsBscZzwu5brg9YjNkGewRUvJX.jpg",
+   "pop": 30.5
+  },
+  {
+   "id": 1381027,
+   "title": "HEEL／ヒール",
+   "original": "Good Boy",
+   "date": "2026-11-27",
+   "poster": "/eWb841fMkSNly5gfL9J1N0xzVYI.jpg",
+   "pop": 9.2
+  },
+  {
+   "id": 1807509,
+   "title": "三代目 J SOUL BROTHERS 15TH ANNIVERSARY STADIUM LIVE  \"JSB FOREVER ～ONE～\" THE MOVIE",
+   "original": "三代目 J SOUL BROTHERS 15TH ANNIVERSARY STADIUM LIVE  \"JSB FOREVER ～ONE～\" THE MOVIE",
+   "date": "2026-11-27",
+   "poster": "/aaqZDqgV6BUUJPhjd1JErd2hqyG.jpg",
+   "pop": 1.9
+  },
+  {
+   "id": 1807521,
+   "title": "会いたくて会えなくて、会えなくなって、会いたい。",
+   "original": "会いたくて会えなくて、会えなくなって、会いたい。",
+   "date": "2026-11-27",
+   "poster": "/qCMBat5HtfV5i2F9aaaltoj56ua.jpg",
+   "pop": 1
+  },
+  {
+   "id": 1700953,
+   "title": "タコピーの原罪 -ありがとう、また明日-",
+   "original": "タコピーの原罪 -ありがとう、また明日-",
+   "date": "2026-11-27",
+   "poster": "/dM9eKAo5g5XiQcgEynX02WxTWr4.jpg",
+   "pop": 1
+  },
+  {
+   "id": 1807529,
+   "title": "つりこまち",
+   "original": "つりこまち",
+   "date": "2026-11-27",
+   "poster": "/tvtdgpfZJGVaC6cOE0pP0n1fxkH.jpg",
+   "pop": 1
+  },
+  {
+   "id": 1660754,
+   "title": "このごにおよんで愛など",
+   "original": "このごにおよんで愛など",
+   "date": "2026-11-27",
+   "poster": "/w95RcyBbq2KwNu2juW60t1LrFZp.jpg",
+   "pop": 0.9
+  },
+  {
+   "id": 1807541,
+   "title": "恋傷",
+   "original": "恋傷",
+   "date": "2026-11-27",
+   "poster": "/sfoqIttN2z8YXAneT0xfQPzfhw4.jpg",
+   "pop": 0.9
+  },
+  {
+   "id": 1718930,
+   "title": "ワンダンス",
+   "original": "ワンダンス",
+   "date": "2026-11-27",
+   "poster": "/vJTfvarGK1eSF3WY8uJRMqTxNpt.jpg",
+   "pop": 0.8
+  },
+  {
+   "id": 1739765,
+   "title": "君の話",
+   "original": "君の話",
+   "date": "2026-11-27",
+   "poster": "/8H0YN4J0iuPyC4SjtU5fdooLciH.jpg",
+   "pop": 0.7
+  },
+  {
+   "id": 1552998,
+   "title": "インサイド・ガザ 封鎖の内側から",
+   "original": "Inside Gaza",
+   "date": "2026-11-28",
+   "poster": "/9CfYPVwuhQSOysvcy8vYWOIBz8t.jpg",
+   "pop": 1.7
+  },
+  {
+   "id": 1774734,
+   "title": "うみねこのなく頃に～Stage of the golden Witch～Episode 8 EVE",
+   "original": "うみねこのなく頃に～Stage of the golden Witch～Episode 8 EVE",
+   "date": "2026-11-28",
+   "poster": "/tJ37nfj8hx775m7hOHKY9G37JlG.jpg",
+   "pop": 0.5
+  },
+  {
+   "id": 1790612,
+   "title": "ロンガの海",
+   "original": "ロンガの海",
+   "date": "2026-11-28",
+   "poster": "/ed7tWMU4Wz39X7NWmIjBzrx1ydl.jpg",
+   "pop": 0.1
   }
  ]
 }

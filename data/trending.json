@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T00:56:17.544Z",
+ "updated": "2026-11-08T00:35:09.768Z",
  "items": [
   {
    "id": 1423191,
@@ -7,7 +7,7 @@
    "original": "Resident Evil",
    "date": "2026-10-09",
    "poster": "/wHXSnGH3zQtvpxPwaBXMoS9o8Vl.jpg",
-   "pop": 422.1049,
+   "pop": 494.056,
    "info": {
     "id": 1423191,
     "title": "バイオハザード",
@@ -48,7 +48,7 @@
    "original": "Verity",
    "date": "2026-11-06",
    "poster": "/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "pop": 192.4684,
+   "pop": 184.0988,
    "info": {
     "id": 1283515,
     "title": "ヴェリティ／真実",
@@ -61,7 +61,7 @@
     "overview": "仕事にも人生にも行き詰まっている売れない作家ローウェン・アシュリー（ダコタ・ジョンソン）のもとへ、突然、驚くようなオファーが届く。それは交通事故で生死を彷徨う人気作家ヴェリティ・クロフォード（アン・ハサウェイ）のためのゴーストライター業だった。なぜ自分が選ばれたのか疑問を持ちながらも、またとないチャンスを引き受けるべく、ローウェンは人里離れたクロフォード家の邸宅へと移り住む。次第にヴェリティの夫ジェレミー（ジョシュ・ハートネット）と親密な関係になっていくローウェンだったが、ある日ヴェリティが書いたと思われる不気味な原稿を発見してしまう。そこには、夫との性愛や子供たちへの激しい感情、そして自らにまつわる衝撃の告白が記されていた── クロフォード家に一体何があったのか？ 善悪の境界線が揺らぐ中、やがてローウェンは闇深い真実に辿り着く…。",
     "overviewLang": "ja",
     "genres": [
-     "謎",
+     "ミステリー",
      "スリラー"
     ],
     "countries": [
@@ -86,7 +86,7 @@
    "original": "ゴジラ-0.0",
    "date": "2026-11-03",
    "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
-   "pop": 106.147,
+   "pop": 145.9052,
    "info": {
     "id": 1381071,
     "title": "ゴジラ-0.0",
@@ -125,7 +125,7 @@
    "original": "Clayface",
    "date": "2026-10-30",
    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-   "pop": 105.4305,
+   "pop": 97.8805,
    "info": {
     "id": 1400940,
     "title": "クレイフェイス",
@@ -164,7 +164,7 @@
    "original": "Practical Magic 2",
    "date": "2026-11-27",
    "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
-   "pop": 72.6906,
+   "pop": 66.6099,
    "info": {
     "id": 1302904,
     "title": "プラティカル・マジック／魔女たちの秘密",
@@ -203,7 +203,7 @@
    "original": "Other Mommy",
    "date": "2026-11-20",
    "poster": "/fGRNCssTRrhYZxNzykGGCoMsAVq.jpg",
-   "pop": 65.7329,
+   "pop": 65.058,
    "info": {
     "id": 1400837,
     "title": "アザー・マミー",
@@ -240,7 +240,7 @@
    "original": "Street Fighter",
    "date": "2026-10-16",
    "poster": "/1JBlbyXionXPRaqW1UQw7eKkxNP.jpg",
-   "pop": 65.6711,
+   "pop": 63.9123,
    "info": {
     "id": 1153576,
     "title": "ストリートファイター／ザ・ムービー",
@@ -279,7 +279,7 @@
    "original": "Disclosure Day",
    "date": "2026-10-01",
    "poster": "/vDnJLpE2jhu8OVcwpWuYCMF5hRU.jpg",
-   "pop": 61.2024,
+   "pop": 58.6352,
    "info": {
     "id": 1275779,
     "title": "ディスクロージャー・デイ",
@@ -317,7 +317,7 @@
    "original": "Digger",
    "date": "2026-10-09",
    "poster": "/vi2HvWOBtR1pcr4vBoYe43ldkuu.jpg",
-   "pop": 50.8776,
+   "pop": 48.7506,
    "info": {
     "id": 1248832,
     "title": "DIGGER／ディガー",
@@ -350,39 +350,40 @@
    }
   },
   {
-   "id": 1255833,
-   "title": "クジラに落ちた男",
-   "original": "Whalefall",
-   "date": "2026-10-16",
-   "poster": "/vjTYUTgh9nO88i6HZ4YPRhiFL05.jpg",
-   "pop": 46.7708,
+   "id": 1483525,
+   "title": "もしもの愛",
+   "original": "가능한 사랑",
+   "date": "2026-10-23",
+   "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
+   "pop": 45.1143,
    "info": {
-    "id": 1255833,
-    "title": "クジラに落ちた男",
-    "original": "Whalefall",
-    "poster": "/vjTYUTgh9nO88i6HZ4YPRhiFL05.jpg",
-    "date": "2026-10-14",
-    "jpDate": "2026-10-16",
-    "runtime": 106,
+    "id": 1483525,
+    "title": "もしもの愛",
+    "original": "가능한 사랑",
+    "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
+    "date": "2026-09-23",
+    "jpDate": "2026-10-23",
+    "runtime": 165,
     "tagline": "",
-    "overview": "Following the death of his father, Jay Gardiner goes diving off the central Coast of California in search of his remains, but is swallowed by a massive sperm whale. While trapped inside its belly with only one hour of oxygen left, Jay comes to realize that the hard-earned lessons his father imparted may be the key to his escape.",
-    "overviewLang": "en",
+    "overview": "まったく異なる人生を歩む2 組の夫婦の交錯する日常を捉え、平穏に見えた日々に少しずつ亀裂が生まれていく様子を描き出す。",
+    "overviewLang": "ja",
     "genres": [
-     "スリラー"
+     "ドラマ"
     ],
     "countries": [
+     "KR",
      "US"
     ],
     "directors": [
-     "ブライアン・ダッフィールド"
+     "イ・チャンドン"
     ],
     "cast": [
-     "オースティン・エイブラムス",
-     "ジョシュ・ブローリン",
-     "エリザベス・シュー",
-     "ジョン・オーティス",
-     "ジェーン・レヴィ",
-     "エミリー・ラッド"
+     "チョン・ドヨン",
+     "ソル・ギョング",
+     "チョ・インソン",
+     "チョ・ヨジョン",
+     "チョ・ユリ",
+     "최민"
     ]
    }
   }
