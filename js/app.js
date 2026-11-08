@@ -1256,7 +1256,10 @@ function scrollRelToNow() {
     sv &&
     sv.anchor === relData?.anchor &&
     ol.querySelector(`[data-tid="${+sv.id}"]`)?.closest("li");
-  if (el) ol.scrollTop = top(el) + (sv.off || 0);
+  // 公開日順をめくっているときは、表示中の作品が一覧のまんなかに来るようにする
+  const now = ring === "rel" && cur?.[2] && ol.querySelector(`[data-tid="${+cur[2].id}"]`)?.closest("li");
+  if (now) ol.scrollTop = top(now) - (ol.clientHeight - now.offsetHeight) / 2;
+  else if (el) ol.scrollTop = top(el) + (sv.off || 0);
   else {
     const wk = ol.querySelector(".wk.prev") || ol.querySelector(".wk.cur");
     if (wk) ol.scrollTop = top(wk);
