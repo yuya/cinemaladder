@@ -939,6 +939,11 @@ function preloadRing() {
     if (m.id) loadInfo(m.id).catch(() => {});
   }
 }
+// 引っ張っている間に左右からのぞかせる、前後の作品（ポスターと作品名・公開日）
+function peekHTML(m, side) {
+  const d = m.date ? ymd(m.date) + "公開" : "";
+  return `<div class="peek ${side}" aria-hidden="true"><figure class="ph">${m.poster ? `<img src="${IMG}${esc(m.poster)}" alt="" width="54" height="80" onload="this.classList.add('ok')">` : ""}</figure><div><p class="pt">${esc(m.title)}</p><p class="pm">${d}</p></div></div>`;
+}
 function nowHTML(q, isExample, movie) {
   return `<header class="now">${isExample === "trend" ? '<p class="k">いま話題の作品から表示中<button type="button" class="kl" id="shuffle">ほかの話題作</button></p>' : ""}<figure class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>${movie?.poster ? `<img src="${IMG}${esc(movie.poster)}" alt="${esc(q)} のポスター" width="54" height="80" decoding="async" onload="this.classList.add('ok')">` : ""}</figure><div><p class="vh">検索中の作品</p><h1 id="mt">${wrapWords(q)}</h1><p class="ex meta" id="imeta"><span class="sk" aria-label="読み込み中"></span></p><div class="irow"><button type="button" class="itg" id="itg" aria-expanded="${infoOpen}" aria-controls="info">あらすじ・キャスト</button>${ringNavHTML(movie)}<button type="button" class="share" id="share" aria-label="この作品のページのリンクを共有" title="リンクを共有"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg></button></div>${isExample && isExample !== "trend" ? '<p class="ex">例として表示しています。上の欄に観たい作品名を入れてください。</p>' : ""}</div></header>`;
 }
@@ -1544,8 +1549,35 @@ $("#out").addEventListener("click", (e) => {
     sy = 0,
     st = 0,
     el = null,
-    horiz = null;
+    horiz = null,
+    peeked = false,
+    fade = null,
+    lx = 0; // 最後に指があった横の位置
   const EDGE = 24;
+  // 横に動かし始めたら、前後の作品を見出しの左右に置き、画面の左右の端を背景色で薄くする
+  const addPeek = (h) => {
+    const p = ringPos(cur?.[2]);
+    if (!p) return;
+    const ph = h.querySelector(".ph"),
+      top = ph ? ph.offsetTop : 0;
+    for (const [d, side] of [[1, "next"], [-1, "prev"]]) {
+      const t = document.createElement("div");
+      t.innerHTML = peekHTML(p.list[(p.i + d + p.n) % p.n], side);
+      t.firstElementChild.style.top = top + "px";
+      h.append(t.firstElementChild);
+    }
+    const r = h.getBoundingClientRect();
+    fade = document.createElement("div");
+    fade.className = "swipefade";
+    fade.style.top = r.top + "px";
+    fade.style.height = r.height + "px";
+    document.body.append(fade);
+  };
+  const clearPeek = (h) => {
+    h?.querySelectorAll(".peek").forEach((x) => x.remove());
+    fade?.remove();
+    fade = null;
+  };
   $("#out").addEventListener(
     "touchstart",
     (e) => {
@@ -1555,7 +1587,8 @@ $("#out").addEventListener("click", (e) => {
       const t = e.touches[0];
       if (t.clientX < EDGE || t.clientX > innerWidth - EDGE) return;
       el = h;
-      sx = t.clientX;
+      peeked = false;
+      sx = lx = t.clientX;
       sy = t.clientY;
       st = Date.now();
       horiz = null;
@@ -1569,11 +1602,15 @@ $("#out").addEventListener("click", (e) => {
       const t = e.touches[0],
         dx = t.clientX - sx,
         dy = t.clientY - sy;
+      lx = t.clientX;
       if (horiz === null && Math.hypot(dx, dy) > 8) horiz = Math.abs(dx) > Math.abs(dy) * 1.2;
       if (!horiz) return;
+      if (!peeked) {
+        peeked = true;
+        addPeek(el);
+      }
       el.style.transition = "none";
-      el.style.transform = `translateX(${dx * 0.6}px)`; // 指に少しだけついてくる
-      el.style.opacity = String(1 - Math.min(Math.abs(dx) / 400, 0.5));
+      el.style.transform = `translateX(${dx}px)`; // 指についてくる
     },
     { passive: true },
   );
@@ -1581,13 +1618,15 @@ $("#out").addEventListener("click", (e) => {
     if (!el) return;
     const h = el;
     el = null;
-    const dx = (e.changedTouches?.[0]?.clientX ?? sx) - sx,
+    const dx = lx - sx,
       fast = Math.abs(dx) > 30 && Date.now() - st < 250;
-    if (horiz && (Math.abs(dx) > 60 || fast)) goRing(dx < 0 ? 1 : -1);
-    else {
-      h.style.transition = "transform .2s ease, opacity .2s ease"; // 足りなければ元の位置に戻す
+    if (horiz && (Math.abs(dx) > 60 || fast)) {
+      clearPeek(h);
+      goRing(dx < 0 ? 1 : -1);
+    } else {
+      h.style.transition = "transform .2s ease"; // 足りなければ元の位置に戻す
       h.style.transform = "";
-      h.style.opacity = "";
+      setTimeout(() => clearPeek(h), 200);
     }
   };
   $("#out").addEventListener("touchend", end);
