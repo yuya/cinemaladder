@@ -1658,26 +1658,26 @@ function measureHeader() {
 }
 new ResizeObserver(measureHeader).observe(hdr);
 let ticking = false;
-addEventListener(
-  "scroll",
-  () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      ticking = false;
-      const y = scrollY,
-        c = document.documentElement.classList.contains("compact");
-      // 広がったままスクロールすると本文がヘッダーの下に潜るので、動き始めてすぐ縮め、上端に戻ったら広げる
-      if (!c && y > 8) {
-        hideSug();
-        document.documentElement.classList.add("compact");
-      } else if (c && y < 2) {
-        document.documentElement.classList.remove("compact");
-      }
-    });
-  },
-  { passive: true },
-);
+function checkCompact() {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => {
+    ticking = false;
+    const y = scrollY,
+      c = document.documentElement.classList.contains("compact");
+    // 広がったままスクロールすると本文がヘッダーの下に潜るので、動き始めてすぐ縮め、上端に戻ったら広げる
+    if (!c && y > 8) {
+      hideSug();
+      document.documentElement.classList.add("compact");
+    } else if (c && y < 2) {
+      document.documentElement.classList.remove("compact");
+    }
+  });
+}
+addEventListener("scroll", checkCompact, { passive: true });
+// ページの高さが変わったとき（「いま話題の映画」の開閉、作品の切り替えなど）も確かめ直す。
+// ブラウザがスクロール位置を自動で直したときに scroll が届かず、広がったヘッダーの下に本文が潜ったままになることがあるため
+new ResizeObserver(checkCompact).observe(document.body);
 $("#affnote").hidden = !(AFF.amazonTag || AFF.unext || AFF.mvtk);
 $("#amznote").hidden = !AFF.amazonTag;
 $("#envbadge").hidden = !IS_DEV;
