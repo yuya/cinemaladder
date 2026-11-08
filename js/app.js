@@ -920,6 +920,11 @@ function goRing(dir) {
   const m = p.list[(p.i + dir + p.n) % p.n];
   nextRing = ring;
   swipeDir = dir;
+  // めくった一覧のタブを「いま話題の映画」でも選んでおく（開いたときに、めくっている一覧と現在の作品が見えるように）
+  if (topTab !== ring) {
+    topTab = ring;
+    store.set("cl_topTab", topTab);
+  }
   navMode = "replace"; // めくるたびに戻る履歴を増やさない（URL は表示中の作品に置き換える）
   setQ();
   render(m.title, cur[1] === "trend" ? "trend" : false, m);
