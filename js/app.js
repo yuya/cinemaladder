@@ -691,7 +691,12 @@ function onType() {
     }
   }, 250);
 }
-function pick(m) {
+// list：候補の一覧から選んだとき、その一覧（2件以上なら、見出しのスワイプで2番目・3番目…の候補へめぐれる）
+function pick(m, list) {
+  if (list?.length >= 2) {
+    sugRing = list.slice();
+    nextRing = "sug";
+  }
   setQ();
   hideSug();
   remember(m.title);
@@ -900,10 +905,12 @@ function pickedHTML(movie) {
    話題作（ランダム表示か人気TOP10から選んだとき）は TOP10 の中を、公開日順から選んだときは公開日順の中を、
    見出しの左右スワイプ（PC は ‹ › ボタンや ← → キー）で前後にめぐる。端まで行くと反対の端に戻る。
    自分で検索した作品・履歴から開いた作品では使わない。めくった作品は「最近」に入れず、ブラウザの戻る履歴も増やさない */
-let ring = null, // いまめぐっている一覧："top"＝人気TOP10、"rel"＝公開日順、null＝使わない
+let ring = null, // いまめぐっている一覧："top"＝人気TOP10、"rel"＝公開日順、"sug"＝検索の候補、null＝使わない
+  sugRing = null, // 検索の候補から選んだときの候補の一覧
   nextRing = null, // 次の render でめぐる一覧（render のたびに ring に移して空にする。何も入れなければ ring は null になる）
   swipeDir = 0; // めくった向き（1＝次、-1＝前）。見出しを横から出すのに使う
-const ringList = () => (ring === "top" ? trendList : ring === "rel" ? relData?.items : null) || [];
+const ringList = () =>
+  (ring === "top" ? trendList : ring === "rel" ? relData?.items : ring === "sug" ? sugRing : null) || [];
 function ringPos(movie) {
   const list = ringList();
   const i = movie ? list.findIndex((x) => x.id === movie.id) : -1;
@@ -931,7 +938,7 @@ function refreshRing() {
 function ringNavHTML(movie) {
   const p = ringPos(movie);
   if (!p) return "";
-  return `<span class="ringnav" aria-label="${ring === "top" ? "人気TOP10" : "公開日順"}の中で前後の作品へ"><button type="button" data-ring="-1" aria-label="前の作品">‹</button><span class="pos">${p.i + 1} / ${p.n}</span><button type="button" data-ring="1" aria-label="次の作品">›</button></span>`;
+  return `<span class="ringnav" aria-label="${ring === "top" ? "人気TOP10" : ring === "rel" ? "公開日順" : "検索の候補"}の中で前後の作品へ"><button type="button" data-ring="-1" aria-label="前の作品">‹</button><span class="pos">${p.i + 1} / ${p.n}</span><button type="button" data-ring="1" aria-label="次の作品">›</button></span>`;
 }
 function goRing(dir) {
   const p = ringPos(cur?.[2]);
@@ -940,7 +947,7 @@ function goRing(dir) {
   nextRing = ring;
   swipeDir = dir;
   // めくった一覧のタブを「いま話題の映画」でも選んでおく（開いたときに、めくっている一覧と現在の作品が見えるように）
-  if (topTab !== ring) {
+  if ((ring === "top" || ring === "rel") && topTab !== ring) {
     topTab = ring;
     store.set("cl_topTab", topTab);
   }
@@ -1329,7 +1336,7 @@ $("#q").addEventListener("keydown", (e) => {
     drawSug();
   } else if (e.key === "Enter" && active >= 0) {
     e.preventDefault();
-    pick(items[active]);
+    pick(items[active], items);
   } else if (e.key === "Escape") {
     hideSug();
   }
@@ -1338,14 +1345,15 @@ $("#sug").addEventListener("mousedown", (e) => {
   const li = e.target.closest("li[data-i]");
   if (li) {
     e.preventDefault();
-    pick(items[+li.dataset.i]);
+    pick(items[+li.dataset.i], items);
   }
 });
 $("#q").addEventListener("blur", () => setTimeout(hideSug, 120));
 /* Enter（スマホの「検索」「決定」）を押したとき、候補から1つに決まるならその作品を選んだことにする。
    ・一番上の候補が入力と完全に一致（記号・表記の違いは無視）
    ・入力した言葉がすべて入っている候補が、ちょうど1つだけ（言葉が1つだけなら、作品名の先頭と一致するか、作品名の半分以上を占めるとき）
-   それ以外（「検索」→「ダークウェブ 検索できない…」のような途中一致など）は、打った文字のまま検索する */
+   ・入力した言葉がすべて入っている候補が複数あるとき（「アンパンマン」など）は、その中の一番上。ほかの候補へは見出しのスワイプでめぐれる
+   それ以外（「検索」→「ダークウェブ 検索できない…」だけが途中一致するときなど）は、打った文字のまま検索する */
 async function autoPick(q) {
   let list = cache.get(q);
   if (!list) {
@@ -1359,7 +1367,8 @@ async function autoPick(q) {
     }
   } // 候補がまだなら少しだけ待つ
   if (!list?.length) return null;
-  if (rankOf(q, list[0]) === 0) return list[0]; // ① 作品名と完全に一致
+  const pickFrom = (m, hits) => ((m.hits = hits), m); // 選んだ作品に、めぐれる候補の一覧を添える
+  if (rankOf(q, list[0]) === 0) return pickFrom(list[0], list); // ① 作品名と完全に一致（ほかの候補へもめぐれる）
   // ② 入力した言葉がすべて入っている候補が、ちょうど1つだけなら選ぶ（順番・間の言葉は問わない）
   const words = q.split(" ").map(norm).filter(Boolean);
   const has = (m) => {
@@ -1373,6 +1382,8 @@ async function autoPick(q) {
     if (words.length >= 2) return m; // 「ウルトラマン 仮面」→ ウルトラマンVS仮面ライダー
     if (rankOf(q, m) === 1 || norm(q).length * 2 >= norm(m.title).length) return m; // 1語なら先頭一致か、作品名の半分以上
   }
+  // ③ 入力した言葉がすべて入っている候補が複数あれば、一番上を選び、ほかの候補へは見出しのスワイプでめぐる（「アンパンマン」など）
+  if (hits.length >= 2) return pickFrom(hits[0], hits);
   return null;
 }
 $("#f").addEventListener("submit", async (e) => {
@@ -1385,7 +1396,9 @@ $("#f").addEventListener("submit", async (e) => {
   if (clean($("#q").value) !== q) return; // 待っている間に打ち直していたら何もしない
   if (m) {
     if (rankOf(q, m) !== 0) picked = { q, id: m.id };
-    pick(m);
+    const hits = m.hits;
+    delete m.hits;
+    pick(m, hits);
     return;
   } // 完全一致でなければ「候補から選びました」を出す
   searchRaw(q);
