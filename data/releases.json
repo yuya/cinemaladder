@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T00:55:01.398Z",
+ "updated": "2026-11-09T00:54:36.913Z",
  "anchor": "2026-11-06",
  "from": "2026-10-23",
  "to": "2026-12-03",
@@ -93,19 +93,19 @@
    "pop": 89.3
   },
   {
-   "id": 517815,
-   "title": "ガール・アンド・スパイダー",
-   "original": "Das Mädchen und die Spinne",
-   "date": "2026-10-30",
-   "poster": "/juDYUbDjUh3KiuOQqUd3rbL5HOU.jpg",
-   "pop": 1.1
-  },
-  {
    "id": 1102390,
    "title": "煙突の中の雀",
    "original": "Der Spatz im Kamin",
    "date": "2026-10-30",
    "poster": "/yX4ZvG4ly26ePyfOkkx6dIHeVWN.jpg",
+   "pop": 1.1
+  },
+  {
+   "id": 517815,
+   "title": "ガール・アンド・スパイダー",
+   "original": "Das Mädchen und die Spinne",
+   "date": "2026-10-30",
+   "poster": "/juDYUbDjUh3KiuOQqUd3rbL5HOU.jpg",
    "pop": 1.1
   },
   {
@@ -421,14 +421,6 @@
    "pop": 1
   },
   {
-   "id": 1694711,
-   "title": "装甲騎兵ボトムズ 灰色の魔女 第1作",
-   "original": "装甲騎兵ボトムズ 灰色の魔女 第1作",
-   "date": "2026-11-20",
-   "poster": "/2EQ3JA0NT6bDg0xoZlYWGSBbzqO.jpg",
-   "pop": 0.6
-  },
-  {
    "id": 1746633,
    "title": "日曜のあと",
    "original": "日曜のあと",
@@ -437,12 +429,12 @@
    "pop": 0.6
   },
   {
-   "id": 1754757,
-   "title": "はじまりのさよなら",
-   "original": "はじまりのさよなら",
+   "id": 1694711,
+   "title": "装甲騎兵ボトムズ 灰色の魔女 第1作",
+   "original": "装甲騎兵ボトムズ 灰色の魔女 第1作",
    "date": "2026-11-20",
-   "poster": "/7gF6z6pCFHcuw17yhTtepJ42tEP.jpg",
-   "pop": 0.4
+   "poster": "/2EQ3JA0NT6bDg0xoZlYWGSBbzqO.jpg",
+   "pop": 0.6
   },
   {
    "id": 1724371,
@@ -450,6 +442,14 @@
    "original": "ないものねだりの君に光の花束を",
    "date": "2026-11-20",
    "poster": "/ijOsHTIae0dYcRUSvGrCrAeTIJ6.jpg",
+   "pop": 0.4
+  },
+  {
+   "id": 1754757,
+   "title": "はじまりのさよなら",
+   "original": "はじまりのさよなら",
+   "date": "2026-11-20",
+   "poster": "/7gF6z6pCFHcuw17yhTtepJ42tEP.jpg",
    "pop": 0.4
   },
   {
@@ -549,19 +549,19 @@
    "pop": 0.6
   },
   {
-   "id": 1739765,
-   "title": "君の話",
-   "original": "君の話",
-   "date": "2026-11-27",
-   "poster": "/8H0YN4J0iuPyC4SjtU5fdooLciH.jpg",
-   "pop": 0.6
-  },
-  {
    "id": 1807529,
    "title": "つりこまち",
    "original": "つりこまち",
    "date": "2026-11-27",
    "poster": "/tvtdgpfZJGVaC6cOE0pP0n1fxkH.jpg",
+   "pop": 0.6
+  },
+  {
+   "id": 1739765,
+   "title": "君の話",
+   "original": "君の話",
+   "date": "2026-11-27",
+   "poster": "/8H0YN4J0iuPyC4SjtU5fdooLciH.jpg",
    "pop": 0.6
   },
   {

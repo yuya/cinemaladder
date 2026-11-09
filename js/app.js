@@ -691,7 +691,12 @@ function onType() {
     }
   }, 250);
 }
-function pick(m) {
+// list：候補の一覧から選んだとき、その一覧（2件以上なら、見出しのスワイプで2番目・3番目…の候補へめぐれる）
+function pick(m, list) {
+  if (list?.length >= 2) {
+    sugRing = list.slice();
+    nextRing = "sug";
+  }
   setQ();
   hideSug();
   remember(m.title);
@@ -845,7 +850,6 @@ function setInfo(st, d) {
       const y = cur?.[2]?.date?.slice(0, 4);
       m.innerHTML = y ? `<span class="in">${y}年</span>` : "";
     } // 取れなかったときは分かる範囲（公開年）だけ
-    m.classList.toggle("more", m.scrollWidth > m.clientWidth + 1); // 続きがあるときだけ右端を薄くする
   }
   if (st === "ok") setLD(d);
 }
@@ -900,19 +904,40 @@ function pickedHTML(movie) {
    話題作（ランダム表示か人気TOP10から選んだとき）は TOP10 の中を、公開日順から選んだときは公開日順の中を、
    見出しの左右スワイプ（PC は ‹ › ボタンや ← → キー）で前後にめぐる。端まで行くと反対の端に戻る。
    自分で検索した作品・履歴から開いた作品では使わない。めくった作品は「最近」に入れず、ブラウザの戻る履歴も増やさない */
-let ring = null, // いまめぐっている一覧："top"＝人気TOP10、"rel"＝公開日順、null＝使わない
+let ring = null, // いまめぐっている一覧："top"＝人気TOP10、"rel"＝公開日順、"sug"＝検索の候補、null＝使わない
+  sugRing = null, // 検索の候補から選んだときの候補の一覧
   nextRing = null, // 次の render でめぐる一覧（render のたびに ring に移して空にする。何も入れなければ ring は null になる）
   swipeDir = 0; // めくった向き（1＝次、-1＝前）。見出しを横から出すのに使う
-const ringList = () => (ring === "top" ? trendList : ring === "rel" ? relData?.items : null) || [];
+const ringList = () =>
+  (ring === "top" ? trendList : ring === "rel" ? relData?.items : ring === "sug" ? sugRing : null) || [];
 function ringPos(movie) {
   const list = ringList();
   const i = movie ? list.findIndex((x) => x.id === movie.id) : -1;
   return i < 0 || list.length < 2 ? null : { i, n: list.length, list };
 }
+// 表示中の作品が TOP10 か公開日順に入っていれば、どこから来た作品でもめぐれるようにする。
+// 両方に入っているときは「いま話題の映画」で最後に選んでいたタブの一覧にする
+function autoRing(movie) {
+  if (!movie?.id) return null;
+  const inTop = !!trendList?.some((x) => x.id === movie.id),
+    inRel = !!relData?.items?.some((x) => x.id === movie.id);
+  if (inTop && inRel) return topTab === "rel" ? "rel" : "top";
+  if (inTop && topTab === "rel" && !relData && !relFailed) return null; // 公開日順を選んでいたなら、その一覧が届くまで決めない
+  return inTop ? "top" : inRel ? "rel" : null;
+}
+// 一覧や作品の情報があとから届いたときに、めぐれるようになったら「‹ › 」を足す（画面全体は描き直さない）
+function refreshRing() {
+  if (!cur || ring) return;
+  ring = autoRing(cur[2]);
+  const share = $("#out .now #share");
+  if (!ring || !share || $("#out .now .ringnav")) return;
+  share.insertAdjacentHTML("beforebegin", ringNavHTML(cur[2]));
+  preloadRing();
+}
 function ringNavHTML(movie) {
   const p = ringPos(movie);
   if (!p) return "";
-  return `<span class="ringnav" aria-label="${ring === "top" ? "人気TOP10" : "公開日順"}の中で前後の作品へ"><button type="button" data-ring="-1" aria-label="前の作品">‹</button><span class="pos">${p.i + 1} / ${p.n}</span><button type="button" data-ring="1" aria-label="次の作品">›</button></span>`;
+  return `<span class="ringnav" aria-label="${ring === "top" ? "人気TOP10" : ring === "rel" ? "公開日順" : "検索の候補"}の中で前後の作品へ"><button type="button" data-ring="-1" aria-label="前の作品">‹</button><span class="pos">${p.i + 1} / ${p.n}</span><button type="button" data-ring="1" aria-label="次の作品">›</button></span>`;
 }
 function goRing(dir) {
   const p = ringPos(cur?.[2]);
@@ -921,7 +946,7 @@ function goRing(dir) {
   nextRing = ring;
   swipeDir = dir;
   // めくった一覧のタブを「いま話題の映画」でも選んでおく（開いたときに、めくっている一覧と現在の作品が見えるように）
-  if (topTab !== ring) {
+  if ((ring === "top" || ring === "rel") && topTab !== ring) {
     topTab = ring;
     store.set("cl_topTab", topTab);
   }
@@ -1060,6 +1085,7 @@ function fillMovie(m) {
   const [q, isExample] = cur;
   cur[2] = m;
   if (hist.includes(q)) saveMeta(q, m);
+  if (!ring) ring = autoRing(m); // 作品が分かった時点で、めぐれるか決め直す（このあと見出しを描き直すときに「‹ ›」が入る）
   const now = $("#out .now");
   if (now) {
     const t = document.createElement("div");
@@ -1169,7 +1195,7 @@ function render(q, isExample, movie) {
   }
   if (movie && hist.includes(q)) saveMeta(q, movie);
   const changed = !cur || cur[0] !== q; // 作品が変わったときだけ切り替えのアニメーションを付ける
-  ring = nextRing;
+  ring = nextRing ?? autoRing(movie);
   nextRing = null;
   cur = [q, isExample, movie];
   store.set("cl_last", isExample ? "" : q); // 次に開いたとき、同じ作品を出すかどうかの判断に使う
@@ -1235,6 +1261,7 @@ function updateTop() {
     bindTop();
     scrollRelToNow();
   }
+  refreshRing();
 }
 /* 公開日順の一覧のスクロール位置。前回いちばん上に見えていた作品を覚えておき、次に開いたときもそこから見せる。
    一覧が新しい週に切り替わったとき（金曜）や、その作品が一覧から外れたときは、
@@ -1308,7 +1335,7 @@ $("#q").addEventListener("keydown", (e) => {
     drawSug();
   } else if (e.key === "Enter" && active >= 0) {
     e.preventDefault();
-    pick(items[active]);
+    pick(items[active], items);
   } else if (e.key === "Escape") {
     hideSug();
   }
@@ -1317,14 +1344,15 @@ $("#sug").addEventListener("mousedown", (e) => {
   const li = e.target.closest("li[data-i]");
   if (li) {
     e.preventDefault();
-    pick(items[+li.dataset.i]);
+    pick(items[+li.dataset.i], items);
   }
 });
 $("#q").addEventListener("blur", () => setTimeout(hideSug, 120));
 /* Enter（スマホの「検索」「決定」）を押したとき、候補から1つに決まるならその作品を選んだことにする。
    ・一番上の候補が入力と完全に一致（記号・表記の違いは無視）
    ・入力した言葉がすべて入っている候補が、ちょうど1つだけ（言葉が1つだけなら、作品名の先頭と一致するか、作品名の半分以上を占めるとき）
-   それ以外（「検索」→「ダークウェブ 検索できない…」のような途中一致など）は、打った文字のまま検索する */
+   ・入力した言葉がすべて入っている候補が複数あるとき（「アンパンマン」など）は、その中の一番上。ほかの候補へは見出しのスワイプでめぐれる
+   それ以外（「検索」→「ダークウェブ 検索できない…」だけが途中一致するときなど）は、打った文字のまま検索する */
 async function autoPick(q) {
   let list = cache.get(q);
   if (!list) {
@@ -1338,7 +1366,8 @@ async function autoPick(q) {
     }
   } // 候補がまだなら少しだけ待つ
   if (!list?.length) return null;
-  if (rankOf(q, list[0]) === 0) return list[0]; // ① 作品名と完全に一致
+  const pickFrom = (m, hits) => ((m.hits = hits), m); // 選んだ作品に、めぐれる候補の一覧を添える
+  if (rankOf(q, list[0]) === 0) return pickFrom(list[0], list); // ① 作品名と完全に一致（ほかの候補へもめぐれる）
   // ② 入力した言葉がすべて入っている候補が、ちょうど1つだけなら選ぶ（順番・間の言葉は問わない）
   const words = q.split(" ").map(norm).filter(Boolean);
   const has = (m) => {
@@ -1352,6 +1381,8 @@ async function autoPick(q) {
     if (words.length >= 2) return m; // 「ウルトラマン 仮面」→ ウルトラマンVS仮面ライダー
     if (rankOf(q, m) === 1 || norm(q).length * 2 >= norm(m.title).length) return m; // 1語なら先頭一致か、作品名の半分以上
   }
+  // ③ 入力した言葉がすべて入っている候補が複数あれば、一番上を選び、ほかの候補へは見出しのスワイプでめぐる（「アンパンマン」など）
+  if (hits.length >= 2) return pickFrom(hits[0], hits);
   return null;
 }
 $("#f").addEventListener("submit", async (e) => {
@@ -1364,7 +1395,9 @@ $("#f").addEventListener("submit", async (e) => {
   if (clean($("#q").value) !== q) return; // 待っている間に打ち直していたら何もしない
   if (m) {
     if (rankOf(q, m) !== 0) picked = { q, id: m.id };
-    pick(m);
+    const hits = m.hits;
+    delete m.hits;
+    pick(m, hits);
     return;
   } // 完全一致でなければ「候補から選びました」を出す
   searchRaw(q);
@@ -1763,3 +1796,10 @@ if (topTab === "rel")
   getReleases()
     .catch(() => {})
     .finally(updateTop); // 前回「公開日順」を開いていたら、その一覧も読む
+// それ以外は、最初の表示が終わってから公開日順の一覧を裏で読む（表示中の作品が入っていれば、めぐれるようにするため）
+else
+  (window.requestIdleCallback || ((f) => setTimeout(f, 1500)))(() =>
+    getReleases()
+      .then(refreshRing)
+      .catch(() => {}),
+  );
