@@ -48,6 +48,9 @@ for (const list of results) for (const m of list) {
   // ただし公開前後の新作は、まだジャンルや評価が付いていないことがあるので残す（半年前より後の公開日）
   const recent = (m.release_date || "") >= new Date(Date.now() - 183 * 864e5).toISOString().slice(0, 10);
   if (!(m.genre_ids || []).length && (m.vote_count || 0) < 5 && !recent) continue;
+  // ジャンルに「テレビ映画」（10770）が付いた作品（テレビのドキュメンタリー番組など）も外す。
+  // 作品名を完全に打ったときは、中継（worker）の検索から出る
+  if ((m.genre_ids || []).includes(10770)) continue;
   // 原題（タイトルと同じなら空）、評価数、人気度。後ろの2つは候補を「有名な順」に並べるために使う
   const orig = m.original_title && m.original_title !== m.title && readable(m.original_title) ? m.original_title : "";
   // 公開日は年月日まで入れる（公開まもない作品を候補の上に寄せるため。画面には年だけ出す）
