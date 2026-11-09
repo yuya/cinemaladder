@@ -909,6 +909,25 @@ function ringPos(movie) {
   const i = movie ? list.findIndex((x) => x.id === movie.id) : -1;
   return i < 0 || list.length < 2 ? null : { i, n: list.length, list };
 }
+// 表示中の作品が TOP10 か公開日順に入っていれば、どこから来た作品でもめぐれるようにする。
+// 両方に入っているときは「いま話題の映画」で最後に選んでいたタブの一覧にする
+function autoRing(movie) {
+  if (!movie?.id) return null;
+  const inTop = !!trendList?.some((x) => x.id === movie.id),
+    inRel = !!relData?.items?.some((x) => x.id === movie.id);
+  if (inTop && inRel) return topTab === "rel" ? "rel" : "top";
+  if (inTop && topTab === "rel" && !relData && !relFailed) return null; // 公開日順を選んでいたなら、その一覧が届くまで決めない
+  return inTop ? "top" : inRel ? "rel" : null;
+}
+// 一覧や作品の情報があとから届いたときに、めぐれるようになったら「‹ › 」を足す（画面全体は描き直さない）
+function refreshRing() {
+  if (!cur || ring) return;
+  ring = autoRing(cur[2]);
+  const share = $("#out .now #share");
+  if (!ring || !share || $("#out .now .ringnav")) return;
+  share.insertAdjacentHTML("beforebegin", ringNavHTML(cur[2]));
+  preloadRing();
+}
 function ringNavHTML(movie) {
   const p = ringPos(movie);
   if (!p) return "";
@@ -1060,6 +1079,7 @@ function fillMovie(m) {
   const [q, isExample] = cur;
   cur[2] = m;
   if (hist.includes(q)) saveMeta(q, m);
+  if (!ring) ring = autoRing(m); // 作品が分かった時点で、めぐれるか決め直す（このあと見出しを描き直すときに「‹ ›」が入る）
   const now = $("#out .now");
   if (now) {
     const t = document.createElement("div");
@@ -1169,7 +1189,7 @@ function render(q, isExample, movie) {
   }
   if (movie && hist.includes(q)) saveMeta(q, movie);
   const changed = !cur || cur[0] !== q; // 作品が変わったときだけ切り替えのアニメーションを付ける
-  ring = nextRing;
+  ring = nextRing ?? autoRing(movie);
   nextRing = null;
   cur = [q, isExample, movie];
   store.set("cl_last", isExample ? "" : q); // 次に開いたとき、同じ作品を出すかどうかの判断に使う
@@ -1235,6 +1255,7 @@ function updateTop() {
     bindTop();
     scrollRelToNow();
   }
+  refreshRing();
 }
 /* 公開日順の一覧のスクロール位置。前回いちばん上に見えていた作品を覚えておき、次に開いたときもそこから見せる。
    一覧が新しい週に切り替わったとき（金曜）や、その作品が一覧から外れたときは、
@@ -1763,3 +1784,10 @@ if (topTab === "rel")
   getReleases()
     .catch(() => {})
     .finally(updateTop); // 前回「公開日順」を開いていたら、その一覧も読む
+// それ以外は、最初の表示が終わってから公開日順の一覧を裏で読む（表示中の作品が入っていれば、めぐれるようにするため）
+else
+  (window.requestIdleCallback || ((f) => setTimeout(f, 1500)))(() =>
+    getReleases()
+      .then(refreshRing)
+      .catch(() => {}),
+  );
