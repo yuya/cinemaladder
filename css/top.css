@@ -799,22 +799,14 @@ main:has(.peek) {
   white-space: pre-wrap;
 } /* 作品名の中の空白を消さない */
 /* 公開日・上映時間・ジャンル（ネタバレにならないので常に出す）。情報が届く前から1行分の高さを確保してずれを防ぎ、
-   1行に固定して、入りきらないときは横にスクロールする（履歴の一覧と同じ） */
+   1行に固定して、入りきらないときは末尾を「…」で省く（見出しは横スワイプで作品を切り替えるので、横スクロールにはしない） */
 .now .meta {
   display: block;
   min-height: 1.6em;
   white-space: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.now .meta::-webkit-scrollbar {
-  display: none;
-}
-.now .meta.more {
-  -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 24px), transparent);
-  mask-image: linear-gradient(90deg, #000 calc(100% - 24px), transparent);
-  padding-right: 20px;
-} /* 続きがあるときだけ右端を薄くする */
 /* 「あらすじ・キャスト」の開閉ボタンは作品名の下（右の列）に置き、中身は見出しの下に横いっぱいで出す。
    あらすじはネタバレを避けたい人が開かなくて済むよう、最初はたたんでおく。
    左へ2px寄せるのは、矢印の絵の左の余白の分だけ、見た目の左端を作品名にそろえるため */

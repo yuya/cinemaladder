@@ -850,7 +850,6 @@ function setInfo(st, d) {
       const y = cur?.[2]?.date?.slice(0, 4);
       m.innerHTML = y ? `<span class="in">${y}年</span>` : "";
     } // 取れなかったときは分かる範囲（公開年）だけ
-    m.classList.toggle("more", m.scrollWidth > m.clientWidth + 1); // 続きがあるときだけ右端を薄くする
   }
   if (st === "ok") setLD(d);
 }
