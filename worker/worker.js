@@ -98,6 +98,19 @@ export default {
     if (!r.ok) return json({ error: r.status }, cors, 502);
 
     const j = await r.json();
+    // 古い表記で登録されている作品も拾う（「エヴァンゲリオン」で「ヱヴァンゲリヲン新劇場版」も出す）。
+    // 入力に表記ゆれのある言葉が入っていたら、書き換えた言葉でも検索して足す
+    const alt = ALIASES.reduce((s, [a, b]) => s.replace(a, b), q);
+    if (alt !== q) {
+      const r2 = await fetch(api.replace("query=" + encodeURIComponent(q), "query=" + encodeURIComponent(alt)), {
+        headers: { Authorization: "Bearer " + env.TMDB_TOKEN, accept: "application/json" },
+        cf: { cacheTtl: 3600, cacheEverything: true },
+      }).catch(() => null);
+      if (r2?.ok) {
+        const seen = new Set((j.results || []).map(m => m.id));
+        for (const m of (await r2.json()).results || []) if (!seen.has(m.id)) (j.results ||= []).push(m);
+      }
+    }
     // 並べ替えはブラウザ側で行う（有名さ＝評価数と人気度も返す）ので、多めの20件まで返す
     // ジャンルが1つも付いておらず評価もほとんどない作品（グラビアなどの映像商品が多い）は外す。
     // ただし公開前後の新作は、まだジャンルや評価が付いていないことがあるので残す（半年前より後の公開日）
@@ -106,7 +119,7 @@ export default {
     //   ・ジャンルに「テレビ映画」（10770）が付いた作品（テレビのドキュメンタリー番組など）
     //   ・ジャンルが「音楽」（10402）だけで、評価が50件未満の作品（コンサートの映像商品など。評価の多い劇場公開のライブ映画は残す）
     const n = s => (s || "").normalize("NFKC").toLowerCase().replace(/[\s\p{P}\p{S}]/gu, "");
-    const exact = m => n(m.title) === n(q) || n(m.original_title) === n(q);
+    const exact = m => n(m.title) === n(q) || n(m.original_title) === n(q) || n(m.title) === n(alt);
     const notFilm = m => {
       const g = m.genre_ids || [];
       return g.includes(10770) || (g.length === 1 && g[0] === 10402 && (m.vote_count || 0) < 50);
@@ -121,6 +134,11 @@ export default {
     return json(out, { ...cors, "Cache-Control": "public, max-age=3600" });
   },
 };
+
+// 検索の表記ゆれ：[入力に含まれる言葉, TMDB での表記]
+const ALIASES = [
+  [/エヴァンゲリオン/g, "ヱヴァンゲリヲン"],
+];
 
 /* 英語のあらすじを日本語に機械翻訳する。
    1. DeepL（訳がいちばん自然。DEEPL_API_KEY は GitHub の Secret から worker.yml が渡す）

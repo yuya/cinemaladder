@@ -348,6 +348,7 @@ const norm = (s) =>
     .normalize("NFKC")
     .toLowerCase()
     .replace(/[\u30a1-\u30f6]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60))
+    .replace(/[ゑをゐ]/g, (c) => ({ ゑ: "え", を: "お", ゐ: "い" })[c]) // 「ヱヴァンゲリヲン」を「エヴァンゲリオン」でも見つける
     .replace(/[\s・･:：\-‐－ー〜~!！?？、。,.「」『』（）()\/／&＆'"]/g, "");
 function loadTitles() {
   if (titles) return Promise.resolve(titles);
