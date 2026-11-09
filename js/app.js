@@ -458,7 +458,7 @@ async function searchTMDB(q) {
     .map((m, i) => [score(m), i, m])
     .sort((a, b) => b[0] - a[0] || a[1] - b[1])
     .map((x) => x[2])
-    .slice(0, 30); // 候補の一覧に出すのは上の8件（drawSug）。スワイプでは全部めぐれる
+    .slice(0, 30); // 候補の一覧に出すのは上の20件。スワイプでは全部めぐれる
   cache.set(q, res);
   return res;
 }
@@ -680,7 +680,7 @@ function onType() {
     try {
       const r = await searchTMDB(q);
       if (clean($("#q").value) !== q) return;
-      items = r.slice(0, SUG_MAX); // 一覧に出すのは8件まで（スマホでキーボードに隠れないように）
+      items = r.slice(0, SUG_MAX); // 一覧に出すのは20件まで（一覧の中でスクロールする）
       sugAll = r; // 選んだあとにスワイプでめぐる候補は全部
       active = -1;
       r.length
@@ -694,7 +694,7 @@ function onType() {
   }, 250);
 }
 // list：候補の一覧から選んだとき、その一覧（2件以上なら、見出しのスワイプで2番目・3番目…の候補へめぐれる）
-const SUG_MAX = 8;
+const SUG_MAX = 20; // 一覧は中でスクロールするので多めに出す
 let sugAll = []; // 候補の全件（一覧に出すのは上の SUG_MAX 件）
 function pick(m, list) {
   if (list?.length >= 2) {
