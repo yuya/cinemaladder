@@ -348,6 +348,7 @@ const norm = (s) =>
     .normalize("NFKC")
     .toLowerCase()
     .replace(/[\u30a1-\u30f6]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60))
+    .replace(/[ゑをゐ]/g, (c) => ({ ゑ: "え", を: "お", ゐ: "い" })[c]) // 「ヱヴァンゲリヲン」を「エヴァンゲリオン」でも見つける
     .replace(/[\s・･:：\-‐－ー〜~!！?？、。,.「」『』（）()\/／&＆'"]/g, "");
 function loadTitles() {
   if (titles) return Promise.resolve(titles);
@@ -457,7 +458,7 @@ async function searchTMDB(q) {
     .map((m, i) => [score(m), i, m])
     .sort((a, b) => b[0] - a[0] || a[1] - b[1])
     .map((x) => x[2])
-    .slice(0, 8);
+    .slice(0, 30); // 候補の一覧に出すのは上の20件。スワイプでは全部めぐれる
   cache.set(q, res);
   return res;
 }
@@ -679,7 +680,8 @@ function onType() {
     try {
       const r = await searchTMDB(q);
       if (clean($("#q").value) !== q) return;
-      items = r;
+      items = r.slice(0, SUG_MAX); // 一覧に出すのは20件まで（一覧の中でスクロールする）
+      sugAll = r; // 選んだあとにスワイプでめぐる候補は全部
       active = -1;
       r.length
         ? drawSug()
@@ -692,6 +694,8 @@ function onType() {
   }, 250);
 }
 // list：候補の一覧から選んだとき、その一覧（2件以上なら、見出しのスワイプで2番目・3番目…の候補へめぐれる）
+const SUG_MAX = 20; // 一覧は中でスクロールするので多めに出す
+let sugAll = []; // 候補の全件（一覧に出すのは上の SUG_MAX 件）
 function pick(m, list) {
   if (list?.length >= 2) {
     sugRing = list.slice();
@@ -1335,7 +1339,7 @@ $("#q").addEventListener("keydown", (e) => {
     drawSug();
   } else if (e.key === "Enter" && active >= 0) {
     e.preventDefault();
-    pick(items[active], items);
+    pick(items[active], sugAll);
   } else if (e.key === "Escape") {
     hideSug();
   }
@@ -1344,7 +1348,7 @@ $("#sug").addEventListener("mousedown", (e) => {
   const li = e.target.closest("li[data-i]");
   if (li) {
     e.preventDefault();
-    pick(items[+li.dataset.i], items);
+    pick(items[+li.dataset.i], sugAll);
   }
 });
 $("#q").addEventListener("blur", () => setTimeout(hideSug, 120));
