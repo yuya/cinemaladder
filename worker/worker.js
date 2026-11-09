@@ -102,13 +102,18 @@ export default {
     // ジャンルが1つも付いておらず評価もほとんどない作品（グラビアなどの映像商品が多い）は外す。
     // ただし公開前後の新作は、まだジャンルや評価が付いていないことがあるので残す（半年前より後の公開日）
     const since = new Date(Date.now() - 183 * 864e5).toISOString().slice(0, 10);
-    // ジャンルに「テレビ映画」（10770）が付いた作品（テレビのドキュメンタリー番組など）は、劇場作品の候補を埋めないよう外す。
-    // ただし作品名（または原題）を完全に打ったときは出す（記号・空白・全角半角の違いは無視）
+    // 劇場作品の候補を埋めないよう、次の作品は外す。ただし作品名（または原題）を完全に打ったときは出す（記号・空白・全角半角の違いは無視）
+    //   ・ジャンルに「テレビ映画」（10770）が付いた作品（テレビのドキュメンタリー番組など）
+    //   ・ジャンルが「音楽」（10402）だけで、評価が50件未満の作品（コンサートの映像商品など。評価の多い劇場公開のライブ映画は残す）
     const n = s => (s || "").normalize("NFKC").toLowerCase().replace(/[\s\p{P}\p{S}]/gu, "");
     const exact = m => n(m.title) === n(q) || n(m.original_title) === n(q);
+    const notFilm = m => {
+      const g = m.genre_ids || [];
+      return g.includes(10770) || (g.length === 1 && g[0] === 10402 && (m.vote_count || 0) < 50);
+    };
     const out = (j.results || [])
       .filter(m => (m.genre_ids || []).length || (m.vote_count || 0) >= 5 || (m.release_date || "") >= since)
-      .filter(m => !(m.genre_ids || []).includes(10770) || exact(m))
+      .filter(m => !notFilm(m) || exact(m))
       .slice(0, 20).map(m => ({
       id: m.id, title: fixRad(m.title), original: m.original_title, date: m.release_date, poster: m.poster_path,
       votes: m.vote_count || 0, pop: Math.round((m.popularity || 0) * 10) / 10,
