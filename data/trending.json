@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T00:54:34.074Z",
+ "updated": "2026-11-10T03:34:25.378Z",
  "items": [
   {
    "id": 1423191,
@@ -7,7 +7,7 @@
    "original": "Resident Evil",
    "date": "2026-10-09",
    "poster": "/wHXSnGH3zQtvpxPwaBXMoS9o8Vl.jpg",
-   "pop": 584.1726,
+   "pop": 695.1234,
    "info": {
     "id": 1423191,
     "title": "バイオハザード",
@@ -48,7 +48,7 @@
    "original": "ゴジラ-0.0",
    "date": "2026-11-03",
    "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
-   "pop": 187.1271,
+   "pop": 200.2939,
    "info": {
     "id": 1381071,
     "title": "ゴジラ-0.0",
@@ -87,7 +87,7 @@
    "original": "Verity",
    "date": "2026-11-06",
    "poster": "/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "pop": 182.2259,
+   "pop": 190.1577,
    "info": {
     "id": 1283515,
     "title": "ヴェリティ／真実",
@@ -125,7 +125,7 @@
    "original": "Clayface",
    "date": "2026-10-30",
    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-   "pop": 91.3161,
+   "pop": 89.2804,
    "info": {
     "id": 1400940,
     "title": "クレイフェイス",
@@ -164,7 +164,7 @@
    "original": "Other Mommy",
    "date": "2026-11-20",
    "poster": "/fGRNCssTRrhYZxNzykGGCoMsAVq.jpg",
-   "pop": 67.0561,
+   "pop": 62.5888,
    "info": {
     "id": 1400837,
     "title": "アザー・マミー",
@@ -196,51 +196,12 @@
    }
   },
   {
-   "id": 1302904,
-   "title": "プラティカル・マジック／魔女たちの秘密",
-   "original": "Practical Magic 2",
-   "date": "2026-11-27",
-   "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
-   "pop": 65.7837,
-   "info": {
-    "id": 1302904,
-    "title": "プラティカル・マジック／魔女たちの秘密",
-    "original": "Practical Magic 2",
-    "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
-    "date": "2026-09-09",
-    "jpDate": "2026-11-27",
-    "runtime": 130,
-    "tagline": "",
-    "overview": "The Owens sisters must confront the dark curse that threatens to unravel their family once and for all.",
-    "overviewLang": "en",
-    "genres": [
-     "ロマンス",
-     "ファンタジー",
-     "コメディ"
-    ],
-    "countries": [
-     "US"
-    ],
-    "directors": [
-     "スサンネ・ビア"
-    ],
-    "cast": [
-     "サンドラ・ブロック",
-     "ニコール・キッドマン",
-     "ジョーイ・キング",
-     "メイジー・ウィリアムズ",
-     "ショロ・マリデュエニャ",
-     "リー・ペイス"
-    ]
-   }
-  },
-  {
    "id": 1153576,
    "title": "ストリートファイター／ザ・ムービー",
    "original": "Street Fighter",
    "date": "2026-10-16",
    "poster": "/1JBlbyXionXPRaqW1UQw7eKkxNP.jpg",
-   "pop": 63.5091,
+   "pop": 61.8702,
    "info": {
     "id": 1153576,
     "title": "ストリートファイター／ザ・ムービー",
@@ -254,7 +215,8 @@
     "overviewLang": "ja",
     "genres": [
      "アクション",
-     "ファンタジー"
+     "ファンタジー",
+     "コメディ"
     ],
     "countries": [
      "JP",
@@ -274,50 +236,12 @@
    }
   },
   {
-   "id": 1275779,
-   "title": "ディスクロージャー・デイ",
-   "original": "Disclosure Day",
-   "date": "2026-10-01",
-   "poster": "/vDnJLpE2jhu8OVcwpWuYCMF5hRU.jpg",
-   "pop": 57.8113,
-   "info": {
-    "id": 1275779,
-    "title": "ディスクロージャー・デイ",
-    "original": "Disclosure Day",
-    "poster": "/vDnJLpE2jhu8OVcwpWuYCMF5hRU.jpg",
-    "date": "2026-06-10",
-    "jpDate": "2026-10-01",
-    "runtime": 146,
-    "tagline": "",
-    "overview": "気象キャスターのマーガレットとサイバーセキュリティのエキスパート、ダニエル。接点のないはずの二人が衝撃的な機密情報を知ることとなった。やがて、その秘密を明らかにする使命を負った彼らの前に謎の組織が立ちはだかる――。",
-    "overviewLang": "ja",
-    "genres": [
-     "サイエンスフィクション",
-     "スリラー"
-    ],
-    "countries": [
-     "US"
-    ],
-    "directors": [
-     "スティーヴン・スピルバーグ"
-    ],
-    "cast": [
-     "エミリー・ブラント",
-     "ジョシュ・オコナー",
-     "コリン・ファース",
-     "イヴ・ヒューソン",
-     "コールマン・ドミンゴ",
-     "ワイアット・ラッセル"
-    ]
-   }
-  },
-  {
    "id": 1483525,
    "title": "もしもの愛",
    "original": "가능한 사랑",
    "date": "2026-10-23",
    "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
-   "pop": 57.4055,
+   "pop": 59.6353,
    "info": {
     "id": 1483525,
     "title": "もしもの愛",
@@ -351,12 +275,89 @@
    }
   },
   {
+   "id": 1275779,
+   "title": "ディスクロージャー・デイ",
+   "original": "Disclosure Day",
+   "date": "2026-10-01",
+   "poster": "/vDnJLpE2jhu8OVcwpWuYCMF5hRU.jpg",
+   "pop": 59.3082,
+   "info": {
+    "id": 1275779,
+    "title": "ディスクロージャー・デイ",
+    "original": "Disclosure Day",
+    "poster": "/vDnJLpE2jhu8OVcwpWuYCMF5hRU.jpg",
+    "date": "2026-06-10",
+    "jpDate": "2026-10-01",
+    "runtime": 146,
+    "tagline": "",
+    "overview": "気象キャスターのマーガレットとサイバーセキュリティのエキスパート、ダニエル。接点のないはずの二人が衝撃的な機密情報を知ることとなった。やがて、その秘密を明らかにする使命を負った彼らの前に謎の組織が立ちはだかる――。",
+    "overviewLang": "ja",
+    "genres": [
+     "サイエンスフィクション",
+     "スリラー"
+    ],
+    "countries": [
+     "US"
+    ],
+    "directors": [
+     "スティーヴン・スピルバーグ"
+    ],
+    "cast": [
+     "エミリー・ブラント",
+     "ジョシュ・オコナー",
+     "コリン・ファース",
+     "イヴ・ヒューソン",
+     "コールマン・ドミンゴ",
+     "ワイアット・ラッセル"
+    ]
+   }
+  },
+  {
+   "id": 1302904,
+   "title": "プラティカル・マジック／魔女たちの秘密",
+   "original": "Practical Magic 2",
+   "date": "2026-11-27",
+   "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
+   "pop": 58.1273,
+   "info": {
+    "id": 1302904,
+    "title": "プラティカル・マジック／魔女たちの秘密",
+    "original": "Practical Magic 2",
+    "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
+    "date": "2026-09-09",
+    "jpDate": "2026-11-27",
+    "runtime": 130,
+    "tagline": "",
+    "overview": "The Owens sisters must confront the dark curse that threatens to unravel their family once and for all.",
+    "overviewLang": "en",
+    "genres": [
+     "ロマンス",
+     "ファンタジー",
+     "コメディ"
+    ],
+    "countries": [
+     "US"
+    ],
+    "directors": [
+     "スサンネ・ビア"
+    ],
+    "cast": [
+     "サンドラ・ブロック",
+     "ニコール・キッドマン",
+     "ジョーイ・キング",
+     "メイジー・ウィリアムズ",
+     "ショロ・マリデュエニャ",
+     "リー・ペイス"
+    ]
+   }
+  },
+  {
    "id": 1248832,
    "title": "DIGGER／ディガー",
    "original": "Digger",
    "date": "2026-10-09",
    "poster": "/vi2HvWOBtR1pcr4vBoYe43ldkuu.jpg",
-   "pop": 46.5278,
+   "pop": 45.601,
    "info": {
     "id": 1248832,
     "title": "DIGGER／ディガー",
