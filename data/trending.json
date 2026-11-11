@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10T03:34:00.286Z",
+ "updated": "2026-11-11T01:14:26.121Z",
  "items": [
   {
    "id": 1423191,
@@ -7,7 +7,7 @@
    "original": "Resident Evil",
    "date": "2026-10-09",
    "poster": "/wHXSnGH3zQtvpxPwaBXMoS9o8Vl.jpg",
-   "pop": 695.1234,
+   "pop": 679.5958,
    "info": {
     "id": 1423191,
     "title": "バイオハザード",
@@ -48,7 +48,7 @@
    "original": "ゴジラ-0.0",
    "date": "2026-11-03",
    "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
-   "pop": 200.2939,
+   "pop": 208.9434,
    "info": {
     "id": 1381071,
     "title": "ゴジラ-0.0",
@@ -87,7 +87,7 @@
    "original": "Verity",
    "date": "2026-11-06",
    "poster": "/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "pop": 190.1577,
+   "pop": 172.6327,
    "info": {
     "id": 1283515,
     "title": "ヴェリティ／真実",
@@ -125,7 +125,7 @@
    "original": "Clayface",
    "date": "2026-10-30",
    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-   "pop": 89.2804,
+   "pop": 82.7672,
    "info": {
     "id": 1400940,
     "title": "クレイフェイス",
@@ -201,7 +201,7 @@
    "original": "Street Fighter",
    "date": "2026-10-16",
    "poster": "/1JBlbyXionXPRaqW1UQw7eKkxNP.jpg",
-   "pop": 61.8702,
+   "pop": 61.2822,
    "info": {
     "id": 1153576,
     "title": "ストリートファイター／ザ・ムービー",
@@ -241,7 +241,7 @@
    "original": "가능한 사랑",
    "date": "2026-10-23",
    "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
-   "pop": 59.6353,
+   "pop": 59.8166,
    "info": {
     "id": 1483525,
     "title": "もしもの愛",
@@ -254,8 +254,7 @@
     "overview": "まったく異なる人生を歩む2 組の夫婦の交錯する日常を捉え、平穏に見えた日々に少しずつ亀裂が生まれていく様子を描き出す。",
     "overviewLang": "ja",
     "genres": [
-     "ドラマ",
-     "ロマンス"
+     "ドラマ"
     ],
     "countries": [
      "KR",
@@ -271,44 +270,6 @@
      "チョ・ヨジョン",
      "チョ・ユリ",
      "최민"
-    ]
-   }
-  },
-  {
-   "id": 1275779,
-   "title": "ディスクロージャー・デイ",
-   "original": "Disclosure Day",
-   "date": "2026-10-01",
-   "poster": "/vDnJLpE2jhu8OVcwpWuYCMF5hRU.jpg",
-   "pop": 59.3082,
-   "info": {
-    "id": 1275779,
-    "title": "ディスクロージャー・デイ",
-    "original": "Disclosure Day",
-    "poster": "/vDnJLpE2jhu8OVcwpWuYCMF5hRU.jpg",
-    "date": "2026-06-10",
-    "jpDate": "2026-10-01",
-    "runtime": 146,
-    "tagline": "",
-    "overview": "気象キャスターのマーガレットとサイバーセキュリティのエキスパート、ダニエル。接点のないはずの二人が衝撃的な機密情報を知ることとなった。やがて、その秘密を明らかにする使命を負った彼らの前に謎の組織が立ちはだかる――。",
-    "overviewLang": "ja",
-    "genres": [
-     "サイエンスフィクション",
-     "スリラー"
-    ],
-    "countries": [
-     "US"
-    ],
-    "directors": [
-     "スティーヴン・スピルバーグ"
-    ],
-    "cast": [
-     "エミリー・ブラント",
-     "ジョシュ・オコナー",
-     "コリン・ファース",
-     "イヴ・ヒューソン",
-     "コールマン・ドミンゴ",
-     "ワイアット・ラッセル"
     ]
    }
   },
@@ -352,40 +313,77 @@
    }
   },
   {
-   "id": 1248832,
-   "title": "DIGGER／ディガー",
-   "original": "Digger",
-   "date": "2026-10-09",
-   "poster": "/vi2HvWOBtR1pcr4vBoYe43ldkuu.jpg",
-   "pop": 45.601,
+   "id": 1275779,
+   "title": "ディスクロージャー・デイ",
+   "original": "Disclosure Day",
+   "date": "2026-10-01",
+   "poster": "/vDnJLpE2jhu8OVcwpWuYCMF5hRU.jpg",
+   "pop": 56.191,
    "info": {
-    "id": 1248832,
-    "title": "DIGGER／ディガー",
-    "original": "Digger",
-    "poster": "/vi2HvWOBtR1pcr4vBoYe43ldkuu.jpg",
-    "date": "2026-09-28",
-    "jpDate": "2026-10-09",
-    "runtime": 129,
-    "tagline": "ひとりの男。ひとつの計画。 そして、大混乱。",
-    "overview": "石油採掘会社のCEOとして君臨する傲慢な権力者、ディガー・ロックウェル。己の利益しか考えていない彼の欲深い行動のせいで、地球は滅亡の危機に陥ってしまう。大統領から事態の収拾を命じられたディガーは、世界を救うべくシャベルを片手に立ち上がるが……。",
+    "id": 1275779,
+    "title": "ディスクロージャー・デイ",
+    "original": "Disclosure Day",
+    "poster": "/vDnJLpE2jhu8OVcwpWuYCMF5hRU.jpg",
+    "date": "2026-06-10",
+    "jpDate": "2026-10-01",
+    "runtime": 146,
+    "tagline": "",
+    "overview": "気象キャスターのマーガレットとサイバーセキュリティのエキスパート、ダニエル。接点のないはずの二人が衝撃的な機密情報を知ることとなった。やがて、その秘密を明らかにする使命を負った彼らの前に謎の組織が立ちはだかる――。",
     "overviewLang": "ja",
     "genres": [
-     "コメディ",
-     "ドラマ"
+     "サイエンスフィクション",
+     "スリラー"
     ],
     "countries": [
      "US"
     ],
     "directors": [
-     "アレハンドロ・G・イニャリトゥ"
+     "スティーヴン・スピルバーグ"
     ],
     "cast": [
-     "トム・クルーズ",
-     "リズ・アーメッド",
-     "ジョン・グッドマン",
-     "ザンドラ・ヒュラー",
-     "マイケル・スタールバーグ",
-     "ジェシー・プレモンス"
+     "エミリー・ブラント",
+     "ジョシュ・オコナー",
+     "コリン・ファース",
+     "イヴ・ヒューソン",
+     "コールマン・ドミンゴ",
+     "ワイアット・ラッセル"
+    ]
+   }
+  },
+  {
+   "id": 1255833,
+   "title": "クジラに落ちた男",
+   "original": "Whalefall",
+   "date": "2026-10-16",
+   "poster": "/q4z5EiiOwYWUDkkPMAmFVjqWnBa.jpg",
+   "pop": 47.1612,
+   "info": {
+    "id": 1255833,
+    "title": "クジラに落ちた男",
+    "original": "Whalefall",
+    "poster": "/q4z5EiiOwYWUDkkPMAmFVjqWnBa.jpg",
+    "date": "2026-10-14",
+    "jpDate": "2026-10-16",
+    "runtime": 106,
+    "tagline": "",
+    "overview": "Following the death of his father, Jay Gardiner goes diving off the central Coast of California in search of his remains, but is swallowed by a massive sperm whale. While trapped inside its belly with only one hour of oxygen left, Jay comes to realize that the hard-earned lessons his father imparted may be the key to his escape.",
+    "overviewLang": "en",
+    "genres": [
+     "スリラー"
+    ],
+    "countries": [
+     "US"
+    ],
+    "directors": [
+     "ブライアン・ダッフィールド"
+    ],
+    "cast": [
+     "オースティン・エイブラムス",
+     "ジョシュ・ブローリン",
+     "エリザベス・シュー",
+     "ジョン・オーティス",
+     "ジェーン・レヴィ",
+     "エミリー・ラッド"
     ]
    }
   }
