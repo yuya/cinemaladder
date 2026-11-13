@@ -18,8 +18,8 @@ const get = async (path, tries = 3) => {
     await new Promise(res => setTimeout(res, 1000 * (i + 1)));
   }
 };
-// 日本語タイトルが未登録だと原題（タミル語など）が返るので、日本語・英数字以外を含むタイトルは除外
-const readable = t => !!t && !/[^\u0000-ɏ -⁯⺀-ヿ㐀-鿿豈-﫿＀-￯]/.test(t);
+// 日本語タイトルが未登録だと原題（タミル語など）が返るので、日本語・英数字以外を含むタイトルは除外（─ ★ ♪ → などの記号は日本語の題名にも使われるので許す）
+const readable = t => !!t && !/[^\u0000-\u024F\u2000-\u206F\u2100-\u27BF\u2E80-\u30FF\u3400-\u9FFF\uF900-\uFAFF\uFF00-\uFFEF]/.test(t);
 
 // 日本時間の今日と、直近の金曜
 const D = 864e5;
