@@ -1,96 +1,16 @@
 {
- "updated": "2026-11-12T02:16:06.325Z",
- "anchor": "2026-11-06",
- "from": "2026-10-23",
+ "updated": "2026-11-13T01:49:16.192Z",
+ "anchor": "2026-11-13",
+ "from": "2026-10-30",
  "to": "2026-12-03",
  "items": [
-  {
-   "id": 1483525,
-   "title": "もしもの愛",
-   "original": "가능한 사랑",
-   "date": "2026-10-23",
-   "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
-   "pop": 58.2
-  },
-  {
-   "id": 1526917,
-   "title": "メイドインアビス 目覚める神秘",
-   "original": "メイドインアビス 目覚める神秘",
-   "date": "2026-10-23",
-   "poster": "/7HfBlYDlMVaHnvd7NEpZLd8r7FO.jpg",
-   "pop": 2.7
-  },
-  {
-   "id": 1184941,
-   "title": "Blue Heron/ブルーヘロン",
-   "original": "Blue Heron",
-   "date": "2026-10-23",
-   "poster": "/paHhnxAaquGELtqtzdYQfR281Kb.jpg",
-   "pop": 2.4
-  },
-  {
-   "id": 1283320,
-   "title": "URCHIN／アーチン",
-   "original": "Urchin",
-   "date": "2026-10-23",
-   "poster": "/zehE12ErqzG4Y9znKtYDAvBOvmZ.jpg",
-   "pop": 2
-  },
-  {
-   "id": 1473439,
-   "title": "バッド・ルーテナント：トウキョウ",
-   "original": "バッド・ルーテナント：トウキョウ",
-   "date": "2026-10-23",
-   "poster": "/rWiwfGrHgTd2bqOtJ1UxhtpOZQM.jpg",
-   "pop": 2
-  },
-  {
-   "id": 1053231,
-   "title": "BOSS／ボス",
-   "original": "보스",
-   "date": "2026-10-23",
-   "poster": "/fkKBSgw4yv1C7d3n2UP5UvGRS2q.jpg",
-   "pop": 1.6
-  },
-  {
-   "id": 1410955,
-   "title": "うるわしの宵の月",
-   "original": "うるわしの宵の月",
-   "date": "2026-10-23",
-   "poster": "/2ap3yvDVquHTGZp1rSDShK4piNI.jpg",
-   "pop": 1
-  },
-  {
-   "id": 1801113,
-   "title": "昨夜は殺れたかも",
-   "original": "昨夜は殺れたかも",
-   "date": "2026-10-23",
-   "poster": "/suzbIuFNc3qFWMaHoD6Zvt8wCsn.jpg",
-   "pop": 0.3
-  },
-  {
-   "id": 1703008,
-   "title": "月の糸杉",
-   "original": "月の糸杉",
-   "date": "2026-10-23",
-   "poster": "/mntDfwy3aPhEMSyNFT92ILg4bOY.jpg",
-   "pop": 0.2
-  },
-  {
-   "id": 1755291,
-   "title": "NAZA ナザ",
-   "original": "NAZA",
-   "date": "2026-10-24",
-   "poster": "/12lO7y7j57j6mpQCUccOdEpSZzA.jpg",
-   "pop": 11.5
-  },
   {
    "id": 1400940,
    "title": "クレイフェイス",
    "original": "Clayface",
    "date": "2026-10-30",
    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-   "pop": 80.6
+   "pop": 76.3
   },
   {
    "id": 1102390,
@@ -98,15 +18,7 @@
    "original": "Der Spatz im Kamin",
    "date": "2026-10-30",
    "poster": "/yX4ZvG4ly26ePyfOkkx6dIHeVWN.jpg",
-   "pop": 1.1
-  },
-  {
-   "id": 1748514,
-   "title": "見上げてごらん",
-   "original": "見上げてごらん",
-   "date": "2026-10-30",
-   "poster": "/qjuzeBRrqHAyGJIJLyJBGuCy5oY.jpg",
-   "pop": 1
+   "pop": 1.2
   },
   {
    "id": 517815,
@@ -122,7 +34,15 @@
    "original": "月影のゴールデン街",
    "date": "2026-10-30",
    "poster": "/57Cvx1ePJl4jJJ9CNVyRWSPtvfs.jpg",
-   "pop": 0.7
+   "pop": 0.9
+  },
+  {
+   "id": 1748514,
+   "title": "見上げてごらん",
+   "original": "見上げてごらん",
+   "date": "2026-10-30",
+   "poster": "/qjuzeBRrqHAyGJIJLyJBGuCy5oY.jpg",
+   "pop": 0.9
   },
   {
    "id": 1646897,
@@ -130,15 +50,7 @@
    "original": "RYUJI ⻯⼆",
    "date": "2026-10-30",
    "poster": "/xPfcMiKjHvZfFGyjRVFa8PxKFc0.jpg",
-   "pop": 0.7
-  },
-  {
-   "id": 1555226,
-   "title": "恒星の向こう側",
-   "original": "恒星の向こう側",
-   "date": "2026-10-30",
-   "poster": "/2VEvO7Jw0CPCX3Jj1RZ2Ouvrl7V.jpg",
-   "pop": 0.5
+   "pop": 0.6
   },
   {
    "id": 1814090,
@@ -146,7 +58,15 @@
    "original": "ヤマトよ永遠に REBEL3199 第七章 虹色の輪廻",
    "date": "2026-10-30",
    "poster": "/rmPpzI7t8F4JpXfxCNSqifdAdzO.jpg",
-   "pop": 0.5
+   "pop": 0.6
+  },
+  {
+   "id": 1555226,
+   "title": "恒星の向こう側",
+   "original": "恒星の向こう側",
+   "date": "2026-10-30",
+   "poster": "/2VEvO7Jw0CPCX3Jj1RZ2Ouvrl7V.jpg",
+   "pop": 0.6
   },
   {
    "id": 164328,
@@ -170,7 +90,7 @@
    "original": "妖怪VS仮面ライダーマイス",
    "date": "2026-10-31",
    "poster": "/yh5e5UERGyO6MqdBxRRi4HlSqNy.jpg",
-   "pop": 0.3
+   "pop": 0.5
   },
   {
    "id": 1807401,
@@ -186,7 +106,7 @@
    "original": "鳥を導く",
    "date": "2026-10-31",
    "poster": "/rLoYc3cPgoNPBZfBkvsEaVlHr7f.jpg",
-   "pop": 0.2
+   "pop": 0.1
   },
   {
    "id": 1807421,
@@ -202,7 +122,7 @@
    "original": "ゴジラ-0.0",
    "date": "2026-11-03",
    "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
-   "pop": 199.1
+   "pop": 184.5
   },
   {
    "id": 1283515,
@@ -210,7 +130,7 @@
    "original": "Verity",
    "date": "2026-11-06",
    "poster": "/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "pop": 153.9
+   "pop": 141.9
   },
   {
    "id": 1567149,
@@ -218,7 +138,7 @@
    "original": "仮面ライダーカブト20th 天を継ぐもの",
    "date": "2026-11-06",
    "poster": "/5LBfnGFPXn5hUmywY7L4jDTEi9E.jpg",
-   "pop": 7.8
+   "pop": 7.2
   },
   {
    "id": 1278101,
@@ -226,7 +146,7 @@
    "original": "小小的我",
    "date": "2026-11-06",
    "poster": "/5le1y4AKBSUJ5XTIG4ClGDL2rpC.jpg",
-   "pop": 6.2
+   "pop": 5.9
   },
   {
    "id": 1313587,
@@ -234,7 +154,7 @@
    "original": "GROTESQQQUE -グロテスク-",
    "date": "2026-11-06",
    "poster": "/tLiCExCaevA5t2mXwsW6qUfimVE.jpg",
-   "pop": 3.6
+   "pop": 3.4
   },
   {
    "id": 1707282,
@@ -242,7 +162,7 @@
    "original": "男ともだち",
    "date": "2026-11-06",
    "poster": "/im9W3Hw08NsHhOlF60FCX76Ln7u.jpg",
-   "pop": 1.2
+   "pop": 0.9
   },
   {
    "id": 1527427,
@@ -250,7 +170,7 @@
    "original": "3ミリの恋",
    "date": "2026-11-06",
    "poster": "/cg0VwQsusxRMPNbyJUlUb1JBVH8.jpg",
-   "pop": 1
+   "pop": 0.9
   },
   {
    "id": 1795736,
@@ -258,7 +178,7 @@
    "original": "星の教室",
    "date": "2026-11-06",
    "poster": "/cvOS0T7bals4dRLsYu15YOMmgsM.jpg",
-   "pop": 0.4
+   "pop": 0.3
   },
   {
    "id": 1755423,
@@ -274,7 +194,7 @@
    "original": "みらいしのほこう",
    "date": "2026-11-07",
    "poster": "/1vrFlKqrQAsZqze5Z4pXMKkPVJB.jpg",
-   "pop": 0.3
+   "pop": 0.2
   },
   {
    "id": 1567605,
@@ -282,7 +202,7 @@
    "original": "Ebenezer",
    "date": "2026-11-13",
    "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
-   "pop": 72.6
+   "pop": 88.3
   },
   {
    "id": 467905,
@@ -290,7 +210,7 @@
    "original": "How to Make a Killing",
    "date": "2026-11-13",
    "poster": "/adIG9Tsf9FkUkJ1euYjtktSMOyT.jpg",
-   "pop": 10.2
+   "pop": 9.2
   },
   {
    "id": 338969,
@@ -298,7 +218,7 @@
    "original": "The Toxic Avenger Unrated",
    "date": "2026-11-13",
    "poster": "/cCWojb6N9UcTzNVtS4bOM3vQ30x.jpg",
-   "pop": 7.1
+   "pop": 6.4
   },
   {
    "id": 507244,
@@ -306,7 +226,7 @@
    "original": "Afterburn",
    "date": "2026-11-13",
    "poster": "/xR0IhVBjbNU34b8erhJCgRbjXo3.jpg",
-   "pop": 5.2
+   "pop": 4.4
   },
   {
    "id": 1306816,
@@ -314,23 +234,7 @@
    "original": "좀비딸",
    "date": "2026-11-13",
    "poster": "/aASLRiO8p9xLIvG9EHXSyZ71sPl.jpg",
-   "pop": 3.1
-  },
-  {
-   "id": 1433339,
-   "title": "ムクドリと人生とレモンパスタ",
-   "original": "Tre ciotole",
-   "date": "2026-11-13",
-   "poster": "/dJVt8OJLIzwiOcpJJiwHg88xrdb.jpg",
-   "pop": 1.5
-  },
-  {
-   "id": 1236857,
-   "title": "楽園追放 心のレゾナンス",
-   "original": "楽園追放 心のレゾナンス",
-   "date": "2026-11-13",
-   "poster": "/cp9XcvYQgwFPQgfDi3Yjjq2I3dI.jpg",
-   "pop": 1.3
+   "pop": 3
   },
   {
    "id": 1560309,
@@ -338,7 +242,23 @@
    "original": "すべて真夜中の恋人たち",
    "date": "2026-11-13",
    "poster": "/hu59kewfoT7Brzimj8KOliuh5Ih.jpg",
-   "pop": 1.3
+   "pop": 1.7
+  },
+  {
+   "id": 1433339,
+   "title": "ムクドリと人生とレモンパスタ",
+   "original": "Tre ciotole",
+   "date": "2026-11-13",
+   "poster": "/dJVt8OJLIzwiOcpJJiwHg88xrdb.jpg",
+   "pop": 1.6
+  },
+  {
+   "id": 1236857,
+   "title": "楽園追放 心のレゾナンス",
+   "original": "楽園追放 心のレゾナンス",
+   "date": "2026-11-13",
+   "poster": "/cp9XcvYQgwFPQgfDi3Yjjq2I3dI.jpg",
+   "pop": 1.6
   },
   {
    "id": 1707955,
@@ -346,7 +266,7 @@
    "original": "呪いのスマホ",
    "date": "2026-11-13",
    "poster": "/7ZsxOt6MnEf2Z67sEMJoEPKMPe4.jpg",
-   "pop": 1.3
+   "pop": 1.4
   },
   {
    "id": 1759179,
@@ -354,7 +274,7 @@
    "original": "シルバー・エクスプレス",
    "date": "2026-11-13",
    "poster": "/jOGlxJo4nr1SohOOgN87sIhnZFn.jpg",
-   "pop": 0.7
+   "pop": 0.9
   },
   {
    "id": 1807459,
@@ -362,7 +282,7 @@
    "original": "負けへんで",
    "date": "2026-11-13",
    "poster": "/s1iTuVOdISld17f2i7vQiSgaSxx.jpg",
-   "pop": 0.5
+   "pop": 0.8
   },
   {
    "id": 1807470,
@@ -373,19 +293,27 @@
    "pop": 0.3
   },
   {
-   "id": 1822524,
-   "title": "劇場先行版 風を継ぐもの -はじまり-",
-   "original": "劇場先行版 風を継ぐもの -はじまり-",
-   "date": "2026-11-13",
-   "poster": "/zo376iUKWzBG0M1MIpNW3o1tXzJ.jpg",
-   "pop": 0.1
-  },
-  {
    "id": 1806317,
    "title": "......overcome with あふれた..",
    "original": "......overcome with あふれた..",
    "date": "2026-11-13",
    "poster": "/lI3GfPTxS6SN0D1BmfbkbmHBaSI.jpg",
+   "pop": 0.2
+  },
+  {
+   "id": 1822524,
+   "title": "劇場先行版 風を継ぐもの -はじまり-",
+   "original": "劇場先行版 風を継ぐもの -はじまり-",
+   "date": "2026-11-13",
+   "poster": "/zo376iUKWzBG0M1MIpNW3o1tXzJ.jpg",
+   "pop": 0.2
+  },
+  {
+   "id": 1823861,
+   "title": "刺青",
+   "original": "刺青",
+   "date": "2026-11-13",
+   "poster": "/4GD7hvB2OaIi5xLL6cv4adsHxZx.jpg",
    "pop": 0.1
   },
   {
@@ -394,7 +322,7 @@
    "original": "巡る世界、巡る言葉",
    "date": "2026-11-14",
    "poster": "/oPAnu2PEIesBTTuYJ0Ws61orzQ5.jpg",
-   "pop": 0.4
+   "pop": 0.2
   },
   {
    "id": 1807483,
@@ -410,7 +338,7 @@
    "original": "Other Mommy",
    "date": "2026-11-20",
    "poster": "/qs0kHXbRadmtDIH5EmIoiqV0rX1.jpg",
-   "pop": 226.4
+   "pop": 253.2
   },
   {
    "id": 1159206,
@@ -426,7 +354,7 @@
    "original": "魔法使いの夜",
    "date": "2026-11-20",
    "poster": "/cCujIxpgUxGg0X1X2ItSXCso9ws.jpg",
-   "pop": 1.9
+   "pop": 1.6
   },
   {
    "id": 1767360,
@@ -434,7 +362,7 @@
    "original": "月がみている",
    "date": "2026-11-20",
    "poster": "/fP2IG82kQ8EEYGeRrCzMcHcRUBz.jpg",
-   "pop": 0.9
+   "pop": 0.7
   },
   {
    "id": 1746633,
@@ -442,14 +370,6 @@
    "original": "日曜のあと",
    "date": "2026-11-20",
    "poster": "/m2pk8MqzzfpVdWzxwqhV9ZMJ7dQ.jpg",
-   "pop": 0.9
-  },
-  {
-   "id": 1724371,
-   "title": "ないものねだりの君に光の花束を",
-   "original": "ないものねだりの君に光の花束を",
-   "date": "2026-11-20",
-   "poster": "/ijOsHTIae0dYcRUSvGrCrAeTIJ6.jpg",
    "pop": 0.7
   },
   {
@@ -461,12 +381,20 @@
    "pop": 0.6
   },
   {
+   "id": 1724371,
+   "title": "ないものねだりの君に光の花束を",
+   "original": "ないものねだりの君に光の花束を",
+   "date": "2026-11-20",
+   "poster": "/ijOsHTIae0dYcRUSvGrCrAeTIJ6.jpg",
+   "pop": 0.5
+  },
+  {
    "id": 1754757,
    "title": "はじまりのさよなら",
    "original": "はじまりのさよなら",
    "date": "2026-11-20",
    "poster": "/7gF6z6pCFHcuw17yhTtepJ42tEP.jpg",
-   "pop": 0.5
+   "pop": 0.4
   },
   {
    "id": 1802704,
@@ -482,7 +410,7 @@
    "original": "アユラ",
    "date": "2026-11-23",
    "poster": null,
-   "pop": 0.5
+   "pop": 0.3
   },
   {
    "id": 1457866,
@@ -490,7 +418,7 @@
    "original": "THE FURTHER MIS-ADVENTURES OF CLIFF BOOTH",
    "date": "2026-11-25",
    "poster": "/thX8Rs7nfgmPHfCgjoFuRovy49l.jpg",
-   "pop": 11.4
+   "pop": 10.4
   },
   {
    "id": 1302904,
@@ -498,7 +426,7 @@
    "original": "Practical Magic 2",
    "date": "2026-11-27",
    "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
-   "pop": 51.9
+   "pop": 47.7
   },
   {
    "id": 1368166,
@@ -506,7 +434,7 @@
    "original": "The Housemaid",
    "date": "2026-11-27",
    "poster": "/cWsBscZzwu5brg9YjNkGewRUvJX.jpg",
-   "pop": 26.5
+   "pop": 26.1
   },
   {
    "id": 1381027,
@@ -514,7 +442,7 @@
    "original": "Good Boy",
    "date": "2026-11-27",
    "poster": "/d3EhDr1vCtXD67Yc3I5Ln1JBSbz.jpg",
-   "pop": 9
+   "pop": 8.8
   },
   {
    "id": 1739765,
@@ -522,7 +450,7 @@
    "original": "君の話",
    "date": "2026-11-27",
    "poster": "/8H0YN4J0iuPyC4SjtU5fdooLciH.jpg",
-   "pop": 1.1
+   "pop": 0.8
   },
   {
    "id": 1718930,
@@ -530,14 +458,6 @@
    "original": "ワンダンス",
    "date": "2026-11-27",
    "poster": "/vJTfvarGK1eSF3WY8uJRMqTxNpt.jpg",
-   "pop": 0.8
-  },
-  {
-   "id": 1807509,
-   "title": "三代目 J SOUL BROTHERS 15TH ANNIVERSARY STADIUM LIVE  \"JSB FOREVER ～ONE～\" THE MOVIE",
-   "original": "三代目 J SOUL BROTHERS 15TH ANNIVERSARY STADIUM LIVE  \"JSB FOREVER ～ONE～\" THE MOVIE",
-   "date": "2026-11-27",
-   "poster": "/aaqZDqgV6BUUJPhjd1JErd2hqyG.jpg",
    "pop": 0.7
   },
   {
@@ -547,6 +467,14 @@
    "date": "2026-11-27",
    "poster": "/w95RcyBbq2KwNu2juW60t1LrFZp.jpg",
    "pop": 0.7
+  },
+  {
+   "id": 1807509,
+   "title": "三代目 J SOUL BROTHERS 15TH ANNIVERSARY STADIUM LIVE  \"JSB FOREVER ～ONE～\" THE MOVIE",
+   "original": "三代目 J SOUL BROTHERS 15TH ANNIVERSARY STADIUM LIVE  \"JSB FOREVER ～ONE～\" THE MOVIE",
+   "date": "2026-11-27",
+   "poster": "/aaqZDqgV6BUUJPhjd1JErd2hqyG.jpg",
+   "pop": 0.6
   },
   {
    "id": 1700953,
@@ -565,19 +493,19 @@
    "pop": 0.4
   },
   {
-   "id": 1807521,
-   "title": "会いたくて会えなくて、会えなくなって、会いたい。",
-   "original": "会いたくて会えなくて、会えなくなって、会いたい。",
-   "date": "2026-11-27",
-   "poster": "/qCMBat5HtfV5i2F9aaaltoj56ua.jpg",
-   "pop": 0.4
-  },
-  {
    "id": 1807529,
    "title": "つりこまち",
    "original": "つりこまち",
    "date": "2026-11-27",
    "poster": "/tvtdgpfZJGVaC6cOE0pP0n1fxkH.jpg",
+   "pop": 0.4
+  },
+  {
+   "id": 1807521,
+   "title": "会いたくて会えなくて、会えなくなって、会いたい。",
+   "original": "会いたくて会えなくて、会えなくなって、会いたい。",
+   "date": "2026-11-27",
+   "poster": "/qCMBat5HtfV5i2F9aaaltoj56ua.jpg",
    "pop": 0.3
   },
   {
@@ -586,7 +514,7 @@
    "original": "Inside Gaza",
    "date": "2026-11-28",
    "poster": "/9CfYPVwuhQSOysvcy8vYWOIBz8t.jpg",
-   "pop": 0.7
+   "pop": 0.9
   },
   {
    "id": 1774734,
