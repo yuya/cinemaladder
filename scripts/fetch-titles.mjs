@@ -16,7 +16,7 @@ const get = async (path, tries = 3) => {
     await new Promise(res => setTimeout(res, 1000 * (i + 1)));
   }
 };
-const readable = t => !!t && !/[^\u0000-\u024F\u2000-\u206F\u2E80-\u30FF\u3400-\u9FFF\uF900-\uFAFF\uFF00-\uFFEF]/.test(t);
+const readable = t => !!t && !/[^\u0000-\u024F\u2000-\u206F\u2100-\u27BF\u2E80-\u30FF\u3400-\u9FFF\uF900-\uFAFF\uFF00-\uFFEF]/.test(t);
 
 const base = "language=ja-JP&include_adult=false&include_video=false";
 const lists = [

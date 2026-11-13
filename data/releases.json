@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-13T01:49:49.297Z",
+ "updated": "2026-11-13T01:49:16.192Z",
  "anchor": "2026-11-13",
  "from": "2026-10-30",
  "to": "2026-12-03",
@@ -29,19 +29,19 @@
    "pop": 1
   },
   {
-   "id": 1748514,
-   "title": "見上げてごらん",
-   "original": "見上げてごらん",
-   "date": "2026-10-30",
-   "poster": "/qjuzeBRrqHAyGJIJLyJBGuCy5oY.jpg",
-   "pop": 0.9
-  },
-  {
    "id": 1807431,
    "title": "月影のゴールデン街",
    "original": "月影のゴールデン街",
    "date": "2026-10-30",
    "poster": "/57Cvx1ePJl4jJJ9CNVyRWSPtvfs.jpg",
+   "pop": 0.9
+  },
+  {
+   "id": 1748514,
+   "title": "見上げてごらん",
+   "original": "見上げてごらん",
+   "date": "2026-10-30",
+   "poster": "/qjuzeBRrqHAyGJIJLyJBGuCy5oY.jpg",
    "pop": 0.9
   },
   {
@@ -53,19 +53,19 @@
    "pop": 0.6
   },
   {
-   "id": 1555226,
-   "title": "恒星の向こう側",
-   "original": "恒星の向こう側",
-   "date": "2026-10-30",
-   "poster": "/2VEvO7Jw0CPCX3Jj1RZ2Ouvrl7V.jpg",
-   "pop": 0.6
-  },
-  {
    "id": 1814090,
    "title": "ヤマトよ永遠に REBEL3199 第七章 虹色の輪廻",
    "original": "ヤマトよ永遠に REBEL3199 第七章 虹色の輪廻",
    "date": "2026-10-30",
    "poster": "/rmPpzI7t8F4JpXfxCNSqifdAdzO.jpg",
+   "pop": 0.6
+  },
+  {
+   "id": 1555226,
+   "title": "恒星の向こう側",
+   "original": "恒星の向こう側",
+   "date": "2026-10-30",
+   "poster": "/2VEvO7Jw0CPCX3Jj1RZ2Ouvrl7V.jpg",
    "pop": 0.6
   },
   {
@@ -99,6 +99,14 @@
    "date": "2026-10-31",
    "poster": "/sQ8zvmDBuiNcPQrAwCSIf7YPlpy.jpg",
    "pop": 0.3
+  },
+  {
+   "id": 1369767,
+   "title": "鳥を導く",
+   "original": "鳥を導く",
+   "date": "2026-10-31",
+   "poster": "/rLoYc3cPgoNPBZfBkvsEaVlHr7f.jpg",
+   "pop": 0.1
   },
   {
    "id": 1807421,
@@ -245,19 +253,19 @@
    "pop": 1.7
   },
   {
-   "id": 1236857,
-   "title": "楽園追放 心のレゾナンス",
-   "original": "楽園追放 心のレゾナンス",
-   "date": "2026-11-13",
-   "poster": "/cp9XcvYQgwFPQgfDi3Yjjq2I3dI.jpg",
-   "pop": 1.6
-  },
-  {
    "id": 1433339,
    "title": "ムクドリと人生とレモンパスタ",
    "original": "Tre ciotole",
    "date": "2026-11-13",
    "poster": "/dJVt8OJLIzwiOcpJJiwHg88xrdb.jpg",
+   "pop": 1.6
+  },
+  {
+   "id": 1236857,
+   "title": "楽園追放 心のレゾナンス",
+   "original": "楽園追放 心のレゾナンス",
+   "date": "2026-11-13",
+   "poster": "/cp9XcvYQgwFPQgfDi3Yjjq2I3dI.jpg",
    "pop": 1.6
   },
   {
@@ -357,19 +365,19 @@
    "pop": 1.6
   },
   {
-   "id": 1746633,
-   "title": "日曜のあと",
-   "original": "日曜のあと",
-   "date": "2026-11-20",
-   "poster": "/m2pk8MqzzfpVdWzxwqhV9ZMJ7dQ.jpg",
-   "pop": 0.7
-  },
-  {
    "id": 1767360,
    "title": "月がみている",
    "original": "月がみている",
    "date": "2026-11-20",
    "poster": "/fP2IG82kQ8EEYGeRrCzMcHcRUBz.jpg",
+   "pop": 0.7
+  },
+  {
+   "id": 1746633,
+   "title": "日曜のあと",
+   "original": "日曜のあと",
+   "date": "2026-11-20",
+   "poster": "/m2pk8MqzzfpVdWzxwqhV9ZMJ7dQ.jpg",
    "pop": 0.7
   },
   {
