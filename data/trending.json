@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12T02:16:26.095Z",
+ "updated": "2026-11-13T01:49:48.139Z",
  "items": [
   {
    "id": 1423191,
@@ -7,7 +7,7 @@
    "original": "Resident Evil",
    "date": "2026-10-09",
    "poster": "/wHXSnGH3zQtvpxPwaBXMoS9o8Vl.jpg",
-   "pop": 650.5045,
+   "pop": 624.6254,
    "info": {
     "id": 1423191,
     "title": "バイオハザード",
@@ -43,12 +43,49 @@
    }
   },
   {
+   "id": 1400837,
+   "title": "アザー・マミー",
+   "original": "Other Mommy",
+   "date": "2026-11-20",
+   "poster": "/qs0kHXbRadmtDIH5EmIoiqV0rX1.jpg",
+   "pop": 226.3965,
+   "info": {
+    "id": 1400837,
+    "title": "アザー・マミー",
+    "original": "Other Mommy",
+    "poster": "/qs0kHXbRadmtDIH5EmIoiqV0rX1.jpg",
+    "date": "2026-10-07",
+    "jpDate": "2026-11-20",
+    "runtime": 93,
+    "tagline": "",
+    "overview": "Young Bela forms a relationship with a sinister entity in her home that looks uncannily like her own mother, drawing her into a terrifying and increasingly dark world.",
+    "overviewLang": "en",
+    "genres": [
+     "ホラー"
+    ],
+    "countries": [
+     "US"
+    ],
+    "directors": [
+     "ロブ・サヴェージ"
+    ],
+    "cast": [
+     "ジェシカ・チャステイン",
+     "ジェイ・デュプラス",
+     "Arabella Olivia Clark",
+     "カレン・アレン",
+     "アリアン・モーイエド",
+     "ディーチェン・ラックマン"
+    ]
+   }
+  },
+  {
    "id": 1381071,
    "title": "ゴジラ-0.0",
    "original": "ゴジラ-0.0",
    "date": "2026-11-03",
    "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
-   "pop": 204.8911,
+   "pop": 199.1007,
    "info": {
     "id": 1381071,
     "title": "ゴジラ-0.0",
@@ -74,10 +111,10 @@
     "cast": [
      "神木隆之介",
      "浜辺美波",
-     "山田裕貴",
-     "佐々木蔵之介",
-     "國村隼",
-     "田中美央"
+     "田中泯",
+     "吉岡秀隆",
+     "長澤まさみ",
+     "山田裕貴"
     ]
    }
   },
@@ -87,7 +124,7 @@
    "original": "Verity",
    "date": "2026-11-06",
    "poster": "/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "pop": 162.0408,
+   "pop": 153.882,
    "info": {
     "id": 1283515,
     "title": "ヴェリティ／真実",
@@ -120,49 +157,12 @@
    }
   },
   {
-   "id": 1400837,
-   "title": "アザー・マミー",
-   "original": "Other Mommy",
-   "date": "2026-11-20",
-   "poster": "/qs0kHXbRadmtDIH5EmIoiqV0rX1.jpg",
-   "pop": 156.3048,
-   "info": {
-    "id": 1400837,
-    "title": "アザー・マミー",
-    "original": "Other Mommy",
-    "poster": "/qs0kHXbRadmtDIH5EmIoiqV0rX1.jpg",
-    "date": "2026-10-07",
-    "jpDate": "2026-11-20",
-    "runtime": 93,
-    "tagline": "",
-    "overview": "Young Bela forms a relationship with a sinister entity in her home that looks uncannily like her own mother, drawing her into a terrifying and increasingly dark world.",
-    "overviewLang": "en",
-    "genres": [
-     "ホラー"
-    ],
-    "countries": [
-     "US"
-    ],
-    "directors": [
-     "ロブ・サヴェージ"
-    ],
-    "cast": [
-     "ジェシカ・チャステイン",
-     "ジェイ・デュプラス",
-     "Arabella Olivia Clark",
-     "カレン・アレン",
-     "アリアン・モーイエド",
-     "ディーチェン・ラックマン"
-    ]
-   }
-  },
-  {
    "id": 1400940,
    "title": "クレイフェイス",
    "original": "Clayface",
    "date": "2026-10-30",
    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-   "pop": 81.5657,
+   "pop": 80.5914,
    "info": {
     "id": 1400940,
     "title": "クレイフェイス",
@@ -196,89 +196,12 @@
    }
   },
   {
-   "id": 1483525,
-   "title": "もしもの愛",
-   "original": "가능한 사랑",
-   "date": "2026-10-23",
-   "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
-   "pop": 58.4342,
-   "info": {
-    "id": 1483525,
-    "title": "もしもの愛",
-    "original": "가능한 사랑",
-    "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
-    "date": "2026-09-23",
-    "jpDate": "2026-10-23",
-    "runtime": 165,
-    "tagline": "",
-    "overview": "まったく異なる人生を歩む2 組の夫婦の交錯する日常を捉え、平穏に見えた日々に少しずつ亀裂が生まれていく様子を描き出す。",
-    "overviewLang": "ja",
-    "genres": [
-     "ドラマ"
-    ],
-    "countries": [
-     "KR",
-     "US"
-    ],
-    "directors": [
-     "イ・チャンドン"
-    ],
-    "cast": [
-     "チョン・ドヨン",
-     "ソル・ギョング",
-     "チョ・インソン",
-     "チョ・ヨジョン",
-     "チョ・ユリ",
-     "최민"
-    ]
-   }
-  },
-  {
-   "id": 1153576,
-   "title": "ストリートファイター／ザ・ムービー",
-   "original": "Street Fighter",
-   "date": "2026-10-16",
-   "poster": "/1JBlbyXionXPRaqW1UQw7eKkxNP.jpg",
-   "pop": 58.1816,
-   "info": {
-    "id": 1153576,
-    "title": "ストリートファイター／ザ・ムービー",
-    "original": "Street Fighter",
-    "poster": "/1JBlbyXionXPRaqW1UQw7eKkxNP.jpg",
-    "date": "2026-10-13",
-    "jpDate": "2026-10-16",
-    "runtime": 120,
-    "tagline": "伝説が、ここから始まる。",
-    "overview": "舞台は1993年。かつて、共に天才格闘家として名を馳せ、兄弟のような存在であったリュウとケン。ある理由により疎遠になった二人のもとに、謎の女性格闘家・春麗が現れ、“ワールドウォリアー・トーナメント（世界格闘王決定戦）”の招待状が差し出される。世界最強の猛者たち“ストリートファイター”と戦うことになった二人は、その拳で運命を変えることができるのか？",
-    "overviewLang": "ja",
-    "genres": [
-     "アクション",
-     "ファンタジー"
-    ],
-    "countries": [
-     "JP",
-     "US"
-    ],
-    "directors": [
-     "キタオ・サクライ"
-    ],
-    "cast": [
-     "アンドリュー・小路",
-     "ノア・センティネオ",
-     "カリーナ・リャン",
-     "デヴィッド・ダストマルチャン",
-     "アンドリュー・シュルツ",
-     "ローマン・レインズ"
-    ]
-   }
-  },
-  {
    "id": 1567605,
    "title": "クリスマス・キャロル／3人のゴーストたち",
    "original": "Ebenezer",
    "date": "2026-11-13",
    "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
-   "pop": 55.1539,
+   "pop": 72.623,
    "info": {
     "id": 1567605,
     "title": "クリスマス・キャロル／3人のゴーストたち",
@@ -312,12 +235,89 @@
    }
   },
   {
+   "id": 1153576,
+   "title": "ストリートファイター／ザ・ムービー",
+   "original": "Street Fighter",
+   "date": "2026-10-16",
+   "poster": "/1JBlbyXionXPRaqW1UQw7eKkxNP.jpg",
+   "pop": 63.0279,
+   "info": {
+    "id": 1153576,
+    "title": "ストリートファイター／ザ・ムービー",
+    "original": "Street Fighter",
+    "poster": "/1JBlbyXionXPRaqW1UQw7eKkxNP.jpg",
+    "date": "2026-10-13",
+    "jpDate": "2026-10-16",
+    "runtime": 120,
+    "tagline": "伝説が、ここから始まる。",
+    "overview": "舞台は1993年。かつて、共に天才格闘家として名を馳せ、兄弟のような存在であったリュウとケン。ある理由により疎遠になった二人のもとに、謎の女性格闘家・春麗が現れ、“ワールドウォリアー・トーナメント（世界格闘王決定戦）”の招待状が差し出される。世界最強の猛者たち“ストリートファイター”と戦うことになった二人は、その拳で運命を変えることができるのか？",
+    "overviewLang": "ja",
+    "genres": [
+     "アクション",
+     "ファンタジー"
+    ],
+    "countries": [
+     "JP",
+     "US"
+    ],
+    "directors": [
+     "キタオ・サクライ"
+    ],
+    "cast": [
+     "アンドリュー・小路",
+     "ノア・センティネオ",
+     "カリーナ・リャン",
+     "デヴィッド・ダストマルチャン",
+     "アンドリュー・シュルツ",
+     "ローマン・レインズ"
+    ]
+   }
+  },
+  {
+   "id": 1483525,
+   "title": "もしもの愛",
+   "original": "가능한 사랑",
+   "date": "2026-10-23",
+   "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
+   "pop": 58.1531,
+   "info": {
+    "id": 1483525,
+    "title": "もしもの愛",
+    "original": "가능한 사랑",
+    "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
+    "date": "2026-09-23",
+    "jpDate": "2026-10-23",
+    "runtime": 165,
+    "tagline": "",
+    "overview": "まったく異なる人生を歩む2 組の夫婦の交錯する日常を捉え、平穏に見えた日々に少しずつ亀裂が生まれていく様子を描き出す。",
+    "overviewLang": "ja",
+    "genres": [
+     "ドラマ"
+    ],
+    "countries": [
+     "KR",
+     "US"
+    ],
+    "directors": [
+     "イ・チャンドン"
+    ],
+    "cast": [
+     "チョン・ドヨン",
+     "ソル・ギョング",
+     "チョ・インソン",
+     "チョ・ヨジョン",
+     "チョ・ユリ",
+     "최민"
+    ]
+   }
+  },
+  {
    "id": 1302904,
    "title": "プラティカル・マジック／魔女たちの秘密",
    "original": "Practical Magic 2",
    "date": "2026-11-27",
    "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
-   "pop": 51.8552,
+   "pop": 51.8717,
    "info": {
     "id": 1302904,
     "title": "プラティカル・マジック／魔女たちの秘密",
@@ -351,40 +351,39 @@
    }
   },
   {
-   "id": 1248832,
-   "title": "DIGGER／ディガー",
-   "original": "Digger",
-   "date": "2026-10-09",
-   "poster": "/vi2HvWOBtR1pcr4vBoYe43ldkuu.jpg",
-   "pop": 44.6115,
+   "id": 1255833,
+   "title": "クジラに落ちた男",
+   "original": "Whalefall",
+   "date": "2026-10-16",
+   "poster": "/q4z5EiiOwYWUDkkPMAmFVjqWnBa.jpg",
+   "pop": 45.5239,
    "info": {
-    "id": 1248832,
-    "title": "DIGGER／ディガー",
-    "original": "Digger",
-    "poster": "/vi2HvWOBtR1pcr4vBoYe43ldkuu.jpg",
-    "date": "2026-09-28",
-    "jpDate": "2026-10-09",
-    "runtime": 129,
-    "tagline": "ひとりの男。ひとつの計画。 そして、大混乱。",
-    "overview": "石油採掘会社のCEOとして君臨する傲慢な権力者、ディガー・ロックウェル。己の利益しか考えていない彼の欲深い行動のせいで、地球は滅亡の危機に陥ってしまう。大統領から事態の収拾を命じられたディガーは、世界を救うべくシャベルを片手に立ち上がるが……。",
-    "overviewLang": "ja",
+    "id": 1255833,
+    "title": "クジラに落ちた男",
+    "original": "Whalefall",
+    "poster": "/q4z5EiiOwYWUDkkPMAmFVjqWnBa.jpg",
+    "date": "2026-10-14",
+    "jpDate": "2026-10-16",
+    "runtime": 106,
+    "tagline": "",
+    "overview": "Following the death of his father, Jay Gardiner goes diving off the central Coast of California in search of his remains, but is swallowed by a massive sperm whale. While trapped inside its belly with only one hour of oxygen left, Jay comes to realize that the hard-earned lessons his father imparted may be the key to his escape.",
+    "overviewLang": "en",
     "genres": [
-     "コメディ",
-     "ドラマ"
+     "スリラー"
     ],
     "countries": [
      "US"
     ],
     "directors": [
-     "アレハンドロ・G・イニャリトゥ"
+     "ブライアン・ダッフィールド"
     ],
     "cast": [
-     "トム・クルーズ",
-     "リズ・アーメッド",
-     "ジョン・グッドマン",
-     "ザンドラ・ヒュラー",
-     "マイケル・スタールバーグ",
-     "ジェシー・プレモンス"
+     "オースティン・エイブラムス",
+     "ジョシュ・ブローリン",
+     "エリザベス・シュー",
+     "ジョン・オーティス",
+     "ジェーン・レヴィ",
+     "エミリー・ラッド"
     ]
    }
   }
