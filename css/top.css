@@ -693,8 +693,9 @@ main:has(.peek) {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0;
-  padding: 2px 4px;
+  padding: 2px 2px;
   cursor: pointer;
+  max-width: 9.5em;
 }
 .envbadge:has(.fd.set) {
   opacity: 1;
