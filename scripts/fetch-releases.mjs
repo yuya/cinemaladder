@@ -1,9 +1,8 @@
-// 日本の劇場公開日が「今週の前後2週間」の作品を TMDB から集め、data/releases.json に書き出す。
-// 日本の新作はたいてい金曜に公開されるので、週は金曜〜翌木曜で区切る。
-// 始まりは、直近の金曜（今日が金曜なら今日）の2週前の金曜。古い週は金曜に1週ずつ消える。
-// 終わりは、金・土はその金曜の2週後の週の木曜、日〜木は次の金曜の2週後の週の木曜。新しい週は日曜に加わる。
+// 日本の劇場公開日が「今日の1か月前〜2か月後」の作品を TMDB から集め、data/releases.json に書き出す（trailadder と同じ範囲）。
+// あわせて、これまで一覧に載せた作品を data/releases-archive.json に残す。範囲から外れた作品の共有リンク（?q=作品名&id=TMDBの番号）でも、
+// ポスターや作品情報を出せるようにするため。古い作品も消さずに足していく。
 // GitHub Actions から毎日実行し、新しく登録された作品も拾う。
-import { writeFile, mkdir } from "node:fs/promises";
+import { writeFile, readFile, mkdir } from "node:fs/promises";
 
 const TOKEN = process.env.TMDB_TOKEN;
 if (!TOKEN) { console.error("TMDB_TOKEN が設定されていません"); process.exit(1); }
@@ -21,21 +20,23 @@ const get = async (path, tries = 3) => {
 // 日本語タイトルが未登録だと原題（タミル語など）が返るので、日本語・英数字以外を含むタイトルは除外（─ ★ ♪ → などの記号は日本語の題名にも使われるので許す）
 const readable = t => !!t && !/[^\u0000-\u024F\u2000-\u206F\u2100-\u27BF\u2E80-\u30FF\u3400-\u9FFF\uF900-\uFAFF\uFF00-\uFFEF]/.test(t);
 
-// 日本時間の今日と、直近の金曜
-const D = 864e5;
+// 日本時間の今日。範囲は1か月前〜2か月後（月末で日がずれるときは、その月の末日にする。trailadder の addMonths と同じ）
 const today = new Date(Date.now() + 9 * 3600e3);   // 日本時間の日付として扱う
 today.setUTCHours(0, 0, 0, 0);
-// 基準：直近の金曜（今日が金曜なら今日）。weekend：金・土はその金曜、日〜木は次の金曜
-const dw = today.getUTCDay();
-const anchor = new Date(today - ((dw - 5 + 7) % 7) * D);
-const weekend = new Date(dw >= 5 ? +anchor : +anchor + 7 * D);
+const addMonths = (d, n) => {
+  const r = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + n, d.getUTCDate()));
+  if (r.getUTCDate() !== d.getUTCDate()) r.setUTCDate(0);
+  return r;
+};
 const ymd = d => d.toISOString().slice(0, 10);
-const from = ymd(new Date(anchor - 14 * D)), to = ymd(new Date(+weekend + 20 * D));
+const from = ymd(addMonths(today, -1)), to = ymd(addMonths(today, 2));
+// 直近の金曜（今日が金曜なら今日）。画面側で、公開日順のスクロール位置を週が変わったら忘れるのに使う
+const anchor = new Date(today - ((today.getUTCDay() - 5 + 7) % 7) * 864e5);
 
 // 1. 日本で劇場公開（限定公開を含む）される作品を、公開日の範囲で集める
 const base = `/discover/movie?language=ja-JP&region=JP&with_release_type=2|3&release_date.gte=${from}&release_date.lte=${to}&sort_by=popularity.desc&include_adult=false`;
 const first = await get(base + "&page=1");
-const pages = Math.min(first.total_pages || 1, 10);
+const pages = Math.min(first.total_pages || 1, 30);   // 3か月分は多いので、10ページ（200本）では足りないことがある
 const rest = await Promise.all(Array.from({ length: pages - 1 }, (_, i) => get(base + "&page=" + (i + 2)).catch(() => ({ results: [] }))));
 const found = new Map();
 for (const m of [first, ...rest].flatMap(p => p.results || [])) {
@@ -65,5 +66,14 @@ items.sort((a, b) => a.date.localeCompare(b.date) || b.pop - a.pop);
 if (items.length < 5) throw new Error(`取得できた作品が少なすぎるため更新を中止しました（${items.length}本）`);
 
 await mkdir("data", { recursive: true });
-await writeFile("data/releases.json", JSON.stringify({ updated: new Date().toISOString(), anchor: ymd(anchor), from, to, items }, null, 1) + "\n");
-console.log(`${from} 〜 ${to}（基準の金曜＝${ymd(anchor)}）: ${items.length}本`);
+await writeFile("data/releases.json", JSON.stringify({ updated: new Date().toISOString(), today: ymd(today), anchor: ymd(anchor), from, to, items }, null, 1) + "\n");
+
+// これまで載せた作品の控え。{ "TMDBの番号": { t: 題名, o: 原題（題名と同じなら省く）, d: 公開日, p: ポスター } }。
+// 1作品1行・番号順に並べる（stg と main を取り込むときに、行ごとに合わさるように）
+let archive = {};
+try { archive = JSON.parse(await readFile("data/releases-archive.json", "utf8")); } catch (e) {}
+for (const m of items)
+  archive[m.id] = { t: m.title, ...(m.original && m.original !== m.title ? { o: m.original } : {}), d: m.date, ...(m.poster ? { p: m.poster } : {}) };
+const ids = Object.keys(archive).sort((a, b) => a - b);
+await writeFile("data/releases-archive.json", "{\n" + ids.map(id => JSON.stringify(id) + ":" + JSON.stringify(archive[id])).join(",\n") + "\n}\n");
+console.log(`${from} 〜 ${to}: ${items.length}本（控え：${ids.length}本）`);

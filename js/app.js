@@ -511,7 +511,7 @@ async function showTrending() {
 }
 let trendOpen = store.get("cl_trendOpen", false);
 let topTab = store.get("cl_topTab", "top"); // 「いま話題の映画」の中のタブ：top＝人気TOP10、rel＝公開日順
-/* 公開日の前後2週間の作品（data/releases.json。GitHub Actions が毎日作る）。公開日順のタブを開いたときに読む */
+/* 公開日が1か月前〜2か月後の作品（data/releases.json。GitHub Actions が毎日作る）。公開日順のタブを開いたときに読む */
 let relData = null,
   relLoading = null,
   relFailed = false;
@@ -588,8 +588,7 @@ function trendHTML() {
       now = fakeDay ? new Date(fakeDay + "T12:00") : new Date(),
       today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()),
       dw = now.getDay();
-    const thisWk = today - ((dw - 5 + 7) % 7) * D,
-      weekend = dw >= 5 ? thisWk : thisWk + 7 * D; // weekend：その日の朝の更新が作る範囲の計算に使う
+    const thisWk = today - ((dw - 5 + 7) % 7) * D;
     const wkOf = (d) => {
       const t = Date.parse(d),
         dow = new Date(t).getUTCDay();
@@ -598,10 +597,16 @@ function trendHTML() {
     // 週ごとに <li> でまとめる。見出しはその週の中でだけ上に留まるので、次の週の見出しが来ると押し出される（重ならない）
     let last = null,
       h = "";
-    // 日付を模擬しているときは、その日に毎朝の更新が作る範囲（fetch-releases.mjs と同じ計算）に絞る
-    const fr = today - ((dw - 5 + 7) % 7) * D - 14 * D,
-      to = weekend + 20 * D,
-      ymd = (t) => new Date(t).toISOString().slice(0, 10);
+    // 日付を模擬しているときは、その日に毎朝の更新が作る範囲（fetch-releases.mjs と同じ計算：1か月前〜2か月後）に絞る
+    const ymd = (t) => new Date(t).toISOString().slice(0, 10),
+      addM = (n) => {
+        const d = new Date(today),
+          r = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + n, d.getUTCDate()));
+        if (r.getUTCDate() !== d.getUTCDate()) r.setUTCDate(0);
+        return +r;
+      },
+      fr = addM(-1),
+      to = addM(2);
     for (const m of fakeDay
       ? relData.items.filter((m) => m.date >= ymd(fr) && m.date <= ymd(to))
       : relData.items) {
@@ -746,7 +751,24 @@ function renderEmpty() {
 }
 /* 作品名から TMDB の情報を、手元にない場合に取りに行く。
    1. 作品一覧（data/titles.json） 2. 中継サーバーで検索し、タイトルが完全に一致したもの */
-async function lookupMovie(q) {
+/* 公開日順に載せたことのある作品の控え（data/releases-archive.json。毎朝の更新で足していく）。
+   共有リンク（?q=作品名&id=TMDBの番号）の作品が、範囲から外れたあとでも見つかるようにする。id 付きで開いたときだけ読む */
+let archiveP = null;
+function fromArchive(id) {
+  archiveP ??= fetch("data/releases-archive.json")
+    .then((r) => (r.ok ? r.json() : {}))
+    .catch(() => ((archiveP = null), {}));
+  return archiveP.then((a) => {
+    const x = a[id];
+    return x ? fixT({ id: +id, title: x.t, original: x.o || x.t, date: x.d, poster: x.p || null }) : null;
+  });
+}
+async function lookupMovie(q, id) {
+  if (id)
+    try {
+      const m = await fromArchive(id);
+      if (m) return m;
+    } catch (e) {}
   try {
     await loadTitles();
     const m = findMovie(q);
@@ -769,9 +791,28 @@ async function lookupMovie(q) {
 /* 作品名を、区切りの記号（・／ 空白 ： 〜 など）の後ろでだけ改行できるまとまりに分けて <span class="w"> で包む。
    「ディスクロージャー・デイ」が「ディスクロー／ジャー・デイ」のように語の途中で切れるのを防ぐ。
    まとまり自体が1行に入らないときは中で折り返す（Chrome は word-break:auto-phrase で文節ごとに折り返す） */
+/* 区切りのない日本語の題名は、文節に近いまとまりで分ける（Safari は word-break:auto-phrase に対応していないため、
+   「大富豪になるた／めの正しい殺し方」のように字の途中で切れる）。
+   Intl.Segmenter で語に分け、ひらがなで終わる語（助詞など）の後ろ、2文字以上の漢字・カタカナ・英数字の語の前でだけ区切る。
+   「殺し／方」のような1文字の語の前では区切らない */
+const segJa = globalThis.Intl?.Segmenter ? new Intl.Segmenter("ja", { granularity: "word" }) : null;
+function phrases(s) {
+  if (!segJa || !/[\u3041-\u3096]/.test(s)) return [s];
+  const out = [];
+  let buf = "";
+  for (const { segment: g } of segJa.segment(s)) {
+    if (buf && /[\u3041-\u3096]$/.test(buf) && g.length >= 2 && /^[\u30A1-\u30FA\u4E00-\u9FFF々A-Za-z0-9Ａ-Ｚａ-ｚ０-９]/.test(g)) {
+      out.push(buf);
+      buf = "";
+    }
+    buf += g;
+  }
+  if (buf) out.push(buf);
+  return out;
+}
 function wrapWords(t) {
   const parts = t.split(/(?<=[・･／/\s：:〜~！!？?、。）)」』】])|(?=[（(「『【])/).filter(Boolean); // ハイフンは「ゴジラ-0.0」のように名前の一部なので区切らない
-  return parts.map((w) => `<span class="w">${esc(w)}</span>`).join("");
+  return parts.flatMap(phrases).map((w) => `<span class="w">${esc(w)}</span>`).join("");
 }
 /* ===== 作品情報（あらすじ・公開日・上映時間・ジャンル・監督・出演・製作国） ===== */
 const infoCache = new Map();
@@ -1181,10 +1222,13 @@ function findMovie(q) {
 }
 function render(q, isExample, movie) {
   if (!movie && q) {
+    // 共有リンクに id があるときは、その番号の作品を優先する（同じ題名の別の作品と取り違えないように）
+    const wantId = q === startQ ? startId : 0;
     movie = findMovie(q);
+    if (movie && wantId && movie.id !== wantId) movie = null;
     // 見つからなければ作品一覧を読み込んでもう一度探す（IMDb の原題検索とポスター表示のため）
     if (!movie)
-      lookupMovie(q).then((m) => {
+      lookupMovie(q, wantId).then((m) => {
         settleQ(q, !!m);
         // 履歴に入れるのは作品に一致した検索だけ。一致しなかったら、残っていた分も消す
         if (m) remember(q);
@@ -1610,15 +1654,36 @@ $("#out").addEventListener("click", (e) => {
     fade.style.height = r.height + "px";
     document.body.append(fade);
   };
-  const clearPeek = (h) => {
-    h?.querySelectorAll(".peek").forEach((x) => x.remove());
-    fade?.remove();
+  // 戻るアニメーションの途中で次のスワイプを始めると、前の薄い帯が取り残されることがあったので、
+  // 帯と左右の作品は「いま画面にあるものすべて」を消し、待っている片付けも取り消す
+  let clearT = 0;
+  const clearPeek = () => {
+    clearTimeout(clearT);
+    document.querySelectorAll(".now .peek, .swipefade").forEach((x) => x.remove());
     fade = null;
   };
+  // スワイプをやめて、見出しの位置・左右の作品・薄い帯をすべて元に戻す
+  const abort = () => {
+    const h = el || $(".now");
+    el = null;
+    if (h) {
+      h.style.transition = "none";
+      h.style.transform = "";
+    }
+    clearPeek();
+  };
+  // 見出しの外（ヘッダーなど）に触れたときも片付ける
+  document.addEventListener(
+    "touchstart",
+    (e) => {
+      if (!e.target.closest?.("#out")) abort();
+    },
+    { passive: true },
+  );
   $("#out").addEventListener(
     "touchstart",
     (e) => {
-      el = null;
+      abort(); // 2本目の指が触れたときや、前のスワイプの片付けが残っているときは、ここで元に戻す
       const h = e.target.closest(".now");
       if (!h || !ringPos(cur?.[2]) || e.touches.length > 1) return;
       const t = e.touches[0];
@@ -1658,12 +1723,12 @@ $("#out").addEventListener("click", (e) => {
     const dx = lx - sx,
       fast = Math.abs(dx) > 30 && Date.now() - st < 250;
     if (horiz && (Math.abs(dx) > 60 || fast)) {
-      clearPeek(h);
+      clearPeek();
       goRing(dx < 0 ? 1 : -1);
     } else {
       h.style.transition = "transform .2s ease"; // 足りなければ元の位置に戻す
       h.style.transform = "";
-      setTimeout(() => clearPeek(h), 200);
+      clearT = setTimeout(clearPeek, 200);
     }
   };
   $("#out").addEventListener("touchend", end);
@@ -1762,6 +1827,7 @@ function lastShown() {
   if (l) l = fixRad(l);
   return l == null ? hist[0] : hist.includes(l) ? l : null;
 }
+let startId = 0; // 共有リンクの id（TMDB の番号）。startQ の作品を探すときに使う
 const startQ = (() => {
   try {
     return clean(new URL(location.href).searchParams.get("q") || "");
@@ -1769,9 +1835,12 @@ const startQ = (() => {
     return "";
   }
 })();
+try {
+  startId = +new URL(location.href).searchParams.get("id") || 0;
+} catch (e) {}
 if (startQ) {
   // 共有・ブックマークされた URL から開いたとき
-  const id = +new URL(location.href).searchParams.get("id") || 0;
+  const id = startId;
   setQ();
   if (findMovie(startQ)) remember(startQ);
   else keepQ = startQ;

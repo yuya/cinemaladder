@@ -17,6 +17,10 @@
   --font:
     "Inter", "IBM Plex Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", Meiryo, system-ui,
     sans-serif;
+  /* サイト名と作品名だけに使う（Futura に近い幾何学的な形。日本語は --font と同じ IBM Plex Sans JP） */
+  --font-display:
+    "Urbanist", "IBM Plex Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI",
+    Meiryo, system-ui, sans-serif;
   color-scheme: light;
 }
 /* ダーク表示：OS がダークで「ライト」を選んでいないとき、または「ダーク」を選んだとき（フッターの「表示」で切り替え） */
