@@ -511,7 +511,7 @@ async function showTrending() {
 }
 let trendOpen = store.get("cl_trendOpen", false);
 let topTab = store.get("cl_topTab", "top"); // 「いま話題の映画」の中のタブ：top＝人気TOP10、rel＝公開日順
-/* 公開日の前後2週間の作品（data/releases.json。GitHub Actions が毎日作る）。公開日順のタブを開いたときに読む */
+/* 公開日が1か月前〜2か月後の作品（data/releases.json。GitHub Actions が毎日作る）。公開日順のタブを開いたときに読む */
 let relData = null,
   relLoading = null,
   relFailed = false;
@@ -588,8 +588,7 @@ function trendHTML() {
       now = fakeDay ? new Date(fakeDay + "T12:00") : new Date(),
       today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()),
       dw = now.getDay();
-    const thisWk = today - ((dw - 5 + 7) % 7) * D,
-      weekend = dw >= 5 ? thisWk : thisWk + 7 * D; // weekend：その日の朝の更新が作る範囲の計算に使う
+    const thisWk = today - ((dw - 5 + 7) % 7) * D;
     const wkOf = (d) => {
       const t = Date.parse(d),
         dow = new Date(t).getUTCDay();
@@ -598,10 +597,16 @@ function trendHTML() {
     // 週ごとに <li> でまとめる。見出しはその週の中でだけ上に留まるので、次の週の見出しが来ると押し出される（重ならない）
     let last = null,
       h = "";
-    // 日付を模擬しているときは、その日に毎朝の更新が作る範囲（fetch-releases.mjs と同じ計算）に絞る
-    const fr = today - ((dw - 5 + 7) % 7) * D - 14 * D,
-      to = weekend + 20 * D,
-      ymd = (t) => new Date(t).toISOString().slice(0, 10);
+    // 日付を模擬しているときは、その日に毎朝の更新が作る範囲（fetch-releases.mjs と同じ計算：1か月前〜2か月後）に絞る
+    const ymd = (t) => new Date(t).toISOString().slice(0, 10),
+      addM = (n) => {
+        const d = new Date(today),
+          r = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + n, d.getUTCDate()));
+        if (r.getUTCDate() !== d.getUTCDate()) r.setUTCDate(0);
+        return +r;
+      },
+      fr = addM(-1),
+      to = addM(2);
     for (const m of fakeDay
       ? relData.items.filter((m) => m.date >= ymd(fr) && m.date <= ymd(to))
       : relData.items) {
@@ -746,7 +751,24 @@ function renderEmpty() {
 }
 /* 作品名から TMDB の情報を、手元にない場合に取りに行く。
    1. 作品一覧（data/titles.json） 2. 中継サーバーで検索し、タイトルが完全に一致したもの */
-async function lookupMovie(q) {
+/* 公開日順に載せたことのある作品の控え（data/releases-archive.json。毎朝の更新で足していく）。
+   共有リンク（?q=作品名&id=TMDBの番号）の作品が、範囲から外れたあとでも見つかるようにする。id 付きで開いたときだけ読む */
+let archiveP = null;
+function fromArchive(id) {
+  archiveP ??= fetch("data/releases-archive.json")
+    .then((r) => (r.ok ? r.json() : {}))
+    .catch(() => ((archiveP = null), {}));
+  return archiveP.then((a) => {
+    const x = a[id];
+    return x ? fixT({ id: +id, title: x.t, original: x.o || x.t, date: x.d, poster: x.p || null }) : null;
+  });
+}
+async function lookupMovie(q, id) {
+  if (id)
+    try {
+      const m = await fromArchive(id);
+      if (m) return m;
+    } catch (e) {}
   try {
     await loadTitles();
     const m = findMovie(q);
@@ -1181,10 +1203,13 @@ function findMovie(q) {
 }
 function render(q, isExample, movie) {
   if (!movie && q) {
+    // 共有リンクに id があるときは、その番号の作品を優先する（同じ題名の別の作品と取り違えないように）
+    const wantId = q === startQ ? startId : 0;
     movie = findMovie(q);
+    if (movie && wantId && movie.id !== wantId) movie = null;
     // 見つからなければ作品一覧を読み込んでもう一度探す（IMDb の原題検索とポスター表示のため）
     if (!movie)
-      lookupMovie(q).then((m) => {
+      lookupMovie(q, wantId).then((m) => {
         settleQ(q, !!m);
         // 履歴に入れるのは作品に一致した検索だけ。一致しなかったら、残っていた分も消す
         if (m) remember(q);
@@ -1762,6 +1787,7 @@ function lastShown() {
   if (l) l = fixRad(l);
   return l == null ? hist[0] : hist.includes(l) ? l : null;
 }
+let startId = 0; // 共有リンクの id（TMDB の番号）。startQ の作品を探すときに使う
 const startQ = (() => {
   try {
     return clean(new URL(location.href).searchParams.get("q") || "");
@@ -1769,9 +1795,12 @@ const startQ = (() => {
     return "";
   }
 })();
+try {
+  startId = +new URL(location.href).searchParams.get("id") || 0;
+} catch (e) {}
 if (startQ) {
   // 共有・ブックマークされた URL から開いたとき
-  const id = +new URL(location.href).searchParams.get("id") || 0;
+  const id = startId;
   setQ();
   if (findMovie(startQ)) remember(startQ);
   else keepQ = startQ;
