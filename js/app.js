@@ -1754,6 +1754,35 @@ if (IS_DEV) {
       `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`,
     );
   });
+  // テスト用：フォントの切り替え（Urbanist は英数字で共通。日本語を Plex / LINE Seed JP / 端末標準で比べる）
+  const FONTS = [
+      ["Plex", '"Urbanist","IBM Plex Sans JP"'],
+      ["LINE Seed", '"Urbanist","LINE Seed JP"'],
+      ["端末", '"Urbanist"'],
+    ],
+    fb = $("#fontbtn");
+  let fi = +store.get("cl_font", 0) || 0;
+  const setFont = () => {
+    if (fi === 1 && !$("#seedcss")) {
+      const l = document.createElement("link");
+      l.id = "seedcss";
+      l.rel = "stylesheet";
+      l.href = "https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap";
+      document.head.appendChild(l);
+    }
+    document.documentElement.style.setProperty(
+      "--font",
+      FONTS[fi][1] +
+        ',"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI",Meiryo,system-ui,sans-serif',
+    );
+    fb.textContent = FONTS[fi][0];
+  };
+  setFont();
+  fb.addEventListener("click", () => {
+    fi = (fi + 1) % FONTS.length;
+    store.set("cl_font", fi);
+    setFont();
+  });
 }
 renderHist();
 // 前回最後に見ていた作品。履歴から消されていたら、話題作からランダムに選ぶ（記録がない古い利用者は履歴の先頭）
