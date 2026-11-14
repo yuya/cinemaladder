@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-13T01:49:16.192Z",
+ "updated": "2026-11-14T01:27:26.991Z",
  "anchor": "2026-11-13",
  "from": "2026-10-30",
  "to": "2026-12-03",
@@ -10,7 +10,7 @@
    "original": "Clayface",
    "date": "2026-10-30",
    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-   "pop": 76.3
+   "pop": 72.3
   },
   {
    "id": 1102390,
@@ -19,6 +19,14 @@
    "date": "2026-10-30",
    "poster": "/yX4ZvG4ly26ePyfOkkx6dIHeVWN.jpg",
    "pop": 1.2
+  },
+  {
+   "id": 1748514,
+   "title": "見上げてごらん",
+   "original": "見上げてごらん",
+   "date": "2026-10-30",
+   "poster": "/qjuzeBRrqHAyGJIJLyJBGuCy5oY.jpg",
+   "pop": 1
   },
   {
    "id": 517815,
@@ -34,15 +42,7 @@
    "original": "月影のゴールデン街",
    "date": "2026-10-30",
    "poster": "/57Cvx1ePJl4jJJ9CNVyRWSPtvfs.jpg",
-   "pop": 0.9
-  },
-  {
-   "id": 1748514,
-   "title": "見上げてごらん",
-   "original": "見上げてごらん",
-   "date": "2026-10-30",
-   "poster": "/qjuzeBRrqHAyGJIJLyJBGuCy5oY.jpg",
-   "pop": 0.9
+   "pop": 0.7
   },
   {
    "id": 1646897,
@@ -50,14 +50,6 @@
    "original": "RYUJI ⻯⼆",
    "date": "2026-10-30",
    "poster": "/xPfcMiKjHvZfFGyjRVFa8PxKFc0.jpg",
-   "pop": 0.6
-  },
-  {
-   "id": 1814090,
-   "title": "ヤマトよ永遠に REBEL3199 第七章 虹色の輪廻",
-   "original": "ヤマトよ永遠に REBEL3199 第七章 虹色の輪廻",
-   "date": "2026-10-30",
-   "poster": "/rmPpzI7t8F4JpXfxCNSqifdAdzO.jpg",
    "pop": 0.6
   },
   {
@@ -69,12 +61,20 @@
    "pop": 0.6
   },
   {
+   "id": 1814090,
+   "title": "ヤマトよ永遠に REBEL3199 第七章 虹色の輪廻",
+   "original": "ヤマトよ永遠に REBEL3199 第七章 虹色の輪廻",
+   "date": "2026-10-30",
+   "poster": "/rmPpzI7t8F4JpXfxCNSqifdAdzO.jpg",
+   "pop": 0.5
+  },
+  {
    "id": 164328,
    "title": "ストレンジ・リトル・キャット",
    "original": "Das merkwürdige Kätzchen",
    "date": "2026-10-30",
    "poster": "/cTOis8vPhu1XZxJVgDMDrpZFXE3.jpg",
-   "pop": 0.3
+   "pop": 0.5
   },
   {
    "id": 1820858,
@@ -98,7 +98,7 @@
    "original": "京都ALS患者嘱託殺人事件",
    "date": "2026-10-31",
    "poster": "/sQ8zvmDBuiNcPQrAwCSIf7YPlpy.jpg",
-   "pop": 0.3
+   "pop": 0.2
   },
   {
    "id": 1369767,
@@ -114,7 +114,7 @@
    "original": "私がまだ知らない沖縄",
    "date": "2026-10-31",
    "poster": "/dMgeb6YgLAmYUFQyUK9q0KD4Zxw.jpg",
-   "pop": 0.1
+   "pop": 0
   },
   {
    "id": 1381071,
@@ -122,7 +122,7 @@
    "original": "ゴジラ-0.0",
    "date": "2026-11-03",
    "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
-   "pop": 184.5
+   "pop": 173.7
   },
   {
    "id": 1283515,
@@ -130,7 +130,7 @@
    "original": "Verity",
    "date": "2026-11-06",
    "poster": "/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "pop": 141.9
+   "pop": 130
   },
   {
    "id": 1567149,
@@ -138,7 +138,7 @@
    "original": "仮面ライダーカブト20th 天を継ぐもの",
    "date": "2026-11-06",
    "poster": "/5LBfnGFPXn5hUmywY7L4jDTEi9E.jpg",
-   "pop": 7.2
+   "pop": 6.5
   },
   {
    "id": 1278101,
@@ -146,7 +146,7 @@
    "original": "小小的我",
    "date": "2026-11-06",
    "poster": "/5le1y4AKBSUJ5XTIG4ClGDL2rpC.jpg",
-   "pop": 5.9
+   "pop": 6
   },
   {
    "id": 1313587,
@@ -154,7 +154,7 @@
    "original": "GROTESQQQUE -グロテスク-",
    "date": "2026-11-06",
    "poster": "/tLiCExCaevA5t2mXwsW6qUfimVE.jpg",
-   "pop": 3.4
+   "pop": 2.9
   },
   {
    "id": 1707282,
@@ -162,7 +162,7 @@
    "original": "男ともだち",
    "date": "2026-11-06",
    "poster": "/im9W3Hw08NsHhOlF60FCX76Ln7u.jpg",
-   "pop": 0.9
+   "pop": 1.1
   },
   {
    "id": 1527427,
@@ -178,14 +178,14 @@
    "original": "星の教室",
    "date": "2026-11-06",
    "poster": "/cvOS0T7bals4dRLsYu15YOMmgsM.jpg",
-   "pop": 0.3
+   "pop": 0.4
   },
   {
-   "id": 1755423,
-   "title": "となりのとらんす少女ちゃん",
-   "original": "となりのとらんす少女ちゃん",
-   "date": "2026-11-07",
-   "poster": "/cH5dp1LCjG7Flmc9ueCr24H0CIU.jpg",
+   "id": 1773014,
+   "title": "4アウト ─もう一度、プレイボール─",
+   "original": "4アウト ─もう一度、プレイボール─",
+   "date": "2026-11-06",
+   "poster": "/jc3MtWlLeuHQJwEYlvb5SVcVhCv.jpg",
    "pop": 0.3
   },
   {
@@ -194,6 +194,14 @@
    "original": "みらいしのほこう",
    "date": "2026-11-07",
    "poster": "/1vrFlKqrQAsZqze5Z4pXMKkPVJB.jpg",
+   "pop": 0.3
+  },
+  {
+   "id": 1755423,
+   "title": "となりのとらんす少女ちゃん",
+   "original": "となりのとらんす少女ちゃん",
+   "date": "2026-11-07",
+   "poster": "/cH5dp1LCjG7Flmc9ueCr24H0CIU.jpg",
    "pop": 0.2
   },
   {
@@ -202,7 +210,7 @@
    "original": "Ebenezer",
    "date": "2026-11-13",
    "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
-   "pop": 88.3
+   "pop": 111.9
   },
   {
    "id": 467905,
@@ -210,7 +218,7 @@
    "original": "How to Make a Killing",
    "date": "2026-11-13",
    "poster": "/adIG9Tsf9FkUkJ1euYjtktSMOyT.jpg",
-   "pop": 9.2
+   "pop": 10
   },
   {
    "id": 338969,
@@ -218,7 +226,7 @@
    "original": "The Toxic Avenger Unrated",
    "date": "2026-11-13",
    "poster": "/cCWojb6N9UcTzNVtS4bOM3vQ30x.jpg",
-   "pop": 6.4
+   "pop": 7.1
   },
   {
    "id": 507244,
@@ -234,15 +242,23 @@
    "original": "좀비딸",
    "date": "2026-11-13",
    "poster": "/aASLRiO8p9xLIvG9EHXSyZ71sPl.jpg",
-   "pop": 3
+   "pop": 3.1
   },
   {
-   "id": 1560309,
-   "title": "すべて真夜中の恋人たち",
-   "original": "すべて真夜中の恋人たち",
+   "id": 1236857,
+   "title": "楽園追放 心のレゾナンス",
+   "original": "楽園追放 心のレゾナンス",
    "date": "2026-11-13",
-   "poster": "/hu59kewfoT7Brzimj8KOliuh5Ih.jpg",
-   "pop": 1.7
+   "poster": "/cp9XcvYQgwFPQgfDi3Yjjq2I3dI.jpg",
+   "pop": 2
+  },
+  {
+   "id": 1707955,
+   "title": "呪いのスマホ",
+   "original": "呪いのスマホ",
+   "date": "2026-11-13",
+   "poster": "/7ZsxOt6MnEf2Z67sEMJoEPKMPe4.jpg",
+   "pop": 1.9
   },
   {
    "id": 1433339,
@@ -253,20 +269,12 @@
    "pop": 1.6
   },
   {
-   "id": 1236857,
-   "title": "楽園追放 心のレゾナンス",
-   "original": "楽園追放 心のレゾナンス",
+   "id": 1560309,
+   "title": "すべて真夜中の恋人たち",
+   "original": "すべて真夜中の恋人たち",
    "date": "2026-11-13",
-   "poster": "/cp9XcvYQgwFPQgfDi3Yjjq2I3dI.jpg",
-   "pop": 1.6
-  },
-  {
-   "id": 1707955,
-   "title": "呪いのスマホ",
-   "original": "呪いのスマホ",
-   "date": "2026-11-13",
-   "poster": "/7ZsxOt6MnEf2Z67sEMJoEPKMPe4.jpg",
-   "pop": 1.4
+   "poster": "/hu59kewfoT7Brzimj8KOliuh5Ih.jpg",
+   "pop": 1.5
   },
   {
    "id": 1759179,
@@ -285,11 +293,27 @@
    "pop": 0.8
   },
   {
+   "id": 1823861,
+   "title": "刺青",
+   "original": "刺青",
+   "date": "2026-11-13",
+   "poster": "/4GD7hvB2OaIi5xLL6cv4adsHxZx.jpg",
+   "pop": 0.4
+  },
+  {
    "id": 1807470,
    "title": "2126年、海の星をさがして",
    "original": "2126年、海の星をさがして",
    "date": "2026-11-13",
    "poster": "/lzZZj7ag0SPqw80ESpXuonbiGYF.jpg",
+   "pop": 0.3
+  },
+  {
+   "id": 1822524,
+   "title": "劇場先行版 風を継ぐもの -はじまり-",
+   "original": "劇場先行版 風を継ぐもの -はじまり-",
+   "date": "2026-11-13",
+   "poster": "/zo376iUKWzBG0M1MIpNW3o1tXzJ.jpg",
    "pop": 0.3
   },
   {
@@ -301,27 +325,11 @@
    "pop": 0.2
   },
   {
-   "id": 1822524,
-   "title": "劇場先行版 風を継ぐもの -はじまり-",
-   "original": "劇場先行版 風を継ぐもの -はじまり-",
-   "date": "2026-11-13",
-   "poster": "/zo376iUKWzBG0M1MIpNW3o1tXzJ.jpg",
-   "pop": 0.2
-  },
-  {
-   "id": 1823861,
-   "title": "刺青",
-   "original": "刺青",
-   "date": "2026-11-13",
-   "poster": "/4GD7hvB2OaIi5xLL6cv4adsHxZx.jpg",
-   "pop": 0.1
-  },
-  {
    "id": 1807502,
    "title": "巡る世界、巡る言葉",
    "original": "巡る世界、巡る言葉",
    "date": "2026-11-14",
-   "poster": "/oPAnu2PEIesBTTuYJ0Ws61orzQ5.jpg",
+   "poster": "/pRC7dq6kIOMdrRzx18arsWlQ8kO.jpg",
    "pop": 0.2
   },
   {
@@ -330,7 +338,7 @@
    "original": "デフリンピック・ストーリーズ",
    "date": "2026-11-14",
    "poster": "/8gTvoCjJwR6y7VQ4CzcCYuBjuwm.jpg",
-   "pop": 0.1
+   "pop": 0.2
   },
   {
    "id": 1400837,
@@ -338,7 +346,7 @@
    "original": "Other Mommy",
    "date": "2026-11-20",
    "poster": "/qs0kHXbRadmtDIH5EmIoiqV0rX1.jpg",
-   "pop": 253.2
+   "pop": 282.5
   },
   {
    "id": 1159206,
@@ -354,7 +362,23 @@
    "original": "魔法使いの夜",
    "date": "2026-11-20",
    "poster": "/cCujIxpgUxGg0X1X2ItSXCso9ws.jpg",
-   "pop": 1.6
+   "pop": 2.6
+  },
+  {
+   "id": 1746633,
+   "title": "日曜のあと",
+   "original": "日曜のあと",
+   "date": "2026-11-20",
+   "poster": "/m2pk8MqzzfpVdWzxwqhV9ZMJ7dQ.jpg",
+   "pop": 0.9
+  },
+  {
+   "id": 1694711,
+   "title": "装甲騎兵ボトムズ 灰色の魔女 第1作",
+   "original": "装甲騎兵ボトムズ 灰色の魔女 第1作",
+   "date": "2026-11-20",
+   "poster": "/2EQ3JA0NT6bDg0xoZlYWGSBbzqO.jpg",
+   "pop": 0.8
   },
   {
    "id": 1767360,
@@ -365,28 +389,12 @@
    "pop": 0.7
   },
   {
-   "id": 1746633,
-   "title": "日曜のあと",
-   "original": "日曜のあと",
-   "date": "2026-11-20",
-   "poster": "/m2pk8MqzzfpVdWzxwqhV9ZMJ7dQ.jpg",
-   "pop": 0.7
-  },
-  {
-   "id": 1694711,
-   "title": "装甲騎兵ボトムズ 灰色の魔女 第1作",
-   "original": "装甲騎兵ボトムズ 灰色の魔女 第1作",
-   "date": "2026-11-20",
-   "poster": "/2EQ3JA0NT6bDg0xoZlYWGSBbzqO.jpg",
-   "pop": 0.6
-  },
-  {
    "id": 1724371,
    "title": "ないものねだりの君に光の花束を",
    "original": "ないものねだりの君に光の花束を",
    "date": "2026-11-20",
    "poster": "/ijOsHTIae0dYcRUSvGrCrAeTIJ6.jpg",
-   "pop": 0.5
+   "pop": 0.7
   },
   {
    "id": 1754757,
@@ -410,15 +418,15 @@
    "original": "アユラ",
    "date": "2026-11-23",
    "poster": null,
-   "pop": 0.3
+   "pop": 0.5
   },
   {
    "id": 1457866,
    "title": "ザ・ファーザー・ミスアドベンチャー・オブ・クリフ・ブース",
    "original": "THE FURTHER MIS-ADVENTURES OF CLIFF BOOTH",
    "date": "2026-11-25",
-   "poster": "/thX8Rs7nfgmPHfCgjoFuRovy49l.jpg",
-   "pop": 10.4
+   "poster": "/gEqfmochcRmyDQFThatTKQfH9GT.jpg",
+   "pop": 10.8
   },
   {
    "id": 1302904,
@@ -426,7 +434,7 @@
    "original": "Practical Magic 2",
    "date": "2026-11-27",
    "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
-   "pop": 47.7
+   "pop": 44.6
   },
   {
    "id": 1368166,
@@ -434,7 +442,7 @@
    "original": "The Housemaid",
    "date": "2026-11-27",
    "poster": "/cWsBscZzwu5brg9YjNkGewRUvJX.jpg",
-   "pop": 26.1
+   "pop": 23.7
   },
   {
    "id": 1381027,
@@ -450,15 +458,7 @@
    "original": "君の話",
    "date": "2026-11-27",
    "poster": "/8H0YN4J0iuPyC4SjtU5fdooLciH.jpg",
-   "pop": 0.8
-  },
-  {
-   "id": 1718930,
-   "title": "ワンダンス",
-   "original": "ワンダンス",
-   "date": "2026-11-27",
-   "poster": "/vJTfvarGK1eSF3WY8uJRMqTxNpt.jpg",
-   "pop": 0.7
+   "pop": 0.9
   },
   {
    "id": 1660754,
@@ -469,6 +469,22 @@
    "pop": 0.7
   },
   {
+   "id": 1700953,
+   "title": "タコピーの原罪 -ありがとう、また明日-",
+   "original": "タコピーの原罪 -ありがとう、また明日-",
+   "date": "2026-11-27",
+   "poster": "/dM9eKAo5g5XiQcgEynX02WxTWr4.jpg",
+   "pop": 0.7
+  },
+  {
+   "id": 1718930,
+   "title": "ワンダンス",
+   "original": "ワンダンス",
+   "date": "2026-11-27",
+   "poster": "/vJTfvarGK1eSF3WY8uJRMqTxNpt.jpg",
+   "pop": 0.6
+  },
+  {
    "id": 1807509,
    "title": "三代目 J SOUL BROTHERS 15TH ANNIVERSARY STADIUM LIVE  \"JSB FOREVER ～ONE～\" THE MOVIE",
    "original": "三代目 J SOUL BROTHERS 15TH ANNIVERSARY STADIUM LIVE  \"JSB FOREVER ～ONE～\" THE MOVIE",
@@ -477,12 +493,12 @@
    "pop": 0.6
   },
   {
-   "id": 1700953,
-   "title": "タコピーの原罪 -ありがとう、また明日-",
-   "original": "タコピーの原罪 -ありがとう、また明日-",
+   "id": 1807521,
+   "title": "会いたくて会えなくて、会えなくなって、会いたい。",
+   "original": "会いたくて会えなくて、会えなくなって、会いたい。",
    "date": "2026-11-27",
-   "poster": "/dM9eKAo5g5XiQcgEynX02WxTWr4.jpg",
-   "pop": 0.6
+   "poster": "/qCMBat5HtfV5i2F9aaaltoj56ua.jpg",
+   "pop": 0.4
   },
   {
    "id": 1807541,
@@ -490,7 +506,7 @@
    "original": "恋傷",
    "date": "2026-11-27",
    "poster": "/sfoqIttN2z8YXAneT0xfQPzfhw4.jpg",
-   "pop": 0.4
+   "pop": 0.3
   },
   {
    "id": 1807529,
@@ -498,14 +514,6 @@
    "original": "つりこまち",
    "date": "2026-11-27",
    "poster": "/tvtdgpfZJGVaC6cOE0pP0n1fxkH.jpg",
-   "pop": 0.4
-  },
-  {
-   "id": 1807521,
-   "title": "会いたくて会えなくて、会えなくなって、会いたい。",
-   "original": "会いたくて会えなくて、会えなくなって、会いたい。",
-   "date": "2026-11-27",
-   "poster": "/qCMBat5HtfV5i2F9aaaltoj56ua.jpg",
    "pop": 0.3
   },
   {
@@ -514,7 +522,7 @@
    "original": "Inside Gaza",
    "date": "2026-11-28",
    "poster": "/9CfYPVwuhQSOysvcy8vYWOIBz8t.jpg",
-   "pop": 0.9
+   "pop": 0.8
   },
   {
    "id": 1774734,
@@ -522,7 +530,7 @@
    "original": "うみねこのなく頃に～Stage of the golden Witch～Episode 8 EVE",
    "date": "2026-11-28",
    "poster": "/tJ37nfj8hx775m7hOHKY9G37JlG.jpg",
-   "pop": 0.5
+   "pop": 0.4
   },
   {
    "id": 1820865,
@@ -530,7 +538,7 @@
    "original": "いかさま隆二と裏切り純子",
    "date": "2026-11-28",
    "poster": "/kCHl4y1XA5po8QARhfmDjSz5HmV.jpg",
-   "pop": 0.2
+   "pop": 0.3
   },
   {
    "id": 1790612,

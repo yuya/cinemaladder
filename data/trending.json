@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-13T01:49:12.813Z",
+ "updated": "2026-11-14T01:27:22.552Z",
  "items": [
   {
    "id": 1423191,
@@ -7,7 +7,7 @@
    "original": "Resident Evil",
    "date": "2026-10-09",
    "poster": "/wHXSnGH3zQtvpxPwaBXMoS9o8Vl.jpg",
-   "pop": 624.6254,
+   "pop": 586.7202,
    "info": {
     "id": 1423191,
     "title": "バイオハザード",
@@ -48,7 +48,7 @@
    "original": "Other Mommy",
    "date": "2026-11-20",
    "poster": "/qs0kHXbRadmtDIH5EmIoiqV0rX1.jpg",
-   "pop": 226.3965,
+   "pop": 253.1723,
    "info": {
     "id": 1400837,
     "title": "アザー・マミー",
@@ -71,11 +71,11 @@
     ],
     "cast": [
      "ジェシカ・チャステイン",
-     "ジェイ・デュプラス",
      "Arabella Olivia Clark",
+     "ジェイ・デュプラス",
      "カレン・アレン",
      "アリアン・モーイエド",
-     "ディーチェン・ラックマン"
+     "Sean Kaufman"
     ]
    }
   },
@@ -85,7 +85,7 @@
    "original": "ゴジラ-0.0",
    "date": "2026-11-03",
    "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
-   "pop": 199.1007,
+   "pop": 184.5056,
    "info": {
     "id": 1381071,
     "title": "ゴジラ-0.0",
@@ -124,7 +124,7 @@
    "original": "Verity",
    "date": "2026-11-06",
    "poster": "/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "pop": 153.882,
+   "pop": 141.8691,
    "info": {
     "id": 1283515,
     "title": "ヴェリティ／真実",
@@ -157,51 +157,12 @@
    }
   },
   {
-   "id": 1400940,
-   "title": "クレイフェイス",
-   "original": "Clayface",
-   "date": "2026-10-30",
-   "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-   "pop": 80.5914,
-   "info": {
-    "id": 1400940,
-    "title": "クレイフェイス",
-    "original": "Clayface",
-    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-    "date": "2026-10-19",
-    "jpDate": "2026-10-30",
-    "runtime": 109,
-    "tagline": "",
-    "overview": "ゴッサムの路地裏で育った少年から、ハリウッドの主演俳優へ。瞬く間にスターの座へ駆け上がったマット・ヘイゲンだったが、地元の犯罪組織のボスによって顔を無残に損なわれ、その輝かしいキャリアは突然、悲劇的な終わりを迎える。周囲のスタッフにも見捨てられ、すべてを失ったマットは、最先端の治療に最後の望みを託す。奇跡的に元の姿を取り戻した彼だったが、その治療は思いもよらぬ形で彼の現実感覚を蝕んでいく。やがてマットは、すべてを呑み込むほどの復讐心に駆られ、破滅への道を転がり落ちていく——。",
-    "overviewLang": "ja",
-    "genres": [
-     "ホラー",
-     "スリラー",
-     "サイエンスフィクション"
-    ],
-    "countries": [
-     "US"
-    ],
-    "directors": [
-     "ジェームズ・ワトキンス"
-    ],
-    "cast": [
-     "Tom Rhys Harries",
-     "ナオミ・アッキー",
-     "エディ・マーサン",
-     "マックス・ミンゲラ",
-     "デヴィッド・デンシック",
-     "Francesca Corney"
-    ]
-   }
-  },
-  {
    "id": 1567605,
    "title": "クリスマス・キャロル／3人のゴーストたち",
    "original": "Ebenezer",
    "date": "2026-11-13",
    "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
-   "pop": 72.623,
+   "pop": 88.2848,
    "info": {
     "id": 1567605,
     "title": "クリスマス・キャロル／3人のゴーストたち",
@@ -235,12 +196,51 @@
    }
   },
   {
+   "id": 1400940,
+   "title": "クレイフェイス",
+   "original": "Clayface",
+   "date": "2026-10-30",
+   "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
+   "pop": 76.3197,
+   "info": {
+    "id": 1400940,
+    "title": "クレイフェイス",
+    "original": "Clayface",
+    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
+    "date": "2026-10-19",
+    "jpDate": "2026-10-30",
+    "runtime": 109,
+    "tagline": "",
+    "overview": "ゴッサムの路地裏で育った少年から、ハリウッドの主演俳優へ。瞬く間にスターの座へ駆け上がったマット・ヘイゲンだったが、地元の犯罪組織のボスによって顔を無残に損なわれ、その輝かしいキャリアは突然、悲劇的な終わりを迎える。周囲のスタッフにも見捨てられ、すべてを失ったマットは、最先端の治療に最後の望みを託す。奇跡的に元の姿を取り戻した彼だったが、その治療は思いもよらぬ形で彼の現実感覚を蝕んでいく。やがてマットは、すべてを呑み込むほどの復讐心に駆られ、破滅への道を転がり落ちていく——。",
+    "overviewLang": "ja",
+    "genres": [
+     "ホラー",
+     "スリラー",
+     "サイエンスフィクション"
+    ],
+    "countries": [
+     "US"
+    ],
+    "directors": [
+     "ジェームズ・ワトキンス"
+    ],
+    "cast": [
+     "Tom Rhys Harries",
+     "ナオミ・アッキー",
+     "エディ・マーサン",
+     "マックス・ミンゲラ",
+     "デヴィッド・デンシック",
+     "Francesca Corney"
+    ]
+   }
+  },
+  {
    "id": 1153576,
    "title": "ストリートファイター／ザ・ムービー",
    "original": "Street Fighter",
    "date": "2026-10-16",
    "poster": "/1JBlbyXionXPRaqW1UQw7eKkxNP.jpg",
-   "pop": 63.0279,
+   "pop": 70.7808,
    "info": {
     "id": 1153576,
     "title": "ストリートファイター／ザ・ムービー",
@@ -279,7 +279,7 @@
    "original": "가능한 사랑",
    "date": "2026-10-23",
    "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
-   "pop": 58.1531,
+   "pop": 52.3688,
    "info": {
     "id": 1483525,
     "title": "もしもの愛",
@@ -317,7 +317,7 @@
    "original": "Practical Magic 2",
    "date": "2026-11-27",
    "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
-   "pop": 51.8717,
+   "pop": 47.7163,
    "info": {
     "id": 1302904,
     "title": "プラティカル・マジック／魔女たちの秘密",
@@ -343,9 +343,9 @@
     "cast": [
      "サンドラ・ブロック",
      "ニコール・キッドマン",
+     "ダイアン・ウィースト",
+     "ストッカード・チャニング",
      "ジョーイ・キング",
-     "メイジー・ウィリアムズ",
-     "ショロ・マリデュエニャ",
      "リー・ペイス"
     ]
    }
@@ -356,7 +356,7 @@
    "original": "Whalefall",
    "date": "2026-10-16",
    "poster": "/q4z5EiiOwYWUDkkPMAmFVjqWnBa.jpg",
-   "pop": 45.5239,
+   "pop": 43.855,
    "info": {
     "id": 1255833,
     "title": "クジラに落ちた男",
