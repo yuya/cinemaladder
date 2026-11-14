@@ -9,7 +9,7 @@
 
 // 通信を許可するサイト（本番と、手元での確認用の http://localhost:8000）
 const ALLOWED_ORIGINS = ["https://cinemaladder.com", "https://www.cinemaladder.com", "http://localhost:8000"];
-// Cloudflare Pages の確認用URL（staging.cinemaladder.pages.dev や 1回ごとのプレビューURL）を許可
+// Cloudflare Pages の確認用URL（stg.cinemaladder.pages.dev や 1回ごとのプレビューURL）を許可
 const ALLOWED_SUFFIXES = [".cinemaladder.pages.dev"];
 const isAllowed = o => ALLOWED_ORIGINS.includes(o) || o === "https://cinemaladder.pages.dev" ||
   (o.startsWith("https://") && ALLOWED_SUFFIXES.some(s => o.endsWith(s)));

@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14T01:27:56.882Z",
+ "updated": "2026-11-14T01:27:26.991Z",
  "anchor": "2026-11-13",
  "from": "2026-10-30",
  "to": "2026-12-03",
@@ -21,19 +21,19 @@
    "pop": 1.2
   },
   {
-   "id": 517815,
-   "title": "ガール・アンド・スパイダー",
-   "original": "Das Mädchen und die Spinne",
-   "date": "2026-10-30",
-   "poster": "/juDYUbDjUh3KiuOQqUd3rbL5HOU.jpg",
-   "pop": 1
-  },
-  {
    "id": 1748514,
    "title": "見上げてごらん",
    "original": "見上げてごらん",
    "date": "2026-10-30",
    "poster": "/qjuzeBRrqHAyGJIJLyJBGuCy5oY.jpg",
+   "pop": 1
+  },
+  {
+   "id": 517815,
+   "title": "ガール・アンド・スパイダー",
+   "original": "Das Mädchen und die Spinne",
+   "date": "2026-10-30",
+   "poster": "/juDYUbDjUh3KiuOQqUd3rbL5HOU.jpg",
    "pop": 1
   },
   {
@@ -325,19 +325,19 @@
    "pop": 0.2
   },
   {
-   "id": 1807483,
-   "title": "デフリンピック・ストーリーズ",
-   "original": "デフリンピック・ストーリーズ",
-   "date": "2026-11-14",
-   "poster": "/8gTvoCjJwR6y7VQ4CzcCYuBjuwm.jpg",
-   "pop": 0.2
-  },
-  {
    "id": 1807502,
    "title": "巡る世界、巡る言葉",
    "original": "巡る世界、巡る言葉",
    "date": "2026-11-14",
    "poster": "/pRC7dq6kIOMdrRzx18arsWlQ8kO.jpg",
+   "pop": 0.2
+  },
+  {
+   "id": 1807483,
+   "title": "デフリンピック・ストーリーズ",
+   "original": "デフリンピック・ストーリーズ",
+   "date": "2026-11-14",
+   "poster": "/8gTvoCjJwR6y7VQ4CzcCYuBjuwm.jpg",
    "pop": 0.2
   },
   {
@@ -461,19 +461,19 @@
    "pop": 0.9
   },
   {
-   "id": 1700953,
-   "title": "タコピーの原罪 -ありがとう、また明日-",
-   "original": "タコピーの原罪 -ありがとう、また明日-",
-   "date": "2026-11-27",
-   "poster": "/dM9eKAo5g5XiQcgEynX02WxTWr4.jpg",
-   "pop": 0.7
-  },
-  {
    "id": 1660754,
    "title": "このごにおよんで愛など",
    "original": "このごにおよんで愛など",
    "date": "2026-11-27",
    "poster": "/w95RcyBbq2KwNu2juW60t1LrFZp.jpg",
+   "pop": 0.7
+  },
+  {
+   "id": 1700953,
+   "title": "タコピーの原罪 -ありがとう、また明日-",
+   "original": "タコピーの原罪 -ありがとう、また明日-",
+   "date": "2026-11-27",
+   "poster": "/dM9eKAo5g5XiQcgEynX02WxTWr4.jpg",
    "pop": 0.7
   },
   {
@@ -501,19 +501,19 @@
    "pop": 0.4
   },
   {
-   "id": 1807529,
-   "title": "つりこまち",
-   "original": "つりこまち",
-   "date": "2026-11-27",
-   "poster": "/tvtdgpfZJGVaC6cOE0pP0n1fxkH.jpg",
-   "pop": 0.3
-  },
-  {
    "id": 1807541,
    "title": "恋傷",
    "original": "恋傷",
    "date": "2026-11-27",
    "poster": "/sfoqIttN2z8YXAneT0xfQPzfhw4.jpg",
+   "pop": 0.3
+  },
+  {
+   "id": 1807529,
+   "title": "つりこまち",
+   "original": "つりこまち",
+   "date": "2026-11-27",
+   "poster": "/tvtdgpfZJGVaC6cOE0pP0n1fxkH.jpg",
    "pop": 0.3
   },
   {

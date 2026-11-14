@@ -222,7 +222,7 @@ const clean = (s) =>
 // TMDB から届いた作品の題名を整える（見出し・タブの題名・共有・履歴に部首の文字が出ないように）
 const fixT = (m) =>
   m && m.title && /[\u2E80-\u2FDF]/.test(m.title) ? { ...m, title: fixRad(m.title) } : m;
-// 本番以外（staging・手元）だけ、公開日順を好きな日付として表示できる。?today=2026-11-08 か右下の日付で指定（タブを閉じると戻る）
+// 本番以外（stg・手元）だけ、公開日順を好きな日付として表示できる。?today=2026-11-08 か右下の日付で指定（タブを閉じると戻る）
 const IS_DEV = !/^(www\.)?cinemaladder\.com$/.test(location.hostname);
 let fakeDay = null;
 if (IS_DEV) {

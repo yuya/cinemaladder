@@ -2,11 +2,11 @@ name: 公開用の HTML を作る
 
 # push のたびに、src/・css/・js/・data/insta-tags.json から index.html・about.html・privacy.html と maps/ を作り直し、変わっていればコミットする。
 # GitHub の画面で直接編集しても、これが動くので公開用の HTML はそろう（手元なら npm install → npm run build）。
-# どのファイルの変更でも動かす（staging を main に取り込んだときに、main 側だけで増えた表などが HTML から抜けないように）。
+# どのファイルの変更でも動かす（stg を main に取り込んだときに、main 側だけで増えた表などが HTML から抜けないように）。
 # Actions 自身のコミットではもう一度は動かない（GitHub の仕様）。
 on:
   push:
-    branches: [staging, main]
+    branches: [stg, main]
   workflow_dispatch:
 
 permissions:
