@@ -1754,28 +1754,35 @@ if (IS_DEV) {
       `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`,
     );
   });
-  // テスト用：フォントの切り替え（Urbanist は英数字で共通。日本語を Plex / LINE Seed JP / 端末標準で比べる）
-  const FONTS = [
-      ["Plex", '"Urbanist","IBM Plex Sans JP"'],
-      ["LINE Seed", '"Urbanist","LINE Seed JP"'],
-      ["端末", '"Urbanist"'],
+  // テスト用：フォントの切り替え（英数字は Urbanist か Inter、日本語は Plex / Noto Sans JP / Zen Kaku Gothic New / 端末標準）
+  const G = "https://fonts.googleapis.com/css2?family=",
+    W = ":wght@400;500;700;800&display=swap",
+    FONTS = [
+      ["Urbanist+Plex", ["Urbanist", "IBM Plex Sans JP"], null],
+      ["Urbanist+Noto", ["Urbanist", "Noto Sans JP"], G + "Noto+Sans+JP" + W],
+      ["Urbanist+端末", ["Urbanist"], null],
+      ["Urbanist+Zen", ["Urbanist", "Zen Kaku Gothic New"], G + "Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"],
+      ["Inter+Plex", ["Inter", "IBM Plex Sans JP"], G + "Inter" + W],
+      ["Inter+端末", ["Inter"], G + "Inter" + W],
     ],
     fb = $("#fontbtn");
   let fi = +store.get("cl_font", 0) || 0;
+  if (!FONTS[fi]) fi = 0;
   const setFont = () => {
-    if (fi === 1 && !$("#seedcss")) {
+    const [name, fam, css] = FONTS[fi];
+    if (css && !document.querySelector(`link[data-f="${css}"]`)) {
       const l = document.createElement("link");
-      l.id = "seedcss";
       l.rel = "stylesheet";
-      l.href = "https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap";
+      l.href = css;
+      l.dataset.f = css;
       document.head.appendChild(l);
     }
     document.documentElement.style.setProperty(
       "--font",
-      FONTS[fi][1] +
+      fam.map((f) => `"${f}"`).join(",") +
         ',"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI",Meiryo,system-ui,sans-serif',
     );
-    fb.textContent = FONTS[fi][0];
+    fb.textContent = name;
   };
   setFont();
   fb.addEventListener("click", () => {
