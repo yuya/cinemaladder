@@ -38,6 +38,7 @@ body > header .wrap {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 19px;
   color: inherit;
