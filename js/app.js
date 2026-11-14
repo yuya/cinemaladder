@@ -791,9 +791,28 @@ async function lookupMovie(q, id) {
 /* 作品名を、区切りの記号（・／ 空白 ： 〜 など）の後ろでだけ改行できるまとまりに分けて <span class="w"> で包む。
    「ディスクロージャー・デイ」が「ディスクロー／ジャー・デイ」のように語の途中で切れるのを防ぐ。
    まとまり自体が1行に入らないときは中で折り返す（Chrome は word-break:auto-phrase で文節ごとに折り返す） */
+/* 区切りのない日本語の題名は、文節に近いまとまりで分ける（Safari は word-break:auto-phrase に対応していないため、
+   「大富豪になるた／めの正しい殺し方」のように字の途中で切れる）。
+   Intl.Segmenter で語に分け、ひらがなで終わる語（助詞など）の後ろ、2文字以上の漢字・カタカナ・英数字の語の前でだけ区切る。
+   「殺し／方」のような1文字の語の前では区切らない */
+const segJa = globalThis.Intl?.Segmenter ? new Intl.Segmenter("ja", { granularity: "word" }) : null;
+function phrases(s) {
+  if (!segJa || !/[\u3041-\u3096]/.test(s)) return [s];
+  const out = [];
+  let buf = "";
+  for (const { segment: g } of segJa.segment(s)) {
+    if (buf && /[\u3041-\u3096]$/.test(buf) && g.length >= 2 && /^[\u30A1-\u30FA\u4E00-\u9FFF々A-Za-z0-9Ａ-Ｚａ-ｚ０-９]/.test(g)) {
+      out.push(buf);
+      buf = "";
+    }
+    buf += g;
+  }
+  if (buf) out.push(buf);
+  return out;
+}
 function wrapWords(t) {
   const parts = t.split(/(?<=[・･／/\s：:〜~！!？?、。）)」』】])|(?=[（(「『【])/).filter(Boolean); // ハイフンは「ゴジラ-0.0」のように名前の一部なので区切らない
-  return parts.map((w) => `<span class="w">${esc(w)}</span>`).join("");
+  return parts.flatMap(phrases).map((w) => `<span class="w">${esc(w)}</span>`).join("");
 }
 /* ===== 作品情報（あらすじ・公開日・上映時間・ジャンル・監督・出演・製作国） ===== */
 const infoCache = new Map();
@@ -1635,15 +1654,36 @@ $("#out").addEventListener("click", (e) => {
     fade.style.height = r.height + "px";
     document.body.append(fade);
   };
-  const clearPeek = (h) => {
-    h?.querySelectorAll(".peek").forEach((x) => x.remove());
-    fade?.remove();
+  // 戻るアニメーションの途中で次のスワイプを始めると、前の薄い帯が取り残されることがあったので、
+  // 帯と左右の作品は「いま画面にあるものすべて」を消し、待っている片付けも取り消す
+  let clearT = 0;
+  const clearPeek = () => {
+    clearTimeout(clearT);
+    document.querySelectorAll(".now .peek, .swipefade").forEach((x) => x.remove());
     fade = null;
   };
+  // スワイプをやめて、見出しの位置・左右の作品・薄い帯をすべて元に戻す
+  const abort = () => {
+    const h = el || $(".now");
+    el = null;
+    if (h) {
+      h.style.transition = "none";
+      h.style.transform = "";
+    }
+    clearPeek();
+  };
+  // 見出しの外（ヘッダーなど）に触れたときも片付ける
+  document.addEventListener(
+    "touchstart",
+    (e) => {
+      if (!e.target.closest?.("#out")) abort();
+    },
+    { passive: true },
+  );
   $("#out").addEventListener(
     "touchstart",
     (e) => {
-      el = null;
+      abort(); // 2本目の指が触れたときや、前のスワイプの片付けが残っているときは、ここで元に戻す
       const h = e.target.closest(".now");
       if (!h || !ringPos(cur?.[2]) || e.touches.length > 1) return;
       const t = e.touches[0];
@@ -1683,12 +1723,12 @@ $("#out").addEventListener("click", (e) => {
     const dx = lx - sx,
       fast = Math.abs(dx) > 30 && Date.now() - st < 250;
     if (horiz && (Math.abs(dx) > 60 || fast)) {
-      clearPeek(h);
+      clearPeek();
       goRing(dx < 0 ? 1 : -1);
     } else {
       h.style.transition = "transform .2s ease"; // 足りなければ元の位置に戻す
       h.style.transform = "";
-      setTimeout(() => clearPeek(h), 200);
+      clearT = setTimeout(clearPeek, 200);
     }
   };
   $("#out").addEventListener("touchend", end);
