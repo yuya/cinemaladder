@@ -58,7 +58,8 @@ jobs:
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
           git add data/trending.json data/titles.json icons index.html
           git add css maps 2>/dev/null || true
-          git add data/releases.json data/releases-archive.json 2>/dev/null || true
+          git add data/releases.json 2>/dev/null || true
+          git add data/releases-archive.json 2>/dev/null || true   # まだないブランチでは飛ばす（まとめて書くと、片方がないだけで両方とも追加されない）
           if git diff --cached --quiet; then echo "変更なし"; exit 0; fi
           git commit -m "話題作TOP10と作品一覧を更新"
           git pull --rebase -q origin ${{ matrix.branch }}
