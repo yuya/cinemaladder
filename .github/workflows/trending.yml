@@ -18,7 +18,7 @@ jobs:
     strategy:
       max-parallel: 1           # 同じリポジトリへの push がぶつからないよう順番に
       matrix:
-        branch: [staging, main] # 確認用と本番の両方のデータを更新する
+        branch: [stg, main] # 確認用と本番の両方のデータを更新する
     steps:
       - uses: actions/checkout@v5
         with:

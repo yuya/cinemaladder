@@ -20,7 +20,7 @@
 - `data/titles.json` … 検索ボックスのサジェスト用の作品一覧（数千本）。Actions が毎日自動更新
 - `scripts/fetch-trending.mjs` / `scripts/fetch-titles.mjs` … 上の2つの JSON を作るスクリプト
 - `scripts/fetch-icons.mjs` … ファビコンを取得するスクリプト（サイトを増やしたらここにも追加）
-- `.github/workflows/trending.yml` … 毎日 6:17（日本時間）に上のスクリプトを実行し、staging と main の両方を更新。定期実行は既定ブランチの設定しか動かないため、このファイルは main にも置く
+- `.github/workflows/trending.yml` … 毎日 6:17（日本時間）に上のスクリプトを実行し、stg と main の両方を更新。定期実行は既定ブランチの設定しか動かないため、このファイルは main にも置く
 - `icons/` … 各サイトのファビコンの元画像。Actions が足りない分だけ取得し、`scripts/inline-icons.py` が css/top.css に埋め込み、`npm run build` で index.html に入る（通信回数を減らすため。表示には icons/ を直接使わない）
 - `brand/icon.svg` … サイトのアイコンの元絵。`node scripts/build-brand.mjs` で favicon.svg / favicon.ico / apple-touch-icon.png / brand/*.png を書き出す
 - `robots.txt` / `sitemap.xml` / `llms.txt` … 検索エンジンと AI 向けの案内（llms.txt はサイトの説明と作品ページの URL の形）
@@ -32,7 +32,7 @@
    - 見た目 → `css/`（全ページに効くものは `css/base.css`）
    - 動き → `js/`
 2. 反映のしかたはどちらでもよい
-   - GitHub の画面で直して `staging` にコミット → Actions（公開用の HTML を作る）が自動で HTML を作り直してコミットする。1〜2分で staging に出る
+   - GitHub の画面で直して `stg` にコミット → Actions（公開用の HTML を作る）が自動で HTML を作り直してコミットする。1〜2分で stg に出る
    - 手元なら、初回だけ `npm install`、そのあと `npm run build` を実行し、元のファイルと作られたファイル（index.html など・maps/）を一緒にコミットする
 3. `npm run check` で、公開用の HTML が最新か確かめられる
 
@@ -40,8 +40,8 @@ Sass などのプリプロセッサは使っていない。変数（`var(--maxw)
 
 ## ブランチと公開先（Cloudflare Pages）
 - `main` … 本番。https://cinemaladder.com で公開（cinemaladder.pages.dev でも同じものが見られる）
-- `staging` … 確認用。https://staging.cinemaladder.pages.dev で公開し、Cloudflare Access で自分だけが見られるようにする
-- 修正はまず `staging` に入れ、確認できたら `main` に取り込む（`git merge -X theirs staging`。data/ の衝突は staging 側を採用）
+- `stg` … 確認用。https://stg.cinemaladder.pages.dev で公開し、Cloudflare Access で自分だけが見られるようにする
+- 修正はまず `stg` に入れ、確認できたら `main` に取り込む（`git merge -X theirs stg`。data/ の衝突は stg 側を採用）
 - `_headers` … Cloudflare Pages のキャッシュ設定
 
 ## TMDB

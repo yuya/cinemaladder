@@ -9,6 +9,6 @@
 
 ## 運用の要点
 
-- 修正はまず `staging` に入れ、確認できたら `main` に取り込む（`git merge -X theirs staging`）。
+- 修正はまず `stg` に入れ、確認できたら `main` に取り込む（`git merge -X theirs stg`）。
 - 直下の `index.html` などは `npm run build` で作るファイル。直すのは `src/`・`css/`・`js/`。
 - `data/` は GitHub Actions が毎日更新する。手で編集しない。
