@@ -13,46 +13,49 @@ const IMG = "https://image.tmdb.org/t/p/w500";
 const ICON = SITE + "brand/icon-512.png";
 const API = "https://cinemaladder-api.twilightwind.workers.dev/movie";
 
-// 共有リンク（?q=作品名&f=TMDBの番号）のポスター。リンクのプレビュー（LINE・X・iMessage など）に作品の画像を出すため。
-// trailadder の worker.js と同じ考え方。手元のデータ（公開日順の控え、サジェスト用の作品一覧）から探し、
+// 共有リンク（?q=作品名&f=TMDBの番号、または ?f=番号 だけ）の題名とポスター。リンクのプレビュー（LINE・X・iMessage など）に
+// 作品名と画像を出すため。trailadder の worker.js と同じ考え方。手元のデータ（サジェスト用の作品一覧、公開日順の控え）から探し、
 // どちらにもなければ中継サーバー（worker/worker.js の /movie）に聞く。手元のデータは数分ごとに読み直す
-let posters = null, postersAt = 0;
-async function loadPosters(ctx, origin) {
-  if (posters && Date.now() - postersAt < 10 * 60e3) return posters;
+let films = null, filmsAt = 0;
+async function loadFilms(ctx, origin) {
+  if (films && Date.now() - filmsAt < 10 * 60e3) return films;
   const m = new Map();
   const get = async (path) => {
     try { const r = await ctx.env.ASSETS.fetch(new Request(origin + path)); return r.ok ? await r.json() : null; } catch (e) { return null; }
   };
   const [arc, titles] = await Promise.all([get("/data/releases-archive.json"), get("/data/titles.json")]);
-  const f = titles?.fields || [], iId = f.indexOf("id"), iP = f.indexOf("poster");
-  if (iId >= 0 && iP >= 0) for (const t of titles.items || []) if (t[iP]) m.set(String(t[iId]), t[iP]);
-  for (const [id, a] of Object.entries(arc || {})) if (a.p) m.set(id, a.p);
-  posters = m; postersAt = Date.now();
+  const f = titles?.fields || [], iId = f.indexOf("id"), iT = f.indexOf("title"), iP = f.indexOf("poster");
+  if (iId >= 0 && iT >= 0) for (const t of titles.items || []) m.set(String(t[iId]), { t: t[iT], p: iP >= 0 ? t[iP] : null });
+  for (const [id, a] of Object.entries(arc || {})) m.set(id, { t: a.t, p: a.p || null });
+  films = m; filmsAt = Date.now();
   return m;
 }
-async function posterOf(ctx, origin, id) {
-  const p = (await loadPosters(ctx, origin)).get(id);
-  if (p) return p;
+async function filmOf(ctx, origin, id) {
+  const f = (await loadFilms(ctx, origin)).get(id);
+  if (f) return f;
   try {
     const r = await fetch(`${API}?id=${id}`, { signal: AbortSignal.timeout(1500) });   // 待ちすぎて表示が遅れないように
-    if (r.ok) return (await r.json()).poster || null;
+    if (r.ok) { const d = await r.json(); if (d?.title) return { t: d.title, p: d.poster || null }; }
   } catch (e) {}
   return null;
 }
+const cleanQ = (s) => fixRad(s || "").replace(/[\u0000-\u001f\u007f"<>]/g, "").replace(/\s+/g, " ").trim().slice(0, 100);
 
 export async function onRequestGet(ctx) {
   const res = await ctx.next();   // いつもの index.html
   const url = new URL(ctx.request.url);
   // 作品名：前後の空白を除き、長すぎるものは切る。HTML の属性を壊しうる記号と制御文字は外す
-  const q = fixRad(url.searchParams.get("q") || "").replace(/[\u0000-\u001f\u007f"<>]/g, "").replace(/\s+/g, " ").trim().slice(0, 100);
-  if (!q || !(res.headers.get("content-type") || "").includes("text/html")) return res;
+  if (!(res.headers.get("content-type") || "").includes("text/html")) return res;
+  const id = url.searchParams.get("f") || "";
+  const film = /^\d{1,9}$/.test(id) ? await filmOf(ctx, url.origin, id).catch(() => null) : null;
+  const q = cleanQ(url.searchParams.get("q")) || cleanQ(film?.t);   // ?f= だけなら、番号から分かった題名を使う
+  if (!q) return res;
+  const poster = film?.p || null;
 
   const title = `${q} - Cinemaladder`;
   const desc = `「${q}」について、Filmarks、映画.com、Yahoo!など各サイトの検索結果へ移動できます。チケット、SNS、配信サービスの検索結果も開けます。`;
   const canon = new URL(SITE); canon.searchParams.set("q", q);
   const set = (attr, value) => ({ element(e) { e.setAttribute(attr, value); } });
-  const id = url.searchParams.get("f") || "";
-  const poster = /^\d{1,9}$/.test(id) ? await posterOf(ctx, url.origin, id).catch(() => null) : null;
 
   return new HTMLRewriter()
     .on("title", { element(e) { e.setInnerContent(title); } })

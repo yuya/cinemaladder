@@ -1828,7 +1828,7 @@ function lastShown() {
   return l == null ? hist[0] : hist.includes(l) ? l : null;
 }
 let startId = 0; // 共有リンクの f（TMDB の番号）。startQ の作品を探すときに使う
-const startQ = (() => {
+let startQ = (() => {
   try {
     return clean(new URL(location.href).searchParams.get("q") || "");
   } catch (e) {
@@ -1836,22 +1836,70 @@ const startQ = (() => {
   }
 })();
 try {
-  const sp = new URL(location.href).searchParams;
-  startId = +sp.get("f") || 0;
+  startId = +new URL(location.href).searchParams.get("f") || 0;
 } catch (e) {}
-if (startQ) {
-  // 共有・ブックマークされた URL から開いたとき
-  const id = startId;
+// 共有・ブックマークされた URL から開いたとき
+function openShared(q, movie) {
+  startQ = q;
   setQ();
-  if (findMovie(startQ)) remember(startQ);
-  else keepQ = startQ;
+  if (movie || findMovie(q)) remember(q);
+  else keepQ = q;
   navMode = "replace"; // 一致しない作品の URL なら、分かった時点で文字を戻す
-  render(startQ, false, id && meta[startQ]?.id === id ? meta[startQ] : null);
+  render(q, false, movie || (startId && meta[q]?.id === startId ? meta[q] : null));
   getTrending()
     .catch(() => {
       trendFailed = true;
     })
     .finally(updateTop);
+}
+/* ?f=番号 だけのリンク（trailadder から飛んでくるとき）。番号から作品を探し、題名が分かったら ?q=題名&f=番号 に書き換えて開く。
+   探す順：この端末の控え → サジェスト用の作品一覧 → 公開日順の控え → 中継サーバー */
+async function movieById(id) {
+  for (const m of Object.values(meta)) if (m?.id === id && m.title) return m;
+  try {
+    const m = (await loadTitles()).find((t) => t.id === id);
+    if (m) return m;
+  } catch (e) {}
+  try {
+    const m = await fromArchive(id);
+    if (m) return m;
+  } catch (e) {}
+  const r = await fetch(TMDB_PROXY.replace(/search$/, "movie") + "?id=" + id);
+  if (!r.ok) return null;
+  const d = await r.json();
+  return d?.title
+    ? fixT({ id: d.id, title: d.title, original: d.original || d.title, date: d.jpDate || d.date, poster: d.poster || null })
+    : null;
+}
+if (startQ) openShared(startQ, null);
+else if (startId) {
+  $("#out").innerHTML = '<p class="emptyst">作品を読み込み中…</p>';
+  movieById(startId)
+    .catch(() => null)
+    .then((m) => {
+      if (m) {
+        try {
+          history.replaceState(history.state, "", urlFor(m.title, m));
+        } catch (e) {}
+        openShared(m.title, m);
+      } else {
+        // 見つからなければ、ふつうにトップを開く
+        try {
+          history.replaceState(null, "", location.pathname);
+        } catch (e) {}
+        startId = 0;
+        if (lastShown()) {
+          setQ();
+          navMode = "none";
+          render(lastShown());
+          getTrending()
+            .catch(() => {
+              trendFailed = true;
+            })
+            .finally(updateTop);
+        } else showTrending();
+      }
+    });
 } else if (lastShown()) {
   setQ();
   navMode = "none";
