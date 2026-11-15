@@ -1145,7 +1145,7 @@ function fillMovie(m) {
   });
   try {
     const p = new URL(location.href).searchParams;
-    if (p.get("q") === q && !p.get("f") && m.id) // 以前の ?id= のリンクも ?f= に書き換える
+    if (p.get("q") === q && !p.get("f") && m.id)
       history.replaceState({ q, isExample, movie: slim(m) }, "", urlFor(q, m));
     else history.replaceState({ ...(history.state || {}), movie: slim(m) }, "");
   } catch (e) {}
@@ -1837,7 +1837,7 @@ const startQ = (() => {
 })();
 try {
   const sp = new URL(location.href).searchParams;
-  startId = +(sp.get("f") || sp.get("id")) || 0; // id は以前のリンク（2026年11月15日までは ?id= だった）
+  startId = +sp.get("f") || 0;
 } catch (e) {}
 if (startQ) {
   // 共有・ブックマークされた URL から開いたとき
