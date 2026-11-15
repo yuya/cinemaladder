@@ -1845,8 +1845,18 @@ let startQ = (() => {
     return "";
   }
 })();
+// ?f= が作品として開けないとき（番号でない・見つからない）は、URL から f を消す（ほかの指定はそのまま）
+function dropF() {
+  try {
+    const u = new URL(location.href);
+    u.searchParams.delete("f");
+    history.replaceState(history.state, "", u.pathname + u.search + u.hash);
+  } catch (e) {}
+}
 try {
-  startId = +new URL(location.href).searchParams.get("f") || 0;
+  const f = new URL(location.href).searchParams.get("f");
+  startId = /^\d{1,9}$/.test(f || "") ? +f : 0;
+  if (f != null && !startId) dropF();
 } catch (e) {}
 // 共有・ブックマークされた URL から開いたとき
 function openShared(q, movie) {
@@ -1890,10 +1900,8 @@ else if (startId) {
       if (m) {
         openShared(m.title, m);
       } else {
-        // 見つからなければ、ふつうにトップを開く
-        try {
-          history.replaceState(null, "", location.pathname);
-        } catch (e) {}
+        // 見つからなければ、f を消してふつうにトップを開く
+        dropF();
         startId = 0;
         if (lastShown()) {
           setQ();
