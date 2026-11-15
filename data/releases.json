@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T01:03:05.507Z",
+ "updated": "2026-11-15T01:02:37.379Z",
  "today": "2026-11-15",
  "anchor": "2026-11-13",
  "from": "2026-10-15",
@@ -206,19 +206,19 @@
    "pop": 72
   },
   {
-   "id": 1102390,
-   "title": "煙突の中の雀",
-   "original": "Der Spatz im Kamin",
-   "date": "2026-10-30",
-   "poster": "/yX4ZvG4ly26ePyfOkkx6dIHeVWN.jpg",
-   "pop": 1
-  },
-  {
    "id": 517815,
    "title": "ガール・アンド・スパイダー",
    "original": "Das Mädchen und die Spinne",
    "date": "2026-10-30",
    "poster": "/juDYUbDjUh3KiuOQqUd3rbL5HOU.jpg",
+   "pop": 1
+  },
+  {
+   "id": 1102390,
+   "title": "煙突の中の雀",
+   "original": "Der Spatz im Kamin",
+   "date": "2026-10-30",
+   "poster": "/yX4ZvG4ly26ePyfOkkx6dIHeVWN.jpg",
    "pop": 1
   },
   {
@@ -238,19 +238,19 @@
    "pop": 0.8
   },
   {
-   "id": 1555226,
-   "title": "恒星の向こう側",
-   "original": "恒星の向こう側",
-   "date": "2026-10-30",
-   "poster": "/2VEvO7Jw0CPCX3Jj1RZ2Ouvrl7V.jpg",
-   "pop": 0.6
-  },
-  {
    "id": 164328,
    "title": "ストレンジ・リトル・キャット",
    "original": "Das merkwürdige Kätzchen",
    "date": "2026-10-30",
    "poster": "/cTOis8vPhu1XZxJVgDMDrpZFXE3.jpg",
+   "pop": 0.6
+  },
+  {
+   "id": 1555226,
+   "title": "恒星の向こう側",
+   "original": "恒星の向こう側",
+   "date": "2026-10-30",
+   "poster": "/2VEvO7Jw0CPCX3Jj1RZ2Ouvrl7V.jpg",
    "pop": 0.6
   },
   {
@@ -382,6 +382,14 @@
    "pop": 0.4
   },
   {
+   "id": 1773014,
+   "title": "4アウト ─もう一度、プレイボール─",
+   "original": "4アウト ─もう一度、プレイボール─",
+   "date": "2026-11-06",
+   "poster": "/jc3MtWlLeuHQJwEYlvb5SVcVhCv.jpg",
+   "pop": 0.4
+  },
+  {
    "id": 1807445,
    "title": "みらいしのほこう",
    "original": "みらいしのほこう",
@@ -446,14 +454,6 @@
    "pop": 1.8
   },
   {
-   "id": 1560309,
-   "title": "すべて真夜中の恋人たち",
-   "original": "すべて真夜中の恋人たち",
-   "date": "2026-11-13",
-   "poster": "/hu59kewfoT7Brzimj8KOliuh5Ih.jpg",
-   "pop": 1.6
-  },
-  {
    "id": 1236857,
    "title": "楽園追放 心のレゾナンス",
    "original": "楽園追放 心のレゾナンス",
@@ -467,6 +467,14 @@
    "original": "Tre ciotole",
    "date": "2026-11-13",
    "poster": "/dJVt8OJLIzwiOcpJJiwHg88xrdb.jpg",
+   "pop": 1.6
+  },
+  {
+   "id": 1560309,
+   "title": "すべて真夜中の恋人たち",
+   "original": "すべて真夜中の恋人たち",
+   "date": "2026-11-13",
+   "poster": "/hu59kewfoT7Brzimj8KOliuh5Ih.jpg",
    "pop": 1.6
   },
   {
@@ -508,6 +516,14 @@
    "date": "2026-11-13",
    "poster": "/lI3GfPTxS6SN0D1BmfbkbmHBaSI.jpg",
    "pop": 0.3
+  },
+  {
+   "id": 1823861,
+   "title": "刺青",
+   "original": "刺青",
+   "date": "2026-11-13",
+   "poster": "/4GD7hvB2OaIi5xLL6cv4adsHxZx.jpg",
+   "pop": 0.2
   },
   {
    "id": 1823861,
@@ -574,19 +590,19 @@
    "pop": 0.7
   },
   {
-   "id": 1724371,
-   "title": "ないものねだりの君に光の花束を",
-   "original": "ないものねだりの君に光の花束を",
-   "date": "2026-11-20",
-   "poster": "/ijOsHTIae0dYcRUSvGrCrAeTIJ6.jpg",
-   "pop": 0.6
-  },
-  {
    "id": 1767360,
    "title": "月がみている",
    "original": "月がみている",
    "date": "2026-11-20",
    "poster": "/fP2IG82kQ8EEYGeRrCzMcHcRUBz.jpg",
+   "pop": 0.6
+  },
+  {
+   "id": 1724371,
+   "title": "ないものねだりの君に光の花束を",
+   "original": "ないものねだりの君に光の花束を",
+   "date": "2026-11-20",
+   "poster": "/ijOsHTIae0dYcRUSvGrCrAeTIJ6.jpg",
    "pop": 0.6
   },
   {

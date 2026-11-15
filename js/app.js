@@ -752,7 +752,7 @@ function renderEmpty() {
 /* 作品名から TMDB の情報を、手元にない場合に取りに行く。
    1. 作品一覧（data/titles.json） 2. 中継サーバーで検索し、タイトルが完全に一致したもの */
 /* 公開日順に載せたことのある作品の控え（data/releases-archive.json。毎朝の更新で足していく）。
-   共有リンク（?q=作品名&id=TMDBの番号）の作品が、範囲から外れたあとでも見つかるようにする。id 付きで開いたときだけ読む */
+   共有リンク（?q=作品名&f=TMDBの番号）の作品が、範囲から外れたあとでも見つかるようにする。f 付きで開いたときだけ読む */
 let archiveP = null;
 function fromArchive(id) {
   archiveP ??= fetch("data/releases-archive.json")
@@ -1017,7 +1017,7 @@ function peekHTML(m, side) {
 function nowHTML(q, isExample, movie) {
   return `<header class="now">${isExample === "trend" ? '<p class="k">いま話題の作品から表示中<button type="button" class="kl" id="shuffle">ほかの話題作</button></p>' : ""}<figure class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>${movie?.poster ? `<img src="${IMG}${esc(movie.poster)}" alt="${esc(q)} のポスター" width="54" height="80" decoding="async" onload="this.classList.add('ok')">` : ""}</figure><div><p class="vh">検索中の作品</p><h1 id="mt">${wrapWords(q)}</h1><p class="ex meta" id="imeta"><span class="sk" aria-label="読み込み中"></span></p><div class="irow"><button type="button" class="itg" id="itg" aria-expanded="${infoOpen}" aria-controls="info">あらすじ・キャスト</button>${ringNavHTML(movie)}<button type="button" class="share" id="share" aria-label="この作品のページのリンクを共有" title="リンクを共有"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg></button></div>${isExample && isExample !== "trend" ? '<p class="ex">例として表示しています。上の欄に観たい作品名を入れてください。</p>' : ""}</div></header>`;
 }
-/* ===== 作品ごとの URL（?q=作品名&id=TMDBの番号）とページタイトル =====
+/* ===== 作品ごとの URL（?q=作品名&f=TMDBの番号。trailadder と同じ f）とページタイトル =====
    クエリ文字列で作品を表す。ブックマーク・共有・戻るボタンに対応。共有のプレビューや検索エンジン向けの題名は、
    functions/index.js がサーバー側で作品名入りに書き換える（ここでは画面を開いたあとのタブの題名を変える）。
    navMode："push"＝利用者が選んだ（履歴を1つ進める）、"replace"＝URL を置き換える、"none"＝URL はそのまま */
@@ -1029,7 +1029,7 @@ function urlFor(q, movie) {
   u.search = "";
   u.hash = "";
   u.searchParams.set("q", q);
-  if (movie?.id) u.searchParams.set("id", movie.id);
+  if (movie?.id) u.searchParams.set("f", movie.id);
   return u.toString();
 }
 const DESC = document.querySelector('meta[name="description"]').content;
@@ -1145,7 +1145,7 @@ function fillMovie(m) {
   });
   try {
     const p = new URL(location.href).searchParams;
-    if (p.get("q") === q && !p.get("id") && m.id)
+    if (p.get("q") === q && !p.get("f") && m.id) // 以前の ?id= のリンクも ?f= に書き換える
       history.replaceState({ q, isExample, movie: slim(m) }, "", urlFor(q, m));
     else history.replaceState({ ...(history.state || {}), movie: slim(m) }, "");
   } catch (e) {}
@@ -1827,7 +1827,7 @@ function lastShown() {
   if (l) l = fixRad(l);
   return l == null ? hist[0] : hist.includes(l) ? l : null;
 }
-let startId = 0; // 共有リンクの id（TMDB の番号）。startQ の作品を探すときに使う
+let startId = 0; // 共有リンクの f（TMDB の番号）。startQ の作品を探すときに使う
 const startQ = (() => {
   try {
     return clean(new URL(location.href).searchParams.get("q") || "");
@@ -1836,7 +1836,8 @@ const startQ = (() => {
   }
 })();
 try {
-  startId = +new URL(location.href).searchParams.get("id") || 0;
+  const sp = new URL(location.href).searchParams;
+  startId = +(sp.get("f") || sp.get("id")) || 0; // id は以前のリンク（2026年11月15日までは ?id= だった）
 } catch (e) {}
 if (startQ) {
   // 共有・ブックマークされた URL から開いたとき
