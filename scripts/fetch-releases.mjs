@@ -1,5 +1,5 @@
 // 日本の劇場公開日が「今日の1か月前〜2か月後」の作品を TMDB から集め、data/releases.json に書き出す（trailadder と同じ範囲）。
-// あわせて、これまで一覧に載せた作品を data/releases-archive.json に残す。範囲から外れた作品の共有リンク（?q=作品名&id=TMDBの番号）でも、
+// あわせて、これまで一覧に載せた作品を data/releases-archive.json に残す。範囲から外れた作品の共有リンク（?q=作品名&f=TMDBの番号）でも、
 // ポスターや作品情報を出せるようにするため。古い作品も消さずに足していく。
 // GitHub Actions から毎日実行し、新しく登録された作品も拾う。
 import { writeFile, readFile, mkdir } from "node:fs/promises";
