@@ -752,7 +752,7 @@ function renderEmpty() {
 /* 作品名から TMDB の情報を、手元にない場合に取りに行く。
    1. 作品一覧（data/titles.json） 2. 中継サーバーで検索し、タイトルが完全に一致したもの */
 /* 公開日順に載せたことのある作品の控え（data/releases-archive.json。毎朝の更新で足していく）。
-   共有リンク（?q=作品名&f=TMDBの番号）の作品が、範囲から外れたあとでも見つかるようにする。f 付きで開いたときだけ読む */
+   共有リンク（?f=TMDBの番号）の作品が、範囲から外れたあとでも見つかるようにする。f 付きで開いたときだけ読む */
 let archiveP = null;
 function fromArchive(id) {
   archiveP ??= fetch("data/releases-archive.json")
@@ -1017,8 +1017,9 @@ function peekHTML(m, side) {
 function nowHTML(q, isExample, movie) {
   return `<header class="now">${isExample === "trend" ? '<p class="k">いま話題の作品から表示中<button type="button" class="kl" id="shuffle">ほかの話題作</button></p>' : ""}<figure class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>${movie?.poster ? `<img src="${IMG}${esc(movie.poster)}" alt="${esc(q)} のポスター" width="54" height="80" decoding="async" onload="this.classList.add('ok')">` : ""}</figure><div><p class="vh">検索中の作品</p><h1 id="mt">${wrapWords(q)}</h1><p class="ex meta" id="imeta"><span class="sk" aria-label="読み込み中"></span></p><div class="irow"><button type="button" class="itg" id="itg" aria-expanded="${infoOpen}" aria-controls="info">あらすじ・キャスト</button>${ringNavHTML(movie)}<button type="button" class="share" id="share" aria-label="この作品のページのリンクを共有" title="リンクを共有"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg></button></div>${isExample && isExample !== "trend" ? '<p class="ex">例として表示しています。上の欄に観たい作品名を入れてください。</p>' : ""}</div></header>`;
 }
-/* ===== 作品ごとの URL（?q=作品名&f=TMDBの番号。trailadder と同じ f）とページタイトル =====
-   クエリ文字列で作品を表す。ブックマーク・共有・戻るボタンに対応。共有のプレビューや検索エンジン向けの題名は、
+/* ===== 作品ごとの URL（?f=TMDBの番号。trailadder と同じ）とページタイトル =====
+   作品と一致したときだけ ?f= を付ける。一致しない検索語は URL に残さない（トップの URL のまま）。
+   以前の ?q=作品名 のリンクも開け、作品が分かれば ?f= に書き換える。ブックマーク・共有・戻るボタンに対応。共有のプレビューや検索エンジン向けの題名は、
    functions/index.js がサーバー側で作品名入りに書き換える（ここでは画面を開いたあとのタブの題名を変える）。
    navMode："push"＝利用者が選んだ（履歴を1つ進める）、"replace"＝URL を置き換える、"none"＝URL はそのまま */
 let navMode = "none";
@@ -1028,12 +1029,11 @@ function urlFor(q, movie) {
   const u = new URL(location.href);
   u.search = "";
   u.hash = "";
-  u.searchParams.set("q", q);
   if (movie?.id) u.searchParams.set("f", movie.id);
   return u.toString();
 }
 const DESC = document.querySelector('meta[name="description"]').content;
-function setMeta(q, isExample) {
+function setMeta(q, isExample, movie) {
   const desc =
     q && !isExample
       ? `「${q}」について、Filmarks、映画.com、Yahoo!など各サイトの検索結果へ移動できます。チケット、SNS、配信サービスの検索結果も開けます。`
@@ -1044,32 +1044,33 @@ function setMeta(q, isExample) {
   // 作品ページは自分自身を正規URLに、おすすめ表示のトップはトップを正規URLにする
   // 正規URLは常に本番の独自ドメインにする（cinemaladder.pages.dev など別の住所で開かれても、検索エンジンには本番を伝える）
   const canon = new URL(SITE);
-  if (q && !isExample) canon.searchParams.set("q", q);
+  if (q && !isExample && movie?.id) canon.searchParams.set("f", movie.id);
   document.querySelector('link[rel="canonical"]').href = canon.href;
   document.querySelector('meta[property="og:url"]').content = canon.href;
 }
 function syncNav(q, isExample, movie) {
-  const st = { q, isExample, movie: slim(movie) };
+  // u：利用者が選んだ・共有リンクから開いた作品（あとで作品が分かったら ?f= を付けてよい）
+  const st = { q, isExample, movie: slim(movie), u: !(isExample || navMode === "none") };
   try {
-    if (isExample || navMode === "none")
-      history.replaceState(st, "", location.href); // おすすめ表示などは URL を変えない
-    else if (navMode === "push" && new URL(location.href).searchParams.get("q") !== q)
+    if (!st.u)
+      history.replaceState({ ...st, u: !!history.state?.u && history.state.q === q }, "", location.href); // おすすめ表示などは URL を変えない
+    else if (navMode === "push" && history.state?.q !== q)
       history.pushState(st, "", urlFor(q, movie));
     else history.replaceState(st, "", urlFor(q, movie));
   } catch (e) {}
   navMode = "push";
-  // タブの題名は URL に合わせる。作品の URL（?q=）のときだけ作品名を出し、トップの URL のまま
+  // タブの題名は URL に合わせる。作品の URL（?f=）のときだけ作品名を出し、トップの URL のまま
   // 話題作や前回の作品を表示しているときはトップの題名にする（ブックマークや共有で題名がばらつかないように）
   let onMovie = false;
   try {
-    onMovie = !!new URL(location.href).searchParams.get("q");
+    onMovie = !!new URL(location.href).searchParams.get("f");
   } catch (e) {}
   document.title = q && onMovie ? `${q} - Cinemaladder` : TOP_TITLE;
-  setMeta(onMovie ? q : "", isExample); // 説明文・正規URLも URL に合わせる
+  setMeta(onMovie ? q : "", isExample, movie); // 説明文・正規URLも URL に合わせる
 }
 function shareUrl() {
-  return cur?.[0] ? urlFor(cur[0], cur[2]) : location.href;
-} // 共有ボタンは、いつも表示中の作品のページを渡す
+  return cur?.[2]?.id ? urlFor(cur[0], cur[2]) : location.href;
+} // 共有ボタンは、表示中の作品のページを渡す（作品と一致しない検索語はトップの URL）
 let toastTimer = null;
 let toastSwap = null;
 function toast(msg) {
@@ -1144,10 +1145,14 @@ function fillMovie(m) {
     if (all[i]) a.href = all[i].u(fixRad(q), m);
   });
   try {
-    const p = new URL(location.href).searchParams;
-    if (p.get("q") === q && !p.get("f") && m.id)
-      history.replaceState({ q, isExample, movie: slim(m) }, "", urlFor(q, m));
-    else history.replaceState({ ...(history.state || {}), movie: slim(m) }, "");
+    // 作品があとから分かったら、利用者が選んだ表示のときだけ ?f= を付け、題名・正規URLも作品に合わせる
+    const st = history.state || {},
+      hasF = !!new URL(location.href).searchParams.get("f");
+    if (st.q === q && st.u && !hasF && m.id) {
+      history.replaceState({ ...st, movie: slim(m) }, "", urlFor(q, m));
+      document.title = `${q} - Cinemaladder`;
+      setMeta(q, isExample, m);
+    } else history.replaceState({ ...st, movie: slim(m) }, "");
   } catch (e) {}
 }
 /* X の除外語の編集パネル（チップの × で削除、入力欄で追加） */
@@ -1539,12 +1544,17 @@ addEventListener("popstate", (e) => {
     render(st.q, st.isExample, st.movie);
     collapseTop();
   } else {
-    const q = new URL(location.href).searchParams.get("q");
-    if (q) {
-      navMode = "none";
-      setQ();
-      render(q);
-    } else showTrending();
+    const f = +new URL(location.href).searchParams.get("f") || 0;
+    if (f)
+      movieById(f)
+        .catch(() => null)
+        .then((m) => {
+          if (!m) return showTrending();
+          navMode = "none";
+          setQ();
+          render(m.title, false, m);
+        });
+    else showTrending();
   }
 });
 $("#out").addEventListener(
@@ -1852,7 +1862,7 @@ function openShared(q, movie) {
     })
     .finally(updateTop);
 }
-/* ?f=番号 だけのリンク（trailadder から飛んでくるとき）。番号から作品を探し、題名が分かったら ?q=題名&f=番号 に書き換えて開く。
+/* ?f=番号 のリンク。番号から作品を探して開く（trailadder からのリンクも同じ）。
    探す順：この端末の控え → サジェスト用の作品一覧 → 公開日順の控え → 中継サーバー */
 async function movieById(id) {
   for (const m of Object.values(meta)) if (m?.id === id && m.title) return m;
@@ -1878,9 +1888,6 @@ else if (startId) {
     .catch(() => null)
     .then((m) => {
       if (m) {
-        try {
-          history.replaceState(history.state, "", urlFor(m.title, m));
-        } catch (e) {}
         openShared(m.title, m);
       } else {
         // 見つからなければ、ふつうにトップを開く

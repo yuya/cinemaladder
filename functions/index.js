@@ -13,7 +13,7 @@ const IMG = "https://image.tmdb.org/t/p/w500";
 const ICON = SITE + "brand/icon-512.png";
 const API = "https://cinemaladder-api.twilightwind.workers.dev/movie";
 
-// 共有リンク（?q=作品名&f=TMDBの番号、または ?f=番号 だけ）の題名とポスター。リンクのプレビュー（LINE・X・iMessage など）に
+// 共有リンク（?f=TMDBの番号。以前の ?q=作品名 も）の題名とポスター。リンクのプレビュー（LINE・X・iMessage など）に
 // 作品名と画像を出すため。trailadder の worker.js と同じ考え方。手元のデータ（サジェスト用の作品一覧、公開日順の控え）から探し、
 // どちらにもなければ中継サーバー（worker/worker.js の /movie）に聞く。手元のデータは数分ごとに読み直す
 let films = null, filmsAt = 0;
@@ -54,7 +54,9 @@ export async function onRequestGet(ctx) {
 
   const title = `${q} - Cinemaladder`;
   const desc = `「${q}」について、Filmarks、映画.com、Yahoo!など各サイトの検索結果へ移動できます。チケット、SNS、配信サービスの検索結果も開けます。`;
-  const canon = new URL(SITE); canon.searchParams.set("q", q);
+  // 正規URL：作品が分かれば ?f=番号。以前の ?q= だけのリンクで作品が分からないときは ?q= のまま
+  const canon = new URL(SITE);
+  if (film) canon.searchParams.set("f", id); else canon.searchParams.set("q", q);
   const set = (attr, value) => ({ element(e) { e.setAttribute(attr, value); } });
 
   return new HTMLRewriter()

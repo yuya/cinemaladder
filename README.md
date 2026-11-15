@@ -13,11 +13,11 @@
 - `data/insta-tags.json` … Instagram の公式ハッシュタグの表（TMDB の作品番号 → タグ。# なし。出典と確認日も残す）。Muse が公式サイト・公式X などから週1回集めて更新する。`npm run build` で js/app.js に埋め込まれる（タグに # や空白・記号があるとビルドが止まる）。表にない作品は作品名から記号を除いたタグを使う
 - `package.json` … ビルドに使う道具（esbuild）の版を固定する
 - `about.html` / `privacy.html` … 運営者情報とプライバシーポリシー（外部送信の公表を含む）。アクセス解析・広告・アフィリエイトを入れたら privacy.html の表と説明を更新する。公開URLは /about・/privacy（Cloudflare Pages が .html を省いた URL で配信し、.html 付きは自動で転送する）
-- `functions/index.js` … Cloudflare Pages Functions。`/?q=作品名` で開かれたとき、HTML の題名・説明文・正規URLを作品名入りに書き換えて返す（共有のプレビューや検索エンジン向け。JS を動かさずに読まれるため）。push するだけで Pages が一緒に公開する
+- `functions/index.js` … Cloudflare Pages Functions。`/?f=TMDBの番号` で開かれたとき（以前の `/?q=作品名` も）、HTML の題名・説明文・正規URL・画像を作品のものに書き換えて返す（共有のプレビューや検索エンジン向け。JS を動かさずに読まれるため）。push するだけで Pages が一緒に公開する
 - `worker/worker.js` / `worker/wrangler.toml` … TMDB 中継（Cloudflare Workers、名前は cinemaladder-api）。https://cinemaladder-api.twilightwind.workers.dev で稼働。サジェスト・作品情報・英語あらすじの機械翻訳（DeepL、使えないときは Workers AI）。main の worker/ が変わると `.github/workflows/worker.yml` が自動で公開する（GitHub の Secret：CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID / DEEPL_API_KEY。DeepL のキーは公開のたびに Worker の Secret へ渡す）
 - `data/trending.json` … 話題作TOP10。GitHub Actions が毎日自動更新（手で編集しない）
 - `data/releases.json` … 日本の公開日が今日の1か月前〜2か月後の作品（trailadder と同じ範囲）。「いま話題の映画」の「公開日順」タブで使う。`scripts/fetch-releases.mjs` で Actions が毎日更新
-- `data/releases-archive.json` … これまで「公開日順」に載せたすべての作品の題名・原題・公開日・ポスター（1作品1行、TMDB の番号順）。共有リンク（`?q=作品名&f=TMDBの番号`）を、範囲から外れたあとも開けるようにする。毎日の更新で足していき、消さない。stg を main に取り込んだあと、作品数が減っていないか確かめる
+- `data/releases-archive.json` … これまで「公開日順」に載せたすべての作品の題名・原題・公開日・ポスター（1作品1行、TMDB の番号順）。共有リンク（`?f=TMDBの番号`）を、範囲から外れたあとも開けるようにする。毎日の更新で足していき、消さない。stg を main に取り込んだあと、作品数が減っていないか確かめる
 - `data/titles.json` … 検索ボックスのサジェスト用の作品一覧（数千本）。Actions が毎日自動更新
 - `scripts/fetch-trending.mjs` / `scripts/fetch-titles.mjs` … 上の2つの JSON を作るスクリプト
 - `scripts/fetch-icons.mjs` … ファビコンを取得するスクリプト（サイトを増やしたらここにも追加）
