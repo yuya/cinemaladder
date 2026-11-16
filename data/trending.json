@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T01:02:31.439Z",
+ "updated": "2026-11-16T01:02:20.834Z",
  "items": [
   {
    "id": 1423191,
@@ -7,7 +7,7 @@
    "original": "Resident Evil",
    "date": "2026-10-09",
    "poster": "/wHXSnGH3zQtvpxPwaBXMoS9o8Vl.jpg",
-   "pop": 550.7621,
+   "pop": 509.2773,
    "info": {
     "id": 1423191,
     "title": "バイオハザード",
@@ -48,7 +48,7 @@
    "original": "Other Mommy",
    "date": "2026-11-20",
    "poster": "/qs0kHXbRadmtDIH5EmIoiqV0rX1.jpg",
-   "pop": 282.4946,
+   "pop": 333.5352,
    "info": {
     "id": 1400837,
     "title": "アザー・マミー",
@@ -58,10 +58,11 @@
     "jpDate": "2026-11-20",
     "runtime": 93,
     "tagline": "",
-    "overview": "Young Bela forms a relationship with a sinister entity in her home that looks uncannily like her own mother, drawing her into a terrifying and increasingly dark world.",
+    "overview": "7-year-old Bela forms a relationship with a sinister entity in her home that looks uncannily like her own mother, drawing her into a terrifying and increasingly dark world.",
     "overviewLang": "en",
     "genres": [
-     "ホラー"
+     "ホラー",
+     "ミステリー"
     ],
     "countries": [
      "US"
@@ -85,7 +86,7 @@
    "original": "ゴジラ-0.0",
    "date": "2026-11-03",
    "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
-   "pop": 173.6675,
+   "pop": 160.1318,
    "info": {
     "id": 1381071,
     "title": "ゴジラ-0.0",
@@ -124,7 +125,7 @@
    "original": "Verity",
    "date": "2026-11-06",
    "poster": "/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "pop": 130.0063,
+   "pop": 124.0516,
    "info": {
     "id": 1283515,
     "title": "ヴェリティ／真実",
@@ -162,7 +163,7 @@
    "original": "Ebenezer",
    "date": "2026-11-13",
    "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
-   "pop": 111.9037,
+   "pop": 121.7855,
    "info": {
     "id": 1567605,
     "title": "クリスマス・キャロル／3人のゴーストたち",
@@ -188,10 +189,10 @@
     "cast": [
      "ジョニー・デップ",
      "ルパート・グリント",
-     "デイジー・リドリー",
-     "トラメル・ティルマン",
      "イアン・マッケラン",
-     "アンドレア・ライズボロー"
+     "アンドレア・ライズボロー",
+     "サム・クラフリン",
+     "デイジー・リドリー"
     ]
    }
   },
@@ -201,7 +202,7 @@
    "original": "Street Fighter",
    "date": "2026-10-16",
    "poster": "/1JBlbyXionXPRaqW1UQw7eKkxNP.jpg",
-   "pop": 76.0561,
+   "pop": 77.9786,
    "info": {
     "id": 1153576,
     "title": "ストリートファイター／ザ・ムービー",
@@ -215,6 +216,7 @@
     "overviewLang": "ja",
     "genres": [
      "アクション",
+     "コメディ",
      "ファンタジー"
     ],
     "countries": [
@@ -240,7 +242,7 @@
    "original": "Clayface",
    "date": "2026-10-30",
    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-   "pop": 72.2631,
+   "pop": 72.0477,
    "info": {
     "id": 1400940,
     "title": "クレイフェイス",
@@ -274,50 +276,12 @@
    }
   },
   {
-   "id": 1483525,
-   "title": "もしもの愛",
-   "original": "가능한 사랑",
-   "date": "2026-10-23",
-   "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
-   "pop": 46.3574,
-   "info": {
-    "id": 1483525,
-    "title": "もしもの愛",
-    "original": "가능한 사랑",
-    "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
-    "date": "2026-09-23",
-    "jpDate": "2026-10-23",
-    "runtime": 165,
-    "tagline": "",
-    "overview": "まったく異なる人生を歩む2 組の夫婦の交錯する日常を捉え、平穏に見えた日々に少しずつ亀裂が生まれていく様子を描き出す。",
-    "overviewLang": "ja",
-    "genres": [
-     "ドラマ"
-    ],
-    "countries": [
-     "KR",
-     "US"
-    ],
-    "directors": [
-     "イ・チャンドン"
-    ],
-    "cast": [
-     "チョン・ドヨン",
-     "ソル・ギョング",
-     "チョ・インソン",
-     "チョ・ヨジョン",
-     "チョ・ユリ",
-     "최민"
-    ]
-   }
-  },
-  {
    "id": 1302904,
    "title": "プラティカル・マジック／魔女たちの秘密",
    "original": "Practical Magic 2",
    "date": "2026-11-27",
    "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
-   "pop": 44.5621,
+   "pop": 48.3856,
    "info": {
     "id": 1302904,
     "title": "プラティカル・マジック／魔女たちの秘密",
@@ -356,7 +320,7 @@
    "original": "Whalefall",
    "date": "2026-10-16",
    "poster": "/q4z5EiiOwYWUDkkPMAmFVjqWnBa.jpg",
-   "pop": 43.3938,
+   "pop": 44.1271,
    "info": {
     "id": 1255833,
     "title": "クジラに落ちた男",
@@ -384,6 +348,44 @@
      "ジョン・オーティス",
      "ジェーン・レヴィ",
      "エミリー・ラッド"
+    ]
+   }
+  },
+  {
+   "id": 1483525,
+   "title": "もしもの愛",
+   "original": "가능한 사랑",
+   "date": "2026-10-23",
+   "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
+   "pop": 38.74,
+   "info": {
+    "id": 1483525,
+    "title": "もしもの愛",
+    "original": "가능한 사랑",
+    "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
+    "date": "2026-09-23",
+    "jpDate": "2026-10-23",
+    "runtime": 165,
+    "tagline": "",
+    "overview": "まったく異なる人生を歩む2 組の夫婦の交錯する日常を捉え、平穏に見えた日々に少しずつ亀裂が生まれていく様子を描き出す。",
+    "overviewLang": "ja",
+    "genres": [
+     "ドラマ"
+    ],
+    "countries": [
+     "KR",
+     "US"
+    ],
+    "directors": [
+     "イ・チャンドン"
+    ],
+    "cast": [
+     "チョン・ドヨン",
+     "ソル・ギョング",
+     "チョ・インソン",
+     "チョ・ヨジョン",
+     "チョ・ユリ",
+     "최민"
     ]
    }
   }
