@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16T01:01:49.278Z",
+ "updated": "2026-11-17T03:53:08.531Z",
  "items": [
   {
    "id": 1423191,
@@ -7,7 +7,7 @@
    "original": "Resident Evil",
    "date": "2026-10-09",
    "poster": "/wHXSnGH3zQtvpxPwaBXMoS9o8Vl.jpg",
-   "pop": 509.2773,
+   "pop": 450.7038,
    "info": {
     "id": 1423191,
     "title": "バイオハザード",
@@ -48,7 +48,7 @@
    "original": "Other Mommy",
    "date": "2026-11-20",
    "poster": "/qs0kHXbRadmtDIH5EmIoiqV0rX1.jpg",
-   "pop": 333.5352,
+   "pop": 421.1806,
    "info": {
     "id": 1400837,
     "title": "アザー・マミー",
@@ -58,11 +58,10 @@
     "jpDate": "2026-11-20",
     "runtime": 93,
     "tagline": "",
-    "overview": "7-year-old Bela forms a relationship with a sinister entity in her home that looks uncannily like her own mother, drawing her into a terrifying and increasingly dark world.",
+    "overview": "Young Bela forms a relationship with a sinister entity in her home that looks uncannily like her own mother, drawing her into a terrifying and increasingly dark world.",
     "overviewLang": "en",
     "genres": [
-     "ホラー",
-     "ミステリー"
+     "ホラー"
     ],
     "countries": [
      "US"
@@ -86,7 +85,7 @@
    "original": "ゴジラ-0.0",
    "date": "2026-11-03",
    "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
-   "pop": 160.1318,
+   "pop": 137.0655,
    "info": {
     "id": 1381071,
     "title": "ゴジラ-0.0",
@@ -120,12 +119,51 @@
    }
   },
   {
+   "id": 1567605,
+   "title": "クリスマス・キャロル／3人のゴーストたち",
+   "original": "Ebenezer",
+   "date": "2026-11-13",
+   "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
+   "pop": 129.6785,
+   "info": {
+    "id": 1567605,
+    "title": "クリスマス・キャロル／3人のゴーストたち",
+    "original": "Ebenezer",
+    "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
+    "date": "2026-11-11",
+    "jpDate": "2026-11-13",
+    "runtime": 115,
+    "tagline": "",
+    "overview": "An elderly miser embarks on a supernatural journey after visits from the ghost of his former business partner and the Spirits of Christmas Past, Present, and Yet to Come force him to confront his past and fight for a second chance at happiness.",
+    "overviewLang": "en",
+    "genres": [
+     "ファンタジー",
+     "コメディ"
+    ],
+    "countries": [
+     "US",
+     "GB"
+    ],
+    "directors": [
+     "タイ・ウェスト"
+    ],
+    "cast": [
+     "ジョニー・デップ",
+     "ルパート・グリント",
+     "デイジー・リドリー",
+     "イアン・マッケラン",
+     "アンドレア・ライズボロー",
+     "サム・クラフリン"
+    ]
+   }
+  },
+  {
    "id": 1283515,
    "title": "ヴェリティ／真実",
    "original": "Verity",
    "date": "2026-11-06",
    "poster": "/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "pop": 124.0516,
+   "pop": 118.543,
    "info": {
     "id": 1283515,
     "title": "ヴェリティ／真実",
@@ -158,51 +196,12 @@
    }
   },
   {
-   "id": 1567605,
-   "title": "クリスマス・キャロル／3人のゴーストたち",
-   "original": "Ebenezer",
-   "date": "2026-11-13",
-   "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
-   "pop": 121.7855,
-   "info": {
-    "id": 1567605,
-    "title": "クリスマス・キャロル／3人のゴーストたち",
-    "original": "Ebenezer",
-    "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
-    "date": "2026-11-11",
-    "jpDate": "2026-11-13",
-    "runtime": 115,
-    "tagline": "",
-    "overview": "An elderly miser embarks on a supernatural journey after visits from the ghost of his former business partner and the Spirits of Christmas Past, Present, and Yet to Come force him to confront his past and fight for a second chance at happiness.",
-    "overviewLang": "en",
-    "genres": [
-     "ファンタジー",
-     "コメディ"
-    ],
-    "countries": [
-     "US",
-     "GB"
-    ],
-    "directors": [
-     "タイ・ウェスト"
-    ],
-    "cast": [
-     "ジョニー・デップ",
-     "ルパート・グリント",
-     "イアン・マッケラン",
-     "アンドレア・ライズボロー",
-     "サム・クラフリン",
-     "デイジー・リドリー"
-    ]
-   }
-  },
-  {
    "id": 1153576,
    "title": "ストリートファイター／ザ・ムービー",
    "original": "Street Fighter",
    "date": "2026-10-16",
    "poster": "/1JBlbyXionXPRaqW1UQw7eKkxNP.jpg",
-   "pop": 77.9786,
+   "pop": 78.8171,
    "info": {
     "id": 1153576,
     "title": "ストリートファイター／ザ・ムービー",
@@ -232,7 +231,7 @@
      "カリーナ・リャン",
      "デヴィッド・ダストマルチャン",
      "アンドリュー・シュルツ",
-     "ローマン・レインズ"
+     "コーディ・ローデス"
     ]
    }
   },
@@ -242,7 +241,7 @@
    "original": "Clayface",
    "date": "2026-10-30",
    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-   "pop": 72.0477,
+   "pop": 65.8076,
    "info": {
     "id": 1400940,
     "title": "クレイフェイス",
@@ -276,12 +275,49 @@
    }
   },
   {
+   "id": 1255833,
+   "title": "クジラに落ちた男",
+   "original": "Whalefall",
+   "date": "2026-10-16",
+   "poster": "/q4z5EiiOwYWUDkkPMAmFVjqWnBa.jpg",
+   "pop": 42.8862,
+   "info": {
+    "id": 1255833,
+    "title": "クジラに落ちた男",
+    "original": "Whalefall",
+    "poster": "/q4z5EiiOwYWUDkkPMAmFVjqWnBa.jpg",
+    "date": "2026-10-14",
+    "jpDate": "2026-10-16",
+    "runtime": 106,
+    "tagline": "",
+    "overview": "Following the death of his father, Jay Gardiner goes diving off the central Coast of California in search of his remains, but is swallowed by a massive sperm whale. While trapped inside its belly with only one hour of oxygen left, Jay comes to realize that the hard-earned lessons his father imparted may be the key to his escape.",
+    "overviewLang": "en",
+    "genres": [
+     "スリラー"
+    ],
+    "countries": [
+     "US"
+    ],
+    "directors": [
+     "ブライアン・ダッフィールド"
+    ],
+    "cast": [
+     "オースティン・エイブラムス",
+     "ジョシュ・ブローリン",
+     "エリザベス・シュー",
+     "ジョン・オーティス",
+     "ジェーン・レヴィ",
+     "エミリー・ラッド"
+    ]
+   }
+  },
+  {
    "id": 1302904,
    "title": "プラティカル・マジック／魔女たちの秘密",
    "original": "Practical Magic 2",
    "date": "2026-11-27",
    "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
-   "pop": 48.3856,
+   "pop": 42.7472,
    "info": {
     "id": 1302904,
     "title": "プラティカル・マジック／魔女たちの秘密",
@@ -315,49 +351,12 @@
    }
   },
   {
-   "id": 1255833,
-   "title": "クジラに落ちた男",
-   "original": "Whalefall",
-   "date": "2026-10-16",
-   "poster": "/q4z5EiiOwYWUDkkPMAmFVjqWnBa.jpg",
-   "pop": 44.1271,
-   "info": {
-    "id": 1255833,
-    "title": "クジラに落ちた男",
-    "original": "Whalefall",
-    "poster": "/q4z5EiiOwYWUDkkPMAmFVjqWnBa.jpg",
-    "date": "2026-10-14",
-    "jpDate": "2026-10-16",
-    "runtime": 106,
-    "tagline": "",
-    "overview": "Following the death of his father, Jay Gardiner goes diving off the central Coast of California in search of his remains, but is swallowed by a massive sperm whale. While trapped inside its belly with only one hour of oxygen left, Jay comes to realize that the hard-earned lessons his father imparted may be the key to his escape.",
-    "overviewLang": "en",
-    "genres": [
-     "スリラー"
-    ],
-    "countries": [
-     "US"
-    ],
-    "directors": [
-     "ブライアン・ダッフィールド"
-    ],
-    "cast": [
-     "オースティン・エイブラムス",
-     "ジョシュ・ブローリン",
-     "エリザベス・シュー",
-     "ジョン・オーティス",
-     "ジェーン・レヴィ",
-     "エミリー・ラッド"
-    ]
-   }
-  },
-  {
    "id": 1483525,
    "title": "もしもの愛",
    "original": "가능한 사랑",
    "date": "2026-10-23",
    "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
-   "pop": 38.74,
+   "pop": 30.0272,
    "info": {
     "id": 1483525,
     "title": "もしもの愛",
