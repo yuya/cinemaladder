@@ -1,47 +1,6 @@
 {
- "updated": "2026-11-17T03:53:41.362Z",
+ "updated": "2026-11-18T02:54:02.941Z",
  "items": [
-  {
-   "id": 1423191,
-   "title": "バイオハザード",
-   "original": "Resident Evil",
-   "date": "2026-10-09",
-   "poster": "/wHXSnGH3zQtvpxPwaBXMoS9o8Vl.jpg",
-   "pop": 450.7038,
-   "info": {
-    "id": 1423191,
-    "title": "バイオハザード",
-    "original": "Resident Evil",
-    "poster": "/wHXSnGH3zQtvpxPwaBXMoS9o8Vl.jpg",
-    "date": "2026-09-16",
-    "jpDate": "2026-10-09",
-    "runtime": 94,
-    "tagline": "",
-    "overview": "ある医療品の配送を請け負った男を襲う、地獄の一夜。 男は、己の命運を懸けた壮絶なサバイバルを余儀なくされる…",
-    "overviewLang": "ja",
-    "genres": [
-     "ホラー",
-     "サイエンスフィクション",
-     "アドベンチャー"
-    ],
-    "countries": [
-     "US",
-     "DE",
-     "FR"
-    ],
-    "directors": [
-     "ザック・クレッガー"
-    ],
-    "cast": [
-     "オースティン・エイブラムス",
-     "ポール・ウォルター・ハウザー",
-     "カリ・レイス",
-     "ザック・チェリー",
-     "ジョノ・ウィルソン",
-     "ショウン・W・レーザー"
-    ]
-   }
-  },
   {
    "id": 1400837,
    "title": "アザー・マミー",
@@ -138,7 +97,8 @@
     "overviewLang": "en",
     "genres": [
      "ファンタジー",
-     "コメディ"
+     "コメディ",
+     "ホラー"
     ],
     "countries": [
      "US",
@@ -150,10 +110,10 @@
     "cast": [
      "ジョニー・デップ",
      "ルパート・グリント",
+     "デイジー・リドリー",
      "イアン・マッケラン",
      "アンドレア・ライズボロー",
-     "サム・クラフリン",
-     "デイジー・リドリー"
+     "サム・クラフリン"
     ]
    }
   },
@@ -215,7 +175,6 @@
     "overviewLang": "ja",
     "genres": [
      "アクション",
-     "コメディ",
      "ファンタジー"
     ],
     "countries": [
@@ -385,6 +344,44 @@
      "チョ・ヨジョン",
      "チョ・ユリ",
      "최민"
+    ]
+   }
+  },
+  {
+   "id": 1368166,
+   "title": "ハウスメイド",
+   "original": "The Housemaid",
+   "date": "2026-11-27",
+   "poster": "/1bhR7OMdCvBYiEmqvwesfcN5qKT.jpg",
+   "pop": 24.6673,
+   "info": {
+    "id": 1368166,
+    "title": "ハウスメイド",
+    "original": "The Housemaid",
+    "poster": "/1bhR7OMdCvBYiEmqvwesfcN5qKT.jpg",
+    "date": "2025-12-18",
+    "jpDate": "2026-11-27",
+    "runtime": 131,
+    "tagline": "",
+    "overview": "Trying to escape her past, Millie Calloway accepts a job as a live-in housemaid for the wealthy Nina and Andrew Winchester. But what begins as a dream job quickly unravels into something far more dangerous—a sexy, seductive game of secrets, scandal, and power.",
+    "overviewLang": "en",
+    "genres": [
+     "ミステリー",
+     "スリラー"
+    ],
+    "countries": [
+     "US"
+    ],
+    "directors": [
+     "ポール・フェイグ"
+    ],
+    "cast": [
+     "シドニー・スウィーニー",
+     "アマンダ・サイフリッド",
+     "ブランドン・スクレナー",
+     "Michele Morrone",
+     "Indiana Elle",
+     "サラ・クーパー"
     ]
    }
   }
