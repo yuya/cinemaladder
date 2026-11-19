@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18T02:54:02.941Z",
+ "updated": "2026-11-19T02:34:35.381Z",
  "items": [
   {
    "id": 1400837,
@@ -7,7 +7,7 @@
    "original": "Other Mommy",
    "date": "2026-11-20",
    "poster": "/qs0kHXbRadmtDIH5EmIoiqV0rX1.jpg",
-   "pop": 421.1806,
+   "pop": 366.8921,
    "info": {
     "id": 1400837,
     "title": "アザー・マミー",
@@ -39,12 +39,51 @@
    }
   },
   {
+   "id": 1567605,
+   "title": "クリスマス・キャロル／3人のゴーストたち",
+   "original": "Ebenezer",
+   "date": "2026-11-13",
+   "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
+   "pop": 137.5158,
+   "info": {
+    "id": 1567605,
+    "title": "クリスマス・キャロル／3人のゴーストたち",
+    "original": "Ebenezer",
+    "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
+    "date": "2026-11-11",
+    "jpDate": "2026-11-13",
+    "runtime": 115,
+    "tagline": "",
+    "overview": "An elderly miser embarks on a supernatural journey after visits from the ghost of his former business partner and the Spirits of Christmas Past, Present, and Yet to Come force him to confront his past and fight for a second chance at happiness.",
+    "overviewLang": "en",
+    "genres": [
+     "ファンタジー",
+     "コメディ"
+    ],
+    "countries": [
+     "US",
+     "GB"
+    ],
+    "directors": [
+     "タイ・ウェスト"
+    ],
+    "cast": [
+     "ジョニー・デップ",
+     "ルパート・グリント",
+     "デイジー・リドリー",
+     "イアン・マッケラン",
+     "アンドレア・ライズボロー",
+     "サム・クラフリン"
+    ]
+   }
+  },
+  {
    "id": 1381071,
    "title": "ゴジラ-0.0",
    "original": "ゴジラ-0.0",
    "date": "2026-11-03",
    "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
-   "pop": 137.0655,
+   "pop": 136.0504,
    "info": {
     "id": 1381071,
     "title": "ゴジラ-0.0",
@@ -78,52 +117,12 @@
    }
   },
   {
-   "id": 1567605,
-   "title": "クリスマス・キャロル／3人のゴーストたち",
-   "original": "Ebenezer",
-   "date": "2026-11-13",
-   "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
-   "pop": 129.6785,
-   "info": {
-    "id": 1567605,
-    "title": "クリスマス・キャロル／3人のゴーストたち",
-    "original": "Ebenezer",
-    "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
-    "date": "2026-11-11",
-    "jpDate": "2026-11-13",
-    "runtime": 115,
-    "tagline": "",
-    "overview": "An elderly miser embarks on a supernatural journey after visits from the ghost of his former business partner and the Spirits of Christmas Past, Present, and Yet to Come force him to confront his past and fight for a second chance at happiness.",
-    "overviewLang": "en",
-    "genres": [
-     "ファンタジー",
-     "コメディ",
-     "ホラー"
-    ],
-    "countries": [
-     "US",
-     "GB"
-    ],
-    "directors": [
-     "タイ・ウェスト"
-    ],
-    "cast": [
-     "ジョニー・デップ",
-     "ルパート・グリント",
-     "デイジー・リドリー",
-     "イアン・マッケラン",
-     "アンドレア・ライズボロー",
-     "サム・クラフリン"
-    ]
-   }
-  },
-  {
    "id": 1283515,
    "title": "ヴェリティ／真実",
    "original": "Verity",
    "date": "2026-11-06",
    "poster": "/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "pop": 118.543,
+   "pop": 98.423,
    "info": {
     "id": 1283515,
     "title": "ヴェリティ／真実",
@@ -161,7 +160,7 @@
    "original": "Street Fighter",
    "date": "2026-10-16",
    "poster": "/1JBlbyXionXPRaqW1UQw7eKkxNP.jpg",
-   "pop": 78.8171,
+   "pop": 89.6569,
    "info": {
     "id": 1153576,
     "title": "ストリートファイター／ザ・ムービー",
@@ -200,7 +199,7 @@
    "original": "Clayface",
    "date": "2026-10-30",
    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-   "pop": 65.8076,
+   "pop": 80.0254,
    "info": {
     "id": 1400940,
     "title": "クレイフェイス",
@@ -239,7 +238,7 @@
    "original": "Whalefall",
    "date": "2026-10-16",
    "poster": "/q4z5EiiOwYWUDkkPMAmFVjqWnBa.jpg",
-   "pop": 42.8862,
+   "pop": 57.733,
    "info": {
     "id": 1255833,
     "title": "クジラに落ちた男",
@@ -276,7 +275,7 @@
    "original": "Practical Magic 2",
    "date": "2026-11-27",
    "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
-   "pop": 42.7472,
+   "pop": 40.2916,
    "info": {
     "id": 1302904,
     "title": "プラティカル・マジック／魔女たちの秘密",
@@ -315,7 +314,7 @@
    "original": "가능한 사랑",
    "date": "2026-10-23",
    "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
-   "pop": 30.0272,
+   "pop": 25.1581,
    "info": {
     "id": 1483525,
     "title": "もしもの愛",
@@ -353,7 +352,7 @@
    "original": "The Housemaid",
    "date": "2026-11-27",
    "poster": "/1bhR7OMdCvBYiEmqvwesfcN5qKT.jpg",
-   "pop": 24.6673,
+   "pop": 24.635,
    "info": {
     "id": 1368166,
     "title": "ハウスメイド",
