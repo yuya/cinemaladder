@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19T02:34:35.381Z",
+ "updated": "2026-11-20T02:19:36.888Z",
  "items": [
   {
    "id": 1400837,
@@ -7,7 +7,7 @@
    "original": "Other Mommy",
    "date": "2026-11-20",
    "poster": "/qs0kHXbRadmtDIH5EmIoiqV0rX1.jpg",
-   "pop": 366.8921,
+   "pop": 344.2316,
    "info": {
     "id": 1400837,
     "title": "アザー・マミー",
@@ -30,50 +30,11 @@
     ],
     "cast": [
      "ジェシカ・チャステイン",
-     "Arabella Olivia Clark",
      "ジェイ・デュプラス",
+     "Arabella Olivia Clark",
      "カレン・アレン",
      "アリアン・モーイエド",
-     "Sean Kaufman"
-    ]
-   }
-  },
-  {
-   "id": 1567605,
-   "title": "クリスマス・キャロル／3人のゴーストたち",
-   "original": "Ebenezer",
-   "date": "2026-11-13",
-   "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
-   "pop": 137.5158,
-   "info": {
-    "id": 1567605,
-    "title": "クリスマス・キャロル／3人のゴーストたち",
-    "original": "Ebenezer",
-    "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
-    "date": "2026-11-11",
-    "jpDate": "2026-11-13",
-    "runtime": 115,
-    "tagline": "",
-    "overview": "An elderly miser embarks on a supernatural journey after visits from the ghost of his former business partner and the Spirits of Christmas Past, Present, and Yet to Come force him to confront his past and fight for a second chance at happiness.",
-    "overviewLang": "en",
-    "genres": [
-     "ファンタジー",
-     "コメディ"
-    ],
-    "countries": [
-     "US",
-     "GB"
-    ],
-    "directors": [
-     "タイ・ウェスト"
-    ],
-    "cast": [
-     "ジョニー・デップ",
-     "ルパート・グリント",
-     "デイジー・リドリー",
-     "イアン・マッケラン",
-     "アンドレア・ライズボロー",
-     "サム・クラフリン"
+     "ディーチェン・ラックマン"
     ]
    }
   },
@@ -83,7 +44,7 @@
    "original": "ゴジラ-0.0",
    "date": "2026-11-03",
    "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
-   "pop": 136.0504,
+   "pop": 132.817,
    "info": {
     "id": 1381071,
     "title": "ゴジラ-0.0",
@@ -117,12 +78,51 @@
    }
   },
   {
+   "id": 1567605,
+   "title": "クリスマス・キャロル／3人のゴーストたち",
+   "original": "Ebenezer",
+   "date": "2026-11-13",
+   "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
+   "pop": 132.7904,
+   "info": {
+    "id": 1567605,
+    "title": "クリスマス・キャロル／3人のゴーストたち",
+    "original": "Ebenezer",
+    "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
+    "date": "2026-11-11",
+    "jpDate": "2026-11-13",
+    "runtime": 115,
+    "tagline": "",
+    "overview": "An elderly miser embarks on a supernatural journey after visits from the ghost of his former business partner and the Spirits of Christmas Past, Present, and Yet to Come force him to confront his past and fight for a second chance at happiness.",
+    "overviewLang": "en",
+    "genres": [
+     "ファンタジー",
+     "コメディ"
+    ],
+    "countries": [
+     "US",
+     "GB"
+    ],
+    "directors": [
+     "タイ・ウェスト"
+    ],
+    "cast": [
+     "ジョニー・デップ",
+     "ルパート・グリント",
+     "デイジー・リドリー",
+     "イアン・マッケラン",
+     "アンドレア・ライズボロー",
+     "サム・クラフリン"
+    ]
+   }
+  },
+  {
    "id": 1283515,
    "title": "ヴェリティ／真実",
    "original": "Verity",
    "date": "2026-11-06",
    "poster": "/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "pop": 98.423,
+   "pop": 94.6926,
    "info": {
     "id": 1283515,
     "title": "ヴェリティ／真実",
@@ -160,7 +160,7 @@
    "original": "Street Fighter",
    "date": "2026-10-16",
    "poster": "/1JBlbyXionXPRaqW1UQw7eKkxNP.jpg",
-   "pop": 89.6569,
+   "pop": 90.0416,
    "info": {
     "id": 1153576,
     "title": "ストリートファイター／ザ・ムービー",
@@ -199,7 +199,7 @@
    "original": "Clayface",
    "date": "2026-10-30",
    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-   "pop": 80.0254,
+   "pop": 83.2891,
    "info": {
     "id": 1400940,
     "title": "クレイフェイス",
@@ -238,7 +238,7 @@
    "original": "Whalefall",
    "date": "2026-10-16",
    "poster": "/q4z5EiiOwYWUDkkPMAmFVjqWnBa.jpg",
-   "pop": 57.733,
+   "pop": 61.598,
    "info": {
     "id": 1255833,
     "title": "クジラに落ちた男",
@@ -270,12 +270,54 @@
    }
   },
   {
+   "id": 1538497,
+   "title": "ビリーと魔法のはじまり",
+   "original": "Hexed",
+   "date": "2026-12-04",
+   "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
+   "pop": 42.8688,
+   "info": {
+    "id": 1538497,
+    "title": "ビリーと魔法のはじまり",
+    "original": "Hexed",
+    "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
+    "date": "2026-11-25",
+    "jpDate": "2026-12-04",
+    "runtime": 103,
+    "tagline": "",
+    "overview": "ディズニー長編アニメーション作品としては初となる、ディズニーヒロイン史上初の“現代の女子高校生”が主人公の＜ビリー＞による全く新しい魔法の物語。 型破りな性格で学校でも周囲になじめない高校生の少女・ビリーが魔法の力に目覚め、新たな世界での大冒険へと導かれていく―。",
+    "overviewLang": "ja",
+    "genres": [
+     "アドベンチャー",
+     "アニメーション",
+     "ファミリー",
+     "ファンタジー",
+     "コメディ"
+    ],
+    "countries": [
+     "US"
+    ],
+    "directors": [
+     "ジェイソン・ハンド",
+     "ファウン・ヴィーラスンソーン"
+    ],
+    "cast": [
+     "ヘイリー・スタインフェルド",
+     "ラシダ・ジョーンズ",
+     "ジョディ・フォスター",
+     "ウォルトン・ゴギンズ",
+     "Tracey Ullman",
+     "スティーヴン・フライ"
+    ]
+   }
+  },
+  {
    "id": 1302904,
    "title": "プラティカル・マジック／魔女たちの秘密",
    "original": "Practical Magic 2",
    "date": "2026-11-27",
    "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
-   "pop": 40.2916,
+   "pop": 35.1549,
    "info": {
     "id": 1302904,
     "title": "プラティカル・マジック／魔女たちの秘密",
@@ -309,50 +351,12 @@
    }
   },
   {
-   "id": 1483525,
-   "title": "もしもの愛",
-   "original": "가능한 사랑",
-   "date": "2026-10-23",
-   "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
-   "pop": 25.1581,
-   "info": {
-    "id": 1483525,
-    "title": "もしもの愛",
-    "original": "가능한 사랑",
-    "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
-    "date": "2026-09-23",
-    "jpDate": "2026-10-23",
-    "runtime": 165,
-    "tagline": "",
-    "overview": "まったく異なる人生を歩む2 組の夫婦の交錯する日常を捉え、平穏に見えた日々に少しずつ亀裂が生まれていく様子を描き出す。",
-    "overviewLang": "ja",
-    "genres": [
-     "ドラマ"
-    ],
-    "countries": [
-     "KR",
-     "US"
-    ],
-    "directors": [
-     "イ・チャンドン"
-    ],
-    "cast": [
-     "チョン・ドヨン",
-     "ソル・ギョング",
-     "チョ・インソン",
-     "チョ・ヨジョン",
-     "チョ・ユリ",
-     "최민"
-    ]
-   }
-  },
-  {
    "id": 1368166,
    "title": "ハウスメイド",
    "original": "The Housemaid",
    "date": "2026-11-27",
    "poster": "/1bhR7OMdCvBYiEmqvwesfcN5qKT.jpg",
-   "pop": 24.635,
+   "pop": 24.832,
    "info": {
     "id": 1368166,
     "title": "ハウスメイド",
