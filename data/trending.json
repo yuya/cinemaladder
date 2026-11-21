@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T02:19:10.074Z",
+ "updated": "2026-11-21T02:13:28.724Z",
  "items": [
   {
    "id": 1400837,
@@ -7,7 +7,7 @@
    "original": "Other Mommy",
    "date": "2026-11-20",
    "poster": "/qs0kHXbRadmtDIH5EmIoiqV0rX1.jpg",
-   "pop": 344.2316,
+   "pop": 327.2864,
    "info": {
     "id": 1400837,
     "title": "アザー・マミー",
@@ -44,7 +44,7 @@
    "original": "ゴジラ-0.0",
    "date": "2026-11-03",
    "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
-   "pop": 132.817,
+   "pop": 120.171,
    "info": {
     "id": 1381071,
     "title": "ゴジラ-0.0",
@@ -83,7 +83,7 @@
    "original": "Ebenezer",
    "date": "2026-11-13",
    "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
-   "pop": 132.7904,
+   "pop": 114.0667,
    "info": {
     "id": 1567605,
     "title": "クリスマス・キャロル／3人のゴーストたち",
@@ -122,7 +122,7 @@
    "original": "Verity",
    "date": "2026-11-06",
    "poster": "/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "pop": 94.6926,
+   "pop": 89.7915,
    "info": {
     "id": 1283515,
     "title": "ヴェリティ／真実",
@@ -160,7 +160,7 @@
    "original": "Street Fighter",
    "date": "2026-10-16",
    "poster": "/1JBlbyXionXPRaqW1UQw7eKkxNP.jpg",
-   "pop": 90.0416,
+   "pop": 74.5477,
    "info": {
     "id": 1153576,
     "title": "ストリートファイター／ザ・ムービー",
@@ -174,6 +174,7 @@
     "overviewLang": "ja",
     "genres": [
      "アクション",
+     "コメディ",
      "ファンタジー"
     ],
     "countries": [
@@ -199,7 +200,7 @@
    "original": "Clayface",
    "date": "2026-10-30",
    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-   "pop": 83.2891,
+   "pop": 69.3939,
    "info": {
     "id": 1400940,
     "title": "クレイフェイス",
@@ -233,49 +234,12 @@
    }
   },
   {
-   "id": 1255833,
-   "title": "クジラに落ちた男",
-   "original": "Whalefall",
-   "date": "2026-10-16",
-   "poster": "/q4z5EiiOwYWUDkkPMAmFVjqWnBa.jpg",
-   "pop": 61.598,
-   "info": {
-    "id": 1255833,
-    "title": "クジラに落ちた男",
-    "original": "Whalefall",
-    "poster": "/q4z5EiiOwYWUDkkPMAmFVjqWnBa.jpg",
-    "date": "2026-10-14",
-    "jpDate": "2026-10-16",
-    "runtime": 106,
-    "tagline": "",
-    "overview": "Following the death of his father, Jay Gardiner goes diving off the central Coast of California in search of his remains, but is swallowed by a massive sperm whale. While trapped inside its belly with only one hour of oxygen left, Jay comes to realize that the hard-earned lessons his father imparted may be the key to his escape.",
-    "overviewLang": "en",
-    "genres": [
-     "スリラー"
-    ],
-    "countries": [
-     "US"
-    ],
-    "directors": [
-     "ブライアン・ダッフィールド"
-    ],
-    "cast": [
-     "オースティン・エイブラムス",
-     "ジョシュ・ブローリン",
-     "エリザベス・シュー",
-     "ジョン・オーティス",
-     "ジェーン・レヴィ",
-     "エミリー・ラッド"
-    ]
-   }
-  },
-  {
    "id": 1538497,
    "title": "ビリーと魔法のはじまり",
    "original": "Hexed",
    "date": "2026-12-04",
    "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
-   "pop": 42.8688,
+   "pop": 52.0439,
    "info": {
     "id": 1538497,
     "title": "ビリーと魔法のはじまり",
@@ -312,12 +276,49 @@
    }
   },
   {
+   "id": 1255833,
+   "title": "クジラに落ちた男",
+   "original": "Whalefall",
+   "date": "2026-10-16",
+   "poster": "/q4z5EiiOwYWUDkkPMAmFVjqWnBa.jpg",
+   "pop": 48.1406,
+   "info": {
+    "id": 1255833,
+    "title": "クジラに落ちた男",
+    "original": "Whalefall",
+    "poster": "/q4z5EiiOwYWUDkkPMAmFVjqWnBa.jpg",
+    "date": "2026-10-14",
+    "jpDate": "2026-10-16",
+    "runtime": 106,
+    "tagline": "",
+    "overview": "Following the death of his father, Jay Gardiner goes diving off the central Coast of California in search of his remains, but is swallowed by a massive sperm whale. While trapped inside its belly with only one hour of oxygen left, Jay comes to realize that the hard-earned lessons his father imparted may be the key to his escape.",
+    "overviewLang": "en",
+    "genres": [
+     "スリラー"
+    ],
+    "countries": [
+     "US"
+    ],
+    "directors": [
+     "ブライアン・ダッフィールド"
+    ],
+    "cast": [
+     "オースティン・エイブラムス",
+     "ジョシュ・ブローリン",
+     "エリザベス・シュー",
+     "ジョン・オーティス",
+     "ジェーン・レヴィ",
+     "エミリー・ラッド"
+    ]
+   }
+  },
+  {
    "id": 1302904,
    "title": "プラティカル・マジック／魔女たちの秘密",
    "original": "Practical Magic 2",
    "date": "2026-11-27",
    "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
-   "pop": 35.1549,
+   "pop": 34.0842,
    "info": {
     "id": 1302904,
     "title": "プラティカル・マジック／魔女たちの秘密",
@@ -356,7 +357,7 @@
    "original": "The Housemaid",
    "date": "2026-11-27",
    "poster": "/1bhR7OMdCvBYiEmqvwesfcN5qKT.jpg",
-   "pop": 24.832,
+   "pop": 23.866,
    "info": {
     "id": 1368166,
     "title": "ハウスメイド",
