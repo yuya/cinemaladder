@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T02:13:54.602Z",
+ "updated": "2026-11-22T01:18:47.933Z",
  "items": [
   {
    "id": 1400837,
@@ -234,48 +234,6 @@
    }
   },
   {
-   "id": 1538497,
-   "title": "ビリーと魔法のはじまり",
-   "original": "Hexed",
-   "date": "2026-12-04",
-   "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
-   "pop": 52.0439,
-   "info": {
-    "id": 1538497,
-    "title": "ビリーと魔法のはじまり",
-    "original": "Hexed",
-    "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
-    "date": "2026-11-25",
-    "jpDate": "2026-12-04",
-    "runtime": 103,
-    "tagline": "",
-    "overview": "ディズニー長編アニメーション作品としては初となる、ディズニーヒロイン史上初の“現代の女子高校生”が主人公の＜ビリー＞による全く新しい魔法の物語。 型破りな性格で学校でも周囲になじめない高校生の少女・ビリーが魔法の力に目覚め、新たな世界での大冒険へと導かれていく―。",
-    "overviewLang": "ja",
-    "genres": [
-     "アドベンチャー",
-     "アニメーション",
-     "ファミリー",
-     "ファンタジー",
-     "コメディ"
-    ],
-    "countries": [
-     "US"
-    ],
-    "directors": [
-     "ジェイソン・ハンド",
-     "ファウン・ヴィーラスンソーン"
-    ],
-    "cast": [
-     "ヘイリー・スタインフェルド",
-     "ラシダ・ジョーンズ",
-     "ジョディ・フォスター",
-     "ウォルトン・ゴギンズ",
-     "Tracey Ullman",
-     "スティーヴン・フライ"
-    ]
-   }
-  },
-  {
    "id": 1255833,
    "title": "クジラに落ちた男",
    "original": "Whalefall",
@@ -313,12 +271,54 @@
    }
   },
   {
+   "id": 1538497,
+   "title": "ビリーと魔法のはじまり",
+   "original": "Hexed",
+   "date": "2026-12-04",
+   "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
+   "pop": 42.0064,
+   "info": {
+    "id": 1538497,
+    "title": "ビリーと魔法のはじまり",
+    "original": "Hexed",
+    "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
+    "date": "2026-11-25",
+    "jpDate": "2026-12-04",
+    "runtime": 103,
+    "tagline": "",
+    "overview": "ディズニー長編アニメーション作品としては初となる、ディズニーヒロイン史上初の“現代の女子高校生”が主人公の＜ビリー＞による全く新しい魔法の物語。 型破りな性格で学校でも周囲になじめない高校生の少女・ビリーが魔法の力に目覚め、新たな世界での大冒険へと導かれていく―。",
+    "overviewLang": "ja",
+    "genres": [
+     "アドベンチャー",
+     "アニメーション",
+     "ファミリー",
+     "ファンタジー",
+     "コメディ"
+    ],
+    "countries": [
+     "US"
+    ],
+    "directors": [
+     "ジェイソン・ハンド",
+     "ファウン・ヴィーラスンソーン"
+    ],
+    "cast": [
+     "ヘイリー・スタインフェルド",
+     "ラシダ・ジョーンズ",
+     "ジョディ・フォスター",
+     "ウォルトン・ゴギンズ",
+     "Tracey Ullman",
+     "スティーヴン・フライ"
+    ]
+   }
+  },
+  {
    "id": 1302904,
    "title": "プラティカル・マジック／魔女たちの秘密",
    "original": "Practical Magic 2",
    "date": "2026-11-27",
    "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
-   "pop": 34.0842,
+   "pop": 30.8572,
    "info": {
     "id": 1302904,
     "title": "プラティカル・マジック／魔女たちの秘密",
@@ -357,7 +357,7 @@
    "original": "The Housemaid",
    "date": "2026-11-27",
    "poster": "/1bhR7OMdCvBYiEmqvwesfcN5qKT.jpg",
-   "pop": 23.866,
+   "pop": 25.9607,
    "info": {
     "id": 1368166,
     "title": "ハウスメイド",
