@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T00:24:37.581Z",
+ "updated": "2026-11-23T01:42:19.530Z",
  "today": "2026-11-23",
  "anchor": "2026-11-20",
  "from": "2026-10-23",
@@ -118,19 +118,19 @@
    "pop": 0.9
   },
   {
-   "id": 1814090,
-   "title": "ヤマトよ永遠に REBEL3199 第七章 虹色の輪廻",
-   "original": "ヤマトよ永遠に REBEL3199 第七章 虹色の輪廻",
-   "date": "2026-10-30",
-   "poster": "/rmPpzI7t8F4JpXfxCNSqifdAdzO.jpg",
-   "pop": 0.8
-  },
-  {
    "id": 1102390,
    "title": "煙突の中の雀",
    "original": "Der Spatz im Kamin",
    "date": "2026-10-30",
    "poster": "/yX4ZvG4ly26ePyfOkkx6dIHeVWN.jpg",
+   "pop": 0.8
+  },
+  {
+   "id": 1814090,
+   "title": "ヤマトよ永遠に REBEL3199 第七章 虹色の輪廻",
+   "original": "ヤマトよ永遠に REBEL3199 第七章 虹色の輪廻",
+   "date": "2026-10-30",
+   "poster": "/rmPpzI7t8F4JpXfxCNSqifdAdzO.jpg",
    "pop": 0.8
   },
   {
@@ -174,19 +174,19 @@
    "pop": 0.3
   },
   {
-   "id": 1820214,
-   "title": "妖怪VS仮面ライダーマイス",
-   "original": "妖怪VS仮面ライダーマイス",
-   "date": "2026-10-31",
-   "poster": "/yh5e5UERGyO6MqdBxRRi4HlSqNy.jpg",
-   "pop": 0.2
-  },
-  {
    "id": 1807401,
    "title": "京都ALS患者嘱託殺人事件",
    "original": "京都ALS患者嘱託殺人事件",
    "date": "2026-10-31",
    "poster": "/sQ8zvmDBuiNcPQrAwCSIf7YPlpy.jpg",
+   "pop": 0.2
+  },
+  {
+   "id": 1820214,
+   "title": "妖怪VS仮面ライダーマイス",
+   "original": "妖怪VS仮面ライダーマイス",
+   "date": "2026-10-31",
+   "poster": "/yh5e5UERGyO6MqdBxRRi4HlSqNy.jpg",
    "pop": 0.2
   },
   {
@@ -350,19 +350,19 @@
    "pop": 2.1
   },
   {
-   "id": 1707955,
-   "title": "呪いのスマホ",
-   "original": "呪いのスマホ",
-   "date": "2026-11-13",
-   "poster": "/7ZsxOt6MnEf2Z67sEMJoEPKMPe4.jpg",
-   "pop": 1.9
-  },
-  {
    "id": 1560309,
    "title": "すべて真夜中の恋人たち",
    "original": "すべて真夜中の恋人たち",
    "date": "2026-11-13",
    "poster": "/hu59kewfoT7Brzimj8KOliuh5Ih.jpg",
+   "pop": 1.9
+  },
+  {
+   "id": 1707955,
+   "title": "呪いのスマホ",
+   "original": "呪いのスマホ",
+   "date": "2026-11-13",
+   "poster": "/7ZsxOt6MnEf2Z67sEMJoEPKMPe4.jpg",
    "pop": 1.9
   },
   {
@@ -382,19 +382,19 @@
    "pop": 0.7
   },
   {
-   "id": 1807470,
-   "title": "2126年、海の星をさがして",
-   "original": "2126年、海の星をさがして",
-   "date": "2026-11-13",
-   "poster": "/lzZZj7ag0SPqw80ESpXuonbiGYF.jpg",
-   "pop": 0.6
-  },
-  {
    "id": 1759179,
    "title": "シルバー・エクスプレス",
    "original": "シルバー・エクスプレス",
    "date": "2026-11-13",
    "poster": "/jOGlxJo4nr1SohOOgN87sIhnZFn.jpg",
+   "pop": 0.6
+  },
+  {
+   "id": 1807470,
+   "title": "2126年、海の星をさがして",
+   "original": "2126年、海の星をさがして",
+   "date": "2026-11-13",
+   "poster": "/lzZZj7ag0SPqw80ESpXuonbiGYF.jpg",
    "pop": 0.6
   },
   {
@@ -558,19 +558,19 @@
    "pop": 8.8
   },
   {
-   "id": 1807529,
-   "title": "つりこまち",
-   "original": "つりこまち",
-   "date": "2026-11-27",
-   "poster": "/tvtdgpfZJGVaC6cOE0pP0n1fxkH.jpg",
-   "pop": 0.8
-  },
-  {
    "id": 1739765,
    "title": "君の話",
    "original": "君の話",
    "date": "2026-11-27",
    "poster": "/8H0YN4J0iuPyC4SjtU5fdooLciH.jpg",
+   "pop": 0.8
+  },
+  {
+   "id": 1807529,
+   "title": "つりこまち",
+   "original": "つりこまち",
+   "date": "2026-11-27",
+   "poster": "/tvtdgpfZJGVaC6cOE0pP0n1fxkH.jpg",
    "pop": 0.8
   },
   {
@@ -684,6 +684,14 @@
    "date": "2026-12-04",
    "poster": "/hHUN0a4sswgPTmM4TogFrl3OSgR.jpg",
    "pop": 7.4
+  },
+  {
+   "id": 940009,
+   "title": "レイ・ガン",
+   "original": "Ray Gunn",
+   "date": "2026-12-04",
+   "poster": "/15UtuuALdJ2Oo2Y7Ke2xwu78QJu.jpg",
+   "pop": 7.1
   },
   {
    "id": 1287141,
