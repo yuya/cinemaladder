@@ -19,6 +19,9 @@ const get = async (path, tries = 3) => {
 };
 // 日本語タイトルが未登録だと原題（タミル語など）が返るので、日本語・英数字以外を含むタイトルは除外（─ ★ ♪ → などの記号は日本語の題名にも使われるので許す）
 const readable = t => !!t && !/[^\u0000-\u024F\u2000-\u206F\u2100-\u27BF\u2E80-\u30FF\u3400-\u9FFF\uF900-\uFAFF\uFF00-\uFFEF]/.test(t);
+// 日本語の題名が TMDB にまだない作品は、日本語の欄に原題がそのまま入る。中国語・韓国語（漢字）の原題は readable を通ってしまうので、
+// 「原語が日本語でない・題名が原題と同じ・漢字を含みかなを含まない」ものは日本語の題名がないとみなす（例：台湾映画「那張照片裡的我們」）。trailadder と同じ
+const untranslated = m => !!m && m.original_language !== "ja" && m.title === m.original_title && /[\u3400-\u9FFF\uF900-\uFAFF]/.test(m.title || "") && !/[\u3040-\u30FF]/.test(m.title || "");
 
 // 日本時間の今日。範囲は1か月前〜2か月後（月末で日がずれるときは、その月の末日にする。trailadder の addMonths と同じ）
 const today = new Date(Date.now() + 9 * 3600e3);   // 日本時間の日付として扱う
@@ -40,7 +43,7 @@ const pages = Math.min(first.total_pages || 1, 30);   // 3か月分は多いの�
 const rest = await Promise.all(Array.from({ length: pages - 1 }, (_, i) => get(base + "&page=" + (i + 2)).catch(() => ({ results: [] }))));
 const found = new Map();
 for (const m of [first, ...rest].flatMap(p => p.results || [])) {
-  if (found.has(m.id) || !readable(m.title) || /^untitled$/i.test(m.title.trim())) continue;   // 題名未定の仮登録は外す
+  if (found.has(m.id) || !readable(m.title) || untranslated(m) || /^untitled$/i.test(m.title.trim())) continue;   // 題名未定の仮登録は外す
   // ジャンルもポスターもない作品（グラビアなどの映像商品が多い）は外す
   if (!(m.genre_ids || []).length && !m.poster_path) continue;
   found.set(m.id, m);

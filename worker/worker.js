@@ -38,9 +38,12 @@ export default {
         const q = "?language=ja-JP&region=JP&page=";
         // 日本語タイトルが未登録だと原題（タミル語など）が返るので、日本語・英数字以外を含むタイトルは除外（─ ★ ♪ → などの記号は日本語の題名にも使われるので許す）
         const readable = t => !!t && !/[^\u0000-\u024F\u2000-\u206F\u2100-\u27BF\u2E80-\u30FF\u3400-\u9FFF\uF900-\uFAFF\uFF00-\uFFEF]/.test(t);
+        // 日本語の題名が TMDB にまだない作品は、日本語の欄に原題がそのまま入る。中国語・韓国語（漢字）の原題は readable を通ってしまうので、
+        // 「原語が日本語でない・題名が原題と同じ・漢字を含みかなを含まない」ものは日本語の題名がないとみなす（例：台湾映画「那張照片裡的我們」）。trailadder と同じ
+        const untranslated = m => !!m && m.original_language !== "ja" && m.title === m.original_title && /[\u3400-\u9FFF\uF900-\uFAFF]/.test(m.title || "") && !/[\u3040-\u30FF]/.test(m.title || "");
         const pages = await Promise.all([tmdb("/movie/now_playing" + q + 1), tmdb("/movie/now_playing" + q + 2), tmdb("/movie/upcoming" + q + 1)]);
         const map = new Map();
-        pages.flatMap(p => p.results || []).filter(m => readable(m.title)).forEach(m => map.set(m.id, {
+        pages.flatMap(p => p.results || []).filter(m => readable(m.title) && !untranslated(m)).forEach(m => map.set(m.id, {
           id: m.id, title: m.title, original: m.original_title, date: m.release_date, poster: m.poster_path, pop: m.popularity,
         }));
         const top = [...map.values()].sort((a, b) => b.pop - a.pop).slice(0, 10);

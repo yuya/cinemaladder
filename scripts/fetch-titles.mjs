@@ -17,6 +17,9 @@ const get = async (path, tries = 3) => {
   }
 };
 const readable = t => !!t && !/[^\u0000-\u024F\u2000-\u206F\u2100-\u27BF\u2E80-\u30FF\u3400-\u9FFF\uF900-\uFAFF\uFF00-\uFFEF]/.test(t);
+// 日本語の題名が TMDB にまだない作品は、日本語の欄に原題がそのまま入る。中国語・韓国語（漢字）の原題は readable を通ってしまうので、
+// 「原語が日本語でない・題名が原題と同じ・漢字を含みかなを含まない」ものは日本語の題名がないとみなす（例：台湾映画「那張照片裡的我們」）。trailadder と同じ
+const untranslated = m => !!m && m.original_language !== "ja" && m.title === m.original_title && /[\u3400-\u9FFF\uF900-\uFAFF]/.test(m.title || "") && !/[\u3040-\u30FF]/.test(m.title || "");
 
 const base = "language=ja-JP&include_adult=false&include_video=false";
 const lists = [
@@ -43,7 +46,7 @@ await Promise.all(Array.from({ length: 8 }, async () => {
 
 const map = new Map();
 for (const list of results) for (const m of list) {
-  if (map.has(m.id) || !readable(m.title)) continue;
+  if (map.has(m.id) || !readable(m.title) || untranslated(m)) continue;
   // ジャンルが1つも付いておらず評価もほとんどない作品（グラビアなどの映像商品が多い）は、映画の候補に出さない。
   // ただし公開前後の新作は、まだジャンルや評価が付いていないことがあるので残す（半年前より後の公開日）
   const recent = (m.release_date || "") >= new Date(Date.now() - 183 * 864e5).toISOString().slice(0, 10);
