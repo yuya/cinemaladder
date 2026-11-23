@@ -19,6 +19,20 @@ const get = async (path, tries = 3) => {
 };
 // 日本語タイトルが未登録だと原題（タミル語など）が返るので、日本語・英数字以外を含むタイトルは除外（─ ★ ♪ → などの記号は日本語の題名にも使われるので許す）
 const readable = t => !!t && !/[^\u0000-\u024F\u2000-\u206F\u2100-\u27BF\u2E80-\u30FF\u3400-\u9FFF\uF900-\uFAFF\uFF00-\uFFEF]/.test(t);
+// 日本語の題名が TMDB にまだない作品は、日本語の欄に原題がそのまま入る。中国語の原題は漢字だけなので readable を通ってしまう。
+// 「原語が日本語でない・題名が原題と同じ・かなを含まない」うえで、日本語でふつう使わない漢字（JIS 第1水準にない字）を含むものは、
+// 日本語の題名がないとみなす（例：台湾映画「那張照片裡的我們」の「們」）。「風林火山」のように日本でも原題のまま公開される作品は残る
+const JIS1 = (() => {
+  const d = new TextDecoder("shift_jis"), s = new Set();
+  for (let a = 0x88; a <= 0x98; a++) for (let b = 0x40; b <= 0xfc; b++) {
+    if (b === 0x7f || ((a << 8) | b) < 0x889f || ((a << 8) | b) > 0x9872) continue;
+    const c = d.decode(new Uint8Array([a, b]));
+    if (c.length === 1 && c !== "\ufffd") s.add(c);
+  }
+  return s;
+})();
+const untranslated = m => !!m && m.original_language !== "ja" && m.title === m.original_title && !/[\u3040-\u30FF]/.test(m.title || "") &&
+  [...(m.title || "")].some(c => /\p{Script=Han}/u.test(c) && !JIS1.has(c));
 
 // 日本時間の今日。範囲は1か月前〜2か月後（月末で日がずれるときは、その月の末日にする。trailadder の addMonths と同じ）
 const today = new Date(Date.now() + 9 * 3600e3);   // 日本時間の日付として扱う
@@ -40,7 +54,7 @@ const pages = Math.min(first.total_pages || 1, 30);   // 3か月分は多いの�
 const rest = await Promise.all(Array.from({ length: pages - 1 }, (_, i) => get(base + "&page=" + (i + 2)).catch(() => ({ results: [] }))));
 const found = new Map();
 for (const m of [first, ...rest].flatMap(p => p.results || [])) {
-  if (found.has(m.id) || !readable(m.title) || /^untitled$/i.test(m.title.trim())) continue;   // 題名未定の仮登録は外す
+  if (found.has(m.id) || !readable(m.title) || untranslated(m) || /^untitled$/i.test(m.title.trim())) continue;   // 題名未定の仮登録は外す
   // ジャンルもポスターもない作品（グラビアなどの映像商品が多い）は外す
   if (!(m.genre_ids || []).length && !m.poster_path) continue;
   found.set(m.id, m);

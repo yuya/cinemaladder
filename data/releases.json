@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T00:25:00.254Z",
+ "updated": "2026-11-23T00:24:37.581Z",
  "today": "2026-11-23",
  "anchor": "2026-11-20",
  "from": "2026-10-23",
@@ -118,19 +118,19 @@
    "pop": 0.9
   },
   {
-   "id": 1102390,
-   "title": "煙突の中の雀",
-   "original": "Der Spatz im Kamin",
-   "date": "2026-10-30",
-   "poster": "/yX4ZvG4ly26ePyfOkkx6dIHeVWN.jpg",
-   "pop": 0.8
-  },
-  {
    "id": 1814090,
    "title": "ヤマトよ永遠に REBEL3199 第七章 虹色の輪廻",
    "original": "ヤマトよ永遠に REBEL3199 第七章 虹色の輪廻",
    "date": "2026-10-30",
    "poster": "/rmPpzI7t8F4JpXfxCNSqifdAdzO.jpg",
+   "pop": 0.8
+  },
+  {
+   "id": 1102390,
+   "title": "煙突の中の雀",
+   "original": "Der Spatz im Kamin",
+   "date": "2026-10-30",
+   "poster": "/yX4ZvG4ly26ePyfOkkx6dIHeVWN.jpg",
    "pop": 0.8
   },
   {
@@ -462,14 +462,6 @@
    "pop": 2.2
   },
   {
-   "id": 1088140,
-   "title": "那張照片裡的我們",
-   "original": "那張照片裡的我們",
-   "date": "2026-11-20",
-   "poster": "/3QIRaf4yHONrvIwaLwWOOizEnst.jpg",
-   "pop": 1.5
-  },
-  {
    "id": 1767360,
    "title": "月がみている",
    "original": "月がみている",
@@ -510,19 +502,19 @@
    "pop": 0.5
   },
   {
-   "id": 1837221,
-   "title": "ラブル＆クルー IN シアター 2026",
-   "original": "ラブル＆クルー IN シアター 2026",
-   "date": "2026-11-20",
-   "poster": "/cK17ov58JEtpF1tcX2IqsfKDVbW.jpg",
-   "pop": 0
-  },
-  {
    "id": 1837576,
    "title": "劇場版 アイドルマスター SideM F＠NTASTIC BATTLE FES ～Who goes first～",
    "original": "劇場版 アイドルマスター SideM F＠NTASTIC BATTLE FES ～Who goes first～",
    "date": "2026-11-20",
    "poster": "/plFgvWR20RF20OXcp6ds2yNSbt7.jpg",
+   "pop": 0
+  },
+  {
+   "id": 1837221,
+   "title": "ラブル＆クルー IN シアター 2026",
+   "original": "ラブル＆クルー IN シアター 2026",
+   "date": "2026-11-20",
+   "poster": "/cK17ov58JEtpF1tcX2IqsfKDVbW.jpg",
    "pop": 0
   },
   {
@@ -1150,14 +1142,6 @@
    "pop": 9.5
   },
   {
-   "id": 1774278,
-   "title": "劇場版 40までにしたい10のこと",
-   "original": "劇場版 40までにしたい10のこと",
-   "date": "2027-01-22",
-   "poster": "/5AXJPqBetQgYhD2vz4rgTxqP4O1.jpg",
-   "pop": 0.3
-  },
-  {
    "id": 1560316,
    "title": "あきらめません！",
    "original": "あきらめません！",
@@ -1171,6 +1155,14 @@
    "original": "Tamala 2030: A Punk Cat in Dark",
    "date": "2027-01-22",
    "poster": "/sHnbbkUAArhDgHA8ax4rvT0PlzM.jpg",
+   "pop": 0.3
+  },
+  {
+   "id": 1774278,
+   "title": "劇場版 40までにしたい10のこと",
+   "original": "劇場版 40までにしたい10のこと",
+   "date": "2027-01-22",
+   "poster": "/5AXJPqBetQgYhD2vz4rgTxqP4O1.jpg",
    "pop": 0.3
   }
  ]
