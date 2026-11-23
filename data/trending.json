@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T01:18:47.933Z",
+ "updated": "2026-11-23T00:23:09.938Z",
  "items": [
   {
    "id": 1400837,
@@ -7,7 +7,7 @@
    "original": "Other Mommy",
    "date": "2026-11-20",
    "poster": "/qs0kHXbRadmtDIH5EmIoiqV0rX1.jpg",
-   "pop": 327.2864,
+   "pop": 320.2749,
    "info": {
     "id": 1400837,
     "title": "アザー・マミー",
@@ -44,7 +44,7 @@
    "original": "ゴジラ-0.0",
    "date": "2026-11-03",
    "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
-   "pop": 120.171,
+   "pop": 122.4366,
    "info": {
     "id": 1381071,
     "title": "ゴジラ-0.0",
@@ -70,8 +70,8 @@
     "cast": [
      "神木隆之介",
      "浜辺美波",
-     "田中泯",
      "吉岡秀隆",
+     "田中泯",
      "長澤まさみ",
      "山田裕貴"
     ]
@@ -83,7 +83,7 @@
    "original": "Ebenezer",
    "date": "2026-11-13",
    "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
-   "pop": 114.0667,
+   "pop": 108.8828,
    "info": {
     "id": 1567605,
     "title": "クリスマス・キャロル／3人のゴーストたち",
@@ -97,7 +97,8 @@
     "overviewLang": "en",
     "genres": [
      "ファンタジー",
-     "コメディ"
+     "ドラマ",
+     "ホラー"
     ],
     "countries": [
      "US",
@@ -122,7 +123,7 @@
    "original": "Verity",
    "date": "2026-11-06",
    "poster": "/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "pop": 89.7915,
+   "pop": 88.77,
    "info": {
     "id": 1283515,
     "title": "ヴェリティ／真実",
@@ -160,7 +161,7 @@
    "original": "Street Fighter",
    "date": "2026-10-16",
    "poster": "/1JBlbyXionXPRaqW1UQw7eKkxNP.jpg",
-   "pop": 74.5477,
+   "pop": 70.0372,
    "info": {
     "id": 1153576,
     "title": "ストリートファイター／ザ・ムービー",
@@ -200,7 +201,7 @@
    "original": "Clayface",
    "date": "2026-10-30",
    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-   "pop": 69.3939,
+   "pop": 65.1015,
    "info": {
     "id": 1400940,
     "title": "クレイフェイス",
@@ -239,7 +240,7 @@
    "original": "Whalefall",
    "date": "2026-10-16",
    "poster": "/q4z5EiiOwYWUDkkPMAmFVjqWnBa.jpg",
-   "pop": 48.1406,
+   "pop": 45.8154,
    "info": {
     "id": 1255833,
     "title": "クジラに落ちた男",
@@ -276,7 +277,7 @@
    "original": "Hexed",
    "date": "2026-12-04",
    "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
-   "pop": 42.0064,
+   "pop": 42.4685,
    "info": {
     "id": 1538497,
     "title": "ビリーと魔法のはじまり",
@@ -318,7 +319,7 @@
    "original": "Practical Magic 2",
    "date": "2026-11-27",
    "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
-   "pop": 30.8572,
+   "pop": 30.9918,
    "info": {
     "id": 1302904,
     "title": "プラティカル・マジック／魔女たちの秘密",
@@ -357,7 +358,7 @@
    "original": "The Housemaid",
    "date": "2026-11-27",
    "poster": "/1bhR7OMdCvBYiEmqvwesfcN5qKT.jpg",
-   "pop": 25.9607,
+   "pop": 26.9534,
    "info": {
     "id": 1368166,
     "title": "ハウスメイド",

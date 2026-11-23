@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-22T01:18:54.253Z",
- "today": "2026-11-22",
+ "updated": "2026-11-23T00:23:15.628Z",
+ "today": "2026-11-23",
  "anchor": "2026-11-20",
- "from": "2026-10-22",
- "to": "2027-01-22",
+ "from": "2026-10-23",
+ "to": "2027-01-23",
  "items": [
   {
    "id": 1483525,
@@ -84,6 +84,14 @@
    "date": "2026-10-24",
    "poster": "/12lO7y7j57j6mpQCUccOdEpSZzA.jpg",
    "pop": 8.8
+  },
+  {
+   "id": 1837209,
+   "title": "超ときめき♡宣伝部のきみのハートにロックオンTOUR 2026 ～夢見てるからずっとかわいいでしょ！～アリーナファイナル at 有明アリーナ",
+   "original": "超ときめき♡宣伝部のきみのハートにロックオンTOUR 2026 ～夢見てるからずっとかわいいでしょ！～アリーナファイナル at 有明アリーナ",
+   "date": "2026-10-25",
+   "poster": "/kKbqcSkP4gr360arDjoWrqzO0rh.jpg",
+   "pop": 0
   },
   {
    "id": 1400940,
@@ -374,19 +382,19 @@
    "pop": 0.7
   },
   {
-   "id": 1759179,
-   "title": "シルバー・エクスプレス",
-   "original": "シルバー・エクスプレス",
-   "date": "2026-11-13",
-   "poster": "/jOGlxJo4nr1SohOOgN87sIhnZFn.jpg",
-   "pop": 0.6
-  },
-  {
    "id": 1807470,
    "title": "2126年、海の星をさがして",
    "original": "2126年、海の星をさがして",
    "date": "2026-11-13",
    "poster": "/lzZZj7ag0SPqw80ESpXuonbiGYF.jpg",
+   "pop": 0.6
+  },
+  {
+   "id": 1759179,
+   "title": "シルバー・エクスプレス",
+   "original": "シルバー・エクスプレス",
+   "date": "2026-11-13",
+   "poster": "/jOGlxJo4nr1SohOOgN87sIhnZFn.jpg",
    "pop": 0.6
   },
   {
@@ -406,19 +414,19 @@
    "pop": 0.1
   },
   {
-   "id": 1807483,
-   "title": "デフリンピック・ストーリーズ",
-   "original": "デフリンピック・ストーリーズ",
-   "date": "2026-11-14",
-   "poster": "/8gTvoCjJwR6y7VQ4CzcCYuBjuwm.jpg",
-   "pop": 0.1
-  },
-  {
    "id": 1807502,
    "title": "巡る世界、巡る言葉",
    "original": "巡る世界、巡る言葉",
    "date": "2026-11-14",
    "poster": "/pRC7dq6kIOMdrRzx18arsWlQ8kO.jpg",
+   "pop": 0.1
+  },
+  {
+   "id": 1807483,
+   "title": "デフリンピック・ストーリーズ",
+   "original": "デフリンピック・ストーリーズ",
+   "date": "2026-11-14",
+   "poster": "/8gTvoCjJwR6y7VQ4CzcCYuBjuwm.jpg",
    "pop": 0.1
   },
   {
@@ -502,6 +510,22 @@
    "pop": 0.5
   },
   {
+   "id": 1837576,
+   "title": "劇場版 アイドルマスター SideM F＠NTASTIC BATTLE FES ～Who goes first～",
+   "original": "劇場版 アイドルマスター SideM F＠NTASTIC BATTLE FES ～Who goes first～",
+   "date": "2026-11-20",
+   "poster": "/plFgvWR20RF20OXcp6ds2yNSbt7.jpg",
+   "pop": 0
+  },
+  {
+   "id": 1837221,
+   "title": "ラブル＆クルー IN シアター 2026",
+   "original": "ラブル＆クルー IN シアター 2026",
+   "date": "2026-11-20",
+   "poster": "/cK17ov58JEtpF1tcX2IqsfKDVbW.jpg",
+   "pop": 0
+  },
+  {
    "id": 1730207,
    "title": "アユラ",
    "original": "アユラ",
@@ -558,14 +582,6 @@
    "pop": 0.8
   },
   {
-   "id": 1660754,
-   "title": "このごにおよんで愛など",
-   "original": "このごにおよんで愛など",
-   "date": "2026-11-27",
-   "poster": "/w95RcyBbq2KwNu2juW60t1LrFZp.jpg",
-   "pop": 0.7
-  },
-  {
    "id": 1718930,
    "title": "ワンダンス",
    "original": "ワンダンス",
@@ -574,12 +590,12 @@
    "pop": 0.7
   },
   {
-   "id": 1700953,
-   "title": "タコピーの原罪 -ありがとう、また明日-",
-   "original": "タコピーの原罪 -ありがとう、また明日-",
+   "id": 1660754,
+   "title": "このごにおよんで愛など",
+   "original": "このごにおよんで愛など",
    "date": "2026-11-27",
-   "poster": "/dM9eKAo5g5XiQcgEynX02WxTWr4.jpg",
-   "pop": 0.6
+   "poster": "/w95RcyBbq2KwNu2juW60t1LrFZp.jpg",
+   "pop": 0.7
   },
   {
    "id": 1807521,
@@ -587,6 +603,14 @@
    "original": "会いたくて会えなくて、会えなくなって、会いたい。",
    "date": "2026-11-27",
    "poster": "/qCMBat5HtfV5i2F9aaaltoj56ua.jpg",
+   "pop": 0.6
+  },
+  {
+   "id": 1700953,
+   "title": "タコピーの原罪 -ありがとう、また明日-",
+   "original": "タコピーの原罪 -ありがとう、また明日-",
+   "date": "2026-11-27",
+   "poster": "/dM9eKAo5g5XiQcgEynX02WxTWr4.jpg",
    "pop": 0.6
   },
   {
@@ -814,19 +838,19 @@
    "pop": 0.3
   },
   {
-   "id": 1800641,
-   "title": "キセキの第九",
-   "original": "キセキの第九",
-   "date": "2026-12-12",
-   "poster": "/vvUGRMBs9cP1r4A8oCvwqa5Sehv.jpg",
-   "pop": 0.2
-  },
-  {
    "id": 1759805,
    "title": "走馬灯",
    "original": "走馬灯",
    "date": "2026-12-12",
    "poster": "/8Gs1ALPgqDQw9KWvODUSUBkwPfB.jpg",
+   "pop": 0.2
+  },
+  {
+   "id": 1800641,
+   "title": "キセキの第九",
+   "original": "キセキの第九",
+   "date": "2026-12-12",
+   "poster": "/vvUGRMBs9cP1r4A8oCvwqa5Sehv.jpg",
    "pop": 0.2
   },
   {
@@ -1014,19 +1038,19 @@
    "pop": 1
   },
   {
-   "id": 1740088,
-   "title": "映画 九条の大罪",
-   "original": "映画 九条の大罪",
-   "date": "2027-01-08",
-   "poster": "/8pnSSn2544SgEz4MECLXIy2Rhe0.jpg",
-   "pop": 0.6
-  },
-  {
    "id": 1628271,
    "title": "高校生家族",
    "original": "高校生家族",
    "date": "2027-01-08",
    "poster": "/jc5tri93P05ydZEF1PbuM7VVNBw.jpg",
+   "pop": 0.6
+  },
+  {
+   "id": 1740088,
+   "title": "映画 九条の大罪",
+   "original": "映画 九条の大罪",
+   "date": "2027-01-08",
+   "poster": "/8pnSSn2544SgEz4MECLXIy2Rhe0.jpg",
    "pop": 0.6
   },
   {
@@ -1134,19 +1158,19 @@
    "pop": 0.3
   },
   {
-   "id": 1774278,
-   "title": "劇場版 40までにしたい10のこと",
-   "original": "劇場版 40までにしたい10のこと",
-   "date": "2027-01-22",
-   "poster": "/5AXJPqBetQgYhD2vz4rgTxqP4O1.jpg",
-   "pop": 0.3
-  },
-  {
    "id": 1560316,
    "title": "あきらめません！",
    "original": "あきらめません！",
    "date": "2027-01-22",
    "poster": "/vJ5dpcqly5KjRhFK73WwjLAjWtu.jpg",
+   "pop": 0.3
+  },
+  {
+   "id": 1774278,
+   "title": "劇場版 40までにしたい10のこと",
+   "original": "劇場版 40までにしたい10のこと",
+   "date": "2027-01-22",
+   "poster": "/5AXJPqBetQgYhD2vz4rgTxqP4O1.jpg",
    "pop": 0.3
   }
  ]
