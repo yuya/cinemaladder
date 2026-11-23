@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T00:23:15.628Z",
+ "updated": "2026-11-23T00:25:00.254Z",
  "today": "2026-11-23",
  "anchor": "2026-11-20",
  "from": "2026-10-23",
@@ -414,19 +414,19 @@
    "pop": 0.1
   },
   {
-   "id": 1807502,
-   "title": "巡る世界、巡る言葉",
-   "original": "巡る世界、巡る言葉",
-   "date": "2026-11-14",
-   "poster": "/pRC7dq6kIOMdrRzx18arsWlQ8kO.jpg",
-   "pop": 0.1
-  },
-  {
    "id": 1807483,
    "title": "デフリンピック・ストーリーズ",
    "original": "デフリンピック・ストーリーズ",
    "date": "2026-11-14",
    "poster": "/8gTvoCjJwR6y7VQ4CzcCYuBjuwm.jpg",
+   "pop": 0.1
+  },
+  {
+   "id": 1807502,
+   "title": "巡る世界、巡る言葉",
+   "original": "巡る世界、巡る言葉",
+   "date": "2026-11-14",
+   "poster": "/pRC7dq6kIOMdrRzx18arsWlQ8kO.jpg",
    "pop": 0.1
   },
   {
@@ -510,19 +510,19 @@
    "pop": 0.5
   },
   {
-   "id": 1837576,
-   "title": "劇場版 アイドルマスター SideM F＠NTASTIC BATTLE FES ～Who goes first～",
-   "original": "劇場版 アイドルマスター SideM F＠NTASTIC BATTLE FES ～Who goes first～",
-   "date": "2026-11-20",
-   "poster": "/plFgvWR20RF20OXcp6ds2yNSbt7.jpg",
-   "pop": 0
-  },
-  {
    "id": 1837221,
    "title": "ラブル＆クルー IN シアター 2026",
    "original": "ラブル＆クルー IN シアター 2026",
    "date": "2026-11-20",
    "poster": "/cK17ov58JEtpF1tcX2IqsfKDVbW.jpg",
+   "pop": 0
+  },
+  {
+   "id": 1837576,
+   "title": "劇場版 アイドルマスター SideM F＠NTASTIC BATTLE FES ～Who goes first～",
+   "original": "劇場版 アイドルマスター SideM F＠NTASTIC BATTLE FES ～Who goes first～",
+   "date": "2026-11-20",
+   "poster": "/plFgvWR20RF20OXcp6ds2yNSbt7.jpg",
    "pop": 0
   },
   {
@@ -566,19 +566,19 @@
    "pop": 8.8
   },
   {
-   "id": 1739765,
-   "title": "君の話",
-   "original": "君の話",
-   "date": "2026-11-27",
-   "poster": "/8H0YN4J0iuPyC4SjtU5fdooLciH.jpg",
-   "pop": 0.8
-  },
-  {
    "id": 1807529,
    "title": "つりこまち",
    "original": "つりこまち",
    "date": "2026-11-27",
    "poster": "/tvtdgpfZJGVaC6cOE0pP0n1fxkH.jpg",
+   "pop": 0.8
+  },
+  {
+   "id": 1739765,
+   "title": "君の話",
+   "original": "君の話",
+   "date": "2026-11-27",
+   "poster": "/8H0YN4J0iuPyC4SjtU5fdooLciH.jpg",
    "pop": 0.8
   },
   {
@@ -598,19 +598,19 @@
    "pop": 0.7
   },
   {
-   "id": 1807521,
-   "title": "会いたくて会えなくて、会えなくなって、会いたい。",
-   "original": "会いたくて会えなくて、会えなくなって、会いたい。",
-   "date": "2026-11-27",
-   "poster": "/qCMBat5HtfV5i2F9aaaltoj56ua.jpg",
-   "pop": 0.6
-  },
-  {
    "id": 1700953,
    "title": "タコピーの原罪 -ありがとう、また明日-",
    "original": "タコピーの原罪 -ありがとう、また明日-",
    "date": "2026-11-27",
    "poster": "/dM9eKAo5g5XiQcgEynX02WxTWr4.jpg",
+   "pop": 0.6
+  },
+  {
+   "id": 1807521,
+   "title": "会いたくて会えなくて、会えなくなって、会いたい。",
+   "original": "会いたくて会えなくて、会えなくなって、会いたい。",
+   "date": "2026-11-27",
+   "poster": "/qCMBat5HtfV5i2F9aaaltoj56ua.jpg",
    "pop": 0.6
   },
   {
@@ -934,19 +934,19 @@
    "pop": 1.4
   },
   {
-   "id": 1757707,
-   "title": "巨頭ｵ",
-   "original": "巨頭ｵ",
-   "date": "2026-12-25",
-   "poster": "/sTeAfh4rVEFw1lrpD9bFjoarhtK.jpg",
-   "pop": 0.4
-  },
-  {
    "id": 1657317,
    "title": "BYE BYE LOVE 探偵はBARにいる",
    "original": "BYE BYE LOVE 探偵はBARにいる",
    "date": "2026-12-25",
    "poster": "/5AvghJZ79dqvbmfKMILVHjrWq0I.jpg",
+   "pop": 0.4
+  },
+  {
+   "id": 1757707,
+   "title": "巨頭ｵ",
+   "original": "巨頭ｵ",
+   "date": "2026-12-25",
+   "poster": "/sTeAfh4rVEFw1lrpD9bFjoarhtK.jpg",
    "pop": 0.4
   },
   {
@@ -1038,19 +1038,19 @@
    "pop": 1
   },
   {
-   "id": 1628271,
-   "title": "高校生家族",
-   "original": "高校生家族",
-   "date": "2027-01-08",
-   "poster": "/jc5tri93P05ydZEF1PbuM7VVNBw.jpg",
-   "pop": 0.6
-  },
-  {
    "id": 1740088,
    "title": "映画 九条の大罪",
    "original": "映画 九条の大罪",
    "date": "2027-01-08",
    "poster": "/8pnSSn2544SgEz4MECLXIy2Rhe0.jpg",
+   "pop": 0.6
+  },
+  {
+   "id": 1628271,
+   "title": "高校生家族",
+   "original": "高校生家族",
+   "date": "2027-01-08",
+   "poster": "/jc5tri93P05ydZEF1PbuM7VVNBw.jpg",
    "pop": 0.6
   },
   {
@@ -1150,11 +1150,11 @@
    "pop": 9.5
   },
   {
-   "id": 1196776,
-   "title": "Tamala 2030: A Punk Cat in Dark",
-   "original": "Tamala 2030: A Punk Cat in Dark",
+   "id": 1774278,
+   "title": "劇場版 40までにしたい10のこと",
+   "original": "劇場版 40までにしたい10のこと",
    "date": "2027-01-22",
-   "poster": "/sHnbbkUAArhDgHA8ax4rvT0PlzM.jpg",
+   "poster": "/5AXJPqBetQgYhD2vz4rgTxqP4O1.jpg",
    "pop": 0.3
   },
   {
@@ -1166,11 +1166,11 @@
    "pop": 0.3
   },
   {
-   "id": 1774278,
-   "title": "劇場版 40までにしたい10のこと",
-   "original": "劇場版 40までにしたい10のこと",
+   "id": 1196776,
+   "title": "Tamala 2030: A Punk Cat in Dark",
+   "original": "Tamala 2030: A Punk Cat in Dark",
    "date": "2027-01-22",
-   "poster": "/5AXJPqBetQgYhD2vz4rgTxqP4O1.jpg",
+   "poster": "/sHnbbkUAArhDgHA8ax4rvT0PlzM.jpg",
    "pop": 0.3
   }
  ]
