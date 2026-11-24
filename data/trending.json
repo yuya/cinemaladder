@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T01:42:05.041Z",
+ "updated": "2026-11-24T05:19:42.513Z",
  "items": [
   {
    "id": 1400837,
@@ -7,7 +7,7 @@
    "original": "Other Mommy",
    "date": "2026-11-20",
    "poster": "/qs0kHXbRadmtDIH5EmIoiqV0rX1.jpg",
-   "pop": 320.2749,
+   "pop": 272.261,
    "info": {
     "id": 1400837,
     "title": "アザー・マミー",
@@ -17,8 +17,8 @@
     "jpDate": "2026-11-20",
     "runtime": 93,
     "tagline": "",
-    "overview": "Young Bela forms a relationship with a sinister entity in her home that looks uncannily like her own mother, drawing her into a terrifying and increasingly dark world.",
-    "overviewLang": "en",
+    "overview": "同じ顔。同じ声。でも、ママじゃない。 “それ”は、最も大切な人の姿で現れる―― 　 あなたはもう、自分の家族を信じられない アカデミー賞®受賞俳優 ジェシカ・チャステイン主演　鬼才ジェームズ・ワンが仕掛ける日常侵蝕ホラー 　夫婦関係に問題を抱える家庭で過ごす7歳の少女、ベラ。 ある日、彼女は自分の部屋のクローゼットから出てきた母親と全く同じ見た目の“何か”と出会う。ベラが「アザ―・マミー」と呼ぶその存在は、ある質問を繰り返し問いかけ、次第に彼女や家族を脅かす存在となってゆく―――。",
+    "overviewLang": "ja",
     "genres": [
      "ホラー"
     ],
@@ -44,7 +44,7 @@
    "original": "ゴジラ-0.0",
    "date": "2026-11-03",
    "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
-   "pop": 122.4366,
+   "pop": 100.0097,
    "info": {
     "id": 1381071,
     "title": "ゴジラ-0.0",
@@ -83,7 +83,7 @@
    "original": "Ebenezer",
    "date": "2026-11-13",
    "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
-   "pop": 108.8828,
+   "pop": 89.7007,
    "info": {
     "id": 1567605,
     "title": "クリスマス・キャロル／3人のゴーストたち",
@@ -123,7 +123,7 @@
    "original": "Verity",
    "date": "2026-11-06",
    "poster": "/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "pop": 88.77,
+   "pop": 80.6252,
    "info": {
     "id": 1283515,
     "title": "ヴェリティ／真実",
@@ -161,7 +161,7 @@
    "original": "Street Fighter",
    "date": "2026-10-16",
    "poster": "/1JBlbyXionXPRaqW1UQw7eKkxNP.jpg",
-   "pop": 70.0372,
+   "pop": 57.555,
    "info": {
     "id": 1153576,
     "title": "ストリートファイター／ザ・ムービー",
@@ -201,7 +201,7 @@
    "original": "Clayface",
    "date": "2026-10-30",
    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-   "pop": 65.1015,
+   "pop": 54.6313,
    "info": {
     "id": 1400940,
     "title": "クレイフェイス",
@@ -235,12 +235,53 @@
    }
   },
   {
+   "id": 1538497,
+   "title": "ビリーと魔法のはじまり",
+   "original": "Hexed",
+   "date": "2026-12-04",
+   "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
+   "pop": 50.7896,
+   "info": {
+    "id": 1538497,
+    "title": "ビリーと魔法のはじまり",
+    "original": "Hexed",
+    "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
+    "date": "2026-11-25",
+    "jpDate": "2026-12-04",
+    "runtime": 103,
+    "tagline": "",
+    "overview": "ディズニー長編アニメーション作品としては初となる、ディズニーヒロイン史上初の“現代の女子高校生”が主人公の＜ビリー＞による全く新しい魔法の物語。 型破りな性格で学校でも周囲になじめない高校生の少女・ビリーが魔法の力に目覚め、新たな世界での大冒険へと導かれていく―。",
+    "overviewLang": "ja",
+    "genres": [
+     "アドベンチャー",
+     "アニメーション",
+     "ファミリー",
+     "ファンタジー"
+    ],
+    "countries": [
+     "US"
+    ],
+    "directors": [
+     "ジェイソン・ハンド",
+     "ファウン・ヴィーラスンソーン"
+    ],
+    "cast": [
+     "ヘイリー・スタインフェルド",
+     "ラシダ・ジョーンズ",
+     "ジョディ・フォスター",
+     "ウォルトン・ゴギンズ",
+     "Tracey Ullman",
+     "スティーヴン・フライ"
+    ]
+   }
+  },
+  {
    "id": 1255833,
    "title": "クジラに落ちた男",
    "original": "Whalefall",
    "date": "2026-10-16",
    "poster": "/q4z5EiiOwYWUDkkPMAmFVjqWnBa.jpg",
-   "pop": 45.8154,
+   "pop": 37.8214,
    "info": {
     "id": 1255833,
     "title": "クジラに落ちた男",
@@ -272,44 +313,40 @@
    }
   },
   {
-   "id": 1538497,
-   "title": "ビリーと魔法のはじまり",
-   "original": "Hexed",
-   "date": "2026-12-04",
-   "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
-   "pop": 42.4685,
+   "id": 1368166,
+   "title": "ハウスメイド",
+   "original": "The Housemaid",
+   "date": "2026-11-27",
+   "poster": "/1bhR7OMdCvBYiEmqvwesfcN5qKT.jpg",
+   "pop": 29.5631,
    "info": {
-    "id": 1538497,
-    "title": "ビリーと魔法のはじまり",
-    "original": "Hexed",
-    "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
-    "date": "2026-11-25",
-    "jpDate": "2026-12-04",
-    "runtime": 103,
+    "id": 1368166,
+    "title": "ハウスメイド",
+    "original": "The Housemaid",
+    "poster": "/1bhR7OMdCvBYiEmqvwesfcN5qKT.jpg",
+    "date": "2025-12-18",
+    "jpDate": "2026-11-27",
+    "runtime": 131,
     "tagline": "",
-    "overview": "ディズニー長編アニメーション作品としては初となる、ディズニーヒロイン史上初の“現代の女子高校生”が主人公の＜ビリー＞による全く新しい魔法の物語。 型破りな性格で学校でも周囲になじめない高校生の少女・ビリーが魔法の力に目覚め、新たな世界での大冒険へと導かれていく―。",
-    "overviewLang": "ja",
+    "overview": "Trying to escape her past, Millie Calloway accepts a job as a live-in housemaid for the wealthy Nina and Andrew Winchester. But what begins as a dream job quickly unravels into something far more dangerous—a sexy, seductive game of secrets, scandal, and power.",
+    "overviewLang": "en",
     "genres": [
-     "アドベンチャー",
-     "アニメーション",
-     "ファミリー",
-     "ファンタジー",
-     "コメディ"
+     "ミステリー",
+     "スリラー"
     ],
     "countries": [
      "US"
     ],
     "directors": [
-     "ジェイソン・ハンド",
-     "ファウン・ヴィーラスンソーン"
+     "ポール・フェイグ"
     ],
     "cast": [
-     "ヘイリー・スタインフェルド",
-     "ラシダ・ジョーンズ",
-     "ジョディ・フォスター",
-     "ウォルトン・ゴギンズ",
-     "Tracey Ullman",
-     "スティーヴン・フライ"
+     "シドニー・スウィーニー",
+     "アマンダ・サイフリッド",
+     "ブランドン・スクレナー",
+     "Michele Morrone",
+     "Indiana Elle",
+     "サラ・クーパー"
     ]
    }
   },
@@ -319,7 +356,7 @@
    "original": "Practical Magic 2",
    "date": "2026-11-27",
    "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
-   "pop": 30.9918,
+   "pop": 27.2584,
    "info": {
     "id": 1302904,
     "title": "プラティカル・マジック／魔女たちの秘密",
@@ -349,44 +386,6 @@
      "ストッカード・チャニング",
      "ジョーイ・キング",
      "リー・ペイス"
-    ]
-   }
-  },
-  {
-   "id": 1368166,
-   "title": "ハウスメイド",
-   "original": "The Housemaid",
-   "date": "2026-11-27",
-   "poster": "/1bhR7OMdCvBYiEmqvwesfcN5qKT.jpg",
-   "pop": 26.9534,
-   "info": {
-    "id": 1368166,
-    "title": "ハウスメイド",
-    "original": "The Housemaid",
-    "poster": "/1bhR7OMdCvBYiEmqvwesfcN5qKT.jpg",
-    "date": "2025-12-18",
-    "jpDate": "2026-11-27",
-    "runtime": 131,
-    "tagline": "",
-    "overview": "Trying to escape her past, Millie Calloway accepts a job as a live-in housemaid for the wealthy Nina and Andrew Winchester. But what begins as a dream job quickly unravels into something far more dangerous—a sexy, seductive game of secrets, scandal, and power.",
-    "overviewLang": "en",
-    "genres": [
-     "ミステリー",
-     "スリラー"
-    ],
-    "countries": [
-     "US"
-    ],
-    "directors": [
-     "ポール・フェイグ"
-    ],
-    "cast": [
-     "シドニー・スウィーニー",
-     "アマンダ・サイフリッド",
-     "ブランドン・スクレナー",
-     "Michele Morrone",
-     "Indiana Elle",
-     "サラ・クーパー"
     ]
    }
   }
