@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T05:20:12.109Z",
+ "updated": "2026-11-25T04:11:30.067Z",
  "items": [
   {
    "id": 1400837,
@@ -7,7 +7,7 @@
    "original": "Other Mommy",
    "date": "2026-11-20",
    "poster": "/qs0kHXbRadmtDIH5EmIoiqV0rX1.jpg",
-   "pop": 272.261,
+   "pop": 244.1644,
    "info": {
     "id": 1400837,
     "title": "アザー・マミー",
@@ -44,7 +44,7 @@
    "original": "ゴジラ-0.0",
    "date": "2026-11-03",
    "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
-   "pop": 100.0097,
+   "pop": 88.3298,
    "info": {
     "id": 1381071,
     "title": "ゴジラ-0.0",
@@ -83,7 +83,7 @@
    "original": "Ebenezer",
    "date": "2026-11-13",
    "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
-   "pop": 89.7007,
+   "pop": 81.5312,
    "info": {
     "id": 1567605,
     "title": "クリスマス・キャロル／3人のゴーストたち",
@@ -97,8 +97,7 @@
     "overviewLang": "en",
     "genres": [
      "ファンタジー",
-     "ドラマ",
-     "ホラー"
+     "コメディ"
     ],
     "countries": [
      "US",
@@ -123,7 +122,7 @@
    "original": "Verity",
    "date": "2026-11-06",
    "poster": "/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "pop": 80.6252,
+   "pop": 75.2261,
    "info": {
     "id": 1283515,
     "title": "ヴェリティ／真実",
@@ -156,42 +155,44 @@
    }
   },
   {
-   "id": 1153576,
-   "title": "ストリートファイター／ザ・ムービー",
-   "original": "Street Fighter",
-   "date": "2026-10-16",
-   "poster": "/1JBlbyXionXPRaqW1UQw7eKkxNP.jpg",
-   "pop": 57.555,
+   "id": 1538497,
+   "title": "ビリーと魔法のはじまり",
+   "original": "Hexed",
+   "date": "2026-12-04",
+   "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
+   "pop": 50.7896,
    "info": {
-    "id": 1153576,
-    "title": "ストリートファイター／ザ・ムービー",
-    "original": "Street Fighter",
-    "poster": "/1JBlbyXionXPRaqW1UQw7eKkxNP.jpg",
-    "date": "2026-10-13",
-    "jpDate": "2026-10-16",
-    "runtime": 120,
-    "tagline": "伝説が、ここから始まる。",
-    "overview": "舞台は1993年。かつて、共に天才格闘家として名を馳せ、兄弟のような存在であったリュウとケン。ある理由により疎遠になった二人のもとに、謎の女性格闘家・春麗が現れ、“ワールドウォリアー・トーナメント（世界格闘王決定戦）”の招待状が差し出される。世界最強の猛者たち“ストリートファイター”と戦うことになった二人は、その拳で運命を変えることができるのか？",
+    "id": 1538497,
+    "title": "ビリーと魔法のはじまり",
+    "original": "Hexed",
+    "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
+    "date": "2026-11-25",
+    "jpDate": "2026-12-04",
+    "runtime": 103,
+    "tagline": "",
+    "overview": "ディズニー長編アニメーション作品としては初となる、ディズニーヒロイン史上初の“現代の女子高校生”が主人公の＜ビリー＞による全く新しい魔法の物語。 型破りな性格で学校でも周囲になじめない高校生の少女・ビリーが魔法の力に目覚め、新たな世界での大冒険へと導かれていく―。",
     "overviewLang": "ja",
     "genres": [
-     "アクション",
-     "コメディ",
-     "ファンタジー"
+     "アドベンチャー",
+     "アニメーション",
+     "ファミリー",
+     "ファンタジー",
+     "コメディ"
     ],
     "countries": [
-     "JP",
      "US"
     ],
     "directors": [
-     "キタオ・サクライ"
+     "ジェイソン・ハンド",
+     "ファウン・ヴィーラスンソーン"
     ],
     "cast": [
-     "アンドリュー・小路",
-     "ノア・センティネオ",
-     "カリーナ・リャン",
-     "デヴィッド・ダストマルチャン",
-     "アンドリュー・シュルツ",
-     "コーディ・ローデス"
+     "ヘイリー・スタインフェルド",
+     "ラシダ・ジョーンズ",
+     "ジョディ・フォスター",
+     "ウォルトン・ゴギンズ",
+     "Tracey Ullman",
+     "スティーヴン・フライ"
     ]
    }
   },
@@ -201,7 +202,7 @@
    "original": "Clayface",
    "date": "2026-10-30",
    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-   "pop": 54.6313,
+   "pop": 48.6174,
    "info": {
     "id": 1400940,
     "title": "クレイフェイス",
@@ -231,84 +232,6 @@
      "マックス・ミンゲラ",
      "デヴィッド・デンシック",
      "Francesca Corney"
-    ]
-   }
-  },
-  {
-   "id": 1538497,
-   "title": "ビリーと魔法のはじまり",
-   "original": "Hexed",
-   "date": "2026-12-04",
-   "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
-   "pop": 50.7896,
-   "info": {
-    "id": 1538497,
-    "title": "ビリーと魔法のはじまり",
-    "original": "Hexed",
-    "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
-    "date": "2026-11-25",
-    "jpDate": "2026-12-04",
-    "runtime": 103,
-    "tagline": "",
-    "overview": "ディズニー長編アニメーション作品としては初となる、ディズニーヒロイン史上初の“現代の女子高校生”が主人公の＜ビリー＞による全く新しい魔法の物語。 型破りな性格で学校でも周囲になじめない高校生の少女・ビリーが魔法の力に目覚め、新たな世界での大冒険へと導かれていく―。",
-    "overviewLang": "ja",
-    "genres": [
-     "アドベンチャー",
-     "アニメーション",
-     "ファミリー",
-     "ファンタジー"
-    ],
-    "countries": [
-     "US"
-    ],
-    "directors": [
-     "ジェイソン・ハンド",
-     "ファウン・ヴィーラスンソーン"
-    ],
-    "cast": [
-     "ヘイリー・スタインフェルド",
-     "ラシダ・ジョーンズ",
-     "ジョディ・フォスター",
-     "ウォルトン・ゴギンズ",
-     "Tracey Ullman",
-     "スティーヴン・フライ"
-    ]
-   }
-  },
-  {
-   "id": 1255833,
-   "title": "クジラに落ちた男",
-   "original": "Whalefall",
-   "date": "2026-10-16",
-   "poster": "/q4z5EiiOwYWUDkkPMAmFVjqWnBa.jpg",
-   "pop": 37.8214,
-   "info": {
-    "id": 1255833,
-    "title": "クジラに落ちた男",
-    "original": "Whalefall",
-    "poster": "/q4z5EiiOwYWUDkkPMAmFVjqWnBa.jpg",
-    "date": "2026-10-14",
-    "jpDate": "2026-10-16",
-    "runtime": 106,
-    "tagline": "",
-    "overview": "Following the death of his father, Jay Gardiner goes diving off the central Coast of California in search of his remains, but is swallowed by a massive sperm whale. While trapped inside its belly with only one hour of oxygen left, Jay comes to realize that the hard-earned lessons his father imparted may be the key to his escape.",
-    "overviewLang": "en",
-    "genres": [
-     "スリラー"
-    ],
-    "countries": [
-     "US"
-    ],
-    "directors": [
-     "ブライアン・ダッフィールド"
-    ],
-    "cast": [
-     "オースティン・エイブラムス",
-     "ジョシュ・ブローリン",
-     "エリザベス・シュー",
-     "ジョン・オーティス",
-     "ジェーン・レヴィ",
-     "エミリー・ラッド"
     ]
    }
   },
@@ -352,14 +275,14 @@
   },
   {
    "id": 1302904,
-   "title": "プラティカル・マジック／魔女たちの秘密",
+   "title": "プラクティカル・マジック／魔女たちの秘密",
    "original": "Practical Magic 2",
    "date": "2026-11-27",
    "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
    "pop": 27.2584,
    "info": {
     "id": 1302904,
-    "title": "プラティカル・マジック／魔女たちの秘密",
+    "title": "プラクティカル・マジック／魔女たちの秘密",
     "original": "Practical Magic 2",
     "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
     "date": "2026-09-09",
@@ -386,6 +309,83 @@
      "ストッカード・チャニング",
      "ジョーイ・キング",
      "リー・ペイス"
+    ]
+   }
+  },
+  {
+   "id": 1457866,
+   "title": "ザ・ファーザー・ミスアドベンチャー・オブ・クリフ・ブース",
+   "original": "THE FURTHER MIS-ADVENTURES OF CLIFF BOOTH",
+   "date": "2026-11-25",
+   "poster": "/gEqfmochcRmyDQFThatTKQfH9GT.jpg",
+   "pop": 17.9344,
+   "info": {
+    "id": 1457866,
+    "title": "ザ・ファーザー・ミスアドベンチャー・オブ・クリフ・ブース",
+    "original": "THE FURTHER MIS-ADVENTURES OF CLIFF BOOTH",
+    "poster": "/gEqfmochcRmyDQFThatTKQfH9GT.jpg",
+    "date": "2026-11-24",
+    "jpDate": "2026-11-25",
+    "runtime": 141,
+    "tagline": "",
+    "overview": "舞台は1977年のロサンゼルス。『ワンス・アポン・ア・タイム・イン・ハリウッド』から約8年後、クリフ・ブースはスタントマンを引退し、映画館のスタッフやバーテンダーとして働きながら、ハリウッドの裏問題を処理する“スタジオ・フィクサー”として暗躍している。ある日、タレントエージェントのカレン・クロスビーから依頼を受け、人気TVスターのチャーリー・ピーターズをめぐるトラブルに巻き込まれていく。さらに、チャーリーの妻トニー、元プロフットボール選手で今は映画スターの“ホット・ロッド”ことロデリック・ハリソン、そしてロサンゼルスで暗躍する謎のギャング“ヴェルドゥスコ兄弟”らが入り乱れ、クリフは再び暴力・陰謀・欲望が渦巻くハリウッドの闇へ踏み込んでいく。",
+    "overviewLang": "ja",
+    "genres": [
+     "コメディ",
+     "ドラマ",
+     "スリラー"
+    ],
+    "countries": [
+     "US"
+    ],
+    "directors": [
+     "デヴィッド・フィンチャー"
+    ],
+    "cast": [
+     "ブラッド・ピット",
+     "エリザベス・デビッキ",
+     "スコット・カーン",
+     "ヤーヤ・アブドゥル＝マティーン2世",
+     "カーラ・グギノ",
+     "ピーター・ウェラー"
+    ]
+   }
+  },
+  {
+   "id": 1483525,
+   "title": "もしもの愛",
+   "original": "가능한 사랑",
+   "date": "2026-10-23",
+   "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
+   "pop": 16.577,
+   "info": {
+    "id": 1483525,
+    "title": "もしもの愛",
+    "original": "가능한 사랑",
+    "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
+    "date": "2026-09-23",
+    "jpDate": "2026-10-23",
+    "runtime": 167,
+    "tagline": "",
+    "overview": "まったく異なる人生を歩む2 組の夫婦の交錯する日常を捉え、平穏に見えた日々に少しずつ亀裂が生まれていく様子を描き出す。",
+    "overviewLang": "ja",
+    "genres": [
+     "ドラマ"
+    ],
+    "countries": [
+     "KR",
+     "US"
+    ],
+    "directors": [
+     "イ・チャンドン"
+    ],
+    "cast": [
+     "チョン・ドヨン",
+     "ソル・ギョング",
+     "チョ・インソン",
+     "チョ・ヨジョン",
+     "チョ・ユリ",
+     "최민"
     ]
    }
   }
