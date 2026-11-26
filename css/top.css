@@ -4,7 +4,7 @@ html {
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
-/* 和文の字間を詰める（palt）をサイト全体にかける。部分ごとに付けると漏れが出るため */
+/* 和文の字間を詰める（palt）をサイト全体にかける。部分ごとに付けると漏れが出るため（長い文章は base.css で外す） */
 body {
   margin: 0;
   background: var(--bg);
@@ -13,8 +13,7 @@ body {
   font-size: 15px;
   line-height: 1.6;
   font-feature-settings: "palt" 1;
-  text-autospace: normal;
-} /* 和文と英数字のあいだに、ブラウザが細い空きを入れる（文中には半角スペースを入れない） */
+} /* 和文と英数字の空き・改行のきまりは base.css の「日本語の組版」 */
 button,
 input {
   font: inherit;
