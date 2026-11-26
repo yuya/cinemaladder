@@ -4,17 +4,16 @@ html {
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
-/* 和文の字間を詰める（palt）をサイト全体にかける。部分ごとに付けると漏れが出るため */
+/* 和文の字間を詰める（palt）をサイト全体にかける。部分ごとに付けると漏れが出るため（長い文章は base.css で halt に替える） */
 body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font);
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.5;
   font-feature-settings: "palt" 1;
-  text-autospace: normal;
-} /* 和文と英数字のあいだに、ブラウザが細い空きを入れる（文中には半角スペースを入れない） */
+} /* 和文と英数字の空き・改行のきまりは base.css の「日本語の組版」 */
 button,
 input {
   font: inherit;
@@ -859,9 +858,8 @@ main:has(.peek) {
 }
 .info .ov {
   margin: 0;
-  line-height: 1.8;
-  letter-spacing: 0.02em;
-} /* 長い文章は詰めすぎると読みにくいので、少しだけ空ける */
+  line-height: 1.5;
+} /* 字間は base.css の halt（句読点だけ半角幅）にまかせ、letter-spacing は付けない */
 .info .lang,
 .info .cr {
   margin: 0;
@@ -1107,7 +1105,7 @@ a.go .d {
   padding-block: 24px 16px;
   border-top: 1px solid var(--line);
   font-size: 14px;
-  line-height: 1.85;
+  line-height: 1.5;
   color: var(--fg);
 }
 .guide h2 {

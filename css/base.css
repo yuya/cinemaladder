@@ -51,3 +51,32 @@
 * {
   box-sizing: border-box;
 }
+
+/* ===== 日本語の組版（全ページ共通） =====
+   参考：https://qiita.com/tofu_frontend/items/6a1bb7d80a58736eef0e
+   :where() で強さを0にし、各ページの指定で上書きできるようにしている */
+:where(:root) {
+  text-autospace: normal; /* 和文と英数字のあいだに細い空き（文中には半角スペースを入れない） */
+  text-spacing-trim: trim-start; /* 「」（）などが続くときの空きを詰める。今は Chrome だけ */
+  line-break: strict; /* 小さい「ゃ」「ッ」や「ー」を行頭に置かない */
+  overflow-wrap: anywhere; /* 長い URL や英単語が枠からはみ出さないように */
+}
+/* 入力中に空きが入るとカーソルが不安定になるので、入力欄と時刻・整形済みの文字には入れない */
+:where(input:not([type="button" i], [type="submit" i], [type="reset" i]), textarea, [contenteditable], time, pre) {
+  text-autospace: no-autospace;
+}
+:where(pre) {
+  text-spacing-trim: space-all;
+}
+/* 見出しは行の長さをそろえ（最後の行が数文字だけにならない）、文節で改行する（文節の改行は今は Chrome だけ。作品名は app.js でも分けている） */
+:where(h1, h2, h3, h4, h5, h6) {
+  text-wrap: balance;
+  word-break: auto-phrase;
+}
+/* 字間を詰める palt はサイト全体にかけているが、長い文章ではかな・漢字まで詰まって読みにくくなるので、halt に替える。
+   halt は句読点・カッコ・中黒だけを半角幅にする（かな・漢字は詰めない）。句読点のあとの空きは palt と同じ約0.2字になり、
+   palt を外したベタ組み（約0.7字）のように空きすぎない（IBM Plex Sans JP の値）
+   （あらすじ、トップの「Cinemaladderについて」などの説明、運営者情報・プライバシーポリシーの本文） */
+:where(.info .ov, .guide p, .guide li, main.wrap > p, main.wrap li, main.wrap dd, main.wrap td, .note) {
+  font-feature-settings: "halt" 1;
+}
