@@ -859,8 +859,7 @@ main:has(.peek) {
 .info .ov {
   margin: 0;
   line-height: 1.8;
-  letter-spacing: 0.02em;
-} /* 長い文章は詰めすぎると読みにくいので、少しだけ空ける */
+} /* 字間は base.css の halt（句読点だけ半角幅）にまかせ、letter-spacing は付けない */
 .info .lang,
 .info .cr {
   margin: 0;
