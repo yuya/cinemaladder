@@ -1,13 +1,53 @@
 {
- "updated": "2026-11-25T04:11:30.067Z",
+ "updated": "2026-11-26T03:34:46.494Z",
  "items": [
+  {
+   "id": 1003596,
+   "title": "アベンジャーズ／ドゥームズデイ",
+   "original": "Avengers: Doomsday",
+   "date": "2026-12-18",
+   "poster": "/sayTzWRvCFtDh9UzYMN0vLeXINF.jpg",
+   "pop": 261.3654,
+   "info": {
+    "id": 1003596,
+    "title": "アベンジャーズ／ドゥームズデイ",
+    "original": "Avengers: Doomsday",
+    "poster": "/axD1jIfE2Is83vDKyTb1CnZ2EBt.jpg",
+    "date": "2026-12-16",
+    "jpDate": "2026-12-18",
+    "runtime": 165,
+    "tagline": "",
+    "overview": "異なる3つの世界から集いし愛すべき英雄たちが、破滅的な衝突の運命に直面する。彼らは、これまで経験したことのないような、存亡をかけた脅威に立ち向かうことになる。",
+    "overviewLang": "ja",
+    "genres": [
+     "サイエンスフィクション",
+     "アクション",
+     "アドベンチャー"
+    ],
+    "countries": [
+     "US"
+    ],
+    "directors": [
+     "ジョー・ルッソ",
+     "アンソニー・ルッソ"
+    ],
+    "cast": [
+     "ロバート・ダウニー・Jr.",
+     "クリス・エヴァンス",
+     "クリス・ヘムズワース",
+     "ペドロ・パスカル",
+     "ポール・ラッド",
+     "アンソニー・マッキー"
+    ]
+   }
+  },
   {
    "id": 1400837,
    "title": "アザー・マミー",
    "original": "Other Mommy",
    "date": "2026-11-20",
    "poster": "/qs0kHXbRadmtDIH5EmIoiqV0rX1.jpg",
-   "pop": 244.1644,
+   "pop": 229.4784,
    "info": {
     "id": 1400837,
     "title": "アザー・マミー",
@@ -44,7 +84,7 @@
    "original": "ゴジラ-0.0",
    "date": "2026-11-03",
    "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
-   "pop": 88.3298,
+   "pop": 80.211,
    "info": {
     "id": 1381071,
     "title": "ゴジラ-0.0",
@@ -83,7 +123,7 @@
    "original": "Ebenezer",
    "date": "2026-11-13",
    "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
-   "pop": 81.5312,
+   "pop": 71.6863,
    "info": {
     "id": 1567605,
     "title": "クリスマス・キャロル／3人のゴーストたち",
@@ -117,17 +157,60 @@
    }
   },
   {
+   "id": 1538497,
+   "title": "ビリーと魔法のはじまり",
+   "original": "Hexed",
+   "date": "2026-12-04",
+   "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
+   "pop": 69.8904,
+   "info": {
+    "id": 1538497,
+    "title": "ビリーと魔法のはじまり",
+    "original": "Hexed",
+    "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
+    "date": "2026-11-25",
+    "jpDate": "2026-12-04",
+    "runtime": 103,
+    "tagline": "",
+    "overview": "ディズニー長編アニメーション作品としては初となる、ディズニーヒロイン史上初の“現代の女子高校生”が主人公の＜ビリー＞による全く新しい魔法の物語。 型破りな性格で学校でも周囲になじめない高校生の少女・ビリーが魔法の力に目覚め、新たな世界での大冒険へと導かれていく―。",
+    "overviewLang": "ja",
+    "genres": [
+     "アドベンチャー",
+     "アニメーション",
+     "ファミリー",
+     "ファンタジー",
+     "コメディ"
+    ],
+    "countries": [
+     "US",
+     "CA"
+    ],
+    "directors": [
+     "ジェイソン・ハンド",
+     "ファウン・ヴィーラスンソーン"
+    ],
+    "cast": [
+     "ヘイリー・スタインフェルド",
+     "ラシダ・ジョーンズ",
+     "ジョディ・フォスター",
+     "ウォルトン・ゴギンズ",
+     "ヘンリー・ウィンクラー",
+     "ダン・スティーヴンス"
+    ]
+   }
+  },
+  {
    "id": 1283515,
    "title": "ヴェリティ／真実",
    "original": "Verity",
    "date": "2026-11-06",
-   "poster": "/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "pop": 75.2261,
+   "poster": "/tDTM8p0ho8mOAd642J0XEnuJVbG.jpg",
+   "pop": 69.7018,
    "info": {
     "id": 1283515,
     "title": "ヴェリティ／真実",
     "original": "Verity",
-    "poster": "/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
+    "poster": "/tDTM8p0ho8mOAd642J0XEnuJVbG.jpg",
     "date": "2026-09-30",
     "jpDate": "2026-11-06",
     "runtime": 117,
@@ -155,44 +238,41 @@
    }
   },
   {
-   "id": 1538497,
-   "title": "ビリーと魔法のはじまり",
-   "original": "Hexed",
-   "date": "2026-12-04",
-   "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
-   "pop": 50.7896,
+   "id": 1170608,
+   "title": "デューン 砂の惑星PART3",
+   "original": "Dune: Part Three",
+   "date": "2026-12-18",
+   "poster": "/1MQA1Wg2dK7KmvsM5UOXXdMqrDd.jpg",
+   "pop": 52.0432,
    "info": {
-    "id": 1538497,
-    "title": "ビリーと魔法のはじまり",
-    "original": "Hexed",
-    "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
-    "date": "2026-11-25",
-    "jpDate": "2026-12-04",
-    "runtime": 103,
-    "tagline": "",
-    "overview": "ディズニー長編アニメーション作品としては初となる、ディズニーヒロイン史上初の“現代の女子高校生”が主人公の＜ビリー＞による全く新しい魔法の物語。 型破りな性格で学校でも周囲になじめない高校生の少女・ビリーが魔法の力に目覚め、新たな世界での大冒険へと導かれていく―。",
+    "id": 1170608,
+    "title": "デューン 砂の惑星PART3",
+    "original": "Dune: Part Three",
+    "poster": "/1MQA1Wg2dK7KmvsM5UOXXdMqrDd.jpg",
+    "date": "2026-12-15",
+    "jpDate": "2026-12-18",
+    "runtime": 150,
+    "tagline": "壮大な結末。",
+    "overview": "帝国を掌握してから20年近くが経過した今、ポール・アトレイデスは冷酷な皇帝となっていた。かつての同盟者たちが姿を現し、恐るべき新たな脅威が台頭する中、彼は自らの統治がもたらした結果と向き合わねばならない。至る所に裏切りの影が潜む中、帝国崩壊の幻影と、長年行方不明だった最愛の女性の再来に苦しめられるポールは、壮大な陰謀の渦中へと引きずり込まれていく。その謎の中心にいるのは、チャニであった。敵が迫り来る中、ポールは「権力の真の代償」と、最も愛する者たちの運命に直面することになる。",
     "overviewLang": "ja",
     "genres": [
-     "アドベンチャー",
-     "アニメーション",
-     "ファミリー",
-     "ファンタジー",
-     "コメディ"
+     "サイエンスフィクション",
+     "アドベンチャー"
     ],
     "countries": [
-     "US"
+     "US",
+     "AE"
     ],
     "directors": [
-     "ジェイソン・ハンド",
-     "ファウン・ヴィーラスンソーン"
+     "ドゥニ・ヴィルヌーヴ"
     ],
     "cast": [
-     "ヘイリー・スタインフェルド",
-     "ラシダ・ジョーンズ",
-     "ジョディ・フォスター",
-     "ウォルトン・ゴギンズ",
-     "Tracey Ullman",
-     "スティーヴン・フライ"
+     "ティモシー・シャラメ",
+     "ゼンデイヤ",
+     "ジェイソン・モモア",
+     "フローレンス・ピュー",
+     "レベッカ・ファーガソン",
+     "イザック・ド・バンコレ"
     ]
    }
   },
@@ -202,7 +282,7 @@
    "original": "Clayface",
    "date": "2026-10-30",
    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-   "pop": 48.6174,
+   "pop": 42.6266,
    "info": {
     "id": 1400940,
     "title": "クレイフェイス",
@@ -241,7 +321,7 @@
    "original": "The Housemaid",
    "date": "2026-11-27",
    "poster": "/1bhR7OMdCvBYiEmqvwesfcN5qKT.jpg",
-   "pop": 29.5631,
+   "pop": 29.3301,
    "info": {
     "id": 1368166,
     "title": "ハウスメイド",
@@ -274,51 +354,12 @@
    }
   },
   {
-   "id": 1302904,
-   "title": "プラクティカル・マジック／魔女たちの秘密",
-   "original": "Practical Magic 2",
-   "date": "2026-11-27",
-   "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
-   "pop": 27.2584,
-   "info": {
-    "id": 1302904,
-    "title": "プラクティカル・マジック／魔女たちの秘密",
-    "original": "Practical Magic 2",
-    "poster": "/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
-    "date": "2026-09-09",
-    "jpDate": "2026-11-27",
-    "runtime": 130,
-    "tagline": "",
-    "overview": "The Owens sisters must confront the dark curse that threatens to unravel their family once and for all.",
-    "overviewLang": "en",
-    "genres": [
-     "ロマンス",
-     "ファンタジー",
-     "コメディ"
-    ],
-    "countries": [
-     "US"
-    ],
-    "directors": [
-     "スサンネ・ビア"
-    ],
-    "cast": [
-     "サンドラ・ブロック",
-     "ニコール・キッドマン",
-     "ダイアン・ウィースト",
-     "ストッカード・チャニング",
-     "ジョーイ・キング",
-     "リー・ペイス"
-    ]
-   }
-  },
-  {
    "id": 1457866,
    "title": "ザ・ファーザー・ミスアドベンチャー・オブ・クリフ・ブース",
    "original": "THE FURTHER MIS-ADVENTURES OF CLIFF BOOTH",
    "date": "2026-11-25",
    "poster": "/gEqfmochcRmyDQFThatTKQfH9GT.jpg",
-   "pop": 17.9344,
+   "pop": 24.2152,
    "info": {
     "id": 1457866,
     "title": "ザ・ファーザー・ミスアドベンチャー・オブ・クリフ・ブース",
@@ -348,44 +389,6 @@
      "ヤーヤ・アブドゥル＝マティーン2世",
      "カーラ・グギノ",
      "ピーター・ウェラー"
-    ]
-   }
-  },
-  {
-   "id": 1483525,
-   "title": "もしもの愛",
-   "original": "가능한 사랑",
-   "date": "2026-10-23",
-   "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
-   "pop": 16.577,
-   "info": {
-    "id": 1483525,
-    "title": "もしもの愛",
-    "original": "가능한 사랑",
-    "poster": "/hGUnENS15d3Ve5W9TQY5ZdP2O18.jpg",
-    "date": "2026-09-23",
-    "jpDate": "2026-10-23",
-    "runtime": 167,
-    "tagline": "",
-    "overview": "まったく異なる人生を歩む2 組の夫婦の交錯する日常を捉え、平穏に見えた日々に少しずつ亀裂が生まれていく様子を描き出す。",
-    "overviewLang": "ja",
-    "genres": [
-     "ドラマ"
-    ],
-    "countries": [
-     "KR",
-     "US"
-    ],
-    "directors": [
-     "イ・チャンドン"
-    ],
-    "cast": [
-     "チョン・ドヨン",
-     "ソル・ギョング",
-     "チョ・インソン",
-     "チョ・ヨジョン",
-     "チョ・ユリ",
-     "최민"
     ]
    }
   }
