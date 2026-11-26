@@ -11,7 +11,7 @@ body {
   color: var(--fg);
   font-family: var(--font);
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.5;
   font-feature-settings: "palt" 1;
 } /* 和文と英数字の空き・改行のきまりは base.css の「日本語の組版」 */
 button,
@@ -858,7 +858,7 @@ main:has(.peek) {
 }
 .info .ov {
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.5;
 } /* 字間は base.css の halt（句読点だけ半角幅）にまかせ、letter-spacing は付けない */
 .info .lang,
 .info .cr {
@@ -1105,7 +1105,7 @@ a.go .d {
   padding-block: 24px 16px;
   border-top: 1px solid var(--line);
   font-size: 14px;
-  line-height: 1.85;
+  line-height: 1.5;
   color: var(--fg);
 }
 .guide h2 {

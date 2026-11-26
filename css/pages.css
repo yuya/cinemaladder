@@ -9,7 +9,7 @@ body {
   color: var(--fg);
   font-family: var(--font);
   font-size: 15px;
-  line-height: 1.8;
+  line-height: 1.5;
   font-feature-settings: "palt" 1;
 }
 a {
