@@ -4,7 +4,7 @@ html {
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
-/* 和文の字間を詰める（palt）をサイト全体にかける。部分ごとに付けると漏れが出るため（長い文章は base.css で外す） */
+/* 和文の字間を詰める（palt）をサイト全体にかける。部分ごとに付けると漏れが出るため（長い文章は base.css で halt に替える） */
 body {
   margin: 0;
   background: var(--bg);

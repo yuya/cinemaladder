@@ -73,8 +73,10 @@
   text-wrap: balance;
   word-break: auto-phrase;
 }
-/* 字間を詰める palt はサイト全体にかけているが、長い文章では詰めすぎて読みにくくなるので外す
+/* 字間を詰める palt はサイト全体にかけているが、長い文章ではかな・漢字まで詰まって読みにくくなるので、halt に替える。
+   halt は句読点・カッコ・中黒だけを半角幅にする（かな・漢字は詰めない）。句読点のあとの空きは palt と同じ約0.2字になり、
+   palt を外したベタ組み（約0.7字）のように空きすぎない（IBM Plex Sans JP の値）
    （あらすじ、トップの「Cinemaladderについて」などの説明、運営者情報・プライバシーポリシーの本文） */
 :where(.info .ov, .guide p, .guide li, main.wrap > p, main.wrap li, main.wrap dd, main.wrap td, .note) {
-  font-feature-settings: normal;
+  font-feature-settings: "halt" 1;
 }
