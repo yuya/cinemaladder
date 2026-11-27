@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T03:34:18.069Z",
+ "updated": "2026-11-27T03:38:55.157Z",
  "items": [
   {
    "id": 1003596,
@@ -7,12 +7,12 @@
    "original": "Avengers: Doomsday",
    "date": "2026-12-18",
    "poster": "/sayTzWRvCFtDh9UzYMN0vLeXINF.jpg",
-   "pop": 261.3654,
+   "pop": 263.0295,
    "info": {
     "id": 1003596,
     "title": "アベンジャーズ／ドゥームズデイ",
     "original": "Avengers: Doomsday",
-    "poster": "/axD1jIfE2Is83vDKyTb1CnZ2EBt.jpg",
+    "poster": "/sayTzWRvCFtDh9UzYMN0vLeXINF.jpg",
     "date": "2026-12-16",
     "jpDate": "2026-12-18",
     "runtime": 165,
@@ -47,7 +47,7 @@
    "original": "Other Mommy",
    "date": "2026-11-20",
    "poster": "/qs0kHXbRadmtDIH5EmIoiqV0rX1.jpg",
-   "pop": 229.4784,
+   "pop": 215.6173,
    "info": {
     "id": 1400837,
     "title": "アザー・マミー",
@@ -79,12 +79,53 @@
    }
   },
   {
+   "id": 1538497,
+   "title": "ビリーと魔法のはじまり",
+   "original": "Hexed",
+   "date": "2026-12-04",
+   "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
+   "pop": 77.1409,
+   "info": {
+    "id": 1538497,
+    "title": "ビリーと魔法のはじまり",
+    "original": "Hexed",
+    "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
+    "date": "2026-11-25",
+    "jpDate": "2026-12-04",
+    "runtime": 103,
+    "tagline": "",
+    "overview": "ディズニー長編アニメーション作品としては初となる、ディズニーヒロイン史上初の“現代の女子高校生”が主人公の＜ビリー＞による全く新しい魔法の物語。 型破りな性格で学校でも周囲になじめない高校生の少女・ビリーが魔法の力に目覚め、新たな世界での大冒険へと導かれていく―。",
+    "overviewLang": "ja",
+    "genres": [
+     "アニメーション",
+     "ファンタジー",
+     "ファミリー"
+    ],
+    "countries": [
+     "US",
+     "CA"
+    ],
+    "directors": [
+     "ジェイソン・ハンド",
+     "ファウン・ヴィーラスンソーン"
+    ],
+    "cast": [
+     "ヘイリー・スタインフェルド",
+     "ラシダ・ジョーンズ",
+     "ジョディ・フォスター",
+     "ウォルトン・ゴギンズ",
+     "ヘンリー・ウィンクラー",
+     "ダン・スティーヴンス"
+    ]
+   }
+  },
+  {
    "id": 1381071,
    "title": "ゴジラ-0.0",
    "original": "ゴジラ-0.0",
    "date": "2026-11-03",
    "poster": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
-   "pop": 80.211,
+   "pop": 71.9179,
    "info": {
     "id": 1381071,
     "title": "ゴジラ-0.0",
@@ -123,7 +164,7 @@
    "original": "Ebenezer",
    "date": "2026-11-13",
    "poster": "/zy5CBj2ZHOqPWCW124oE4a74dZE.jpg",
-   "pop": 71.6863,
+   "pop": 65.0708,
    "info": {
     "id": 1567605,
     "title": "クリスマス・キャロル／3人のゴーストたち",
@@ -157,55 +198,12 @@
    }
   },
   {
-   "id": 1538497,
-   "title": "ビリーと魔法のはじまり",
-   "original": "Hexed",
-   "date": "2026-12-04",
-   "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
-   "pop": 69.8904,
-   "info": {
-    "id": 1538497,
-    "title": "ビリーと魔法のはじまり",
-    "original": "Hexed",
-    "poster": "/5PiV9NozyoHQEfedlic1qIeXiMH.jpg",
-    "date": "2026-11-25",
-    "jpDate": "2026-12-04",
-    "runtime": 103,
-    "tagline": "",
-    "overview": "ディズニー長編アニメーション作品としては初となる、ディズニーヒロイン史上初の“現代の女子高校生”が主人公の＜ビリー＞による全く新しい魔法の物語。 型破りな性格で学校でも周囲になじめない高校生の少女・ビリーが魔法の力に目覚め、新たな世界での大冒険へと導かれていく―。",
-    "overviewLang": "ja",
-    "genres": [
-     "アドベンチャー",
-     "アニメーション",
-     "ファミリー",
-     "ファンタジー",
-     "コメディ"
-    ],
-    "countries": [
-     "US",
-     "CA"
-    ],
-    "directors": [
-     "ジェイソン・ハンド",
-     "ファウン・ヴィーラスンソーン"
-    ],
-    "cast": [
-     "ヘイリー・スタインフェルド",
-     "ラシダ・ジョーンズ",
-     "ジョディ・フォスター",
-     "ウォルトン・ゴギンズ",
-     "ヘンリー・ウィンクラー",
-     "ダン・スティーヴンス"
-    ]
-   }
-  },
-  {
    "id": 1283515,
    "title": "ヴェリティ／真実",
    "original": "Verity",
    "date": "2026-11-06",
    "poster": "/tDTM8p0ho8mOAd642J0XEnuJVbG.jpg",
-   "pop": 69.7018,
+   "pop": 61.7111,
    "info": {
     "id": 1283515,
     "title": "ヴェリティ／真実",
@@ -243,7 +241,7 @@
    "original": "Dune: Part Three",
    "date": "2026-12-18",
    "poster": "/1MQA1Wg2dK7KmvsM5UOXXdMqrDd.jpg",
-   "pop": 52.0432,
+   "pop": 51.2112,
    "info": {
     "id": 1170608,
     "title": "デューン 砂の惑星PART3",
@@ -282,7 +280,7 @@
    "original": "Clayface",
    "date": "2026-10-30",
    "poster": "/6ttcIVdQbS6esi5wPEUuVKQN8SX.jpg",
-   "pop": 42.6266,
+   "pop": 39.2713,
    "info": {
     "id": 1400940,
     "title": "クレイフェイス",
@@ -321,7 +319,7 @@
    "original": "The Housemaid",
    "date": "2026-11-27",
    "poster": "/1bhR7OMdCvBYiEmqvwesfcN5qKT.jpg",
-   "pop": 29.3301,
+   "pop": 28.7358,
    "info": {
     "id": 1368166,
     "title": "ハウスメイド",
@@ -359,7 +357,7 @@
    "original": "THE FURTHER MIS-ADVENTURES OF CLIFF BOOTH",
    "date": "2026-11-25",
    "poster": "/gEqfmochcRmyDQFThatTKQfH9GT.jpg",
-   "pop": 24.2152,
+   "pop": 26.3257,
    "info": {
     "id": 1457866,
     "title": "ザ・ファーザー・ミスアドベンチャー・オブ・クリフ・ブース",
